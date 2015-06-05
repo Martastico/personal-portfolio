@@ -4,18 +4,20 @@ My personal portfolio source files.
 
 ##Client-Side Frameworks/Libraries used
 
-* ReactJS (with .JSX)
-* Reflux
-* react-router
+* [ReactJS](https://github.com/facebook/react) (with .JSX) 
+* [Reflux](https://github.com/spoike/refluxjs) 
+* [react-router](https://github.com/rackt/react-router)
 
 ##Server-Side (coming soon™)
 
+
+
 ##Developing Environment
 
-* NodeJS with NPM
-* Bower
-* Browserify
-* Gulp with the following addons:
+* [NodeJS](https://github.com/joyent/node)
+* [Bower](https://github.com/bower/bower)
+* [Browserify](https://github.com/substack/node-browserify)
+* [Gulp](https://github.com/gulpjs/gulp) with the following addons:
     * vinyl-source-stream
     * browserify
     * reactify
@@ -29,6 +31,6 @@ My personal portfolio source files.
     * gulp-sourcemaps
 * SCSS with Compass
     
-IDE Used: Jetbrains Webstorm 10
+**IDE Used:** [Jetbrains Webstorm 10](https://www.jetbrains.com/webstorm/)
 
-Webstorm development environment is setup using live editor with live SCSS(compiling to css) and HTML changes.
+Webstorm Development Environment is setup using Live Editor watching SCSS(compiling to css) and HTML changes.
