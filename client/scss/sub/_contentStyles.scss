@@ -1,32 +1,34 @@
-#main_column_middle > .content > .default {
-	//background: red;
+#main_column_middle > .content {
+	.default {
+		//background: red;
 
-	h1 {
-		font-size: 2em;
-		font-weight: bold;
-		line-height: 1.2em;
-		margin-bottom: 15px;
-		padding-bottom: 5px;
-		border-bottom: 1px solid #bbbbbb;
-		color: $color_main_red;
-	}
+		h1 {
+			font-size: 2em;
+			font-weight: bold;
+			line-height: 1.2em;
+			margin-bottom: 15px;
+			padding-bottom: 5px;
+			border-bottom: 1px solid #bbbbbb;
+			color: $color_main_red;
+		}
 
-	p {
-		display: block;
-		padding-bottom: 20px;
+		p {
+			display: block;
+			padding-bottom: 20px;
 
-	}
+		}
 
-	.big-title {
-		background: $color_main_red;
-		color: #ffffff;
-		padding: 51px 30px 23px 30px;
-	}
+		.big-title {
+			background: $color_main_red;
+			color: #ffffff;
+			padding: 51px 30px 23px 30px;
+		}
 
-	.wide {
+		.wide {
 
-	}
-	.regular {
-		padding: 30px;
+		}
+		.regular {
+			padding: 30px;
+		}
 	}
 }

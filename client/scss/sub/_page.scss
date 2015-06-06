@@ -17,8 +17,8 @@
 		
 		> #page {
 			position: absolute;
-			width: 92%;
-			height: 92%;
+			width: 97%;
+			height: 95%;
 			top: 0;
 			right: 0;
 			bottom: 0;
@@ -53,7 +53,7 @@
 			width: 20%;
 			height: 100%;
 			padding-right: 5px;
-			background: rgba(#000000, 0.82);
+			background: rgba(#000000, 0.78);
 			border-top: 1px solid #e1e1e1;
 			&:after {
 				content: '';
@@ -111,7 +111,7 @@
 					display: block;
 					padding-left: 15px;
 					line-height: 55px;
-					border-top: 1px solid #000000;
+					border-top: 1px solid #080808;
 					border-right: 1px solid $color_main_red - #111111;
 					background: transparent;
 					color: #fff;
@@ -170,6 +170,10 @@
 			overflow: hidden;
 			border-top: 1px solid #d8d8d8;
 			background: #dfdfdf;
+			> .content {
+				height: 100%;
+				position: relative;
+			}
 		}
 	}
 }

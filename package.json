@@ -18,7 +18,9 @@
     "gulp-streamify": "0.0.5",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.5",
+    "malihu-custom-scrollbar-plugin": "^3.0.8",
     "reactify": "^1.1.1",
+    "reflux": "^0.2.7",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.2.1"
   }

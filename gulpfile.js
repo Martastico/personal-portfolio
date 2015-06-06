@@ -21,7 +21,6 @@ var PATHS = {
 	}
 };
 
-
 function buildScript(file, watch) {
 	var props = {
 		entries: [PATHS.client.dev + 'js/app' + '/' + file],
@@ -47,13 +46,11 @@ function buildScript(file, watch) {
 	return rebundle();
 }
 
-
 //gulp.task('css-minify', function() {
 //	return gulp.src(PATHS.client.dev + 'css/app.css')
 //		.pipe(minifycss())
 //		.pipe(gulp.dest(PATHS.client.dist + 'css/'));
 //});
-
 
 // Using Webstorm SASS File Watcher Instead
 
