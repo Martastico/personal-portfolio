@@ -24,6 +24,11 @@
 			bottom: 0;
 			left: 0;
 			margin: auto;
+
+			@include transition-property(width, height);
+			@include transition-duration(0.1s);
+			@include transition-timing-function(ease-in);
+
 			> .content {
 				position: absolute;
 				width: 100%;
@@ -54,7 +59,7 @@
 			height: 100%;
 			padding-right: 5px;
 			background: rgba(#000000, 0.78);
-			border-top: 1px solid #e1e1e1;
+			//border-top: 1px solid #e1e1e1;
 			&:after {
 				content: '';
 				width: 5px;
@@ -168,8 +173,8 @@
 			left: 20%;
 			height: 100%;
 			overflow: hidden;
-			border-top: 1px solid #d8d8d8;
-			background: #dfdfdf;
+			//border-top: 1px solid #d8d8d8;
+			background: #e1e1e1;
 			> .content {
 				height: 100%;
 				position: relative;

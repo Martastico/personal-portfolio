@@ -15,35 +15,35 @@ var sourcemaps = require('gulp-sourcemaps');
 
 // Locations
 var PATHS = {
-	client: {
-		dev: 'client/',
-		dist: 'dist/client/'
-	}
+	 client: {
+			dev: 'client/',
+			dist: 'dist/client/'
+	 }
 };
 
 function buildScript(file, watch) {
-	var props = {
-		entries: [PATHS.client.dev + 'js/app' + '/' + file],
-		debug: true,
-		cache: {},
-		packageCache: {}
-	};
-	var bundler = watch ? watchify(browserify(props)) : browserify(props);
-	bundler.transform(reactify);
-	function rebundle() {
-		var stream = bundler.bundle();
-		return stream.on('error', console.log.bind(console))
-			.pipe(source(file))
-			.pipe(streamify(sourcemaps.init()))
-			.pipe(streamify(uglify()))
-			.pipe(streamify(sourcemaps.write('./')))
-			.pipe(gulp.dest(PATHS.client.dev + 'js/build' + '/'));
-	}
-	bundler.on('update', function() {
-		rebundle();
-		gutil.log('Rebundle...');
-	});
-	return rebundle();
+	 var props = {
+			entries: [PATHS.client.dev + 'js/app' + '/' + file],
+			debug: true,
+			cache: {},
+			packageCache: {}
+	 };
+	 var bundler = watch ? watchify(browserify(props)) : browserify(props);
+	 bundler.transform(reactify);
+	 function rebundle() {
+			var stream = bundler.bundle();
+			return stream.on('error', console.log.bind(console))
+					.pipe(source(file))
+					.pipe(streamify(sourcemaps.init({loadMaps: true})))
+					//.pipe(streamify(uglify()))
+					.pipe(streamify(sourcemaps.write('./')))
+					.pipe(gulp.dest(PATHS.client.dev + 'js/build' + '/'));
+	 }
+	 bundler.on('update', function() {
+			rebundle();
+			gutil.log('Rebundle...');
+	 });
+	 return rebundle();
 }
 
 //gulp.task('css-minify', function() {
@@ -62,10 +62,10 @@ function buildScript(file, watch) {
 //});
 
 gulp.task('build', function () {
-	return buildScript('app.js', false);
+	 return buildScript('app.js', false);
 });
 
 gulp.task('default', ['build'], function() {
-	//gulp.watch(PATHS.client.dev + 'scss/**/*.scss', ['sass']);
-	return buildScript('app.js', true)
+	 //gulp.watch(PATHS.client.dev + 'scss/**/*.scss', ['sass']);
+	 return buildScript('app.js', true)
 });

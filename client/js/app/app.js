@@ -22,12 +22,13 @@ var App = React.createClass({
 
 			$(mainColumnMiddleContent).mCustomScrollbar({
 				 theme:"mcc",
-				 scrollInertia: 150
+				 scrollInertia: 160
 			});
 	 },
 
+
 	 render: function() {
-			debugger;
+
 			return (
 					<div className="page-wrapper">
 						 <img id="image-background" style={{backgroundImage: 'url(image/bigbg_1.jpg)'}} alt="Saarman Background"/>
@@ -51,6 +52,13 @@ var App = React.createClass({
 														Web Designer &amp; Developer
 												 </div>
 												 <div className="right">
+														<section id="quickbuttons" className="widgets widgets-wrapper widget-2 quickbuttons">
+															 <ul>
+																	<li className="search">
+																		 <button className="search"><span>Search</span></button>
+																	</li>
+															 </ul>
+														</section>
 														<section id="main_search" className="widgets widgets-wrapper widget-1 search">
 															 <input type="text" placeholder="Search"/>
 														</section>
