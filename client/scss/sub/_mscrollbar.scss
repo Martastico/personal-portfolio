@@ -203,7 +203,7 @@
 
 	.mCSB_dragger {
 		&.mCSB_dragger_onDrag .mCSB_dragger_bar:after {
-			background: #d8d8d8;
+			background: #ffffff;
 		}
 		.mCSB_dragger_bar {
 			width: 8px;
@@ -216,7 +216,7 @@
 				width: 100%;
 				height: 100%;
 				background: #d8d8d8;
-				//@include border-radius(6px)
+				@include border-radius(0)
 			}
 			&:hover:after {
 				background-color: #ffffff;

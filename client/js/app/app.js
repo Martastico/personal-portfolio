@@ -59,9 +59,6 @@ var App = React.createClass({
 																	</li>
 															 </ul>
 														</section>
-														<section id="main_search" className="widgets widgets-wrapper widget-1 search">
-															 <input type="text" placeholder="Search"/>
-														</section>
 												 </div>
 											</div>
 									 </header>

@@ -59,9 +59,6 @@ var App = React.createClass({displayName: "App",
 																		 React.createElement("button", {className: "search"}, React.createElement("span", null, "Search"))
 																	)
 															 )
-														), 
-														React.createElement("section", {id: "main_search", className: "widgets widgets-wrapper widget-1 search"}, 
-															 React.createElement("input", {type: "text", placeholder: "Search"})
 														)
 												 )
 											)

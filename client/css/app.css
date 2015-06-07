@@ -366,7 +366,7 @@ table {
 }
 /* line 205, ../scss/sub/_mscrollbar.scss */
 .mCS-mcc.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar:after {
-  background: #d8d8d8;
+  background: #ffffff;
 }
 /* line 208, ../scss/sub/_mscrollbar.scss */
 .mCS-mcc.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
@@ -381,6 +381,9 @@ table {
   width: 100%;
   height: 100%;
   background: #d8d8d8;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
 }
 /* line 221, ../scss/sub/_mscrollbar.scss */
 .mCS-mcc.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:hover:after {
