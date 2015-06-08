@@ -5,7 +5,11 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
+    "classnames": "^2.1.2",
+    "lodash": "^3.9.3",
     "react": "^0.13.3",
+    "react-document-title": "^1.0.2",
+    "react-onclickoutside": "^0.2.4",
     "react-router": "^0.13.3"
   },
   "devDependencies": {

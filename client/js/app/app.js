@@ -1,36 +1,68 @@
 "use strict";
 
-var React = require('react');
-var Router = require('react-router');
-var $ = require('jquery');
+// NPM Modules
+var React 		 		= require('react');
+var Reflux 		 		= require('reflux');
+var Router 		 		= require('react-router');
+var DocumentTitle	= require('react-document-title');
+var $ 				 		= require('jquery');
+var _ 				 		= require('lodash');
+var classnames 		= require('classnames');
 
-// Scrollbar
+// jQuery Plugins
 require('malihu-custom-scrollbar-plugin')($);
 
-var Home = require('./components/home/home.jsx');
+// Components
+var Home 	= require('./components/home/home.jsx');
 var About = require('./components/about/about.jsx');
 
-var DefaultRoute = Router.DefaultRoute;
-var Link = Router.Link;
-var Route = Router.Route;
-var RouteHandler = Router.RouteHandler;
+// Header Components
+var HeaderBottomRightWidgets = require('./components/header/bottomRightWidgets/widgets.jsx');
 
+// Actions
+var Actions = require('./actions/actions');
 
+// Stores
+var AppStore = require('./stores/appStore');
+
+// Routes
+var DefaultRoute 	= Router.DefaultRoute;
+var Link 					= Router.Link;
+var Route 				= Router.Route;
+var RouteHandler 	= Router.RouteHandler;
+
+// <App />
 var App = React.createClass({
-	 componentDidMount: function() {
-			var mainColumnMiddleContent = React.findDOMNode(this.refs.mainColumnMiddleContent);
+	 mixins: [Reflux.connect(AppStore,"AppStore")],
 
-			$(mainColumnMiddleContent).mCustomScrollbar({
+	 componentDidMount: function() {
+
+			// M-CUSTOM-SCROLLBAR JQUERY LIBRARY
+			// ref: mainColumnMiddleContent
+			$(React.findDOMNode(this.refs.mainColumnMiddleContent)).mCustomScrollbar({
 				 theme:"mcc",
 				 scrollInertia: 160
 			});
-	 },
 
+	 },
 
 	 render: function() {
 
+			var SApp = this.state.AppStore;
+
+			// Default ".page-wrapper" Classes
+			var pageWrapperClasses = {
+				 "page-wrapper": true,
+				 "fullscreen-open": SApp.classes.fullScreenOpen
+			};
+			var HeaderBottomRightWidgetsClasses = ["right"];
+
+			// AppStore classes
+			HeaderBottomRightWidgetsClasses.push(SApp.classes.openWidget);
+
+
 			return (
-					<div className="page-wrapper">
+					<div className={classnames(pageWrapperClasses)}>
 						 <img id="image-background" style={{backgroundImage: 'url(image/bigbg_1.jpg)'}} alt="Saarman Background"/>
 						 <section id="page">
 								<div className="content">
@@ -44,21 +76,15 @@ var App = React.createClass({
 														</div>
 												 </div>
 												 <div className="right">
-														right
+														<button id="fullscreen" onClick={Actions.fullScreen}><span>Full Screen App</span></button>
 												 </div>
 											</div>
 											<div className="bottom">
 												 <div className="left">
 														Web Designer &amp; Developer
 												 </div>
-												 <div className="right">
-														<section id="quickbuttons" className="widgets widgets-wrapper widget-2 quickbuttons">
-															 <ul>
-																	<li className="search">
-																		 <button className="search"><span>Search</span></button>
-																	</li>
-															 </ul>
-														</section>
+												 <div className={classnames(HeaderBottomRightWidgetsClasses)}>
+														<HeaderBottomRightWidgets openWidget={HeaderBottomRightWidgetsClasses[1]}/>
 												 </div>
 											</div>
 									 </header>
@@ -79,7 +105,7 @@ var App = React.createClass({
 														<footer>
 															 <h3 className="country">Finland</h3>
 															 <div className="bottom">
-																	<div className="phone left">+358 400 545955</div>
+																	<div className="phone left">+358400545955</div>
 																	<div className="email right">mart@saarman.net</div>
 															 </div>
 														</footer>
@@ -87,7 +113,9 @@ var App = React.createClass({
 												 <section id="main_column_middle">
 														<div className="content" ref="mainColumnMiddleContent">
 
-															 <RouteHandler/>
+															 <DocumentTitle title='Mart Saarman'>
+																	<RouteHandler/>
+															 </DocumentTitle>
 
 														</div>
 												 </section>

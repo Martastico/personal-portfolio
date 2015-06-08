@@ -57,7 +57,35 @@
          position: absolute;
          top: 0;
          right: 0;
-         display: none;
+         button#fullscreen {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 35px;
+            line-height: 35px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            outline: none;
+            span { display: none; }
+            @include browser(mobilelaptop) {
+               display: none;
+            }
+            &:hover:after {
+               color: $color_main_red;
+            }
+
+            .fullscreen-open &:after {
+               content: "\f066";
+            }
+            &:after {
+               content: "\f065";
+               font-family: FontAwesome;
+               font-size: 1.6em;
+               color: #bbbbbb;
+            }
+
+         }
       }
    }
    .bottom {
@@ -93,7 +121,10 @@
                   li {
                      float: right;
                      height: 100%;
+
                      button {
+                        position: relative;
+                        z-index: 1;
                         display: block;
                         background: transparent;
                         border: none;
@@ -108,7 +139,7 @@
 
 
                         @include transition-property(all);
-                        @include transition-duration(0.08s);
+                        @include transition-duration(0.15s);
                         @include transition-timing-function(ease-in);
 
                         &:hover {
@@ -133,6 +164,92 @@
 
                         &.search:after { content: "\f002"; }
                      }
+                     &.active {
+                        button {
+                           color: #ffffff;
+                           background: $color_main_red;
+                           border-left-color: $color_main_red - #222222;
+                           @include box-shadow(inset 1px 1px 0px $color_main_red + #222222);
+                           &:hover {
+                              background: $color_main_red + #111111;
+                              &:before {
+                                 color: $color_main_red + #111111;
+                              }
+                           }
+
+                           &:before {
+                              content: "\f0d7";
+                              position: absolute;
+                              z-index: 1;
+                              top: 100%;
+                              right: 0;
+                              left: 0;
+                              font-family: FontAwesome;
+                              font-size: 3em;
+                              line-height: 0.2em;
+                              color: $color_main_red;
+                           }
+                        }
+                     }
+                  }
+               }
+               .widget {
+
+                  @include opacity(0);
+                  @include transform(translate(0px, -15px));
+
+                  @include transition-property(all);
+                  @include transition-duration(0.2s);
+                  @include transition-timing-function(ease-in);
+
+
+                  > .wrapper {
+                     // Default values?
+                     position: relative;
+                     background: #f1f1f1;
+                     border: 1px solid #e5e5e5;
+                     border-right: none;
+                     padding: 12px 12px 5px 12px;
+                     @include box-shadow(inset 1px 1px 0px #fafafa);
+
+                     &.search-widget {
+                        input {
+                           line-height: 40px;
+                           background: #ffffff;
+                           border: 1px solid #e5e5e5;
+                           padding: 0 10px;
+                           vertical-align: middle;
+                           outline: none;
+                           width: 280px;
+                           font-size: 1.2em;
+                        }
+                        button {
+                           position: relative;
+                           width: 40px;
+                           height: 40px;
+                           line-height: 40px;
+                           vertical-align: middle;
+                           border: none;
+                           background: $color_main_red;
+                           color: #ffffff;
+                           outline: none;
+                           cursor: pointer;
+                           &:hover {
+                              background: $color_main_red + #111111;
+                           }
+                           &:after {
+                              position: absolute;
+                              top: 0;
+                              right: 0;
+                              bottom: 0;
+                              left: 0;
+                              content: "\f0da";
+                              font-family: FontAwesome;
+                              font-size: 1.8em;
+                           }
+                        }
+                     }
+
                   }
                }
             }
@@ -152,6 +269,11 @@
 
                }
             }
+         }
+         &.open #quickbuttons.widgets .widget {
+            @include opacity(1);
+            @include transform(translate(0px, 0px)); 
+
          }
       }
    }

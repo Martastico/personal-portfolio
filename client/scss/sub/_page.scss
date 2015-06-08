@@ -14,11 +14,18 @@
 		text-indent: -99999em;
 	}
 	> .page-wrapper {
-		
+
+		&.fullscreen-open {
+			> #page {
+				width: 100% !important;
+				height: 100% !important;
+			}
+		}
+
 		> #page {
 			position: absolute;
-			width: 97%;
-			height: 95%;
+			width: 100%;
+			height: 100%;
 			top: 0;
 			right: 0;
 			bottom: 0;
@@ -28,6 +35,20 @@
 			@include transition-property(width, height);
 			@include transition-duration(0.1s);
 			@include transition-timing-function(ease-in);
+
+			@include browser(laptop) {
+				width: 97%;
+				height: 96%;
+			}
+
+			@include browser(desktoplarge) {
+				width: 93%;
+				height: 90%;
+			}
+			@include browser(desktopextreme) {
+				width: 90%;
+				height: 85%;
+			}
 
 			> .content {
 				position: absolute;
@@ -71,15 +92,20 @@
 			}
 
 			footer {
-				font: 400 0.9em/20px Arial, Helvetica, sans-serif;
+				font: 400 0.9em/18px Arial, Helvetica, sans-serif;
 				position: absolute;
 				width: 100%;
 				left: 0;
-				bottom: 0;
+				bottom: 10px;
 				height: 70px;
-				padding: 15px 20px 0 20px;
+				padding: 10px 10px 0 10px;
 				border-top: 1px solid #111111;
 				color: #777777;
+
+				@include browser(desktop) {
+					bottom: 0;
+					padding: 15px 20px 0 20px;
+				}
 
 				h3 {
 					display: block;
@@ -92,11 +118,15 @@
 				.bottom {
 
 					.left {
-						float: left;
+						@include browser(desktop) {
+							float: left;
+						}
 					}
 
 					.right {
-						float: right;
+						@include browser(desktop) {
+							float: right;
+						}
 					}
 				}
 			}

@@ -7,11 +7,14 @@ My personal portfolio source files.
 * [ReactJS](https://github.com/facebook/react) (with .JSX) 
 * [Reflux](https://github.com/spoike/refluxjs) 
 * [react-router](https://github.com/rackt/react-router)
-* [jQuery](https://github.com/jquery/jquery)
+* [react-document-title](https://github.com/gaearon/react-document-title)
+* [classnames](https://github.com/JedWatson/classnames)
+* [Lodash](https://github.com/lodash/lodash)
+* [jQuery](https://github.com/jquery/jquery) 
 * [malihu-custom-scrollbar-plugin](https://github.com/malihu/malihu-custom-scrollbar-plugin)
 * [FontAwesome](https://github.com/FortAwesome/Font-Awesome)
 
-Current minified JS file size: 350kb
+Current minified JS file size: ~430kb
 
 ##Server-Side (coming soon™)
 

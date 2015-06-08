@@ -1,5 +1,7 @@
 "use strict";
 
+// I've just used single file setup, no reason to go crazy and separate everything, for now.
+
 var source = require('vinyl-source-stream');
 var browserify = require('browserify');
 var reactify = require('reactify');
