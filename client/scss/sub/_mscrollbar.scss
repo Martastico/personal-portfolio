@@ -219,7 +219,7 @@
 				@include border-radius(0)
 			}
 			&:hover:after {
-				background-color: #ffffff;
+				background-color: #ffffff; //
 			}
 		}
 		&:active .mCSB_dragger_bar,
