@@ -13,8 +13,8 @@ var classnames 		= require('classnames');
 require('malihu-custom-scrollbar-plugin')($);
 
 // Components
-var Home 	= require('./components/home/home.jsx');
-var About = require('./components/about/about.jsx');
+var Nodes 	= require('./components/node/nodes.jsx');
+var Node 		= require('./components/node/node.jsx');
 
 // Header Components
 var HeaderBottomRightWidgets = require('./components/header/bottomRightWidgets/widgets.jsx');
@@ -23,7 +23,9 @@ var HeaderBottomRightWidgets = require('./components/header/bottomRightWidgets/w
 var Actions = require('./actions/actions');
 
 // Stores
-var AppStore = require('./stores/appStore');
+var AppStore 		= require('./stores/appStore');
+var RouteStore 	= require('./stores/routeStore');
+var NodesStore 	= require('./stores/nodeStore');
 
 // Routes
 var DefaultRoute 	= Router.DefaultRoute;
@@ -48,13 +50,16 @@ var App = React.createClass({
 
 	 render: function() {
 
+
 			var SApp = this.state.AppStore;
 
 			// Default ".page-wrapper" Classes
 			var pageWrapperClasses = {
 				 "page-wrapper": true,
-				 "fullscreen-open": SApp.classes.fullScreenOpen
+				 "fullscreen-open": SApp.classes.fullScreenOpen,
+				 "routeLoading": SApp.classes.routeLoading
 			};
+
 			var HeaderBottomRightWidgetsClasses = ["right"];
 
 			// AppStore classes
@@ -81,7 +86,7 @@ var App = React.createClass({
 											</div>
 											<div className="bottom">
 												 <div className="left">
-														Web Designer &amp; Developer
+														<span>Web Designer &amp; Developer</span>
 												 </div>
 												 <div className={classnames(HeaderBottomRightWidgetsClasses)}>
 														<HeaderBottomRightWidgets openWidget={HeaderBottomRightWidgetsClasses[1]}/>
@@ -94,19 +99,19 @@ var App = React.createClass({
 														<div id="main_column_left_widgets">
 															 <div className="content">
 																	<ul id="main_column_left_navi" className="widget-1 widget widget-wrapper">
-																		 <li> <Link to="home" className="home">Home</Link> </li>
-																		 <li> <Link to="about" className="about">About Myself</Link> </li>
-																		 <li> <Link to="me1" className="portfolio">Portfolio</Link> </li>
-																		 <li> <Link to="me2" className="freebies">Freebies</Link> </li>
-																		 <li> <Link to="me3" className="contact">Contact</Link> </li>
+																		 <li> <Link to="node" params={{NID: 1}} className="home">Home</Link> </li>
+																		 <li> <Link to="node" params={{NID: 2}} className="about">About Myself</Link> </li>
+																		 <li> <Link to="node" params={{NID: 3}} className="portfolio">Portfolio</Link> </li>
+																		 <li> <Link to="node" params={{NID: 4}} className="freebies">Freebies</Link> </li>
+																		 <li> <Link to="node" params={{NID: 5}} className="contact">Contact</Link> </li>
 																	</ul>
 															 </div>
 														</div>
 														<footer>
-															 <h3 className="country">Finland</h3>
 															 <div className="bottom">
-																	<div className="phone left">+358400545955</div>
-																	<div className="email right">mart@saarman.net</div>
+																	<div className="country left">
+																		 <h3 className="country">Finland</h3>
+																	</div>
 															 </div>
 														</footer>
 												 </section>
@@ -117,6 +122,9 @@ var App = React.createClass({
 																	<RouteHandler/>
 															 </DocumentTitle>
 
+														</div>
+														<div className="loading">
+															 <span>loading</span>
 														</div>
 												 </section>
 											</section>
@@ -129,20 +137,30 @@ var App = React.createClass({
 
 });
 
+var DefaultRouterRedirect = React.createClass({
+	 statics: {
+			willTransitionTo: function (transition, params) {
+				 transition.redirect('/node/1');
+			}
+	 },
+	 render: function() { return null; }
+});
+
 var routes = (
 		<Route name="app" path="/" handler={App}>
-			 <Route name="about" handler={About} />
-
-			 <Route name="me1" path="/about/1" handler={About} />
-			 <Route name="me2" path="/about/2" handler={About} />
-			 <Route name="me3" path="/about/3" handler={About} />
-			 <Route name="me4" path="/about/4" handler={About} />
-
-			 <DefaultRoute name="home" handler={Home} />
+			 <Route name="nodes" handler={Nodes}>
+					<Route name="node" path="/node/:NID" handler={Node} />
+			 </Route>
+			 <DefaultRoute handler={DefaultRouterRedirect}/>
 		</Route>
 );
 
-Router.run(routes, function (Handler) {
-	 React.render(<Handler/>, document.getElementById('app'));
+//Router.run(routes, Router.HistoryLocation, function (Handler) { // Remove Hash index/#/ > index/
+Router.run(routes, function (Handler, State) {
+	 Actions.routeLoad.triggerPromise(State).then(function() {
+			React.render(<Handler/>, document.getElementById('app'));
+	 }).catch(function(err) {
+			console.log(err);
+	 })
 });
 

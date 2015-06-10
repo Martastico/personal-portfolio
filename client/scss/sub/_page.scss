@@ -4,6 +4,28 @@
 	background: #b1b1b1;
 	position: relative;
 	overflow: hidden;
+	> .loading {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		background: #eeeeee;
+		&:after {
+			content: '';
+			width: 128px;
+			height: 128px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto;
+			background: url('../image/loading-icon-large.gif');
+			@include border-radius(50px);
+		}
+	}
 	#image-background {
 		position: absolute;
 		width: 100%;
@@ -33,7 +55,7 @@
 			margin: auto;
 
 			@include transition-property(width, height);
-			@include transition-duration(0.1s);
+			@include transition-duration(0.15s);
 			@include transition-timing-function(ease-in);
 
 			@include browser(laptop) {
@@ -80,6 +102,7 @@
 			height: 100%;
 			padding-right: 5px;
 			background: rgba(#000000, 0.78);
+			border-top: 1px solid #bbbbbb;
 			//border-top: 1px solid #e1e1e1;
 			&:after {
 				content: '';
@@ -96,16 +119,13 @@
 				position: absolute;
 				width: 100%;
 				left: 0;
-				bottom: 10px;
 				height: 70px;
-				padding: 10px 10px 0 10px;
 				border-top: 1px solid #111111;
 				color: #777777;
 
-				@include browser(desktop) {
-					bottom: 0;
-					padding: 15px 20px 0 20px;
-				}
+				bottom: 0;
+				padding: 15px 20px 0 20px;
+
 
 				h3 {
 					display: block;
@@ -118,14 +138,38 @@
 				.bottom {
 
 					.left {
-						@include browser(desktop) {
-							float: left;
-						}
+						float: left;
+						line-height: 40px;
 					}
 
-					.right {
-						@include browser(desktop) {
-							float: right;
+					button.right {
+						width: 30px;
+						line-height: 40px;
+						float: right;
+						text-align: right;
+						border: none;
+						background: none;
+						color: $color_main_red;
+						cursor: pointer;
+
+						span { display: none; }
+
+						&.phone {
+							&:after {
+								content: "\f10b";
+								font-family: FontAwesome;
+								font-size: 2.5em;
+							}
+						}
+
+						&.email {
+							width: 35px;
+							&:after {
+								content: "\f0e0";
+								font-family: FontAwesome;
+								font-size: 2.15em;
+							}
+
 						}
 					}
 				}
@@ -208,6 +252,52 @@
 			> .content {
 				height: 100%;
 				position: relative;
+				z-index: 2;
+				border-top: 1px solid #cccccc;
+				@include opacity(1);
+				@include transition-property(opacity);
+				@include transition-duration(0.2s);
+				@include transition-timing-function(ease-in);
+
+				.routeLoading & {
+					@include opacity(0);
+				}
+			}
+			> .loading {
+				opacity: 0;
+				position: absolute;
+				z-index: 1;
+				top: 0;
+				right: 0;
+				left: 0;
+				width: 50%;
+				height: 50%;
+				bottom: 0;
+				margin: 0 auto;
+				@include opacity(0);
+				@include transition-property(opacity);
+				@include transition-duration(0.2s);
+				@include transition-timing-function(ease-in);
+
+				span { display: none }
+				&:after {
+					content: '';
+					width: 96px;
+					height: 96px;
+					position: absolute;
+					top: 0;
+					left: 0;
+					bottom: 0;
+					right: 0;
+					margin: auto;
+					background: url('../image/loading-icon-large.gif');
+					background-size: 100% 100%;
+					@include border-radius(60px);
+				}
+
+				.routeLoading & {
+					@include opacity(1);
+				}
 			}
 		}
 	}

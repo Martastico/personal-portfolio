@@ -38,6 +38,7 @@ function buildScript(file, watch) {
 					.pipe(source(file))
 					.pipe(streamify(sourcemaps.init({loadMaps: true})))
 					//.pipe(streamify(uglify()))
+					//.pipe(source(file))
 					.pipe(streamify(sourcemaps.write('./')))
 					.pipe(gulp.dest(PATHS.client.dev + 'js/build' + '/'));
 	 }

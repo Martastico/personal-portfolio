@@ -8,7 +8,8 @@ var _HeaderBottomRightWidgets = {};
 // Used for ".page-wrapper"
 var _classes = {
 	 "openWidget": "",
-	 "fullScreenOpen": false
+	 "fullScreenOpen": false,
+	 "routeLoading": true
 };
 
 // Construction for what data to return as AppStore state.
@@ -21,6 +22,16 @@ module.exports = Reflux.createStore({
 
 	 getInitialState: function() {
 			return _data;
+	 },
+
+	 onRouteLoad: function() {
+			_classes.routeLoading = true;
+			this.updateApp();
+	 },
+
+	 onRouteLoadDone: function() {
+			_classes.routeLoading = false;
+			this.updateApp();
 	 },
 
 	 onWidgetOpen: function(widget) {
