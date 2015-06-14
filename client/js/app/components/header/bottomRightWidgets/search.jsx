@@ -29,7 +29,7 @@ module.exports = React.createClass({
 	 },
 
 	 handleSearchChange: function(e) {
-			if(event.target.value.slice(-1) !== "\n") {
+			if(e.target.value.slice(-1) !== "\n") {
 				 this.setState({searchValue: e.target.value})
 			}
 	 },

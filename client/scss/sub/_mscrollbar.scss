@@ -192,9 +192,18 @@
 }
 
 // Main Content Center "mcc"
+#main_column_middle > .content {
 
+
+	overflow: auto;
+
+}
 .mCS-mcc.mCSB_scrollTools {
 	width: 10px;
+
+	//@include browser(mobile) {
+	//	display: none !important;
+	//}
 	.mCSB_draggerRail {
 		width: 100%;
 		background: #d8d8d8 - #222222;

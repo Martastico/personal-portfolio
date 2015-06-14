@@ -1,18 +1,30 @@
 @mixin browser($media) {
 	@if $media == mobile {
-		@media only screen and (max-width: 599px) { @content; }
+		@media only screen and (max-width: 638px) { @content; }
 	}
 	@if $media == mobilelaptop {
 		@media only screen and (max-width: 999px) { @content; }
 	}
+	@if $media == mobiletabletsmall {
+		@media only screen and (max-width: 639px) { @content; }
+	}
+	@if $media == mobiledesktoplarge {
+		@media only screen and (max-width: 1600px) { @content; }
+	}
 	@else if $media == tabletsmall {
-		@media only screen and (min-width: 600px) { @content; }
+		@media only screen and (min-width: 640px) { @content; }
 	}
 	@else if $media == tablet {
 		@media only screen and (min-width: 768px) { @content; }
 	}
+	@else if $media == tabletsmalllaptopplus {
+		@media only screen and (min-width: 640px) and (max-width: 1100px) { @content; }
+	}
 	@else if $media == laptop {
 		@media only screen and (min-width: 1000px) { @content; }
+	}
+	@else if $media == laptopplus {
+		@media only screen and (min-width: 1100px) { @content; }
 	}
 	@else if $media == desktop {
 		@media only screen and (min-width: 1400px) { @content; }

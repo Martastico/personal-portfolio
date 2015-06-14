@@ -34,9 +34,10 @@ module.exports = React.createClass({
 				 return (<Node key={"nonode"}/>);
 			}
 
+			// TODO: Multiple nodes
 			return _.map(filteredNode, function(n, nk) {
-				 return (<Node node={n} key={n.NID}/>)
-			});
+				 return (<Node node={n} key={n.NID} route={this.state.RouteStore}/>)
+			}.bind(this));
 	 },
 
 	 render: function () {

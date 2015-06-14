@@ -1,34 +1,230 @@
-#main_column_middle > .content {
-	.default {
-		//background: red;
-
+#main_column_middle {
+	.gwrapper {
 		h1 {
 			font-size: 2em;
 			font-weight: bold;
 			line-height: 1.2em;
-			margin-bottom: 15px;
 			padding-bottom: 5px;
 			border-bottom: 1px solid #bbbbbb;
 			color: $color_main_red;
+			margin-bottom: 10px;
 		}
-
-		p {
-			display: block;
-			padding-bottom: 20px;
-
-		}
-
 		.big-title {
 			background: $color_main_red;
 			color: #ffffff;
 			padding: 51px 30px 23px 30px;
+			margin-bottom: 0;
+			opacity: 0;
+			@include transition-property(all);
+			@include transition-duration(0.4s);
+			@include transition-timing-function(ease-in);
+			@include transform(translate(0%, -30%));
+
+			&.loaded {
+				@include transform(translate(0, 0%));
+				opacity: 1;
+			}
+			@include browser(tabletsmalllaptopplus) {
+				//font-size: 1.8em !important;
+				padding: 77px 15px 24px 15px;
+				font-size: 2.1em;
+			}
+		}
+	}
+	> .content {
+		.default {
+			//background: red;
+
+			p {
+				display: block;
+				padding-bottom: 20px;
+
+			}
+
+			.wide {
+
+			}
+			.regular {
+				//padding: 30px 35px 30px 30px;
+			}
+		}
+	}
+}
+
+#main_column_middle {
+	.gwrapper {
+		.gr {
+			&.animation {
+				opacity: 0;
+				@include transition-property(opacity);
+				@include transition-duration(0.3s);
+				@include transition-timing-function(ease-in);
+				&.loaded {
+					opacity: 1;
+				}
+			}
+		}
+		&.loaded {
+			opacity: 1;
+		}
+		&.index {
+			>.big-title {
+				font-size: 2em;
+				text-align: center;
+				text-transform: uppercase;
+
+				@include browser(mobile) {
+					background: #000000;
+					//padding: 30px;
+					//font-size: 1.6em;
+					//line-height: 1.6em;
+				}
+			}
+			> .gr.bottom {
+				opacity: 0;
+				@include transition-property(opacity);
+				@include transition-duration(0.3s);
+				@include transition-timing-function(ease-in);
+
+				&.loaded {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+}
+
+#personalCounter {
+	@include clearfix();
+	border-bottom: 1px solid #bbbbbb;
+	.item {
+		position: relative;
+		float: left;
+		margin-left: 3%;
+		width: 48.5%;
+		padding-top: 28%;
+		background: url('../image/bigredbox.jpg');
+		background-size: 100%;
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+		margin-bottom: 80px;
+		opacity: 0;
+		&.loaded {
+			opacity: 1;
+		}
+		@include transition-property(opacity);
+		@include transition-duration(0.3s);
+		@include transition-timing-function(ease-in);
+		h2 {
+			position: absolute;
+			display: block;
+			color: #ffffff;
+			font-size: 8em;
+			font-weight: bold;
+			text-align: center;
+			width: 100%;
+			top: 50%;
+
+			-webkit-animation: rotatetext 1.2s 1 ease-in-out;
+			animation: rotatetext 1.2s 1 ease-in-out;
+
+		}
+		@-webkit-keyframes rotatetext {
+			0%, 100% { -webkit-transform: scale(0.0) }
+			100% { -webkit-transform: scale(1.0) }
 		}
 
-		.wide {
+		@keyframes rotatetext {
+			0%, 100% {
+				transform: scale(0.0);
+				-webkit-transform: scale(0.0);
+			} 100% {
+				  transform: scale(1.0);
+				  -webkit-transform: scale(1.0);
+			  }
+		}
+
+		&.spinner h2 {
+			-webkit-animation: spin 1.8s 1 ease-in-out;
+			animation: spin 1.8s 1 ease-in-out;
+			@-webkit-keyframes spin {
+				0%, 100% { -webkit-transform: scale(0.0) rotate(0deg) }
+				100% { -webkit-transform: scale(1.0) rotate(720deg) }
+			}
+
+			@keyframes spin {
+				0%, 100% {
+					transform: scale(0.0) rotate(0deg);
+					-webkit-transform: scale(0.0) rotate(0deg);
+				} 100% {
+					  transform: scale(1.0) rotate(720deg);
+					  -webkit-transform: scale(1.0) rotate(720deg);
+				  }
+			}
+		}
+		.description {
+			position: absolute;
+			bottom: -60px;
+			left: 0;
+			width: 100%;
+			background: black;
+			line-height: 60px;
+			color: #ffffff;
+			text-transform: uppercase;
+			text-align: center;
+			font-size: 1.1em;
+			font-weight: bold;
+		}
+		@include browser(mobilelaptop) {
+			&:nth-child(2n + 1) {
+				margin-left: 0;
+			}
+		}
+
+
+		h2 {
+			font-size: 7em;
+		}
+
+		@include browser(laptop) {
+			width: 23.5%;
+			margin-left: 2%;
+			padding-top: 18.5%;
+			.description {
+				font-size: 1em;
+			}
+		}
+
+
+		@include browser(desktoplarge) {
+			h2 {
+				font-size: 9em;
+			}
+		}
+
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		@include browser(mobile) {
+			margin-left: 0;
+			width: 100%;
+			padding-top: 59%;
 
 		}
-		.regular {
-			padding: 30px 35px 30px 30px;
+		@include browser(laptopplus) {
+			.description {
+				font-size: 1em;
+			}
+		}
+
+		&.creativity {
+			h2 {
+				font-size: 14em;
+			}
 		}
 	}
 }

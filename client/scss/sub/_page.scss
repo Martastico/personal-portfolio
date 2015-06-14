@@ -58,7 +58,7 @@
 			@include transition-duration(0.15s);
 			@include transition-timing-function(ease-in);
 
-			@include browser(laptop) {
+			@include browser(laptopplus) {
 				width: 97%;
 				height: 96%;
 			}
@@ -103,6 +103,12 @@
 			padding-right: 5px;
 			background: rgba(#000000, 0.78);
 			border-top: 1px solid #bbbbbb;
+			@include browser(mobiletabletsmall) {
+				display: none;
+			}
+			@include browser(tabletsmalllaptopplus) {
+				width: 12%;
+			}
 			//border-top: 1px solid #e1e1e1;
 			&:after {
 				content: '';
@@ -126,6 +132,12 @@
 				bottom: 0;
 				padding: 15px 20px 0 20px;
 
+				display: none;
+
+
+				@include browser(laptopplus) {
+					display: block;
+				}
 
 				h3 {
 					display: block;
@@ -197,6 +209,18 @@
 					text-transform: uppercase;
 					text-decoration: none;
 					font-size: 0.95em;
+					width: 100%;
+					height: 55px;
+
+					@include browser(tabletsmalllaptopplus) {
+						text-align: center;
+						line-height: 70px;
+						height: 70px;
+						> span {
+							display: none;
+						}
+					}
+
 
 					@include transition-property(all);
 					@include transition-duration(0.1s);
@@ -211,6 +235,13 @@
 						font-size: 2em;
 						width: 40px;
 						text-align: right;
+
+						@include browser(tabletsmalllaptopplus) {
+							text-align: center;
+							width: 100%;
+							left: 0;
+							right: auto;
+						}
 					}
 
 					&.home:after {  content: "\f015";  }
@@ -242,18 +273,35 @@
 		}
 
 		#main_column_middle {
-			width: 80%;
 			position: absolute;
-			left: 20%;
+			left: 0;
+			width: 100%;
 			height: 100%;
-			overflow: hidden;
 			//border-top: 1px solid #d8d8d8;
 			background: #e1e1e1;
+
+			@include browser(tabletsmalllaptopplus) {
+				width: 88%;
+				left: 12%;
+			}
+			@include browser(laptopplus) {
+				left: 20%;
+				width: 80%;
+			}
 			> .content {
 				height: 100%;
 				position: relative;
 				z-index: 2;
 				border-top: 1px solid #cccccc;
+
+				.mCSB_container {
+					margin-right: 10px;
+				}
+
+				&.mCS_no_scrollbar .mCSB_container {
+					margin-right: 0;
+				}
+
 				@include opacity(1);
 				@include transition-property(opacity);
 				@include transition-duration(0.2s);

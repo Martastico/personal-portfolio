@@ -39,17 +39,37 @@ var App = React.createClass({
 
 	 componentDidMount: function() {
 
+			var mainColumnMiddleContent = React.findDOMNode(this.refs.mainColumnMiddleContent);
 			// M-CUSTOM-SCROLLBAR JQUERY LIBRARY
 			// ref: mainColumnMiddleContent
-			$(React.findDOMNode(this.refs.mainColumnMiddleContent)).mCustomScrollbar({
-				 theme:"mcc",
-				 scrollInertia: 160
-			});
+
+			//$(React.findDOMNode(mainColumnMiddleContent)).mCustomScrollbar({
+			//	 theme: "mcc",
+			//	 scrollInertia: 160
+			//});
+
+			resizedw();
+
+			function resizedw(){
+				 if($(window).width() < 639) {
+						$(mainColumnMiddleContent).mCustomScrollbar("destroy")
+				 } else {
+						$(mainColumnMiddleContent).mCustomScrollbar({
+							 theme: "mcc",
+							 scrollInertia: 160
+						});
+				 }
+			}
+
+			var doit;
+			window.onresize = function(){
+				 clearTimeout(doit);
+				 doit = setTimeout(resizedw, 200);
+			};
 
 	 },
 
 	 render: function() {
-
 
 			var SApp = this.state.AppStore;
 
@@ -99,11 +119,11 @@ var App = React.createClass({
 														<div id="main_column_left_widgets">
 															 <div className="content">
 																	<ul id="main_column_left_navi" className="widget-1 widget widget-wrapper">
-																		 <li> <Link to="node" params={{NID: 1}} className="home">Home</Link> </li>
-																		 <li> <Link to="node" params={{NID: 2}} className="about">About Myself</Link> </li>
-																		 <li> <Link to="node" params={{NID: 3}} className="portfolio">Portfolio</Link> </li>
-																		 <li> <Link to="node" params={{NID: 4}} className="freebies">Freebies</Link> </li>
-																		 <li> <Link to="node" params={{NID: 5}} className="contact">Contact</Link> </li>
+																		 <li><Link to="node" params={{NID: 1}} className="home"><span>Home</span></Link></li>
+																		 <li><Link to="node" params={{NID: 2}} className="about"><span>About Myself</span></Link></li>
+																		 <li><Link to="node" params={{NID: 3}} className="portfolio"><span>Portfolio</span></Link></li>
+																		 <li><Link to="node" params={{NID: 4}} className="freebies"><span>Freebies</span></Link></li>
+																		 <li><Link to="node" params={{NID: 5}} className="contact"><span>Contact</span></Link></li>
 																	</ul>
 															 </div>
 														</div>

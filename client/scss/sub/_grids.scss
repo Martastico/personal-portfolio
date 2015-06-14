@@ -1,0 +1,106 @@
+.gr {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	&.fixed {
+		.g6 {max-width: 950px;}
+	}
+
+	&:after {
+		content:"";
+		display:table;
+		clear:both;
+	}
+
+	// Grid Content
+	.gc {
+		float: left;
+		padding: 20px 15px 0 15px;
+		@include clearfix();
+		&.no-margin {
+			margin-left: 0 !important;
+		}
+		&:first-child { margin-left: 0;}
+		.gr {
+			padding: 0;
+			.gc {
+				padding: 0 0 20px 0;
+			}
+		}
+		&.no-spacing {
+			padding: 0;
+		}
+	}
+	&.no-spacing {
+		padding: 0 !important;
+	}
+	.g1 { width: 100%; }
+	.g2 { width: 100%; }
+	.g3 { width: 100%; }
+	.g4 {
+		width: 100%;
+		> .gr {
+			.g12 {
+				width: 48.5%;
+				margin-left: 3%;
+				float: left;
+
+
+				&:nth-child(2n + 1) {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+	.g5 { width: 100%; }
+	.g6 { width: 100%; }
+	.g7 { width: 100%; }
+	.g8 { width: 100%; }
+	.g9 { width: 100%; }
+	.g10 { width: 100%; }
+	.g11 { width: 100%; }
+	.g12 {
+		width: 100%;
+		float: none;
+		&.gc {
+			margin-left: 0;
+		}
+	}
+
+	@include browser(laptop) {
+
+		.g1 { width: 100%; }
+		.g2 { width: 100%; }
+		.g3 { width: 100%; }
+		.g4 {
+			width: 35%;
+			> .gr {
+				.g12 {
+					width: 100%;
+					float: none;
+					margin-left: 0 !important;
+				}
+			}
+		}
+		.g5 { width: 100%; }
+		.g6 { width: 50%; }
+		.g7 { width: 100%; }
+		.g8 { width: 65%; }
+		.g9 { width: 100%; }
+		.g10 { width: 100%; }
+		.g11 { width: 100%; }
+		.g12 {
+			width: 100%;
+			float: none;
+			&.gc {
+				margin-left: 0;
+			}
+		}
+	}
+
+	@include browser(desktop) {
+		.g4 { width: 28%; }
+		.g8 { width: 72%; }
+	}
+
+}

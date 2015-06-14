@@ -46,7 +46,7 @@ module.exports = React.createClass({
 
 				 return (
 						 <li className={classnames(classes)} key={wk}>
-								<button className={name} id={name} onClick={this.handleWidgets}> <span>Search</span> </button>
+								<button className={name} id={name} onClick={this.handleWidgets}><span>{w.name}</span></button>
 						 </li>
 				 );
 			}.bind(this));
