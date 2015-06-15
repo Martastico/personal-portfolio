@@ -17,27 +17,32 @@ var _allSearchResults = [
 	 {
 			title: "Home",
 			type: "node",
-			NID: 1
+			NID: 1,
+			path: "home"
 	 },
 	 {
 			title: "About Myself",
 			type: "node",
-			NID: 2
+			NID: 2,
+			path: "about"
 	 },
 	 {
 			title: "Portfolio",
 			type: "node",
-			NID: 3
+			NID: 3,
+			path: "portfolio"
 	 },
 	 {
 			title: "Freebies",
 			type: "node",
-			NID: 4
+			NID: 4,
+			path: "freebies"
 	 },
 	 {
 			title: "Contact",
 			type: "node",
-			NID: 5
+			NID: 5,
+			path: "contact"
 	 }
 ];
 

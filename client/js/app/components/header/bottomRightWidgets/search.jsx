@@ -9,6 +9,9 @@ var classnames 	= require('classnames');
 // Actions
 var Actions			= require('../../../actions/actions');
 
+// Config
+var Config 	= require('../../../app.config');
+
 // Stores
 var SearchStore	= require('../../../stores/searchStore');
 
@@ -82,7 +85,7 @@ module.exports = React.createClass({
 			//console.log(SStore.searchResults);
 
 			var searchResults = _.map(SStore.searchResults, function(sr, srk) {
-				 return (<li key={srk}> <Link to="node" params={{NID: sr.NID}}>{sr.title}</Link> </li>)
+				 return (<li key={srk}> <Link to={Config.path.relative + "/" + sr.path} params={{path: sr.path}}>{sr.title}</Link> </li>)
 			});
 
 			if(_.isEmpty(searchResults))

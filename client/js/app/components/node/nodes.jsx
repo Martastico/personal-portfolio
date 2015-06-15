@@ -25,24 +25,28 @@ module.exports = React.createClass({
 	 },
 
 	 renderNodes: function() {
+			this.props.params.path = _.isUndefined(this.props.params.path) ? "home": this.props.params.path;
 			var filteredNode = _.filter(this.state.NodeStore.nodes, function (n, nk) {
-				 return Number(n.NID) === Number(this.props.params.NID);
+				 return _.snakeCase(n.path) === _.snakeCase(this.props.params.path);
 			}.bind(this));
 
-			// No Nodes
+			console.log(this);
+
+			//// No Nodes
 			if(_.isEmpty(filteredNode)) {
-				 return (<Node key={"nonode"}/>);
+				 return [(<Node key={"nonode"}/>)];
 			}
+
 
 			// TODO: Multiple nodes
 			return _.map(filteredNode, function(n, nk) {
-				 return (<Node node={n} key={n.NID} route={this.state.RouteStore}/>)
+				 return (<Node node={n} route={this.state.RouteStore} key={n.NID}/>);
 			}.bind(this));
 	 },
 
 	 render: function () {
 			console.log("Nodes Loaded");
 			return this.renderNodes()[0];
-
+			//return (<div>lol</div>);
 	 }
 });

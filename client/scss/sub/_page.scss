@@ -4,6 +4,7 @@
 	background: #b1b1b1;
 	position: relative;
 	overflow: hidden;
+
 	> .loading {
 		position: absolute;
 		top: 0;
@@ -12,6 +13,7 @@
 		left: 0;
 		margin: auto;
 		background: #eeeeee;
+
 		&:after {
 			content: '';
 			width: 128px;
@@ -26,6 +28,7 @@
 			@include border-radius(50px);
 		}
 	}
+
 	#image-background {
 		position: absolute;
 		width: 100%;

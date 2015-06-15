@@ -25,7 +25,7 @@ module.exports = Reflux.createStore({
 			console.log("RouteLoad: Start");
 
 			// Nodes
-			if(_.last(State.routes).name === "node") {
+			if(_.last(State.routes)) {
 				 Actions.getDataRoute.triggerPromise("node", State).then(function() {
 						console.log("onRouteLoad: Node loading complete");
 
@@ -43,4 +43,3 @@ module.exports = Reflux.createStore({
 	 }
 
 });
-

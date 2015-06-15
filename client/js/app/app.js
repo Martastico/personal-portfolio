@@ -12,6 +12,9 @@ var classnames 		= require('classnames');
 // jQuery Plugins
 require('malihu-custom-scrollbar-plugin')($);
 
+// Config
+var Config 	= require('./app.config');
+
 // Components
 var Nodes 	= require('./components/node/nodes.jsx');
 var Node 		= require('./components/node/node.jsx');
@@ -40,13 +43,6 @@ var App = React.createClass({
 	 componentDidMount: function() {
 
 			var mainColumnMiddleContent = React.findDOMNode(this.refs.mainColumnMiddleContent);
-			// M-CUSTOM-SCROLLBAR JQUERY LIBRARY
-			// ref: mainColumnMiddleContent
-
-			//$(React.findDOMNode(mainColumnMiddleContent)).mCustomScrollbar({
-			//	 theme: "mcc",
-			//	 scrollInertia: 160
-			//});
 
 			resizedw();
 
@@ -95,9 +91,7 @@ var App = React.createClass({
 											<div className="top">
 												 <div className="left">
 														<div className="logo">
-															 <a href="#">
-																	<img src="image/logo-dark.svg" alt="Mart Saarman"/>
-															 </a>
+															 <Link to="node" params={{path: "home"}} className="home"></Link>
 														</div>
 												 </div>
 												 <div className="right">
@@ -119,11 +113,11 @@ var App = React.createClass({
 														<div id="main_column_left_widgets">
 															 <div className="content">
 																	<ul id="main_column_left_navi" className="widget-1 widget widget-wrapper">
-																		 <li><Link to="node" params={{NID: 1}} className="home"><span>Home</span></Link></li>
-																		 <li><Link to="node" params={{NID: 2}} className="about"><span>About Myself</span></Link></li>
-																		 <li><Link to="node" params={{NID: 3}} className="portfolio"><span>Portfolio</span></Link></li>
-																		 <li><Link to="node" params={{NID: 4}} className="freebies"><span>Freebies</span></Link></li>
-																		 <li><Link to="node" params={{NID: 5}} className="contact"><span>Contact</span></Link></li>
+																		 <li><Link to="node" params={{path: "home"}} className="home"><span>Home</span></Link></li>
+																		 <li><Link to="node" params={{path: "about"}} className="about"><span>About Myself</span></Link></li>
+																		 <li><Link to="node" params={{path: "portfolio"}} className="portfolio"><span>Portfolio</span></Link></li>
+																		 <li><Link to="node" params={{path: "freebies"}} className="freebies"><span>Freebies</span></Link></li>
+																		 <li><Link to="node" params={{path: "contact"}} className="contact"><span>Contact</span></Link></li>
 																	</ul>
 															 </div>
 														</div>
@@ -160,27 +154,26 @@ var App = React.createClass({
 var DefaultRouterRedirect = React.createClass({
 	 statics: {
 			willTransitionTo: function (transition, params) {
-				 transition.redirect('/node/1');
+				 transition.redirect(Config.path.relative + "/home");
 			}
 	 },
 	 render: function() { return null; }
 });
 
 var routes = (
-		<Route name="app" path="/" handler={App}>
+		<Route name="app" path={Config.path.relative} handler={App}>
 			 <Route name="nodes" handler={Nodes}>
-					<Route name="node" path="/node/:NID" handler={Node} />
+					<Route name="node" path={Config.path.relative + "/:path"} handler={Node}/>
+					<DefaultRouterRedirect path={Config.path.relative + "/"} handler={DefaultRouterRedirect}/>
 			 </Route>
-			 <DefaultRoute handler={DefaultRouterRedirect}/>
 		</Route>
 );
 
 //Router.run(routes, Router.HistoryLocation, function (Handler) { // Remove Hash index/#/ > index/
-Router.run(routes, function (Handler, State) {
+Router.run(routes, Router.HistoryLocation, function (Handler, State) {
 	 Actions.routeLoad.triggerPromise(State).then(function() {
-			React.render(<Handler/>, document.getElementById('app'));
+			React.render(<Handler />, document.getElementById('app'));
 	 }).catch(function(err) {
 			console.log(err);
 	 })
 });
-

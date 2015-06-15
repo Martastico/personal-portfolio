@@ -1,11 +1,14 @@
 
-var Reflux 	= require('reflux');
-var Actions = require('../actions/actions.js');
-var _ 			= require('lodash');
+var Reflux 			= require('reflux');
+var Actions 		= require('../actions/actions.js');
+var _ 					= require('lodash');
+var request 		= require('superagent');
 
-var NodesStore = require('../stores/nodeStore');
+// Config
+var Config 		= require('../app.config');
 
-var _testBody = "<div class=\"regular\"> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores maxime minus sunt? Ad autautem, debitis delectus eius error esse est eveniet id illum impedit incidunt recusandaerepellat rerum sint. </p><h1>Hello</h1> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores maxime minus sunt? Ad autautem, debitis delectus eius error esse est eveniet id illum impedit incidunt recusandaerepellat rerum sint. </p><h1>Hello 2</h1> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores maxime minus sunt? Ad autautem, debitis delectus eius error esse est eveniet id illum impedit incidunt recusandaerepellat rerum sint. </p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus at cumque doloremque esse istenam qui quibusdam quo sequi similique?</p><p>Doloribus error laudantium maxime optio praesentium tempora veniam voluptatem. Amet dolore eligendiexcepturi facere itaque maiores praesentium saepe sed ut.</p><p>Amet aut autem deserunt doloribus hic, nihil pariatur perspiciatis quaerat unde! Adipisci doloreseaque id? Accusamus aperiam eveniet numquam quidem?</p><h1>Hello 3</h1> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores maxime minus sunt? Ad autautem, debitis delectus eius error esse est eveniet id illum impedit incidunt recusandaerepellat rerum sint. </p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus at cumque doloremque esse istenam qui quibusdam quo sequi similique?</p><p>Doloribus error laudantium maxime optio praesentium tempora veniam voluptatem. Amet dolore eligendiexcepturi facere itaque maiores praesentium saepe sed ut.</p><p>Amet aut autem deserunt doloribus hic, nihil pariatur perspiciatis quaerat unde! Adipisci doloreseaque id? Accusamus aperiam eveniet numquam quidem?</p><p>Doloribus error laudantium maxime optio praesentium tempora veniam voluptatem. Amet dolore eligendiexcepturi facere itaque maiores praesentium saepe sed ut.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam assumenda atque aut consequatur doloremque dolorum ea, eligendi esse eveniet ex excepturi expedita facere fugiat ipsam, iure laborum libero maxime minus neque obcaecati praesentium quae quas tempora ullam! A accusamus adipisci aliquid cupiditate delectus dignissimos dolorem doloribus fugiat fugit, hic incidunt iste iusto maiores nihil numquam odio officia provident quaerat quas quibusdam, quidem quisquam recusandae unde velit voluptas voluptate voluptatum? Adipisci, aliquam cumque deserunt explicabo hic, incidunt itaque laboriosam officia optio quam quisquam sapiente temporibus ut veritatis vitae? Alias dolor dolorem enim ex fuga inventore iure nam nihil non possimus, quaerat qui quo soluta temporibus ullam, vero voluptate. Cumque ex recusandae rem sint. Dicta doloribus exercitationem illum laudantium nobis perspiciatis quisquam sapiente sunt ut veniam. Ab adipisci alias aspernatur, consequuntur cum delectus, deserunt dolorum ex facilis iure modi, quasi. A ad aperiam architecto aspernatur at autem consequuntur cum cupiditate debitis deserunt doloremque ducimus eaque eos, esse fuga illum impedit ipsa itaque iure laboriosam laborum modi nam numquam obcaecati pariatur, placeat quaerat quasi recusandae, repellendus repudiandae sapiente sed sequi voluptatem. Aut delectus dolores eius error necessitatibus nemo quae ratione reiciendis repellat, voluptas! Doloremque, inventore molestias nisi odit praesentium quas quos totam!</p><h1>Hello 4</h1> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores maxime minus sunt? Ad autautem, debitis delectus eius error esse est eveniet id illum impedit incidunt recusandaerepellat rerum sint. </p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus at cumque doloremque esse istenam qui quibusdam quo sequi similique?</p></div>";
+// Stores
+var NodesStore 	= require('../stores/nodeStore');
 
 
 
@@ -16,68 +19,8 @@ var _data = {
 				 name: "Page"
 			}
 	 },
-	 nodes: [
-			{
-				 NID: 1,
-				 date: 12,
-				 nodeType: 1,
-				 title: "I create stuff that makes you look good",
-				 showTitle: true,
-				 body: _testBody,
-				 style: {
-						name: "index"
-				 }
-			},
-			{
-				 NID: 2,
-				 nodeType: 1,
-				 title: "Hello Node Numero TWO",
-				 showTitle: true,
-				 body: 'Hello'
-			},
-			{
-				 NID: 3,
-				 nodeType: 1,
-				 title: "Hello Node Numero THREEE!",
-				 showTitle: true,
-				 body: 'Hello'
-			}
-	 ]
+	 nodes: []
 };
-
-var _fakeNodesFetch = [
-	 {
-			NID: 1,
-			nodeType: 1,
-			title: "I create stuff that makes you look good",
-			showTitle: true,
-			body: _testBody,
-			style: {
-				 name: "index"
-			}
-	 },
-	 {
-			NID: 4,
-			nodeType: 1,
-			title: "Hello Node Numero FOUR",
-			showTitle: true,
-			body: 'Hello babi'
-	 },
-	 {
-			NID: 5,
-			nodeType: 1,
-			title: "Hello Node Numero FIEF",
-			showTitle: true,
-			body: 'Hello babi'
-	 },
-	 {
-			NID: 6,
-			nodeType: 1,
-			title: "Hello Node Numero SEIX",
-			showTitle: true,
-			body: 'Hello babi'
-	 }
-];
 
 
 module.exports = Reflux.createStore({
@@ -87,26 +30,58 @@ module.exports = Reflux.createStore({
 			return _data;
 	 },
 
-	 fetchNode: function() {
+	 fetchNode: function(path) {
 			console.log("fetching node");
+			console.log(path);
 			// TODO: REplace with real query
-			setTimeout(function() {
-				 this.updateNodes(_fakeNodesFetch);
-			}.bind(this), 100);
+			request.get(Config.path.api + '/nodes/' + path).end(function(err, res) {
+				 if(!err) {
+						// Success
+						this.updateNodes(res.body);
+				 } else {
+						// Handle Errors
+						// todo: more robust
+						// If there's an error, an NID -1 is created with the path provided.
+						// So when going back to same path it will retry to get the node.
+						if(!_.isUndefined(res)) {
+							 if(res.status === 404) {
+									console.log("404");
+									this.updateNodes(res.body);
+							 }
+						} else {
+							 var title = "Unknown error";
+							 var body = "An unknown error has occured. Please try again later.";
+							 this.updateNodes([{
+									NID: -1,
+									nodeType: 1,
+									path: path,
+									title: title,
+									showTitle: true,
+									body: body,
+									error: true
+							 }]);
+						}
+				 }
+			}.bind(this));
 	 },
 
+
 	 updateNodes: function(receivedNodes) {
+			console.log("updateNodes");
+
 			var old_time = new Date();
 			var nodes = _.clone(_data.nodes);
 
-			// Remove node if NID exists within receivedNodes and replace with the new received node
+			// Remove node if Path exists within receivedNodes and replace with the new received node
 			var existingNodes = _.filter(nodes, function(en, enk) {
 				 var update = true;
 				 _.forEach(receivedNodes, function (rn, rnk) {
-						if(en.NID === rn.NID) update = false;
+						// en.error is to determine wether it has to be requeried due to errors.
+						if((_.snakeCase(en.path) === _.snakeCase(rn.path)) && en.NID === -1) update = false;
 				 });
 				 return update;
 			});
+
 
 			_.forEach(receivedNodes, function (rn, rnk) {
 				 existingNodes.push(rn)
@@ -122,15 +97,23 @@ module.exports = Reflux.createStore({
 			Actions.getDataRoute.completed();
 	 },
 
-	 // Perform a test to check wheter node exists, if not, fetch it.
+	 // Perform a test to check wheter node exists, if not,  fetch it.
 	 doesNodeExist: function(State) {
-			var NID = Number(_.clone(State.params.NID));
-			console.log("Check if Node ID: " + NID + " Exists.");
+			var path = State.params.path;
+			if(_.isUndefined(path)) {
+				 path = "home";
+			}
+			console.log("Check if Node ID: " + path + " Exists.");
 
-			var nodeExists = _.filter(_data.nodes, function(n, nk) { return n.NID === NID; });
+			// If empty, fetch node from server.
+			var nodeExists = _.filter(_data.nodes, function(n, nk) {
+				 return (_.kebabCase(n.path) === _.kebabCase(path)) && n.NID !== -1;
+			});
 
+			console.log("Exists: " + !_.isEmpty(nodeExists));
 			// Node doesn't exist, fetch it from server.
-			if(_.isEmpty(nodeExists)) this.fetchNode(NID);
+			if(_.isEmpty(nodeExists)) this.fetchNode(path);
+
 			// Node exists, show it.
 			else Actions.getDataRoute.completed();
 
@@ -148,4 +131,3 @@ module.exports = Reflux.createStore({
 	 }
 
 });
-

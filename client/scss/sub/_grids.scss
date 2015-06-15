@@ -17,6 +17,10 @@
 		float: left;
 		padding: 20px 15px 0 15px;
 		@include clearfix();
+		@include browser(laptopplus) {
+
+			padding: 30px 25px 0 25px;
+		}
 		&.no-margin {
 			margin-left: 0 !important;
 		}

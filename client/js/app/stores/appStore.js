@@ -24,6 +24,7 @@ module.exports = Reflux.createStore({
 			return _data;
 	 },
 
+	 // Todo: Combine with onRouteLoadDone
 	 onRouteLoad: function() {
 			_classes.routeLoading = true;
 			this.updateApp();

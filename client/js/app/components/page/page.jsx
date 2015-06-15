@@ -1,6 +1,7 @@
 // Use it to have unique pages using nodes.
 
-var React 				= require('react');
+var React 				= require('react/addons');
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 var _ 				 		= require('lodash');
 var classnames 		= require('classnames');
 var $ 				 		= require('jquery');
@@ -25,10 +26,10 @@ module.exports = React.createClass({
 						var pci4 = $(React.findDOMNode(this.refs.personalcounter_item_4));
 						var index_gr = $(React.findDOMNode(this.refs.index_gr));
 
-						$(pci1).addClass("loaded").delay(500).show(function() {
-							 $(pci2).addClass("loaded").delay(400).show(function() {
+						$(pci1).addClass("loaded spinner").delay(500).show(function() {
+							 $(pci2).addClass("loaded spinner").delay(400).show(function() {
 									$(pci3).addClass("loaded spinner").delay(400).show(function() {
-										 $(pci4).addClass("loaded").delay(400).show(function() {
+										 $(pci4).addClass("loaded spinner").delay(400).show(function() {
 												$(index_gr).addClass("loaded").delay(400);
 										 });
 									});
@@ -36,8 +37,11 @@ module.exports = React.createClass({
 						});
 				 }
 			}.bind(this), 50);
+	 },
 
 
+	 componentWillLeave: function() {
+			console.log("lol");
 	 },
 
 	 styles: function(data, route) {
@@ -45,10 +49,10 @@ module.exports = React.createClass({
 			var title 	= data.showTitle ? (<h1 className="big-title" ref="big_title">{data.title}</h1>) : false;
 			var body 		= !_.isEmpty(data.body) ? (<div className="body" dangerouslySetInnerHTML={{__html: data.body}}></div>) : false;
 			var style 	= !_.isEmpty(data.style) ? data.style : false;
-
+			var template = [];
 
 			if (!style) {
-				 return (
+				 template = (
 						 <div className="gwrapper default">
 								{title}
 								<section className="gr animation" ref="main_content">
@@ -66,7 +70,7 @@ module.exports = React.createClass({
 
 			// Index
 			if (style.name === "index") {
-				 return (
+				 template = (
 						 <div className={classnames([style.name, "gwrapper"])}>
 								{title}
 								<section className="gr top animation" ref="main_content">
@@ -112,14 +116,17 @@ module.exports = React.createClass({
 				 )
 			}
 
+			return (<ReactCSSTransitionGroup transitionName="example">{template}</ReactCSSTransitionGroup>);
+
 	 },
 
 	 render: function() {
+			console.log("page render");
 			// Props: data, route
 			var data = !_.isEmpty(this.props.data) ? this.props.data : false;
 			var route = !_.isEmpty(this.props.route) ? this.props.route: false;
 
-			var isNode = !_.isEmpty(this.props.route.params.NID) && route;
+			var isNode = !_.isEmpty(this.props.route.params.path) && route;
 
 			// TODO: Make it also accept node types.
 
