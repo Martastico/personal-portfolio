@@ -18,6 +18,7 @@ var Config 	= require('./app.config');
 // Components
 var Nodes 	= require('./components/node/nodes.jsx');
 var Node 		= require('./components/node/node.jsx');
+var MainNavi= require('./components/navigation/mainNavi.jsx');
 
 // Header Components
 var HeaderBottomRightWidgets = require('./components/header/bottomRightWidgets/widgets.jsx');
@@ -112,13 +113,9 @@ var App = React.createClass({
 												 <section id="main_column_left">
 														<div id="main_column_left_widgets">
 															 <div className="content">
-																	<ul id="main_column_left_navi" className="widget-1 widget widget-wrapper">
-																		 <li><Link to="node" params={{path: "home"}} className="home"><span>Home</span></Link></li>
-																		 <li><Link to="node" params={{path: "about"}} className="about"><span>About Myself</span></Link></li>
-																		 <li><Link to="node" params={{path: "portfolio"}} className="portfolio"><span>Portfolio</span></Link></li>
-																		 <li><Link to="node" params={{path: "freebies"}} className="freebies"><span>Freebies</span></Link></li>
-																		 <li><Link to="node" params={{path: "contact"}} className="contact"><span>Contact</span></Link></li>
-																	</ul>
+																	<div id="main_column_left_navi" className="widget-1 widget widget-wrapper">
+																		 <MainNavi />
+																	</div>
 															 </div>
 														</div>
 														<footer>

@@ -7,6 +7,7 @@ var classnames 		= require('classnames');
 
 // Search Widget
 var SearchWidget = require('./search.jsx');
+var Mobilenavi = require('./mobilenavi.jsx');
 
 // Actions
 var Actions = require('../../../actions/actions');
@@ -15,8 +16,11 @@ var Actions = require('../../../actions/actions');
 var _widgets = [
 	 {
 			name: "Search"
+	 },
+	 {
+			name: "Mobilenavi"
 	 }
-];
+].reverse();
 
 module.exports = React.createClass({
 
@@ -61,6 +65,7 @@ module.exports = React.createClass({
 			} else {
 				 // Add Widget Components Here
 				 if(openWidget === "search-open open") return ( <SearchWidget /> );
+				 if(openWidget === "mobilenavi-open open") return ( <Mobilenavi /> );
 				 else return (null);
 			}
 	 },

@@ -3,32 +3,62 @@
    position: absolute;
    background: #f1f1f1;
    width: 100%;
-   height: $height;
+   height: $height - 55px;
    top: 0;
    left: 0;
    z-index: 5;
+   @include browser(tabletsmall) {
+      height: $height;
+   }
+
+   @include browser(desktopextreme) {
+      height: $height + 20px;
+   }
 
    .top {
+
+
       position: relative;
       height: $height - 55px;
-      width: 100%;
+      @include browser(desktopextreme) {
+         height: $height - 35px;
+      }
 
       .logo {
          position: relative;
-         width: 100%;
+         width: 350px;
          font-size: 1.1em;
+         @include browser(desktopextreme) {
+            width: 400px;
+         }
 
          a {
-            position: relative;
+            //position: absolute;
+            //top: 0;
+            //left: 0;
             display: block;
-            width: 300px;
+            width: 100%;
+            color: #000000;
+            font-weight: bold;
             text-transform: uppercase;
             text-decoration: none;
+            //> span {
             height: $height - 55px;
             background-image: url('../image/logo-dark.svg');
-            background-size: 100% 100%;
+            background-size: 90% 100%;
             background-repeat: no-repeat;
             text-indent: -99999em;
+            //}
+            @include browser(mobile) {
+               width: 80px;
+               background-size: cover;
+
+            }
+
+            @include browser(desktopextreme) {
+               height: $height - 35px;
+            }
+
             @include opacity(1);
             @include transition-property(all);
             @include transition-duration(0.12s);
@@ -47,10 +77,12 @@
 
       .left {
          position: absolute;
-         padding-left: 15px;
+         padding-left: 8px;
          left: 0;
          top: 0;
-         width: 100%;
+         @include browser(tabletsmall) {
+            padding-left: 15px;
+         }
       }
       .right {
          position: absolute;
@@ -90,9 +122,12 @@
    }
    .bottom {
       position: relative;
-      height: 55px;
-      line-height: 55px;
-      border-top: 1px solid #e1e1e1;
+      height: 80px;
+      @include browser(tabletsmall) {
+         height: 55px;
+         line-height: 55px;
+         border-top: 1px solid #e1e1e1;
+      }
 
       .left {
          position: absolute;
@@ -101,10 +136,13 @@
          top: 0;
          text-transform: uppercase;
          font-size: 0.9em;
-         color: #555555;
+         color: #444444;
          width: 50%;
          display: none;
 
+         @include browser(desktop) {
+            font-size: 1em;
+         }
          @include browser(tabletsmall) {
             display: block;
          }
@@ -112,14 +150,17 @@
       }
       .right {
          position: absolute;
-         top: 0;
+         top: -100%;
          right: 0;
          height: 100%;
-         width: 50%;
+         width: 100%;
+
+         @include browser(tabletsmall) {
+            width: 50%;
+            top: 0;
+         }
          .widgets {
             height: 100%;
-            position: relative;
-            float: right;
             &#quickbuttons {
                ul {
                   //background: blue;
@@ -169,6 +210,10 @@
                         }
 
                         &.search:after { content: "\f002"; }
+                        &.mobilenavi{
+                           @include browser(tabletsmall) {display: none}
+                           &:after { content: "\f037"; }
+                        }
                      }
                      &.active {
                         button {
@@ -219,6 +264,11 @@
                      @include box-shadow(inset 1px 1px 0px #fafafa);
 
                      &.search-widget {
+                        width: 100%;
+                        float: right;
+                        @include browser(tabletsmall) {
+                           max-width: 400px;
+                        }
                         input {
                            line-height: 40px;
                            background: #ffffff;
@@ -346,6 +396,38 @@
                               @-keyframes Rotate {
                                  from { transform:rotate(0deg);}
                                  to { transform:rotate(-360deg);}
+                              }
+                           }
+                        }
+                     }
+                     &.mobilenavi-widget {
+                        width: 100%;
+                        @include browser(tabletsmall) {display: none}
+                        @include clearfix();
+                        ul {
+                           li {
+                              float: none;
+
+                              a {
+                                 display: block;
+                                 text-align: center;
+                                 line-height: 60px;
+                                 font-size: 1.1em;
+                                 font-weight: bold;
+                                 text-transform: uppercase;
+                                 color: #000000;
+                                 text-decoration: none;
+                                 width: 100%;
+                                 border-bottom: 1px solid #d1d1d1;
+                                 &.active, &:hover {
+                                    background: $color_main_red;
+                                    color: #ffffff;
+                                 }
+                              }
+
+                              &:last-child a {
+                                 border-bottom: none;
+                                 line-height: 56px;
                               }
                            }
                         }

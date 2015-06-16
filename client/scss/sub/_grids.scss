@@ -44,14 +44,16 @@
 	.g4 {
 		width: 100%;
 		> .gr {
-			.g12 {
-				width: 48.5%;
-				margin-left: 3%;
-				float: left;
+			@include browser(tabletsmall) {
+				.g12 {
+					width: 48.5%;
+					margin-left: 3%;
+					float: left;
 
 
-				&:nth-child(2n + 1) {
-					margin-left: 0;
+					&:nth-child(2n + 1) {
+						margin-left: 0;
+					}
 				}
 			}
 		}

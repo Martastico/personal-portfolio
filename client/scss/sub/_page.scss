@@ -92,7 +92,14 @@
 	position: relative;
 	width: 100%;
 	height: 100%;
-	padding-top: 135px;
+	padding-top: 80px;
+
+	@include browser(tabletsmall) {
+		padding-top: 135px;
+	}
+	@include browser(desktopextreme) {
+		padding-top: 155px;
+	}
 
 	#main_content {
 		position: relative;
@@ -138,9 +145,9 @@
 				display: none;
 
 
-				@include browser(laptopplus) {
-					display: block;
-				}
+				//@include browser(laptopplus) {
+				//	display: block;
+				//}
 
 				h3 {
 					display: block;
@@ -196,7 +203,7 @@
 			padding-bottom: 70px;
 		}
 
-		ul#main_column_left_navi {
+		#main_column_left_navi {
 
 			li {
 
@@ -215,6 +222,7 @@
 					width: 100%;
 					height: 55px;
 
+
 					@include browser(tabletsmalllaptopplus) {
 						text-align: center;
 						line-height: 70px;
@@ -222,6 +230,12 @@
 						> span {
 							display: none;
 						}
+					}
+
+					@include browser(desktoplarge) {
+						line-height: 60px;
+						height: 60px;
+						font-size: 1.1em;
 					}
 
 

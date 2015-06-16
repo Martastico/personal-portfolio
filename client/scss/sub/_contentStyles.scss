@@ -38,6 +38,11 @@
 				padding: 77px 15px 24px 15px;
 				font-size: 2.1em;
 			}
+
+			@include browser(desktoplarge) {
+				height: 121px;
+				line-height: 40px;
+			}
 		}
 	}
 	> .content {
@@ -55,6 +60,13 @@
 			}
 			.regular {
 				//padding: 30px 35px 30px 30px;
+			}
+			@include browser(desktoplarge) {
+				font-size: 1.1em;
+			}
+
+			@include browser(desktopextreme) {
+				font-size: 1.2em;
 			}
 		}
 	}
@@ -83,7 +95,8 @@
 				text-transform: uppercase;
 				@include browser(desktop) {
 					font-size: 2.5em;
-					padding: 46px 0 18px 0;
+					height: 121px;
+					line-height: 40px;
 				}
 
 				@include browser(mobile) {
@@ -122,25 +135,11 @@
 		transform-style: preserve-3d;
 		margin-bottom: 80px;
 		opacity: 0;
-		&:after {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			background: url('../image/bigredbox.jpg');
-			background-size: 100%;
-			width: 100%;
-			height: 100%;
-		}
-		&.item-2:after {
-			@include	transform(rotate(180deg));
-		}
+		background: url('../image/bigredbox.jpg');
+		background-size: 100%;
 		&.loaded {
 			opacity: 1;
 		}
-		//&.item-1 {
-		//	background-: #000;
-		//}
 		@include transition-property(opacity);
 		@include transition-duration(0.3s);
 		@include transition-timing-function(ease-in);
@@ -251,6 +250,9 @@
 
 		&.creativity {
 			h2 {
+				@include browser(mobile) {
+					font-size: 9em;
+				}
 				font-size: 14em;
 			}
 		}
