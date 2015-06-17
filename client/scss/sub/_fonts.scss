@@ -1,1 +1,12 @@
 @import 'fontawesome';
+
+@font-face {
+	font-family: 'UbuntuRegular';
+	src: url('../fonts/ubuntu/ubuntu-regular/ubuntu-regular.eot?v=#{$fa-version}');
+	src: url('../fonts/ubuntu/ubuntu-regular/ubuntu-regular.eot?#iefix&v=#{$fa-version}') format('embedded-opentype'),
+	url('../fonts/ubuntu/ubuntu-regular/ubuntu-regular.woff?v=#{$fa-version}') format('woff'),
+	url('../fonts/ubuntu/ubuntu-regular/ubuntu-regular.ttf?v=#{$fa-version}') format('truetype'),
+	url('../fonts/ubuntu/ubuntu-regular/ubuntu-regular.svg?v=#{$fa-version}#ubunturegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

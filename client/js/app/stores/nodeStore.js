@@ -31,8 +31,8 @@ module.exports = Reflux.createStore({
 	 },
 
 	 fetchNode: function(path) {
-			console.log("fetching node");
-			console.log(path);
+			//console.log("fetching node");
+			//console.log(path);
 			// TODO: REplace with real query
 			request.get(Config.path.api + '/nodes/' + path).end(function(err, res) {
 				 if(!err) {
@@ -67,7 +67,7 @@ module.exports = Reflux.createStore({
 
 
 	 updateNodes: function(receivedNodes) {
-			console.log("updateNodes");
+			//console.log("updateNodes");
 
 			var old_time = new Date();
 			var nodes = _.clone(_data.nodes);
@@ -93,7 +93,7 @@ module.exports = Reflux.createStore({
 
 			var new_time = new Date();
 
-			console.log("%cupdateNodes: " + (new_time - old_time) + "ms", "color: blue");
+			//console.log("%cupdateNodes: " + (new_time - old_time) + "ms", "color: blue");
 			Actions.getDataRoute.completed();
 	 },
 
@@ -103,14 +103,14 @@ module.exports = Reflux.createStore({
 			if(_.isUndefined(path)) {
 				 path = "home";
 			}
-			console.log("Check if Node ID: " + path + " Exists.");
+			//console.log("Check if Node ID: " + path + " Exists.");
 
 			// If empty, fetch node from server.
 			var nodeExists = _.filter(_data.nodes, function(n, nk) {
 				 return (_.kebabCase(n.path) === _.kebabCase(path)) && n.NID !== -1;
 			});
 
-			console.log("Exists: " + !_.isEmpty(nodeExists));
+			//console.log("Exists: " + !_.isEmpty(nodeExists));
 			// Node doesn't exist, fetch it from server.
 			if(_.isEmpty(nodeExists)) this.fetchNode(path);
 
@@ -120,7 +120,7 @@ module.exports = Reflux.createStore({
 	 },
 
 	 onGetDataRoute: function(name, State) {
-			console.log("getDataRoute: " + name);
+			//console.log("getDataRoute: " + name);
 			if(name === "node") {
 				 this.doesNodeExist(State);
 			}

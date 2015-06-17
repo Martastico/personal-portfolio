@@ -24,6 +24,9 @@
 			padding: 51px 30px 23px 30px;
 			margin-bottom: 0;
 			opacity: 0;
+			font-family: UbuntuRegular, sans-serif;
+			//font-weight: normal;
+			//@include text-shadow(1px 1px #000000);
 			@include transition-property(all);
 			@include transition-duration(0.4s);
 			@include transition-timing-function(ease-in);
@@ -122,25 +125,33 @@
 }
 
 #personalCounter {
-	@include clearfix();
-	border-bottom: 1px solid #bbbbbb;
+	//@include clearfix;
+	&:after { // Clearfix
+		 content:"";
+		 display:table;
+		 clear:both;
+	 }
+	@include browser(laptopwide) {
+		border-bottom: 10px solid #d8d8d8;
+		padding-bottom: 20px;
+	}
 	.item {
 		position: relative;
 		float: left;
 		margin-left: 3%;
 		width: 48.5%;
 		padding-top: 28%;
-		-webkit-transform-style: preserve-3d;
-		-moz-transform-style: preserve-3d;
-		transform-style: preserve-3d;
 		margin-bottom: 80px;
 		opacity: 0;
-		background: url('../image/bigredbox.jpg');
-		background-size: 100%;
-		&.loaded {
-			opacity: 1;
-		}
-		@include transition-property(opacity);
+		background-color: $color_main_red;
+		background-size: contain;
+
+		&.loaded {opacity: 1;}
+		&.item-1 { background-image: url('../image/bigredbox.jpg'); }
+		&.item-2 { background-image: url('../image/bigredbox2.jpg'); }
+		&.item-3 { background-image: url('../image/bigredbox.jpg'); }
+		&.item-4 { background-image: url('../image/bigredbox2.jpg'); }
+		@include transition-property(all);
 		@include transition-duration(0.3s);
 		@include transition-timing-function(ease-in);
 		h2 {
@@ -153,16 +164,29 @@
 			text-align: center;
 			width: 100%;
 			top: 50%;
+			font-family: UbuntuRegular, sans-serif;
 
 			-webkit-animation: rotatetext 1.2s 1 ease-in-out;
 			animation: rotatetext 1.2s 1 ease-in-out;
 
 		}
+		@include browser(laptopwide) {
+			&.item-1.perspective {
+				//background:red;
+				@include transform (perspective(500px) rotatey(8deg) translatex(8px));
+			}
+			&.item-4.perspective {
+				//background:red;
+				@include transform (perspective(500px) rotatey(-8deg) translatex(-8px));
+			}
+			&.item-2.perspective, &.item-3.perspective {
+				@include transform(scale(0.941,0.941));
+			}
+		}
 		@-webkit-keyframes rotatetext {
 			0%, 100% { -webkit-transform: scale(0.0) }
 			100% { -webkit-transform: scale(1.0) }
 		}
-
 		@keyframes rotatetext {
 			0%, 100% {
 				transform: scale(0.0);
@@ -197,7 +221,7 @@
 			left: 0;
 			width: 100%;
 			background: black;
-			line-height: 60px;
+			line-height: 62px;
 			color: #ffffff;
 			text-transform: uppercase;
 			text-align: center;
@@ -257,4 +281,8 @@
 			}
 		}
 	}
+}
+
+.node-content {
+	padding-bottom: 800px;
 }

@@ -18,8 +18,10 @@
 		padding: 20px 15px 0 15px;
 		@include clearfix();
 		@include browser(laptopplus) {
-
 			padding: 30px 25px 0 25px;
+		}
+		@include browser(desktoplarge) {
+			padding: 40px 35px 0 35px;
 		}
 		&.no-margin {
 			margin-left: 0 !important;

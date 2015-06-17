@@ -5,7 +5,7 @@ var _ 				= require("lodash");
 var mongoose 	= require('mongoose');
 
 
-var _testBody = "<div class=\"regular\"> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores maxime minus sunt? Ad autautem, debitis delectus eius error esse est eveniet id illum impedit incidunt recusandaerepellat rerum sint. </p><h1>Hello</h1> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores maxime minus sunt? Ad autautem, debitis delectus eius error esse est eveniet id illum impedit incidunt recusandaerepellat rerum sint. </p><h1>Hello 2</h1> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores maxime minus sunt? Ad autautem, debitis delectus eius error esse est eveniet id illum impedit incidunt recusandaerepellat rerum sint. </p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus at cumque doloremque esse istenam qui quibusdam quo sequi similique?</p><p>Doloribus error laudantium maxime optio praesentium tempora veniam voluptatem. Amet dolore eligendiexcepturi facere itaque maiores praesentium saepe sed ut.</p><p>Amet aut autem deserunt doloribus hic, nihil pariatur perspiciatis quaerat unde! Adipisci doloreseaque id? Accusamus aperiam eveniet numquam quidem?</p><h1>Hello 3</h1> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores maxime minus sunt? Ad autautem, debitis delectus eius error esse est eveniet id illum impedit incidunt recusandaerepellat rerum sint. </p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus at cumque doloremque esse istenam qui quibusdam quo sequi similique?</p><p>Doloribus error laudantium maxime optio praesentium tempora veniam voluptatem. Amet dolore eligendiexcepturi facere itaque maiores praesentium saepe sed ut.</p><p>Amet aut autem deserunt doloribus hic, nihil pariatur perspiciatis quaerat unde! Adipisci doloreseaque id? Accusamus aperiam eveniet numquam quidem?</p><p>Doloribus error laudantium maxime optio praesentium tempora veniam voluptatem. Amet dolore eligendiexcepturi facere itaque maiores praesentium saepe sed ut.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam assumenda atque aut consequatur doloremque dolorum ea, eligendi esse eveniet ex excepturi expedita facere fugiat ipsam, iure laborum libero maxime minus neque obcaecati praesentium quae quas tempora ullam! A accusamus adipisci aliquid cupiditate delectus dignissimos dolorem doloribus fugiat fugit, hic incidunt iste iusto maiores nihil numquam odio officia provident quaerat quas quibusdam, quidem quisquam recusandae unde velit voluptas voluptate voluptatum? Adipisci, aliquam cumque deserunt explicabo hic, incidunt itaque laboriosam officia optio quam quisquam sapiente temporibus ut veritatis vitae? Alias dolor dolorem enim ex fuga inventore iure nam nihil non possimus, quaerat qui quo soluta temporibus ullam, vero voluptate. Cumque ex recusandae rem sint. Dicta doloribus exercitationem illum laudantium nobis perspiciatis quisquam sapiente sunt ut veniam. Ab adipisci alias aspernatur, consequuntur cum delectus, deserunt dolorum ex facilis iure modi, quasi. A ad aperiam architecto aspernatur at autem consequuntur cum cupiditate debitis deserunt doloremque ducimus eaque eos, esse fuga illum impedit ipsa itaque iure laboriosam laborum modi nam numquam obcaecati pariatur, placeat quaerat quasi recusandae, repellendus repudiandae sapiente sed sequi voluptatem. Aut delectus dolores eius error necessitatibus nemo quae ratione reiciendis repellat, voluptas! Doloremque, inventore molestias nisi odit praesentium quas quos totam!</p><h1>Hello 4</h1> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores maxime minus sunt? Ad autautem, debitis delectus eius error esse est eveniet id illum impedit incidunt recusandaerepellat rerum sint. </p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus at cumque doloremque esse istenam qui quibusdam quo sequi similique?</p></div>";
+var _testBody = "";
 var randomIDCounter = 999;
 
 // Todo: replace with mongodb
@@ -25,33 +25,33 @@ var nodes = [
 	 {
 			NID: 2,
 			nodeType: 1,
-			title: "About",
+			title: "About (Placeholder)",
 			showTitle: true,
-			body: 'Hello',
+			body: 'Placeholder',
 			path: 'about'
 	 },
 	 {
 			NID: 3,
 			nodeType: 1,
-			title: "Portfolio",
+			title: "Portfolio (Placeholder)",
 			showTitle: true,
-			body: 'Hello',
+			body: 'Placeholder',
 			path: 'portfolio'
 	 },
 	 {
 			NID: 4,
 			nodeType: 1,
-			title: "Freebies",
+			title: "Freebies (Placeholder)",
 			showTitle: true,
-			body: 'Hello babi',
+			body: 'Placeholder',
 			path: 'freebies'
 	 },
 	 {
 			NID: 5,
 			nodeType: 1,
-			title: "Contact",
+			title: "Contact (Placeholder)",
 			showTitle: true,
-			body: 'Hello babi',
+			body: 'Placeholder',
 			path: 'contact'
 	 }
 ];

@@ -19,18 +19,23 @@ module.exports = React.createClass({
 						$(content).addClass("loaded");
 				 });
 
+				 // If Home
 				 if(!_.isEmpty(this.props.data.style) && this.props.data.style.name === "index") {
-						var pci1 = $(React.findDOMNode(this.refs.personalcounter_item_1));
-						var pci2 = $(React.findDOMNode(this.refs.personalcounter_item_2));
-						var pci3 = $(React.findDOMNode(this.refs.personalcounter_item_3));
-						var pci4 = $(React.findDOMNode(this.refs.personalcounter_item_4));
-						var index_gr = $(React.findDOMNode(this.refs.index_gr));
+						var pci1 = $(React.findDOMNode(this.refs.personalcounter_item_1)),
+								pci2 = $(React.findDOMNode(this.refs.personalcounter_item_2)),
+								pci3 = $(React.findDOMNode(this.refs.personalcounter_item_3)),
+								pci4 = $(React.findDOMNode(this.refs.personalcounter_item_4)),
+								index_gr = $(React.findDOMNode(this.refs.index_gr));
 
 						$(pci1).addClass("loaded spinner").delay(500).show(function() {
 							 $(pci2).addClass("loaded spinner").delay(400).show(function() {
 									$(pci3).addClass("loaded spinner").delay(400).show(function() {
-										 $(pci4).addClass("loaded spinner").delay(400).show(function() {
-												$(index_gr).addClass("loaded").delay(400);
+										 $(pci4).addClass("loaded spinner").delay(1400).show(function() {
+												$(index_gr).addClass("loaded");
+												$(pci1).addClass("perspective");
+												$(pci2).addClass("perspective");
+												$(pci3).addClass("perspective");
+												$(pci4).addClass("perspective");
 										 });
 									});
 							 });
@@ -78,7 +83,7 @@ module.exports = React.createClass({
 											<div className="default">
 												 <section id="personalCounter">
 														<div className="item item-1 years" ref="personalcounter_item_1">
-															 <h2>7</h2>
+															 <h2>4</h2>
 															 <div className="description"><span className="years-of">Years of </span><span className="experience">Experience</span></div>
 														</div>
 														<div className="item item-2 ideas" ref="personalcounter_item_2">
@@ -98,18 +103,18 @@ module.exports = React.createClass({
 									 </div>
 								</section>
 								<section className="gr bottom" ref="index_gr">
-									 <div className="gc g8">
+									 <div className="gc g12">
 											{/*<div className="default">{body}</div>*/}
 											<div className="node-content default">
 												 {body}
 											</div>
 									 </div>
-									 <div className="gc g4">
-											<section className="gr">
-												 <div className="gc g12 ">Layout 2</div>
-												 <div className="gc g12">Layout 3</div>
-											</section>
-									 </div>
+									 {/*<div className="gc g4">
+										<section className="gr">
+										<div className="gc g12 ">Layout 2</div>
+										<div className="gc g12">Layout 3</div>
+										</section>
+										</div>*/}
 								</section>
 
 						 </div>

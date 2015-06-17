@@ -14,7 +14,7 @@ module.exports = Reflux.createStore({
 	 },
 
 	 routeLoadingDone: function(State) {
-			console.log("routeLoadCompleted");
+			//console.log("routeLoadCompleted");
 			_data = State;
 			Actions.routeLoad.completed();
 			Actions.routeLoadDone();
@@ -22,12 +22,12 @@ module.exports = Reflux.createStore({
 	 },
 
 	 onRouteLoad: function(State) {
-			console.log("RouteLoad: Start");
+			//console.log("RouteLoad: Start");
 
 			// Nodes
 			if(_.last(State.routes)) {
 				 Actions.getDataRoute.triggerPromise("node", State).then(function() {
-						console.log("onRouteLoad: Node loading complete");
+						//console.log("onRouteLoad: Node loading complete");
 
 						this.routeLoadingDone(State);
 				 }.bind(this));

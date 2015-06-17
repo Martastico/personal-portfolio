@@ -53,7 +53,9 @@ var App = React.createClass({
 				 } else {
 						$(mainColumnMiddleContent).mCustomScrollbar({
 							 theme: "mcc",
-							 scrollInertia: 160
+							 scrollInertia: 120,
+							 advanced:{ updateOnContentResize: true },
+							 mouseWheel:{ scrollAmount: 200 }
 						});
 				 }
 			}
@@ -64,9 +66,12 @@ var App = React.createClass({
 				 doit = setTimeout(resizedw, 200);
 			};
 
+
 	 },
 
 	 render: function() {
+
+			console.log("%cApp Rendered", "color: green");
 
 			var SApp = this.state.AppStore;
 
@@ -85,7 +90,7 @@ var App = React.createClass({
 
 			return (
 					<div className={classnames(pageWrapperClasses)}>
-						 <img id="image-background" style={{backgroundImage: 'url(image/bigbg_1.jpg)'}} alt="Saarman Background"/>
+						 <img id="image-background" style={{backgroundImage: 'url(image/bigbg_2.jpg)'}} alt="Saarman Background"/>
 						 <section id="page">
 								<div className="content">
 									 <header id="header">

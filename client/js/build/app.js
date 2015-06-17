@@ -54,7 +54,9 @@ var App = React.createClass({displayName: "App",
 				 } else {
 						$(mainColumnMiddleContent).mCustomScrollbar({
 							 theme: "mcc",
-							 scrollInertia: 160
+							 scrollInertia: 120,
+							 advanced:{ updateOnContentResize: true },
+							 mouseWheel:{ scrollAmount: 200 }
 						});
 				 }
 			}
@@ -65,9 +67,12 @@ var App = React.createClass({displayName: "App",
 				 doit = setTimeout(resizedw, 200);
 			};
 
+
 	 },
 
 	 render: function() {
+
+			console.log("%cApp Rendered", "color: green");
 
 			var SApp = this.state.AppStore;
 
@@ -86,7 +91,7 @@ var App = React.createClass({displayName: "App",
 
 			return (
 					React.createElement("div", {className: classnames(pageWrapperClasses)}, 
-						 React.createElement("img", {id: "image-background", style: {backgroundImage: 'url(image/bigbg_1.jpg)'}, alt: "Saarman Background"}), 
+						 React.createElement("img", {id: "image-background", style: {backgroundImage: 'url(image/bigbg_2.jpg)'}, alt: "Saarman Background"}), 
 						 React.createElement("section", {id: "page"}, 
 								React.createElement("div", {className: "content"}, 
 									 React.createElement("header", {id: "header"}, 
@@ -593,7 +598,7 @@ module.exports = React.createClass({displayName: "exports",
 				 return _.snakeCase(n.path) === _.snakeCase(this.props.params.path);
 			}.bind(this));
 
-			console.log(this);
+			//console.log(this);
 
 			//// No Nodes
 			if(_.isEmpty(filteredNode)) {
@@ -636,18 +641,23 @@ module.exports = React.createClass({displayName: "exports",
 						$(content).addClass("loaded");
 				 });
 
+				 // If Home
 				 if(!_.isEmpty(this.props.data.style) && this.props.data.style.name === "index") {
-						var pci1 = $(React.findDOMNode(this.refs.personalcounter_item_1));
-						var pci2 = $(React.findDOMNode(this.refs.personalcounter_item_2));
-						var pci3 = $(React.findDOMNode(this.refs.personalcounter_item_3));
-						var pci4 = $(React.findDOMNode(this.refs.personalcounter_item_4));
-						var index_gr = $(React.findDOMNode(this.refs.index_gr));
+						var pci1 = $(React.findDOMNode(this.refs.personalcounter_item_1)),
+								pci2 = $(React.findDOMNode(this.refs.personalcounter_item_2)),
+								pci3 = $(React.findDOMNode(this.refs.personalcounter_item_3)),
+								pci4 = $(React.findDOMNode(this.refs.personalcounter_item_4)),
+								index_gr = $(React.findDOMNode(this.refs.index_gr));
 
 						$(pci1).addClass("loaded spinner").delay(500).show(function() {
 							 $(pci2).addClass("loaded spinner").delay(400).show(function() {
 									$(pci3).addClass("loaded spinner").delay(400).show(function() {
-										 $(pci4).addClass("loaded spinner").delay(400).show(function() {
-												$(index_gr).addClass("loaded").delay(400);
+										 $(pci4).addClass("loaded spinner").delay(1400).show(function() {
+												$(index_gr).addClass("loaded");
+												$(pci1).addClass("perspective");
+												$(pci2).addClass("perspective");
+												$(pci3).addClass("perspective");
+												$(pci4).addClass("perspective");
 										 });
 									});
 							 });
@@ -695,7 +705,7 @@ module.exports = React.createClass({displayName: "exports",
 											React.createElement("div", {className: "default"}, 
 												 React.createElement("section", {id: "personalCounter"}, 
 														React.createElement("div", {className: "item item-1 years", ref: "personalcounter_item_1"}, 
-															 React.createElement("h2", null, "7"), 
+															 React.createElement("h2", null, "4"), 
 															 React.createElement("div", {className: "description"}, React.createElement("span", {className: "years-of"}, "Years of "), React.createElement("span", {className: "experience"}, "Experience"))
 														), 
 														React.createElement("div", {className: "item item-2 ideas", ref: "personalcounter_item_2"}, 
@@ -715,18 +725,18 @@ module.exports = React.createClass({displayName: "exports",
 									 )
 								), 
 								React.createElement("section", {className: "gr bottom", ref: "index_gr"}, 
-									 React.createElement("div", {className: "gc g8"}, 
+									 React.createElement("div", {className: "gc g12"}, 
 											/*<div className="default">{body}</div>*/
 											React.createElement("div", {className: "node-content default"}, 
 												 body
 											)
-									 ), 
-									 React.createElement("div", {className: "gc g4"}, 
-											React.createElement("section", {className: "gr"}, 
-												 React.createElement("div", {className: "gc g12 "}, "Layout 2"), 
-												 React.createElement("div", {className: "gc g12"}, "Layout 3")
-											)
 									 )
+									 /*<div className="gc g4">
+										<section className="gr">
+										<div className="gc g12 ">Layout 2</div>
+										<div className="gc g12">Layout 3</div>
+										</section>
+										</div>*/
 								)
 
 						 )
@@ -848,8 +858,8 @@ module.exports = Reflux.createStore({
 	 },
 
 	 fetchNode: function(path) {
-			console.log("fetching node");
-			console.log(path);
+			//console.log("fetching node");
+			//console.log(path);
 			// TODO: REplace with real query
 			request.get(Config.path.api + '/nodes/' + path).end(function(err, res) {
 				 if(!err) {
@@ -884,7 +894,7 @@ module.exports = Reflux.createStore({
 
 
 	 updateNodes: function(receivedNodes) {
-			console.log("updateNodes");
+			//console.log("updateNodes");
 
 			var old_time = new Date();
 			var nodes = _.clone(_data.nodes);
@@ -910,7 +920,7 @@ module.exports = Reflux.createStore({
 
 			var new_time = new Date();
 
-			console.log("%cupdateNodes: " + (new_time - old_time) + "ms", "color: blue");
+			//console.log("%cupdateNodes: " + (new_time - old_time) + "ms", "color: blue");
 			Actions.getDataRoute.completed();
 	 },
 
@@ -920,14 +930,14 @@ module.exports = Reflux.createStore({
 			if(_.isUndefined(path)) {
 				 path = "home";
 			}
-			console.log("Check if Node ID: " + path + " Exists.");
+			//console.log("Check if Node ID: " + path + " Exists.");
 
 			// If empty, fetch node from server.
 			var nodeExists = _.filter(_data.nodes, function(n, nk) {
 				 return (_.kebabCase(n.path) === _.kebabCase(path)) && n.NID !== -1;
 			});
 
-			console.log("Exists: " + !_.isEmpty(nodeExists));
+			//console.log("Exists: " + !_.isEmpty(nodeExists));
 			// Node doesn't exist, fetch it from server.
 			if(_.isEmpty(nodeExists)) this.fetchNode(path);
 
@@ -937,7 +947,7 @@ module.exports = Reflux.createStore({
 	 },
 
 	 onGetDataRoute: function(name, State) {
-			console.log("getDataRoute: " + name);
+			//console.log("getDataRoute: " + name);
 			if(name === "node") {
 				 this.doesNodeExist(State);
 			}
@@ -965,7 +975,7 @@ module.exports = Reflux.createStore({
 	 },
 
 	 routeLoadingDone: function(State) {
-			console.log("routeLoadCompleted");
+			//console.log("routeLoadCompleted");
 			_data = State;
 			Actions.routeLoad.completed();
 			Actions.routeLoadDone();
@@ -973,12 +983,12 @@ module.exports = Reflux.createStore({
 	 },
 
 	 onRouteLoad: function(State) {
-			console.log("RouteLoad: Start");
+			//console.log("RouteLoad: Start");
 
 			// Nodes
 			if(_.last(State.routes)) {
 				 Actions.getDataRoute.triggerPromise("node", State).then(function() {
-						console.log("onRouteLoad: Node loading complete");
+						//console.log("onRouteLoad: Node loading complete");
 
 						this.routeLoadingDone(State);
 				 }.bind(this));

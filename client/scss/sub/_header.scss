@@ -104,17 +104,19 @@
                display: block;
             }
             &:hover:after {
-               color: $color_main_red;
+               color: #bbbbbb;
             }
 
             .fullscreen-open &:after {
                content: "\f066";
+               color: #bbbbbb;
             }
             &:after {
                content: "\f065";
                font-family: FontAwesome;
                font-size: 1.6em;
-               color: #bbbbbb;
+               color: $color_main_red;
+               //color: $color_main_red;
             }
 
          }
