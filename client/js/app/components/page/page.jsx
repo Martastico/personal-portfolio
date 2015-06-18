@@ -46,7 +46,7 @@ module.exports = React.createClass({
 
 
 	 componentWillLeave: function() {
-			console.log("lol");
+			//console.log("lol");
 	 },
 
 	 styles: function(data, route) {
