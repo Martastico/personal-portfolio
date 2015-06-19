@@ -2074,7 +2074,38 @@ table {
   }
 }
 
-/* line 286, ../scss/sub/_contentStyles.scss */
-.node-content {
-  padding-bottom: 800px;
+/* line 287, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith {
+  margin-top: 50px;
+  min-height: 500px;
+}
+/* line 291, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith ul {
+  padding: 2%;
+}
+/* line 293, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith ul li {
+  position: relative;
+}
+
+/* line 305, ../scss/sub/_contentStyles.scss */
+#youDeserveTheBest {
+  font-family: 'UbuntuRegular';
+  text-align: center;
+  margin-top: 30px;
+}
+/* line 309, ../scss/sub/_contentStyles.scss */
+#youDeserveTheBest > h1 {
+  display: block;
+  font-size: 2.6em !important;
+  border-bottom: none !important;
+  color: #333333 !important;
+  line-height: 28px !important;
+  font-weight: normal !important;
+}
+/* line 318, ../scss/sub/_contentStyles.scss */
+#youDeserveTheBest > h2 {
+  font-size: 1.3em;
+  color: #870e19;
+  font-weight: normal !important;
 }

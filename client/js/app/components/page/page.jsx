@@ -14,7 +14,7 @@ module.exports = React.createClass({
 			var big_title = $(React.findDOMNode(this.refs.big_title));
 			var content = $(React.findDOMNode(this.refs.main_content));
 
-			setTimeout(function() {
+			setTimeout(function() { // Small delay because of browser support..
 				 $(big_title).addClass("loaded").delay(400).show(function() {
 						$(content).addClass("loaded");
 				 });
@@ -46,7 +46,7 @@ module.exports = React.createClass({
 
 
 	 componentWillLeave: function() {
-			//console.log("lol");
+			console.log("lol");
 	 },
 
 	 styles: function(data, route) {
@@ -79,7 +79,7 @@ module.exports = React.createClass({
 						 <div className={classnames([style.name, "gwrapper"])}>
 								{title}
 								<section className="gr top animation" ref="main_content">
-									 <div className="gc g12">
+									 <section className="gc g12">
 											<div className="default">
 												 <section id="personalCounter">
 														<div className="item item-1 years" ref="personalcounter_item_1">
@@ -100,21 +100,55 @@ module.exports = React.createClass({
 														</div>
 												 </section>
 											</div>
-									 </div>
+									 </section>
 								</section>
 								<section className="gr bottom" ref="index_gr">
-									 <div className="gc g12">
-											{/*<div className="default">{body}</div>*/}
-											<div className="node-content default">
-												 {body}
+									 <section className="gc g12">
+											<div className="default">
+												 <div id="youDeserveTheBest">
+														<h1>You deserve the best.</h1>
+														<h2>Here is what I can help with.</h2>
+												 </div>
 											</div>
-									 </div>
-									 {/*<div className="gc g4">
+									 </section>
+
+									 <section className="gc g12 no-spacing">
+											{/*<div className="default">{body}</div>*/}
+											<div className="index default">
+												 <div id="helpWith">
+														<ul>
+															 <li>
+																	<div className="item item-1">
+																		 <span>User Experience</span>
+																	</div>
+															 </li>
+															 <li>
+																	<div className="item item-2">
+																		 <span>User Interface</span>
+																	</div>
+															 </li>
+															 <li>
+																	<div className="item item-3">
+																		 <span>User Experience</span>
+																	</div>
+															 </li>
+															 <li>
+																	<div className="item item-4">
+																		 <span>User Experience</span>
+																	</div>
+															 </li>
+														</ul>
+												 </div>
+											</div>
+									 </section>
+									 {/*
+										<div className="gc g4">
 										<section className="gr">
 										<div className="gc g12 ">Layout 2</div>
 										<div className="gc g12">Layout 3</div>
 										</section>
-										</div>*/}
+										</div>
+										*/}
 								</section>
 
 						 </div>

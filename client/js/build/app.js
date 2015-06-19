@@ -636,7 +636,7 @@ module.exports = React.createClass({displayName: "exports",
 			var big_title = $(React.findDOMNode(this.refs.big_title));
 			var content = $(React.findDOMNode(this.refs.main_content));
 
-			setTimeout(function() {
+			setTimeout(function() { // Small delay because of browser support..
 				 $(big_title).addClass("loaded").delay(400).show(function() {
 						$(content).addClass("loaded");
 				 });
@@ -701,7 +701,7 @@ module.exports = React.createClass({displayName: "exports",
 						 React.createElement("div", {className: classnames([style.name, "gwrapper"])}, 
 								title, 
 								React.createElement("section", {className: "gr top animation", ref: "main_content"}, 
-									 React.createElement("div", {className: "gc g12"}, 
+									 React.createElement("section", {className: "gc g12"}, 
 											React.createElement("div", {className: "default"}, 
 												 React.createElement("section", {id: "personalCounter"}, 
 														React.createElement("div", {className: "item item-1 years", ref: "personalcounter_item_1"}, 
@@ -725,18 +725,52 @@ module.exports = React.createClass({displayName: "exports",
 									 )
 								), 
 								React.createElement("section", {className: "gr bottom", ref: "index_gr"}, 
-									 React.createElement("div", {className: "gc g12"}, 
+									 React.createElement("section", {className: "gc g12"}, 
+											React.createElement("div", {className: "default"}, 
+												 React.createElement("div", {id: "youDeserveTheBest"}, 
+														React.createElement("h1", null, "You deserve the best."), 
+														React.createElement("h2", null, "Here is what I can help with.")
+												 )
+											)
+									 ), 
+
+									 React.createElement("section", {className: "gc g12 no-spacing"}, 
 											/*<div className="default">{body}</div>*/
-											React.createElement("div", {className: "node-content default"}, 
-												 body
+											React.createElement("div", {className: "index default"}, 
+												 React.createElement("div", {id: "helpWith"}, 
+														React.createElement("ul", null, 
+															 React.createElement("li", null, 
+																	React.createElement("div", {className: "item item-1"}, 
+																		 React.createElement("span", null, "User Experience")
+																	)
+															 ), 
+															 React.createElement("li", null, 
+																	React.createElement("div", {className: "item item-2"}, 
+																		 React.createElement("span", null, "User Interface")
+																	)
+															 ), 
+															 React.createElement("li", null, 
+																	React.createElement("div", {className: "item item-3"}, 
+																		 React.createElement("span", null, "User Experience")
+																	)
+															 ), 
+															 React.createElement("li", null, 
+																	React.createElement("div", {className: "item item-4"}, 
+																		 React.createElement("span", null, "User Experience")
+																	)
+															 )
+														)
+												 )
 											)
 									 )
-									 /*<div className="gc g4">
+									 /*
+										<div className="gc g4">
 										<section className="gr">
 										<div className="gc g12 ">Layout 2</div>
 										<div className="gc g12">Layout 3</div>
 										</section>
-										</div>*/
+										</div>
+										*/
 								)
 
 						 )

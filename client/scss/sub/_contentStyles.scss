@@ -127,10 +127,10 @@
 #personalCounter {
 	//@include clearfix;
 	&:after { // Clearfix
-		 content:"";
-		 display:table;
-		 clear:both;
-	 }
+		content:"";
+		display:table;
+		clear:both;
+	}
 	@include browser(laptopwide) {
 		border-bottom: 10px solid #d8d8d8;
 		padding-bottom: 20px;
@@ -283,6 +283,41 @@
 	}
 }
 
-.node-content {
-	padding-bottom: 800px;
+.index.default {
+	#helpWith {
+		margin-top: 50px;
+		//background: $color_main_red;
+		min-height: 500px;
+		ul {
+			padding: 2%;
+			li {
+				position: relative;
+				&:first-child {
+				}
+				.item {
+
+				}
+			}
+		}
+	}
+}
+
+#youDeserveTheBest {
+	font-family: 'UbuntuRegular';
+	text-align: center;
+	margin-top: 30px;
+	> h1 {
+		display: block;
+		font-size: 2.6em !important;
+		border-bottom: none !important;
+		color: #333333 !important;
+		line-height: 28px !important;
+		font-weight: normal !important;
+
+	}
+	> h2 {
+		font-size: 1.3em;
+		color: $color_main_red;
+		font-weight: normal !important;
+	}
 }
