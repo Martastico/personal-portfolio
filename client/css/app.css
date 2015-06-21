@@ -1940,21 +1940,21 @@ table {
   animation: rotatetext 1.2s 1 ease-in-out;
 }
 @media only screen and (min-width: 1290px) {
-  /* line 174, ../scss/sub/_contentStyles.scss */
+  /* line 173, ../scss/sub/_contentStyles.scss */
   #personalCounter .item.item-1.perspective {
     -moz-transform: perspective(500px) rotatey(8deg) translatex(8px);
     -ms-transform: perspective(500px) rotatey(8deg) translatex(8px);
     -webkit-transform: perspective(500px) rotatey(8deg) translatex(8px);
     transform: perspective(500px) rotatey(8deg) translatex(8px);
   }
-  /* line 178, ../scss/sub/_contentStyles.scss */
+  /* line 177, ../scss/sub/_contentStyles.scss */
   #personalCounter .item.item-4.perspective {
     -moz-transform: perspective(500px) rotatey(-8deg) translatex(-8px);
     -ms-transform: perspective(500px) rotatey(-8deg) translatex(-8px);
     -webkit-transform: perspective(500px) rotatey(-8deg) translatex(-8px);
     transform: perspective(500px) rotatey(-8deg) translatex(-8px);
   }
-  /* line 182, ../scss/sub/_contentStyles.scss */
+  /* line 181, ../scss/sub/_contentStyles.scss */
   #personalCounter .item.item-2.perspective, #personalCounter .item.item-3.perspective {
     -moz-transform: scale(0.941, 0.941);
     -ms-transform: scale(0.941, 0.941);
@@ -1980,7 +1980,7 @@ table {
     -webkit-transform: scale(1);
   }
 }
-/* line 200, ../scss/sub/_contentStyles.scss */
+/* line 199, ../scss/sub/_contentStyles.scss */
 #personalCounter .item.spinner h2 {
   -webkit-animation: spin 1.8s 1 ease-in-out;
   animation: spin 1.8s 1 ease-in-out;
@@ -2003,7 +2003,7 @@ table {
     -webkit-transform: scale(1) rotate(720deg);
   }
 }
-/* line 218, ../scss/sub/_contentStyles.scss */
+/* line 217, ../scss/sub/_contentStyles.scss */
 #personalCounter .item .description {
   position: absolute;
   bottom: -60px;
@@ -2018,12 +2018,12 @@ table {
   font-weight: bold;
 }
 @media only screen and (max-width: 999px) {
-  /* line 232, ../scss/sub/_contentStyles.scss */
+  /* line 231, ../scss/sub/_contentStyles.scss */
   #personalCounter .item:nth-child(2n + 1) {
     margin-left: 0;
   }
 }
-/* line 238, ../scss/sub/_contentStyles.scss */
+/* line 237, ../scss/sub/_contentStyles.scss */
 #personalCounter .item h2 {
   font-size: 7em;
 }
@@ -2034,18 +2034,18 @@ table {
     margin-left: 2%;
     padding-top: 18.5%;
   }
-  /* line 246, ../scss/sub/_contentStyles.scss */
+  /* line 245, ../scss/sub/_contentStyles.scss */
   #personalCounter .item .description {
     font-size: 1em;
   }
 }
 @media only screen and (min-width: 1600px) {
-  /* line 253, ../scss/sub/_contentStyles.scss */
+  /* line 252, ../scss/sub/_contentStyles.scss */
   #personalCounter .item h2 {
     font-size: 9em;
   }
 }
-/* line 259, ../scss/sub/_contentStyles.scss */
+/* line 258, ../scss/sub/_contentStyles.scss */
 #personalCounter .item:first-child {
   margin-left: 0;
 }
@@ -2058,43 +2058,43 @@ table {
   }
 }
 @media only screen and (min-width: 1100px) {
-  /* line 270, ../scss/sub/_contentStyles.scss */
+  /* line 269, ../scss/sub/_contentStyles.scss */
   #personalCounter .item .description {
     font-size: 1em;
   }
 }
-/* line 276, ../scss/sub/_contentStyles.scss */
+/* line 275, ../scss/sub/_contentStyles.scss */
 #personalCounter .item.creativity h2 {
   font-size: 14em;
 }
 @media only screen and (max-width: 638px) {
-  /* line 276, ../scss/sub/_contentStyles.scss */
+  /* line 275, ../scss/sub/_contentStyles.scss */
   #personalCounter .item.creativity h2 {
     font-size: 9em;
   }
 }
 
-/* line 287, ../scss/sub/_contentStyles.scss */
+/* line 286, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith {
   margin-top: 50px;
   min-height: 500px;
 }
-/* line 291, ../scss/sub/_contentStyles.scss */
+/* line 290, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith ul {
   padding: 2%;
 }
-/* line 293, ../scss/sub/_contentStyles.scss */
+/* line 292, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith ul li {
   position: relative;
 }
 
-/* line 305, ../scss/sub/_contentStyles.scss */
+/* line 304, ../scss/sub/_contentStyles.scss */
 #youDeserveTheBest {
   font-family: 'UbuntuRegular';
   text-align: center;
   margin-top: 30px;
 }
-/* line 309, ../scss/sub/_contentStyles.scss */
+/* line 308, ../scss/sub/_contentStyles.scss */
 #youDeserveTheBest > h1 {
   display: block;
   font-size: 2.6em !important;
@@ -2103,7 +2103,7 @@ table {
   line-height: 28px !important;
   font-weight: normal !important;
 }
-/* line 318, ../scss/sub/_contentStyles.scss */
+/* line 317, ../scss/sub/_contentStyles.scss */
 #youDeserveTheBest > h2 {
   font-size: 1.3em;
   color: #870e19;

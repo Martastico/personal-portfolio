@@ -129,7 +129,7 @@ module.exports = React.createClass({
 															 </li>
 															 <li>
 																	<div className="item item-3">
-																		 <span>User Experience</span>
+																		 <span>Usability</span>
 																	</div>
 															 </li>
 															 <li>
