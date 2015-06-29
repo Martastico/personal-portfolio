@@ -56,7 +56,7 @@ var App = React.createClass({displayName: "App",
 							 theme: "mcc",
 							 scrollInertia: 120,
 							 advanced:{ updateOnContentResize: true },
-							 mouseWheel:{ scrollAmount: 200 }
+							 mouseWheel:{ scrollAmount: 120 }
 						});
 				 }
 			}
@@ -91,7 +91,7 @@ var App = React.createClass({displayName: "App",
 
 			return (
 					React.createElement("div", {className: classnames(pageWrapperClasses)}, 
-						 React.createElement("img", {id: "image-background", style: {backgroundImage: 'url(image/bigbg_2.jpg)'}, alt: "Saarman Background"}), 
+						 React.createElement("img", {id: "image-background", style: {backgroundImage: 'url(image/bigbg_1.jpg)'}, alt: "Saarman Background"}), 
 						 React.createElement("section", {id: "page"}, 
 								React.createElement("div", {className: "content"}, 
 									 React.createElement("header", {id: "header"}, 
@@ -598,8 +598,6 @@ module.exports = React.createClass({displayName: "exports",
 				 return _.snakeCase(n.path) === _.snakeCase(this.props.params.path);
 			}.bind(this));
 
-			//console.log(this);
-
 			//// No Nodes
 			if(_.isEmpty(filteredNode)) {
 				 return [(React.createElement(Node, {key: "nonode"}))];
@@ -649,6 +647,19 @@ module.exports = React.createClass({displayName: "exports",
 								pci4 = $(React.findDOMNode(this.refs.personalcounter_item_4)),
 								index_gr = $(React.findDOMNode(this.refs.index_gr));
 
+						//$(pci1).addClass("loaded spinner").delay(0).show(function() {
+						//	 $(pci2).addClass("loaded spinner").delay(0).show(function() {
+						//			$(pci3).addClass("loaded spinner").delay(0).show(function() {
+						//				 $(pci4).addClass("loaded spinner").delay(0).show(function() {
+						//						$(index_gr).addClass("loaded");
+						//						$(pci1).addClass("perspective");
+						//						$(pci2).addClass("perspective");
+						//						$(pci3).addClass("perspective");
+						//						$(pci4).addClass("perspective");
+						//				 });
+						//			});
+						//	 });
+						//});
 						$(pci1).addClass("loaded spinner").delay(500).show(function() {
 							 $(pci2).addClass("loaded spinner").delay(400).show(function() {
 									$(pci3).addClass("loaded spinner").delay(400).show(function() {
@@ -738,39 +749,96 @@ module.exports = React.createClass({displayName: "exports",
 											/*<div className="default">{body}</div>*/
 											React.createElement("div", {className: "index default"}, 
 												 React.createElement("div", {id: "helpWith"}, 
-														React.createElement("ul", null, 
-															 React.createElement("li", null, 
-																	React.createElement("div", {className: "item item-1"}, 
-																		 React.createElement("span", null, "User Experience")
+														React.createElement("div", {className: "design item"}, 
+															 React.createElement("div", {className: "wrapper"}, 
+																	React.createElement("div", {className: "header"}, 
+																		 React.createElement("h1", null, "Design"), 
+																		 React.createElement("span", {className: "description"}, "From Ideas To Visual Layout")
+																	), 
+																	React.createElement("div", {className: "content"}, 
+																		 React.createElement("div", {className: "body"}, 
+																				React.createElement("p", null, "Do you have a great idea for the next website or application and you just want to be able to touch it? I can provide with a design that will work everywhere, be it phone, tablet, laptop, desktop or even TV."), 
+																				React.createElement("p", null, "Web design includes many different specialities and diciplines. I try to balance everything as much as possible and come out with a result that will please you.")
+																		 ), 
+																		 React.createElement("div", {className: "tldr"}, 
+
+																				React.createElement("div", {className: "header"}, 
+																					 React.createElement("h2", null, "tl;dr")
+																				), 
+																				React.createElement("div", {className: "items"}, 
+																					 React.createElement("div", {className: "item"}, 
+																							React.createElement("div", {className: "header"}, 
+																								 React.createElement("h2", null, "User Experience")
+																							), 
+																							React.createElement("ul", null, 
+																								 React.createElement("li", null, React.createElement("span", null, "Information Design")), 
+																								 React.createElement("li", null, React.createElement("span", null, "Interaction Design")), 
+																								 React.createElement("li", null, React.createElement("span", null, "Research")), 
+																								 React.createElement("li", null, React.createElement("span", null, "And More"))
+																							)
+																					 ), 
+																					 React.createElement("div", {className: "item"}, 
+																							React.createElement("div", {className: "header"}, 
+																								 React.createElement("h2", null, "User Interface")
+																							), 
+																							React.createElement("ul", null, 
+																								 React.createElement("li", null, React.createElement("span", null, "Visual Design")), 
+																								 React.createElement("li", null, React.createElement("span", null, "Usability")), 
+																								 React.createElement("li", null, React.createElement("span", null, "Responsive"))
+																							)
+																					 )
+																				)
+																		 )
 																	)
-															 ), 
-															 React.createElement("li", null, 
-																	React.createElement("div", {className: "item item-2"}, 
-																		 React.createElement("span", null, "User Interface")
-																	)
-															 ), 
-															 React.createElement("li", null, 
-																	React.createElement("div", {className: "item item-3"}, 
-																		 React.createElement("span", null, "User Experience")
-																	)
-															 ), 
-															 React.createElement("li", null, 
-																	React.createElement("div", {className: "item item-4"}, 
-																		 React.createElement("span", null, "User Experience")
+															 )
+														), 
+
+														React.createElement("div", {className: "development item"}, 
+
+															 React.createElement("div", {className: "wrapper"}, 
+																	React.createElement("div", {className: "header"}, 
+																		 React.createElement("h1", null, "Development"), 
+																		 React.createElement("span", {className: "description"}, "From Design To Functionality")
+																	), 
+																	React.createElement("div", {className: "content"}, 
+																		 React.createElement("div", {className: "body"}, 
+																				React.createElement("p", null, "The design and layout is right there... but you can't really do anything with it. Time to make it a reality and interactive!"), 
+																				React.createElement("p", null, "I'm able to first create the concept quickly, to see how it will feels and looks like, using HTML, CSS, Javascript. Once everything looks and feels awesome, it's time to make it production ready and release it to the masses. To your requirements I will assure the functionality works on every device you need!")
+																		 ), 
+																		 React.createElement("div", {className: "tldr"}, 
+
+																				React.createElement("div", {className: "header"}, 
+																					 React.createElement("h2", null, "tl;dr")
+																				), 
+																				React.createElement("div", {className: "items"}, 
+																					 React.createElement("div", {className: "item"}, 
+																							React.createElement("div", {className: "header"}, 
+																								 React.createElement("h2", null, "Programming Skills")
+																							), 
+																							React.createElement("ul", null, 
+																								 React.createElement("li", null, React.createElement("span", null, "HTML & CSS (SCSS)")), 
+																								 React.createElement("li", null, React.createElement("span", null, "Javascript")), 
+																								 React.createElement("li", null, React.createElement("span", null, "NodeJS, ReactJS"))
+																							)
+																					 ), 
+																					 React.createElement("div", {className: "item"}, 
+																							React.createElement("div", {className: "header"}, 
+																								 React.createElement("h2", null, " ")
+																							), 
+																							React.createElement("ul", null, 
+																								 React.createElement("li", null, React.createElement("span", null, "Prototyping")), 
+																								 React.createElement("li", null, React.createElement("span", null, "Unit Testing")), 
+																								 React.createElement("li", null, React.createElement("span", null, "And More"))
+																							)
+																					 )
+																				)
+																		 )
 																	)
 															 )
 														)
 												 )
 											)
 									 )
-									 /*
-										<div className="gc g4">
-										<section className="gr">
-										<div className="gc g12 ">Layout 2</div>
-										<div className="gc g12">Layout 3</div>
-										</section>
-										</div>
-										*/
 								)
 
 						 )

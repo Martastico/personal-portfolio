@@ -27,6 +27,19 @@ module.exports = React.createClass({
 								pci4 = $(React.findDOMNode(this.refs.personalcounter_item_4)),
 								index_gr = $(React.findDOMNode(this.refs.index_gr));
 
+						//$(pci1).addClass("loaded spinner").delay(0).show(function() {
+						//	 $(pci2).addClass("loaded spinner").delay(0).show(function() {
+						//			$(pci3).addClass("loaded spinner").delay(0).show(function() {
+						//				 $(pci4).addClass("loaded spinner").delay(0).show(function() {
+						//						$(index_gr).addClass("loaded");
+						//						$(pci1).addClass("perspective");
+						//						$(pci2).addClass("perspective");
+						//						$(pci3).addClass("perspective");
+						//						$(pci4).addClass("perspective");
+						//				 });
+						//			});
+						//	 });
+						//});
 						$(pci1).addClass("loaded spinner").delay(500).show(function() {
 							 $(pci2).addClass("loaded spinner").delay(400).show(function() {
 									$(pci3).addClass("loaded spinner").delay(400).show(function() {
@@ -116,39 +129,96 @@ module.exports = React.createClass({
 											{/*<div className="default">{body}</div>*/}
 											<div className="index default">
 												 <div id="helpWith">
-														<ul>
-															 <li>
-																	<div className="item item-1">
-																		 <span>User Experience</span>
+														<div className="design item">
+															 <div className="wrapper">
+																	<div className="header">
+																		 <h1>Design</h1>
+																		 <span className="description">From Ideas To Visual Layout</span>
 																	</div>
-															 </li>
-															 <li>
-																	<div className="item item-2">
-																		 <span>User Interface</span>
+																	<div className="content">
+																		 <div className="body">
+																				<p>Do you have a great idea for the next website or application and you just want to be able to touch it? I can provide with a design that will work everywhere, be it phone, tablet, laptop, desktop or even TV.</p>
+																				<p>Web design includes many different specialities and diciplines. I try to balance everything as much as possible and come out with a result that will please you.</p>
+																		 </div>
+																		 <div className="tldr">
+
+																				<div className="header">
+																					 <h2>tl;dr</h2>
+																				</div>
+																				<div className="items">
+																					 <div className="item">
+																							<div className="header">
+																								 <h2>User Experience</h2>
+																							</div>
+																							<ul>
+																								 <li><span>Information Design</span></li>
+																								 <li><span>Interaction Design</span></li>
+																								 <li><span>Research</span></li>
+																								 <li><span>And More</span></li>
+																							</ul>
+																					 </div>
+																					 <div className="item">
+																							<div className="header">
+																								 <h2>User Interface</h2>
+																							</div>
+																							<ul>
+																								 <li><span>Visual Design</span></li>
+																								 <li><span>Usability</span></li>
+																								 <li><span>Responsive</span></li>
+																							</ul>
+																					 </div>
+																				</div>
+																		 </div>
 																	</div>
-															 </li>
-															 <li>
-																	<div className="item item-3">
-																		 <span>Usability</span>
+															 </div>
+														</div>
+
+														<div className="development item">
+
+															 <div className="wrapper">
+																	<div className="header">
+																		 <h1>Development</h1>
+																		 <span className="description">From Design To Functionality</span>
 																	</div>
-															 </li>
-															 <li>
-																	<div className="item item-4">
-																		 <span>User Experience</span>
+																	<div className="content">
+																		 <div className="body">
+																				<p>The design and layout is right there... but you can&#39;t really do anything with it. Time to make it a reality and interactive!</p>
+																				<p>I&#39;m able to first create the concept quickly, to see how it will feels and looks like, using HTML, CSS, Javascript. Once everything looks and feels awesome, it&#39;s time to make it production ready and release it to the masses. To your requirements I will assure the functionality works on every device you need!</p>
+																		 </div>
+																		 <div className="tldr">
+
+																				<div className="header">
+																					 <h2>tl;dr</h2>
+																				</div>
+																				<div className="items">
+																					 <div className="item">
+																							<div className="header">
+																								 <h2>Programming Skills</h2>
+																							</div>
+																							<ul>
+																								 <li><span>HTML & CSS (SCSS)</span></li>
+																								 <li><span>Javascript</span></li>
+																								 <li><span>NodeJS, ReactJS</span></li>
+																							</ul>
+																					 </div>
+																					 <div className="item">
+																							<div className="header">
+																								 <h2>&nbsp;</h2>
+																							</div>
+																							<ul>
+																								 <li><span>Prototyping</span></li>
+																								 <li><span>Unit Testing</span></li>
+																								 <li><span>And More</span></li>
+																							</ul>
+																					 </div>
+																				</div>
+																		 </div>
 																	</div>
-															 </li>
-														</ul>
+															 </div>
+														</div>
 												 </div>
 											</div>
 									 </section>
-									 {/*
-										<div className="gc g4">
-										<section className="gr">
-										<div className="gc g12 ">Layout 2</div>
-										<div className="gc g12">Layout 3</div>
-										</section>
-										</div>
-										*/}
 								</section>
 
 						 </div>

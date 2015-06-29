@@ -30,8 +30,6 @@ module.exports = React.createClass({
 				 return _.snakeCase(n.path) === _.snakeCase(this.props.params.path);
 			}.bind(this));
 
-			//console.log(this);
-
 			//// No Nodes
 			if(_.isEmpty(filteredNode)) {
 				 return [(<Node key={"nonode"}/>)];

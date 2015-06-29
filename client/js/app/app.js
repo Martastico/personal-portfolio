@@ -55,7 +55,7 @@ var App = React.createClass({
 							 theme: "mcc",
 							 scrollInertia: 120,
 							 advanced:{ updateOnContentResize: true },
-							 mouseWheel:{ scrollAmount: 200 }
+							 mouseWheel:{ scrollAmount: 120 }
 						});
 				 }
 			}
@@ -90,7 +90,7 @@ var App = React.createClass({
 
 			return (
 					<div className={classnames(pageWrapperClasses)}>
-						 <img id="image-background" style={{backgroundImage: 'url(image/bigbg_2.jpg)'}} alt="Saarman Background"/>
+						 <img id="image-background" style={{backgroundImage: 'url(image/bigbg_1.jpg)'}} alt="Saarman Background"/>
 						 <section id="page">
 								<div className="content">
 									 <header id="header">

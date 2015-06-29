@@ -131,10 +131,10 @@
 		display:table;
 		clear:both;
 	}
-	@include browser(laptopwide) {
+	//@include browser(laptopwide) {
 		border-bottom: 10px solid #d8d8d8;
 		padding-bottom: 20px;
-	}
+	//}
 	.item {
 		position: relative;
 		float: left;
@@ -284,17 +284,118 @@
 
 .index.default {
 	#helpWith {
-		margin-top: 50px;
-		//background: $color_main_red;
-		min-height: 500px;
-		ul {
-			padding: 2%;
-			li {
-				position: relative;
-				&:first-child {
+		margin-top: 45px;
+		@include browser(tablet) {
+			margin-top: 70px;
+		}
+		>.item {
+			color: #ffffff;
+			.wrapper {
+				&:after { // Clearfix
+					content:"";
+					display:table;
+					clear:both;
 				}
-				.item {
+				padding: 30px 20px;
+				@include browser(laptop) {
+					padding: 90px 35px 110px 35px;
+				}
+			}
+			.wrapper > .header {
+				font-size: 1.1em;
+				margin-bottom: 30px;
+				font-family: 'UbuntuLight';
+				h1 {
+					//text-transform: uppercase;
+					font-weight: normal;
+					border-bottom: none;
+					color: #ffffff;
+					margin-bottom: 5px;
+					padding-bottom: 0;
+					font-size: 2.2em;
+				}
+				span {
+					color: #ff5566;
+					font-size: 1.4em;
+					@include text-shadow(1px 1px rgba(0,0,0,0.2));
+				}
+			}
 
+			.content .body {
+
+				@include browser(laptop) {
+					width: 40%;
+					float: left;
+				}
+				p {
+					line-height: 1.5em;
+				}
+			}
+
+			.tldr {
+				@include browser(laptop) {
+					margin-left: 6%;
+					width: 54%;
+					float: left;
+				}
+
+				> .header h2 {
+					font-size: 1.8em;
+					color: #ff5566;
+					margin-bottom: 15px;
+					font-family: 'UbuntuLight';
+				}
+				.items {
+					&:after { // Clearfix
+						content:"";
+						display:table;
+						clear:both;
+					}
+					.item {
+						@include browser(tablet) {
+							float: left;
+							width: 50%;
+						}
+						> .header h2 {
+							font-size: 1.3em;
+							//color: #cccccc;
+							margin-bottom: 8px;
+							font-family: 'UbuntuLight';
+						}
+						ul > li {
+							font-size: 1.1em;
+							line-height: 35px;
+							position: relative;
+							&:before {
+								content: "\f046";
+								font-family: 'FontAwesome';
+								font-size: 1.4em;
+								position: absolute;
+								top: 0;
+								left: 0;
+							}
+							span {
+								padding-left: 30px;
+							}
+						}
+					}
+				}
+			}
+
+			&.design {
+				background: $color_main_red;
+			}
+			&.development {
+				background: #060609;
+				> .wrapper {
+					&:after { // Clearfix
+						content:"";
+						display:table;
+						clear:both;
+					}
+					//background: url("../image/code.jpg");
+					background-position: top right;
+					background-repeat: no-repeat;
 				}
 			}
 		}
@@ -304,15 +405,22 @@
 #youDeserveTheBest {
 	font-family: 'UbuntuRegular';
 	text-align: center;
-	margin-top: 30px;
+	margin-top: 20px;
+	@include browser(tablet) {
+		margin-top: 40px;
+	}
 	> h1 {
 		display: block;
 		font-size: 2.6em !important;
 		border-bottom: none !important;
 		color: #333333 !important;
-		line-height: 28px !important;
+		line-height: 40px !important;
 		font-weight: normal !important;
+		margin-bottom: 0 !important;
 
+		@include browser(mobile) {
+			font-size: 2em !important;
+		}
 	}
 	> h2 {
 		font-size: 1.3em;

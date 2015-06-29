@@ -461,6 +461,13 @@ table {
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'UbuntuLight';
+  src: url("../fonts/ubuntu/ubuntu-light/ubuntu-l.eot?v=4.3.0");
+  src: url("../fonts/ubuntu/ubuntu-light/ubuntu-l.eot?#iefix&v=4.3.0") format("embedded-opentype"), url("../fonts/ubuntu/ubuntu-light/ubuntu-l.woff?v=4.3.0") format("woff"), url("../fonts/ubuntu/ubuntu-light/ubuntu-l.ttf?v=4.3.0") format("truetype"), url("../fonts/ubuntu/ubuntu-light/ubuntu-l.svg?v=4.3.0#ubuntulight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
 /* line 1, ../scss/sub/_header.scss */
 #header {
   position: absolute;
@@ -1867,18 +1874,16 @@ table {
   opacity: 1;
 }
 
+/* line 127, ../scss/sub/_contentStyles.scss */
+#personalCounter {
+  border-bottom: 10px solid #d8d8d8;
+  padding-bottom: 20px;
+}
 /* line 129, ../scss/sub/_contentStyles.scss */
 #personalCounter:after {
   content: "";
   display: table;
   clear: both;
-}
-@media only screen and (min-width: 1290px) {
-  /* line 127, ../scss/sub/_contentStyles.scss */
-  #personalCounter {
-    border-bottom: 10px solid #d8d8d8;
-    padding-bottom: 20px;
-  }
 }
 /* line 138, ../scss/sub/_contentStyles.scss */
 #personalCounter .item {
@@ -2076,34 +2081,168 @@ table {
 
 /* line 286, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith {
-  margin-top: 50px;
-  min-height: 500px;
+  margin-top: 45px;
 }
-/* line 290, ../scss/sub/_contentStyles.scss */
-.index.default #helpWith ul {
-  padding: 2%;
+@media only screen and (min-width: 768px) {
+  /* line 286, ../scss/sub/_contentStyles.scss */
+  .index.default #helpWith {
+    margin-top: 70px;
+  }
 }
-/* line 292, ../scss/sub/_contentStyles.scss */
-.index.default #helpWith ul li {
+/* line 291, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item {
+  color: #ffffff;
+}
+/* line 293, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item .wrapper {
+  padding: 30px 20px;
+}
+/* line 294, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item .wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media only screen and (min-width: 1000px) {
+  /* line 293, ../scss/sub/_contentStyles.scss */
+  .index.default #helpWith > .item .wrapper {
+    padding: 90px 35px 110px 35px;
+  }
+}
+/* line 304, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item .wrapper > .header {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+  font-family: 'UbuntuLight';
+}
+/* line 308, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item .wrapper > .header h1 {
+  font-weight: normal;
+  border-bottom: none;
+  color: #ffffff;
+  margin-bottom: 5px;
+  padding-bottom: 0;
+  font-size: 2.2em;
+}
+/* line 317, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item .wrapper > .header span {
+  color: #ff5566;
+  font-size: 1.4em;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+}
+@media only screen and (min-width: 1000px) {
+  /* line 324, ../scss/sub/_contentStyles.scss */
+  .index.default #helpWith > .item .content .body {
+    width: 40%;
+    float: left;
+  }
+}
+/* line 330, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item .content .body p {
+  line-height: 1.5em;
+}
+@media only screen and (min-width: 1000px) {
+  /* line 335, ../scss/sub/_contentStyles.scss */
+  .index.default #helpWith > .item .tldr {
+    margin-left: 6%;
+    width: 54%;
+    float: left;
+  }
+}
+/* line 342, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item .tldr > .header h2 {
+  font-size: 1.8em;
+  color: #ff5566;
+  margin-bottom: 15px;
+  font-family: 'UbuntuLight';
+}
+/* line 349, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item .tldr .items:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media only screen and (min-width: 768px) {
+  /* line 354, ../scss/sub/_contentStyles.scss */
+  .index.default #helpWith > .item .tldr .items .item {
+    float: left;
+    width: 50%;
+  }
+}
+/* line 359, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item .tldr .items .item > .header h2 {
+  font-size: 1.3em;
+  margin-bottom: 8px;
+  font-family: 'UbuntuLight';
+}
+/* line 365, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item .tldr .items .item ul > li {
+  font-size: 1.1em;
+  line-height: 35px;
   position: relative;
 }
+/* line 369, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item .tldr .items .item ul > li:before {
+  content: "\f046";
+  font-family: 'FontAwesome';
+  font-size: 1.4em;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 377, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item .tldr .items .item ul > li span {
+  padding-left: 30px;
+}
+/* line 385, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item.design {
+  background: #870e19;
+}
+/* line 388, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item.development {
+  background: #060609;
+}
+/* line 390, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item.development > .wrapper {
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+/* line 391, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item.development > .wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-/* line 304, ../scss/sub/_contentStyles.scss */
+/* line 405, ../scss/sub/_contentStyles.scss */
 #youDeserveTheBest {
   font-family: 'UbuntuRegular';
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
-/* line 308, ../scss/sub/_contentStyles.scss */
+@media only screen and (min-width: 768px) {
+  /* line 405, ../scss/sub/_contentStyles.scss */
+  #youDeserveTheBest {
+    margin-top: 40px;
+  }
+}
+/* line 412, ../scss/sub/_contentStyles.scss */
 #youDeserveTheBest > h1 {
   display: block;
   font-size: 2.6em !important;
   border-bottom: none !important;
   color: #333333 !important;
-  line-height: 28px !important;
+  line-height: 40px !important;
   font-weight: normal !important;
+  margin-bottom: 0 !important;
 }
-/* line 317, ../scss/sub/_contentStyles.scss */
+@media only screen and (max-width: 638px) {
+  /* line 412, ../scss/sub/_contentStyles.scss */
+  #youDeserveTheBest > h1 {
+    font-size: 2em !important;
+  }
+}
+/* line 425, ../scss/sub/_contentStyles.scss */
 #youDeserveTheBest > h2 {
   font-size: 1.3em;
   color: #870e19;
