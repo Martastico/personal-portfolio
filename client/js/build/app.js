@@ -511,7 +511,7 @@ module.exports = React.createClass({displayName: "exports",
 
 	 linkTemplate: function() {
 			return _.map(Links, function(l, lk) {
-				 return (React.createElement("li", {key: lk}, React.createElement(Link, {to: l.type, params: {path: l.path}, onClick: this.handleClick, className: classnames(l.classes)}, React.createElement("span", null, l.name))))
+				 return (React.createElement("li", {key: lk}, React.createElement(Link, {to: l.type, params: {path: l.path}, onClick: this.handleClick, className: classnames(l.classes)}, React.createElement("span", null, l.name), React.createElement("span", {className: "icon"}))))
 			}.bind(this))
 	 },
 	 render: function() {

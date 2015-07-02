@@ -4,13 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongoose 	= require('mongoose');
+//var mongoose 	= require('mongoose');
 
 var index = require('./routes/index');
 var api = require('./routes/api/nodes');
 var users = require('./routes/users');
 //127.0.0.1:27017
-mongoose.connect('mongodb://127.0.0.1:27017');
+//mongoose.connect('mongodb://127.0.0.1:27017');
 
 var app = express();
 

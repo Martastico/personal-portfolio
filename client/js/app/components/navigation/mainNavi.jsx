@@ -61,7 +61,7 @@ module.exports = React.createClass({
 
 	 linkTemplate: function() {
 			return _.map(Links, function(l, lk) {
-				 return (<li key={lk}><Link to={l.type} params={{path: l.path}} onClick={this.handleClick} className={classnames(l.classes)}><span>{l.name}</span></Link></li>)
+				 return (<li key={lk}><Link to={l.type} params={{path: l.path}} onClick={this.handleClick} className={classnames(l.classes)}><span>{l.name}</span><span className="icon"></span></Link></li>)
 			}.bind(this))
 	 },
 	 render: function() {

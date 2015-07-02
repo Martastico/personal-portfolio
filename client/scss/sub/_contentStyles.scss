@@ -403,18 +403,18 @@
 }
 
 #youDeserveTheBest {
-	font-family: 'UbuntuRegular';
+	font-family: 'UbuntuLight';
 	text-align: center;
 	margin-top: 20px;
 	@include browser(tablet) {
-		margin-top: 40px;
+		margin-top: 20px;
 	}
 	> h1 {
 		display: block;
-		font-size: 2.6em !important;
+		font-size: 3.1em !important;
 		border-bottom: none !important;
 		color: #333333 !important;
-		line-height: 40px !important;
+		line-height: 1.2em !important;
 		font-weight: normal !important;
 		margin-bottom: 0 !important;
 
@@ -423,8 +423,9 @@
 		}
 	}
 	> h2 {
-		font-size: 1.3em;
+		font-size: 1.8em;
 		color: $color_main_red;
+		line-height: 1em;
 		font-weight: normal !important;
 	}
 }

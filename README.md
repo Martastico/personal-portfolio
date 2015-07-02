@@ -16,9 +16,9 @@ My personal portfolio source files.
 
 Current minified JS file size: ~430kb
 
-##Server-Side (coming soon™)
+##Server-Side
 
-
+* Node.js with Express 4
 
 ##Developing Environment
 
