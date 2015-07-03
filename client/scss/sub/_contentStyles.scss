@@ -132,8 +132,8 @@
 		clear:both;
 	}
 	//@include browser(laptopwide) {
-		border-bottom: 10px solid #d8d8d8;
-		padding-bottom: 20px;
+	border-bottom: 10px solid #d8d8d8;
+	padding-bottom: 20px;
 	//}
 	.item {
 		position: relative;
@@ -282,6 +282,17 @@
 	}
 }
 
+.index > .body {
+
+	@include transition-property(all);
+	@include transition-duration(0.3s);
+	@include transition-timing-function(ease-in);
+	@include opacity(0);
+	&.loaded {
+		@include opacity(1);
+	}
+}
+
 .index.default {
 	#helpWith {
 		margin-top: 45px;
@@ -329,6 +340,11 @@
 				}
 				p {
 					line-height: 1.5em;
+					&:last-child {
+						@include browser(desktop) {
+							padding-bottom: 0;
+						}
+					}
 				}
 			}
 
@@ -339,11 +355,13 @@
 					float: left;
 				}
 
-				> .header h2 {
-					font-size: 1.8em;
-					color: #ff5566;
-					margin-bottom: 15px;
-					font-family: 'UbuntuLight';
+				> .header {
+					h2 {
+						font-size: 1.8em;
+						color: #ff5566;
+						margin-bottom: 15px;
+						font-family: 'UbuntuLight';
+					}
 				}
 				.items {
 					&:after { // Clearfix
@@ -352,15 +370,29 @@
 						clear:both;
 					}
 					.item {
+						@include browser(mobiletablet) {
+							margin-top: 20px;
+							&:first-child {
+								margin-top: 0;
+							}
+						}
 						@include browser(tablet) {
 							float: left;
 							width: 50%;
 						}
-						> .header h2 {
-							font-size: 1.3em;
-							//color: #cccccc;
-							margin-bottom: 8px;
-							font-family: 'UbuntuLight';
+						> .header {
+							&.empty {
+								display: none;
+								@include browser(tablet) {
+									display: block;
+								}
+							}
+							h2 {
+								font-size: 1.3em;
+								//color: #cccccc;
+								margin-bottom: 8px;
+								font-family: 'UbuntuLight';
+							}
 						}
 						ul > li {
 							font-size: 1.1em;
@@ -411,7 +443,7 @@
 	}
 	> h1 {
 		display: block;
-		font-size: 3.1em !important;
+		font-size: 3em !important;
 		border-bottom: none !important;
 		color: #333333 !important;
 		line-height: 1.2em !important;

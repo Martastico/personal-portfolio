@@ -1403,7 +1403,7 @@ table {
 .main-content-wrapper #main_content #main_column_left_navi li a:hover, .main-content-wrapper #main_content #main_column_left_navi li a.active {
   background: #870e19;
   border-top-color: #760008;
-  border-right-color: #760008 !important;
+  border-right-color: #760008;
   color: #fff;
 }
 /* line 296, ../scss/sub/_page.scss */
@@ -2082,43 +2082,66 @@ table {
   }
 }
 
-/* line 286, ../scss/sub/_contentStyles.scss */
+/* line 285, ../scss/sub/_contentStyles.scss */
+.index > .body {
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+/* line 291, ../scss/sub/_contentStyles.scss */
+.index > .body.loaded {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+
+/* line 297, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith {
   margin-top: 45px;
 }
 @media only screen and (min-width: 768px) {
-  /* line 286, ../scss/sub/_contentStyles.scss */
+  /* line 297, ../scss/sub/_contentStyles.scss */
   .index.default #helpWith {
     margin-top: 70px;
   }
 }
-/* line 291, ../scss/sub/_contentStyles.scss */
+/* line 302, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith > .item {
   color: #ffffff;
 }
-/* line 293, ../scss/sub/_contentStyles.scss */
+/* line 304, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith > .item .wrapper {
   padding: 30px 20px;
 }
-/* line 294, ../scss/sub/_contentStyles.scss */
+/* line 305, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith > .item .wrapper:after {
   content: "";
   display: table;
   clear: both;
 }
 @media only screen and (min-width: 1000px) {
-  /* line 293, ../scss/sub/_contentStyles.scss */
+  /* line 304, ../scss/sub/_contentStyles.scss */
   .index.default #helpWith > .item .wrapper {
     padding: 90px 35px 110px 35px;
   }
 }
-/* line 304, ../scss/sub/_contentStyles.scss */
+/* line 315, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith > .item .wrapper > .header {
   font-size: 1.1em;
   margin-bottom: 30px;
   font-family: 'UbuntuLight';
 }
-/* line 308, ../scss/sub/_contentStyles.scss */
+/* line 319, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith > .item .wrapper > .header h1 {
   font-weight: normal;
   border-bottom: none;
@@ -2127,64 +2150,90 @@ table {
   padding-bottom: 0;
   font-size: 2.2em;
 }
-/* line 317, ../scss/sub/_contentStyles.scss */
+/* line 328, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith > .item .wrapper > .header span {
   color: #ff5566;
   font-size: 1.4em;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
 }
 @media only screen and (min-width: 1000px) {
-  /* line 324, ../scss/sub/_contentStyles.scss */
+  /* line 335, ../scss/sub/_contentStyles.scss */
   .index.default #helpWith > .item .content .body {
     width: 40%;
     float: left;
   }
 }
-/* line 330, ../scss/sub/_contentStyles.scss */
+/* line 341, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith > .item .content .body p {
   line-height: 1.5em;
 }
+@media only screen and (min-width: 1400px) {
+  /* line 343, ../scss/sub/_contentStyles.scss */
+  .index.default #helpWith > .item .content .body p:last-child {
+    padding-bottom: 0;
+  }
+}
 @media only screen and (min-width: 1000px) {
-  /* line 335, ../scss/sub/_contentStyles.scss */
+  /* line 351, ../scss/sub/_contentStyles.scss */
   .index.default #helpWith > .item .tldr {
     margin-left: 6%;
     width: 54%;
     float: left;
   }
 }
-/* line 342, ../scss/sub/_contentStyles.scss */
+/* line 359, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith > .item .tldr > .header h2 {
   font-size: 1.8em;
   color: #ff5566;
   margin-bottom: 15px;
   font-family: 'UbuntuLight';
 }
-/* line 349, ../scss/sub/_contentStyles.scss */
+/* line 367, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith > .item .tldr .items:after {
   content: "";
   display: table;
   clear: both;
 }
+@media only screen and (max-width: 768px) {
+  /* line 372, ../scss/sub/_contentStyles.scss */
+  .index.default #helpWith > .item .tldr .items .item {
+    margin-top: 20px;
+  }
+  /* line 375, ../scss/sub/_contentStyles.scss */
+  .index.default #helpWith > .item .tldr .items .item:first-child {
+    margin-top: 0;
+  }
+}
 @media only screen and (min-width: 768px) {
-  /* line 354, ../scss/sub/_contentStyles.scss */
+  /* line 372, ../scss/sub/_contentStyles.scss */
   .index.default #helpWith > .item .tldr .items .item {
     float: left;
     width: 50%;
   }
 }
-/* line 359, ../scss/sub/_contentStyles.scss */
+/* line 384, ../scss/sub/_contentStyles.scss */
+.index.default #helpWith > .item .tldr .items .item > .header.empty {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  /* line 384, ../scss/sub/_contentStyles.scss */
+  .index.default #helpWith > .item .tldr .items .item > .header.empty {
+    display: block;
+  }
+}
+/* line 390, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith > .item .tldr .items .item > .header h2 {
   font-size: 1.3em;
   margin-bottom: 8px;
   font-family: 'UbuntuLight';
 }
-/* line 365, ../scss/sub/_contentStyles.scss */
+/* line 397, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith > .item .tldr .items .item ul > li {
   font-size: 1.1em;
   line-height: 35px;
   position: relative;
 }
-/* line 369, ../scss/sub/_contentStyles.scss */
+/* line 401, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith > .item .tldr .items .item ul > li:before {
   content: "\f046";
   font-family: 'FontAwesome';
@@ -2193,46 +2242,46 @@ table {
   top: 0;
   left: 0;
 }
-/* line 377, ../scss/sub/_contentStyles.scss */
+/* line 409, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith > .item .tldr .items .item ul > li span {
   padding-left: 30px;
 }
-/* line 385, ../scss/sub/_contentStyles.scss */
+/* line 417, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith > .item.design {
   background: #870e19;
 }
-/* line 388, ../scss/sub/_contentStyles.scss */
+/* line 420, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith > .item.development {
   background: #060609;
 }
-/* line 390, ../scss/sub/_contentStyles.scss */
+/* line 422, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith > .item.development > .wrapper {
   background-position: top right;
   background-repeat: no-repeat;
 }
-/* line 391, ../scss/sub/_contentStyles.scss */
+/* line 423, ../scss/sub/_contentStyles.scss */
 .index.default #helpWith > .item.development > .wrapper:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 405, ../scss/sub/_contentStyles.scss */
+/* line 437, ../scss/sub/_contentStyles.scss */
 #youDeserveTheBest {
   font-family: 'UbuntuLight';
   text-align: center;
   margin-top: 20px;
 }
 @media only screen and (min-width: 768px) {
-  /* line 405, ../scss/sub/_contentStyles.scss */
+  /* line 437, ../scss/sub/_contentStyles.scss */
   #youDeserveTheBest {
     margin-top: 20px;
   }
 }
-/* line 412, ../scss/sub/_contentStyles.scss */
+/* line 444, ../scss/sub/_contentStyles.scss */
 #youDeserveTheBest > h1 {
   display: block;
-  font-size: 3.1em !important;
+  font-size: 3em !important;
   border-bottom: none !important;
   color: #333333 !important;
   line-height: 1.2em !important;
@@ -2240,12 +2289,12 @@ table {
   margin-bottom: 0 !important;
 }
 @media only screen and (max-width: 638px) {
-  /* line 412, ../scss/sub/_contentStyles.scss */
+  /* line 444, ../scss/sub/_contentStyles.scss */
   #youDeserveTheBest > h1 {
     font-size: 2em !important;
   }
 }
-/* line 425, ../scss/sub/_contentStyles.scss */
+/* line 457, ../scss/sub/_contentStyles.scss */
 #youDeserveTheBest > h2 {
   font-size: 1.8em;
   color: #870e19;
