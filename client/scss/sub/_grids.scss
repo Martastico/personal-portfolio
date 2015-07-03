@@ -16,6 +16,7 @@
 	.gc {
 		float: left;
 		padding: 20px 15px 0 15px;
+		margin-left: 2%;
 		@include clearfix();
 		@include browser(laptopplus) {
 			padding: 30px 25px 0 25px;
@@ -90,9 +91,9 @@
 				}
 			}
 		}
-		.g5 { width: 100%; }
+		.g5 { width: 30%; }
 		.g6 { width: 50%; }
-		.g7 { width: 100%; }
+		.g7 { width: 68%;}
 		.g8 { width: 65%; }
 		.g9 { width: 100%; }
 		.g10 { width: 100%; }

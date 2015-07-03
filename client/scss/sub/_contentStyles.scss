@@ -24,7 +24,7 @@
 			padding: 51px 30px 23px 30px;
 			margin-bottom: 0;
 			opacity: 0;
-			font-family: UbuntuRegular, sans-serif;
+			font-family: UbuntuRegular, sans-serif !important;
 			//font-weight: normal;
 			//@include text-shadow(1px 1px #000000);
 			@include transition-property(all);
@@ -55,7 +55,34 @@
 			p {
 				display: block;
 				padding-bottom: 20px;
+				font-size: 1.05em;
+			}
 
+			h1, h2 {
+				font-family: 'UbuntuLight';
+				font-weight: normal;
+				line-height: 1.1em;
+			}
+			h2 {
+				font-size: 1.5em;
+				margin-bottom: 15px;
+				&.line {
+					border-bottom: 2px solid #cccccc;
+					padding-bottom: 10px;
+				}
+			}
+
+			h1 {
+				font-size: 2.2em;
+			}
+
+			h1.title2 {
+				border-bottom: none;
+				margin-bottom: 0;
+			}
+
+			img {
+				max-width: 100%;
 			}
 
 			.wide {
@@ -64,12 +91,8 @@
 			.regular {
 				//padding: 30px 35px 30px 30px;
 			}
-			@include browser(desktoplarge) {
-				font-size: 1.1em;
-			}
-
 			@include browser(desktopextreme) {
-				font-size: 1.2em;
+				font-size: 1.1em;
 			}
 		}
 	}
@@ -126,6 +149,7 @@
 
 #personalCounter {
 	//@include clearfix;
+	font-size: 1.1em;
 	&:after { // Clearfix
 		content:"";
 		display:table;
@@ -159,12 +183,13 @@
 			z-index: 2;
 			display: block;
 			color: #ffffff;
-			font-size: 8em;
-			font-weight: bold;
+			font-size: 9em !important;
+			font-weight: bold !important;
 			text-align: center;
+			line-height: 0 !important;
 			width: 100%;
 			top: 50%;
-			font-family: UbuntuRegular, sans-serif;
+			font-family: UbuntuRegular, sans-serif !important;
 			-webkit-animation: rotatetext 1.2s 1 ease-in-out;
 			animation: rotatetext 1.2s 1 ease-in-out;
 
@@ -235,7 +260,7 @@
 
 
 		h2 {
-			font-size: 7em;
+			font-size: 7em !important;
 		}
 
 		@include browser(laptop) {
@@ -250,7 +275,7 @@
 
 		@include browser(desktoplarge) {
 			h2 {
-				font-size: 9em;
+				font-size: 9em !important;
 			}
 		}
 
@@ -274,9 +299,9 @@
 		&.creativity {
 			h2 {
 				@include browser(mobile) {
-					font-size: 9em;
+					font-size: 9em !important;
 				}
-				font-size: 14em;
+				font-size: 14em !important;
 			}
 		}
 	}
@@ -323,11 +348,11 @@
 					color: #ffffff;
 					margin-bottom: 5px;
 					padding-bottom: 0;
-					font-size: 2.2em;
+					font-size: 2.8em;
 				}
 				span {
 					color: #ff5566;
-					font-size: 1.4em;
+					font-size: 1.5em;
 					@include text-shadow(1px 1px rgba(0,0,0,0.2));
 				}
 			}
@@ -340,6 +365,7 @@
 				}
 				p {
 					line-height: 1.5em;
+					font-size: 1.1em;
 					&:last-child {
 						@include browser(desktop) {
 							padding-bottom: 0;
@@ -443,7 +469,7 @@
 	}
 	> h1 {
 		display: block;
-		font-size: 3em !important;
+		font-size: 3.5em !important;
 		border-bottom: none !important;
 		color: #333333 !important;
 		line-height: 1.2em !important;
@@ -451,11 +477,11 @@
 		margin-bottom: 0 !important;
 
 		@include browser(mobile) {
-			font-size: 2em !important;
+			font-size: 2.4em !important;
 		}
 	}
 	> h2 {
-		font-size: 1.8em;
+		font-size: 2.1em !important;
 		color: $color_main_red;
 		line-height: 1em;
 		font-weight: normal !important;
