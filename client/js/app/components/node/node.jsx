@@ -24,7 +24,7 @@ module.exports = React.createClass({
 	 },
 
 	 render: function () {
-			console.log("Node Loaded");
+			console.log("Node Rendered");
 
 			// Node Not Found
 			if(_.isEmpty(this.props.node)) {

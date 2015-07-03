@@ -1790,7 +1790,7 @@ table {
 @media only screen and (min-width: 1600px) {
   /* line 21, ../scss/sub/_contentStyles.scss */
   #main_column_middle .gwrapper .big-title {
-    height: 121px;
+    min-height: 121px;
     line-height: 40px;
   }
 }
@@ -2083,7 +2083,7 @@ table {
 }
 
 /* line 285, ../scss/sub/_contentStyles.scss */
-.index > .body {
+.index > .body > .bottom {
   -moz-transition-property: all;
   -o-transition-property: all;
   -webkit-transition-property: all;
@@ -2100,7 +2100,7 @@ table {
   opacity: 0;
 }
 /* line 291, ../scss/sub/_contentStyles.scss */
-.index > .body.loaded {
+.index > .body > .bottom.loaded {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }

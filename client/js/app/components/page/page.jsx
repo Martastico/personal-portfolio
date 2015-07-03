@@ -12,7 +12,7 @@ module.exports = React.createClass({
 
 	 componentDidMount: function() {
 			var big_title = $(React.findDOMNode(this.refs.big_title));
-			var content = $(React.findDOMNode(this.refs.main_content));
+			var content = $(".gr.animation");
 
 
 			// Do animations here for specific custom pages..
@@ -23,17 +23,17 @@ module.exports = React.createClass({
 
 				 // If Home
 				 if(!_.isEmpty(this.props.data.style) && this.props.data.style.name === "index") {
-						var pci1 = $(React.findDOMNode(this.refs.personalcounter_item_1)),
-								pci2 = $(React.findDOMNode(this.refs.personalcounter_item_2)),
-								pci3 = $(React.findDOMNode(this.refs.personalcounter_item_3)),
-								pci4 = $(React.findDOMNode(this.refs.personalcounter_item_4)),
-								index_gr = $(".index > .body");
+						var pci1 = $(".index .main_content .personalcounter_item_1"),
+								pci2 = $(".index .main_content .personalcounter_item_2"),
+								pci3 = $(".index .main_content .personalcounter_item_3"),
+								pci4 = $(".index .main_content .personalcounter_item_4"),
+								index_bottom = $(".index > .body > .bottom");
 
 						$(pci1).addClass("loaded spinner").delay(500).show(function() {
 							 $(pci2).addClass("loaded spinner").delay(400).show(function() {
 									$(pci3).addClass("loaded spinner").delay(400).show(function() {
 										 $(pci4).addClass("loaded spinner").delay(1400).show(function() {
-												$(index_gr).addClass("loaded");
+												$(index_bottom).addClass("loaded");
 												$(pci1).addClass("perspective");
 												$(pci2).addClass("perspective");
 												$(pci3).addClass("perspective");
@@ -43,7 +43,7 @@ module.exports = React.createClass({
 							 });
 						});
 				 }
-			}.bind(this), 50);
+			}.bind(this), 150);
 	 },
 
 
@@ -81,30 +81,6 @@ module.exports = React.createClass({
 				 template = (
 						 <div className={classnames([style.name, "gwrapper"])}>
 								{title}
-								<section className="gr top animation" ref="main_content">
-									 <section className="gc g12">
-											<div className="default">
-												 <section id="personalCounter">
-														<div className="item item-1 years" ref="personalcounter_item_1">
-															 <h2>5</h2>
-															 <div className="description"><span className="years-of">Years of </span><span className="experience">Experience</span></div>
-														</div>
-														<div className="item item-2 ideas" ref="personalcounter_item_2">
-															 <h2>38</h2>
-															 <div className="description"><span>Ideas Per Day</span></div>
-														</div>
-														<div className="item item-3 creativity" ref="personalcounter_item_3">
-															 <h2>&#8734;</h2>
-															 <div className="description"><span>Creativity</span></div>
-														</div>
-														<div className="item item-4 reasons" ref="personalcounter_item_4">
-															 <h2>0</h2>
-															 <div className="description"><span>Reasons To Quit</span></div>
-														</div>
-												 </section>
-											</div>
-									 </section>
-								</section>
 								{body}
 						 </div>
 				 )
@@ -115,7 +91,7 @@ module.exports = React.createClass({
 	 },
 
 	 render: function() {
-			console.log("page render");
+			console.log("Page Rendered");
 			// Props: data, route
 			var data = !_.isEmpty(this.props.data) ? this.props.data : false;
 			var route = !_.isEmpty(this.props.route) ? this.props.route: false;

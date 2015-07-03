@@ -43,7 +43,7 @@
 			}
 
 			@include browser(desktoplarge) {
-				height: 121px;
+				min-height: 121px;
 				line-height: 40px;
 			}
 		}
@@ -282,7 +282,7 @@
 	}
 }
 
-.index > .body {
+.index > .body > .bottom {
 
 	@include transition-property(all);
 	@include transition-duration(0.3s);

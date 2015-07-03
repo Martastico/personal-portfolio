@@ -43,7 +43,7 @@ module.exports = React.createClass({
 	 },
 
 	 render: function () {
-			console.log("Nodes Loaded");
+			console.log("Nodes Rendered");
 			return this.renderNodes()[0];
 			//return (<div>lol</div>);
 	 }

@@ -33,10 +33,13 @@ module.exports = Reflux.createStore({
 	 fetchNode: function(path) {
 			//console.log("fetching node");
 			//console.log(path);
+
+			console.log("path '/" + path + "' did not exist, requesting to load node from server if node exists");
 			// TODO: REplace with real query
 			request.get(Config.path.api + '/nodes/' + path).end(function(err, res) {
 				 if(!err) {
 						// Success
+						console.log("Successfully requested node for path '/" + path + "'");
 						this.updateNodes(res.body);
 				 } else {
 						// Handle Errors
@@ -45,7 +48,7 @@ module.exports = Reflux.createStore({
 						// So when going back to same path it will retry to get the node.
 						if(!_.isUndefined(res)) {
 							 if(res.status === 404) {
-									console.log("404");
+									console.log("404 - path '/" + path + "' not found");
 									this.updateNodes(res.body);
 							 }
 						} else {
@@ -103,6 +106,7 @@ module.exports = Reflux.createStore({
 			if(_.isUndefined(path)) {
 				 path = "home";
 			}
+			console.log("Checking if path '/" + path + "' with node exists");
 			//console.log("Check if Node ID: " + path + " Exists.");
 
 			// If empty, fetch node from server.
@@ -115,7 +119,10 @@ module.exports = Reflux.createStore({
 			if(_.isEmpty(nodeExists)) this.fetchNode(path);
 
 			// Node exists, show it.
-			else Actions.getDataRoute.completed();
+			else {
+				 console.log("path '/" + path + "' exists, displaying now");
+				 Actions.getDataRoute.completed();
+			}
 
 	 },
 
