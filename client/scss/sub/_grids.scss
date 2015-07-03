@@ -16,8 +16,6 @@
 	.gc {
 		float: left;
 		padding: 20px 15px 0 15px;
-		margin-left: 2%;
-		@include clearfix();
 		@include browser(laptopplus) {
 			padding: 30px 25px 0 25px;
 		}
@@ -28,6 +26,10 @@
 			margin-left: 0 !important;
 		}
 		&:first-child { margin-left: 0;}
+		@include browser(laptop) {
+
+			margin-left: 2%;
+		}
 		.gr {
 			padding: 0;
 			.gc {

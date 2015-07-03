@@ -56,12 +56,13 @@
 				display: block;
 				padding-bottom: 20px;
 				font-size: 1.05em;
+				line-height: 1.6em;
 			}
 
 			h1, h2 {
 				font-family: 'UbuntuLight';
 				font-weight: normal;
-				line-height: 1.1em;
+				line-height: 1.3em;
 			}
 			h2 {
 				font-size: 1.5em;
@@ -79,6 +80,26 @@
 			h1.title2 {
 				border-bottom: none;
 				margin-bottom: 0;
+			}
+
+			.text-box {
+				background: #000000;
+				color: #ffffff;
+				padding: 30px 25px;
+				font-size: 1.3em;
+				font-family: 'UbuntuLight';
+				margin: 10px 0;
+				line-height: 1.5em;
+				@include browser(laptop) {
+					margin: 10px 0 10px -25px;
+				}
+
+				@include browser(desktop) {
+					margin: 10px 0 10px -35px;
+				}
+				p:last-child {
+					padding-bottom: 0;
+				}
 			}
 
 			img {
@@ -262,6 +283,7 @@
 		h2 {
 			font-size: 7em !important;
 		}
+
 
 		@include browser(laptop) {
 			width: 23.5%;
@@ -487,3 +509,4 @@
 		font-weight: normal !important;
 	}
 }
+
