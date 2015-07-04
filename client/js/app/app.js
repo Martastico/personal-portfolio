@@ -45,9 +45,12 @@ var App = React.createClass({
 
 			var mainColumnMiddleContent = React.findDOMNode(this.refs.mainColumnMiddleContent);
 
+			console.log("hello");
+
 			resizedw();
 
 			function resizedw(){
+				 console.log("Browser resized");
 				 if($(window).width() < 639) {
 						$(mainColumnMiddleContent).mCustomScrollbar("destroy")
 				 } else {

@@ -101,6 +101,11 @@
 		.g10 { width: 100%; }
 		.g11 { width: 100%; }
 		.g12 {
+			&:after { // Clearfix
+				content:"";
+				display:table;
+				clear:both;
+			}
 			width: 100%;
 			float: none;
 			&.gc {
