@@ -1,12 +1,3 @@
-.example-enter {
-	opacity: 0.01;
-	transition: opacity 8s ease-in;
-}
-
-.example-enter.example-enter-active {
-	opacity: 1;
-}
-
 #main_column_middle {
 	.gwrapper {
 		h1 {
@@ -65,7 +56,7 @@
 				line-height: 1.3em;
 			}
 			h2 {
-				font-size: 1.5em;
+				font-size: 1.6em;
 				margin-bottom: 15px;
 				&.line {
 					border-bottom: 2px solid #cccccc;
@@ -91,14 +82,17 @@
 				margin: 10px 0;
 				line-height: 1.5em;
 				@include browser(laptop) {
-					margin: 10px 0 10px -25px;
+					margin: 10px 0 30px -25px;
 				}
 
 				@include browser(desktop) {
-					margin: 10px 0 10px -35px;
+					margin: 10px 0 30px -35px;
 				}
 				p:last-child {
 					padding-bottom: 0;
+				}
+				&:last-child {
+					margin-bottom: 0;
 				}
 			}
 
@@ -124,11 +118,13 @@
 		.gr {
 			&.animation {
 				opacity: 0;
-				@include transition-property(opacity);
+				@include transition-property(opacity, transform);
 				@include transition-duration(0.3s);
 				@include transition-timing-function(ease-in);
+				@include transform(translate(-20px, 0px));
 				&.loaded {
 					opacity: 1;
+					@include transform(translate(0px, 0px));
 				}
 			}
 		}
@@ -510,3 +506,53 @@
 	}
 }
 
+.me-pic {
+	border-bottom: 8px solid #870e19;
+	@include transform(translate(30px, 0));
+	.gr.animation.loaded & {
+		@include transform(translate(0px, 0));
+	}
+	@include transition-property(all);
+	@include transition-duration(0.3s);
+	@include transition-timing-function(ease-in);
+
+	@include browser(mobilelaptop) {
+		display: block;
+		max-width: 60% !important;
+		margin: 0 auto;
+	}
+}
+
+
+
+.redcolor {
+	color: $color_main_red !important;
+}
+
+.sizem {
+	font-size: 1.15em !important;
+}
+.sizel {
+	font-size: 1.25em !important;
+}
+
+.skills-list {
+	&:after { // Clearfix
+		content:"";
+		display:table;
+		clear:both;
+	}
+
+	h3 {
+		float: left;
+		display: block;
+		width: 35%;
+		color: $color_main_red;
+		font-size: 1.1em;
+	}
+	ul {
+		float: left;
+		width: 55%;
+	}
+
+}
