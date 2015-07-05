@@ -7,7 +7,7 @@ My personal portfolio source files. [ssaarman.net](http://saarman.net)
 * [ReactJS](https://github.com/facebook/react) (with .JSX) 
 * [Reflux](https://github.com/spoike/refluxjs) 
 * [react-router](https://github.com/rackt/react-router)
-* [react-document-title](https://github.com/gaearon/react-document-title)
+* [react-helmet](https://github.com/nfl/react-helmet)
 * [classnames](https://github.com/JedWatson/classnames)
 * [Lodash](https://github.com/lodash/lodash)
 * [jQuery](https://github.com/jquery/jquery) 
@@ -18,7 +18,8 @@ Current minified JS file size: ~430kb
 
 ##Server-Side
 
-* Node.js with Express 4
+* Node.js with Express 4 
+* MongoDB To be implemented
 
 ##Developing Environment
 

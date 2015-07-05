@@ -2,7 +2,6 @@ var express 	= require('express');
 var router 		= express.Router();
 var path 			= require("path");
 var _ 				= require("lodash");
-var mongoose 	= require('mongoose');
 
 
 var _testBody = '';
@@ -33,10 +32,14 @@ var nodes = [
 	 {
 			NID: 2,
 			nodeType: 1,
-			title: "About Myself",
+			title: "A little bit about myself",
 			showTitle: true,
 			body: aboutBody,
-			path: 'about'
+			path: 'about',
+			meta: {
+				 title: "About | Front-End Web Developer and Designer from Finland",
+				 description: "A little about Mart Saarman and his technical skills. Including Javascript, ReactJS, AngularJS and NodeJS"
+			}
 	 },
 	 {
 			NID: 3,

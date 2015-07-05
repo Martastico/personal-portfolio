@@ -73,10 +73,10 @@ var App = React.createClass({
 	 componentWillUpdate: function() {
 			var mainColumnMiddleContent = React.findDOMNode(this.refs.mainColumnMiddleContent);
 			if(this.state.AppStore.classes.routeLoading) {
-				 $(mainColumnMiddleContent).mCustomScrollbar("scrollTo", [0, null]);
-				 //mainColumnMiddleContent.scrollTo(20, 0);
+				 setTimeout(function() {
+						$(mainColumnMiddleContent).mCustomScrollbar("scrollTo", [0, null]);
+				 }, 50);
 			}
-			//console.log(window);
 	 },
 
 	 render: function() {
@@ -116,7 +116,7 @@ var App = React.createClass({
 											</div>
 											<div className="bottom">
 												 <div className="left">
-														<span>Web Designer &amp; Developer</span>
+														<span>Web Designer &amp; Developer in Finland</span>
 												 </div>
 												 <div className={classnames(HeaderBottomRightWidgetsClasses)}>
 														<HeaderBottomRightWidgets openWidget={HeaderBottomRightWidgetsClasses[1]}/>

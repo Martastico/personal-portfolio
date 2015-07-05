@@ -25,7 +25,7 @@ var PATHS = {
 
 function buildScript(file, watch) {
 	 var props = {
-			entries: [PATHS.client.dev + 'js/app' + '/' + file],
+			entries: ['app' + '/' + file],
 			debug: true,
 			cache: {},
 			packageCache: {}
@@ -36,10 +36,10 @@ function buildScript(file, watch) {
 			var stream = bundler.bundle();
 			return stream.on('error', console.log.bind(console))
 					.pipe(source(file))
-					//.pipe(streamify(sourcemaps.init({loadMaps: true})))
-					.pipe(streamify(uglify()))
+					.pipe(streamify(sourcemaps.init({loadMaps: true})))
+					//.pipe(streamify(uglify()))
 					//.pipe(source(file))
-					//.pipe(streamify(sourcemaps.write('./')))
+					.pipe(streamify(sourcemaps.write('./')))
 					.pipe(gulp.dest(PATHS.client.dev + 'js/build' + '/'));
 	 }
 	 bundler.on('update', function() {
