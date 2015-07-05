@@ -29,6 +29,8 @@ module.exports = React.createClass({
 	 // If clicked outside the search wrapper, close it.
 	 handleClickOutside: function(evt) {
 			Actions.widgetOpen("search");
+			console.log("Closed (Clicked Outside)");
+			ga('send', 'event', 'Header Widgets', 'Closed (Clicked Outside)', "search");
 	 },
 
 	 handleSearchChange: function(e) {
@@ -39,6 +41,7 @@ module.exports = React.createClass({
 
 	 handleSearchKeyDown: function(e) {
 			if (e.keyCode === 13 || e.target.className === "submit-search") {
+				 var searchValue =  React.findDOMNode(this.refs.submitSearch);
 				 return this.submitSearch();
 			}
 			if(e.keyCode === 27) {
@@ -55,6 +58,7 @@ module.exports = React.createClass({
 				 console.log("already searching")
 			} else {
 				 Actions.mainSearch(searchValue);
+				 ga('send', 'event', 'Header Widgets', 'Searched', searchValue);
 			}
 
 	 },

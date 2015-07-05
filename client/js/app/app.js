@@ -45,11 +45,9 @@ var App = React.createClass({
 
 			var mainColumnMiddleContent = React.findDOMNode(this.refs.mainColumnMiddleContent);
 
-			console.log("hello");
-
 			resizedw();
 
-			function resizedw(){
+			function resizedw() {
 				 console.log("Browser resized");
 				 if($(window).width() < 639) {
 						$(mainColumnMiddleContent).mCustomScrollbar("destroy")
@@ -70,6 +68,15 @@ var App = React.createClass({
 			};
 
 
+	 },
+
+	 componentWillUpdate: function() {
+			var mainColumnMiddleContent = React.findDOMNode(this.refs.mainColumnMiddleContent);
+			if(this.state.AppStore.classes.routeLoading) {
+				 $(mainColumnMiddleContent).mCustomScrollbar("scrollTo", [0, null]);
+				 //mainColumnMiddleContent.scrollTo(20, 0);
+			}
+			//console.log(window);
 	 },
 
 	 render: function() {
@@ -178,6 +185,8 @@ var routes = (
 Router.run(routes, Router.HistoryLocation, function (Handler, State) {
 	 Actions.routeLoad.triggerPromise(State).then(function() {
 			React.render(<Handler />, document.getElementById('app'));
+			console.log("Route changed");
+			ga('send', 'pageview', State.path);
 	 }).catch(function(err) {
 			console.log(err);
 	 })

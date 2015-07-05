@@ -46,11 +46,6 @@ module.exports = React.createClass({
 			}.bind(this), 150);
 	 },
 
-
-	 componentWillLeave: function() {
-			console.log("lol");
-	 },
-
 	 styles: function(data, route) {
 
 			var title 	= data.showTitle ? (<h1 className="big-title" ref="big_title">{data.title}</h1>) : false;
