@@ -32,6 +32,9 @@
 	@else if $media == laptopwide {
 		@media only screen and (min-width: 1290px) { @content; }
 	}
+	@else if $media == laptoplaptopwide {
+		@media only screen and (min-width: 1000px) and (max-width: 1290px) { @content; }
+	}
 	@else if $media == desktop {
 		@media only screen and (min-width: 1400px) { @content; }
 	}

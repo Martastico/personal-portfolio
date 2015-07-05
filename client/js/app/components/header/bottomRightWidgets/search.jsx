@@ -29,7 +29,6 @@ module.exports = React.createClass({
 	 // If clicked outside the search wrapper, close it.
 	 handleClickOutside: function(evt) {
 			Actions.widgetOpen("search");
-			console.log("Closed (Clicked Outside)");
 			ga('send', 'event', 'Header Widgets', 'Closed (Clicked Outside)', "search");
 	 },
 
@@ -52,13 +51,13 @@ module.exports = React.createClass({
 	 // Send search request
 	 submitSearch: function() {
 			var SStore = this.state.SearchStore;
-			var searchValue = this.state.searchValue;
+			var searchValue = _.trim(this.state.searchValue);
+			searchValue = _.trunc(searchValue, {'length': 24, 'omission': ""});
 
 			if(SStore.searching) {
 				 console.log("already searching")
 			} else {
 				 Actions.mainSearch(searchValue);
-				 ga('send', 'event', 'Header Widgets', 'Searched', searchValue);
 			}
 
 	 },
@@ -92,8 +91,8 @@ module.exports = React.createClass({
 				 return (<li key={srk}> <Link to={Config.path.relative + "/" + sr.path} params={{path: sr.path}}>{sr.title}</Link> </li>)
 			});
 
-			if(_.isEmpty(searchResults))
-				 searchResults = (<li className="no-result">No Results</li>);
+			if(_.isEmpty(searchResults)) searchResults = (<li className="no-result">No Results</li>);
+
 
 			return (
 					<div className={classnames(resultClasses)}>

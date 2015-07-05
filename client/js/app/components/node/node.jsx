@@ -2,7 +2,6 @@
 
 var React 				= require('react');
 var _ 				 		= require('lodash');
-var DocumentTitle	= require('react-document-title');
 
 // Config
 var Config = require('../../app.config');
@@ -11,11 +10,11 @@ var Config = require('../../app.config');
 var Page = require('../page/page.jsx');
 
 module.exports = React.createClass({
- //
+	 //
 	 //statics: {
-		//	willTransitionTo: function (transition, params) {
-		//		 //transition.replaceWith('/bob');
-		//	}
+	 //	willTransitionTo: function (transition, params) {
+	 //		 //transition.replaceWith('/bob');
+	 //	}
 	 //},
 
 
@@ -29,16 +28,12 @@ module.exports = React.createClass({
 			// Node Not Found
 			if(_.isEmpty(this.props.node)) {
 				 return (
-						 <DocumentTitle title="Mart Saarman - Page Not Found">
-								<div className="node-not-found">Node Not Found</div>
-						 </DocumentTitle>
+						 <div className="node-not-found">Node Not Found</div>
 				 )
 			}
 
 			return (
-					<DocumentTitle title={this.props.node.title + " | " + Config.appTitle}>
-						 <Page route={this.props.route} data={this.props.node}/>
-					</DocumentTitle>
+					<Page route={this.props.route} data={this.props.node}/>
 			)
 	 }
 });

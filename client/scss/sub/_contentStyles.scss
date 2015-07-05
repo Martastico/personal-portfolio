@@ -276,7 +276,13 @@
 
 		h2 {
 			font-size: 7em !important;
+
+			@include browser(laptoplaptopwide) {
+				font-size: 5em !important;
+			}
 		}
+
+
 
 
 		@include browser(laptop) {
@@ -306,7 +312,15 @@
 			padding-top: 59%;
 
 		}
-		@include browser(laptopplus) {
+
+		@include browser(laptoplaptopwide) {
+			.description {
+				font-size: 0.8em;
+			}
+		}
+
+
+		@include browser(laptopwide) {
 			.description {
 				font-size: 1em;
 			}
@@ -314,10 +328,14 @@
 
 		&.creativity {
 			h2 {
+				font-size: 14em !important;
 				@include browser(mobile) {
 					font-size: 9em !important;
 				}
-				font-size: 14em !important;
+
+				@include browser(laptoplaptopwide) {
+					font-size: 11em !important;
+				}
 			}
 		}
 	}

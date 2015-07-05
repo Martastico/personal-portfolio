@@ -4,10 +4,10 @@
 var React 		 		= require('react');
 var Reflux 		 		= require('reflux');
 var Router 		 		= require('react-router');
-var DocumentTitle	= require('react-document-title');
 var $ 				 		= require('jquery');
 var _ 				 		= require('lodash');
 var classnames 		= require('classnames');
+var Helmet 				= require('react-helmet');
 
 // jQuery Plugins
 require('malihu-custom-scrollbar-plugin')($);
@@ -143,10 +143,14 @@ var App = React.createClass({
 												 </section>
 												 <section id="main_column_middle">
 														<div className="content" ref="mainColumnMiddleContent">
-
-															 <DocumentTitle title='Mart Saarman'>
-																	<RouteHandler/>
-															 </DocumentTitle>
+															 <Helmet
+																	 titleTemplate = {Config.titleTemplate}
+																	 meta={[
+																			 {"name": "description", "content": ""},
+																			 {"property": "og:type", "content": "article"}
+																	 ]}
+																	 />
+															 <RouteHandler/>
 
 														</div>
 														<div className="loading">

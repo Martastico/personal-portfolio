@@ -51,6 +51,9 @@ module.exports = Reflux.createStore({
 
 	 onFullScreen: function() {
 			_classes.fullScreenOpen = !_classes.fullScreenOpen;
+			var fullScreenTranslate = _classes.fullScreenOpen ? "Fullscreen" : "Not Fullscreen";
+
+			ga('send', 'event', 'Header Widgets', 'Changed Fullscreen Option', fullScreenTranslate);
 			this.updateApp();
 	 },
 

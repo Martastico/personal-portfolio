@@ -5,6 +5,12 @@ var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 var _ 				 		= require('lodash');
 var classnames 		= require('classnames');
 var $ 				 		= require('jquery');
+var Helmet 				= require('react-helmet');
+
+
+// Config
+var Config = require('../../app.config');
+
 
 // TODO: Make it more dynamic.
 // TODO: Ability to define styles from server side
@@ -53,6 +59,17 @@ module.exports = React.createClass({
 			var style 	= !_.isEmpty(data.style) ? data.style : false;
 			var template = [];
 
+			var metaTitle = !_.isEmpty(data.meta) && !_.isEmpty(data.meta.title) ? data.meta.title : data.title;
+			var metaDescription = !_.isEmpty(data.meta) && !_.isEmpty(data.meta.description) ? data.meta.description : "";
+
+			var metaData = {
+				 title: metaTitle,
+				 description: metaDescription
+			};
+
+			console.log(Config.appTitle);
+			console.log(metaTitle);
+
 			// Style: Default
 			if (!style) {
 				 template = (
@@ -81,7 +98,16 @@ module.exports = React.createClass({
 				 )
 			}
 
-			return (<ReactCSSTransitionGroup transitionName="example">{template}</ReactCSSTransitionGroup>);
+			return (
+					<Helmet
+							title = {metaData.title}
+							meta={[
+									{"name": "description", "content": metaData.description}
+							]}
+							>
+						 {template}
+					</Helmet>
+			);
 
 	 },
 

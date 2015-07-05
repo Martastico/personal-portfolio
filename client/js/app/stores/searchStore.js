@@ -13,6 +13,7 @@ var _data = {
 	 searchResults: []
 };
 
+// TODO: Server-side
 var _allSearchResults = [
 	 {
 			title: "Home",
@@ -63,8 +64,13 @@ module.exports = Reflux.createStore({
 				 return !_.isEmpty(_data.searchValue) && _.includes(sr.title.toLowerCase(), _data.searchValue.toLowerCase());
 			});
 
-			//console.log(_data.searchResults);
+			if(!_.isEmpty(_data.searchResults)) {
+				 ga('send', 'event', 'Header Widgets', 'Searched (Found)', _data.searchValue);
+			} else {
+				 ga('send', 'event', 'Header Widgets', 'Searched (Not Found)', _data.searchValue);
+			}
 
+			// Fake Loading Time
 			setTimeout(function () {
 
 				 _data.hasResults = !_.isEmpty(_data.searchResults);

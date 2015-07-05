@@ -24,6 +24,10 @@ var nodes = [
 			path: 'home',
 			style: {
 				 name: "index"
+			},
+			meta: {
+				 title: "Front-End Web Developer and Designer, including Javascript",
+				 description: "A personal website of Mart Saarman, a Front-End Web Developer & Designer specialising in Javascript with various libraries and frameworks. Finland, Helsinki."
 			}
 	 },
 	 {
