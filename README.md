@@ -20,6 +20,7 @@ Current minified JS file size: ~430kb
 
 * Node.js with Express 4 
 * MongoDB To be implemented
+* App is pre-rendered from server side. Site is SEO friendly and can be viewed without JavaScript enabled.
 
 ##Developing Environment
 
