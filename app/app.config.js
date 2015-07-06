@@ -2,8 +2,14 @@ module.exports = {
 	 appTitle: 'Mart Saarman',
 	 titleTemplate: 'Mart Saarman | %s',
 	 path: {
-			absolute: window.location.origin,
+			absolute: "http://localhost:3000",
 			relative: '',
-			api: window.location.origin + '/api'
+			api: "http://localhost:3000" + '/api'
 	 }
 };
+
+//path: {
+//	 absolute: window.location.origin,
+//			 relative: '',
+//			 api: window.location.origin + '/api'
+//}

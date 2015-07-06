@@ -9,7 +9,7 @@ var _HeaderBottomRightWidgets = {};
 var _classes = {
 	 "openWidget": "",
 	 "fullScreenOpen": false,
-	 "routeLoading": true
+	 "routeLoading": false
 };
 
 // Construction for what data to return as AppStore state.

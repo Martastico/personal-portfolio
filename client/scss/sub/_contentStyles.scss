@@ -14,19 +14,23 @@
 			color: #ffffff;
 			padding: 51px 30px 23px 30px;
 			margin-bottom: 0;
-			opacity: 0;
+
 			font-family: UbuntuRegular, sans-serif !important;
 			//font-weight: normal;
 			//@include text-shadow(1px 1px #000000);
 			@include transition-property(all);
 			@include transition-duration(0.4s);
 			@include transition-timing-function(ease-in);
-			@include transform(translate(0%, -30%));
 
-			&.loaded {
-				@include transform(translate(0, 0%));
-				opacity: 1;
+			body.js & {
+				opacity: 0;
+				@include transform(translate(0%, -30%));
+				&.loaded {
+					@include transform(translate(0, 0%));
+					opacity: 1;
+				}
 			}
+
 			@include browser(tabletsmalllaptopplus) {
 				//font-size: 1.8em !important;
 				padding: 77px 15px 24px 15px;
@@ -115,14 +119,17 @@
 	.gwrapper {
 		.gr {
 			&.animation {
-				opacity: 0;
 				@include transition-property(opacity, transform);
 				@include transition-duration(0.3s);
 				@include transition-timing-function(ease-in);
-				@include transform(translate(-20px, 0px));
-				&.loaded {
-					opacity: 1;
-					@include transform(translate(0px, 0px));
+
+				body.js & {
+					opacity: 0;
+					@include transform(translate(-20px, 0px));
+					&.loaded {
+						opacity: 1;
+						@include transform(translate(0px, 0px));
+					}
 				}
 			}
 		}
@@ -148,13 +155,16 @@
 				}
 			}
 			> .gr.bottom {
-				opacity: 0;
-				@include transition-property(opacity);
-				@include transition-duration(0.3s);
-				@include transition-timing-function(ease-in);
 
-				&.loaded {
-					opacity: 1;
+				body.js & {
+					opacity: 0;
+					@include transition-property(opacity);
+					@include transition-duration(0.3s);
+					@include transition-timing-function(ease-in);
+
+					&.loaded {
+						opacity: 1;
+					}
 				}
 			}
 		}
@@ -181,11 +191,9 @@
 		width: 48.5%;
 		padding-top: 28%;
 		margin-bottom: 80px;
-		opacity: 0;
 		background-color: $color_main_red;
 		background-size: contain;
 
-		&.loaded {opacity: 1;}
 		&.item-1 { background-image: url('../image/bigredbox.jpg'); }
 		&.item-2 { background-image: url('../image/bigredbox2.jpg'); }
 		&.item-3 { background-image: url('../image/bigredbox.jpg'); }
@@ -193,6 +201,59 @@
 		@include transition-property(all);
 		@include transition-duration(0.3s);
 		@include transition-timing-function(ease-in);
+
+		body.js & {
+			opacity: 0;
+			@-webkit-keyframes rotatetext {
+				0%, 100% { -webkit-transform: scale(0.0) }
+				100% { -webkit-transform: scale(1.0) }
+			}
+			@keyframes rotatetext {
+				0%, 100% {
+					transform: scale(0.0);
+					-webkit-transform: scale(0.0);
+				} 100% {
+					  transform: scale(1.0);
+					  -webkit-transform: scale(1.0);
+				  }
+			}
+
+			&.spinner h2 {
+				-webkit-animation: spin 1.8s 1 ease-in-out;
+				animation: spin 1.8s 1 ease-in-out;
+				@-webkit-keyframes spin {
+					0%, 100% { -webkit-transform: scale(0.0) rotate(0deg) }
+					100% { -webkit-transform: scale(1.0) rotate(720deg) }
+				}
+
+				@keyframes spin {
+					0%, 100% {
+						transform: scale(0.0) rotate(0deg);
+						-webkit-transform: scale(0.0) rotate(0deg);
+					} 100% {
+						  transform: scale(1.0) rotate(720deg);
+						  -webkit-transform: scale(1.0) rotate(720deg);
+					  }
+				}
+			}
+
+			@include browser(laptopwide) {
+				&.item-1.perspective {
+					//background:red;
+					@include transform (perspective(500px) rotatey(8deg) translatex(8px));
+				}
+				&.item-4.perspective {
+					//background:red;
+					@include transform (perspective(500px) rotatey(-8deg) translatex(-8px));
+				}
+				&.item-2.perspective, &.item-3.perspective {
+					@include transform(scale(0.941,0.941));
+				}
+			}
+
+			&.loaded {opacity: 1;}
+		}
+
 		h2 {
 			position: absolute;
 			z-index: 2;
@@ -205,55 +266,14 @@
 			width: 100%;
 			top: 50%;
 			font-family: UbuntuRegular, sans-serif !important;
-			-webkit-animation: rotatetext 1.2s 1 ease-in-out;
-			animation: rotatetext 1.2s 1 ease-in-out;
+			body.js & {
+
+				-webkit-animation: rotatetext 1.2s 1 ease-in-out;
+				animation: rotatetext 1.2s 1 ease-in-out;
+			}
 
 		}
-		@include browser(laptopwide) {
-			&.item-1.perspective {
-				//background:red;
-				@include transform (perspective(500px) rotatey(8deg) translatex(8px));
-			}
-			&.item-4.perspective {
-				//background:red;
-				@include transform (perspective(500px) rotatey(-8deg) translatex(-8px));
-			}
-			&.item-2.perspective, &.item-3.perspective {
-				@include transform(scale(0.941,0.941));
-			}
-		}
-		@-webkit-keyframes rotatetext {
-			0%, 100% { -webkit-transform: scale(0.0) }
-			100% { -webkit-transform: scale(1.0) }
-		}
-		@keyframes rotatetext {
-			0%, 100% {
-				transform: scale(0.0);
-				-webkit-transform: scale(0.0);
-			} 100% {
-				  transform: scale(1.0);
-				  -webkit-transform: scale(1.0);
-			  }
-		}
 
-		&.spinner h2 {
-			-webkit-animation: spin 1.8s 1 ease-in-out;
-			animation: spin 1.8s 1 ease-in-out;
-			@-webkit-keyframes spin {
-				0%, 100% { -webkit-transform: scale(0.0) rotate(0deg) }
-				100% { -webkit-transform: scale(1.0) rotate(720deg) }
-			}
-
-			@keyframes spin {
-				0%, 100% {
-					transform: scale(0.0) rotate(0deg);
-					-webkit-transform: scale(0.0) rotate(0deg);
-				} 100% {
-					  transform: scale(1.0) rotate(720deg);
-					  -webkit-transform: scale(1.0) rotate(720deg);
-				  }
-			}
-		}
 		.description {
 			position: absolute;
 			bottom: -60px;
@@ -346,9 +366,11 @@
 	@include transition-property(all);
 	@include transition-duration(0.3s);
 	@include transition-timing-function(ease-in);
-	@include opacity(0);
-	&.loaded {
-		@include opacity(1);
+	body.js & {
+		@include opacity(0);
+		&.loaded {
+			@include opacity(1);
+		}
 	}
 }
 

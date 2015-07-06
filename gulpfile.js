@@ -40,7 +40,7 @@ function buildScript(file, watch) {
 					//.pipe(streamify(uglify()))
 					//.pipe(source(file))
 					.pipe(streamify(sourcemaps.write('./')))
-					.pipe(gulp.dest(PATHS.client.dev + 'js/build' + '/'));
+					.pipe(gulp.dest(PATHS.client.dev + 'js'));
 	 }
 	 bundler.on('update', function() {
 			rebundle();

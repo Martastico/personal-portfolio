@@ -54,17 +54,25 @@ var Links = [
 
 module.exports = React.createClass({
 
-	 handleClick: function(e) {
-			// Close if clicked and is mobileNavi
-			if(!_.isUndefined(this.props.mobileNavi) && this.props.mobileNavi) Actions.widgetOpen("mobilenavi");
-	 },
-
-	 linkTemplate: function() {
-			return _.map(Links, function(l, lk) {
-				 return (<li key={lk}><Link to={l.type} params={{path: l.path}} onClick={this.handleClick} className={classnames(l.classes)}><span>{l.name}</span><span className="icon"></span></Link></li>)
-			}.bind(this))
-	 },
-	 render: function() {
-			return (<ul>{this.linkTemplate()}</ul>);
-	 }
+//	handleClick: function(e) {
+//		// Close if clicked and is mobileNavi
+//		if(!_.isUndefined(this.props.mobileNavi) && this.props.mobileNavi) Actions.widgetOpen("mobilenavi");
+//	}, ///
+	linkTemplate: function() {
+		return _.map(Links, function(l, lk) {
+			 return (
+					 <li key={lk}>
+							<Link to={l.type} params={{path: l.path}} onClick={this.handleClick} className={classnames(l.classes)}>
+								 <span>{l.name}</span><span className="icon"></span>
+							</Link>
+					 </li>)
+		}.bind(this))
+	},
+	render: function() {
+		//return (<div>lol</div>);
+		return (<ul>{this.linkTemplate()}</ul>);
+	}
+	 //render: function() {
+		//	return (<div>lol</div>)
+	 //}
 });

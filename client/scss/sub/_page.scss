@@ -325,6 +325,7 @@
 				left: 20%;
 				width: 80%;
 			}
+
 			> .content {
 				height: 100%;
 				position: relative;
@@ -339,17 +340,21 @@
 					margin-right: 0;
 				}
 
-				@include opacity(1);
-				@include transition-property(opacity);
-				@include transition-duration(0.2s);
-				@include transition-timing-function(ease-in);
 
-				.routeLoading & {
-					@include opacity(0);
+				body.js & {
+
+					@include opacity(1);
+					@include transition-property(opacity);
+					@include transition-duration(0.2s);
+					@include transition-timing-function(ease-in);
+
+					.routeLoading & {
+						@include opacity(0);
+					}
 				}
 			}
 			> .loading {
-				opacity: 0;
+				@include opacity(0);
 				position: absolute;
 				z-index: 1;
 				top: 0;
@@ -359,7 +364,6 @@
 				height: 50%;
 				bottom: 0;
 				margin: 0 auto;
-				@include opacity(0);
 				@include transition-property(opacity);
 				@include transition-duration(0.2s);
 				@include transition-timing-function(ease-in);
@@ -381,7 +385,10 @@
 				}
 
 				.routeLoading & {
-					@include opacity(1);
+
+					body.js & {
+						@include opacity(1);
+					}
 				}
 			}
 		}

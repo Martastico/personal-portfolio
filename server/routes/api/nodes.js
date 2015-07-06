@@ -67,8 +67,6 @@ var nodes = [
 	 }
 ];
 
-
-
 router.get('/nodes', function(req, res, next) {
 	 res.json(nodes)
 });
