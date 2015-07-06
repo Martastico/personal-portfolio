@@ -331,7 +331,6 @@
 				position: relative;
 				z-index: 2;
 				border-top: 1px solid #cccccc;
-
 				.mCSB_container {
 					margin-right: 10px;
 				}
@@ -339,18 +338,21 @@
 				&.mCS_no_scrollbar .mCSB_container {
 					margin-right: 0;
 				}
+				@include opacity(1);
 
 
 				body.js & {
+					@include opacity(0);
+					&.loaded {
+						@include opacity(1);
+						@include transition-property(opacity);
+						@include transition-duration(0.2s);
+						@include transition-timing-function(ease-in);
 
-					@include opacity(1);
-					@include transition-property(opacity);
-					@include transition-duration(0.2s);
-					@include transition-timing-function(ease-in);
-
-					.routeLoading & {
-						@include opacity(0);
 					}
+				}
+				.routeLoading & {
+					opacity: 0 !important;
 				}
 			}
 			> .loading {

@@ -35,5 +35,8 @@
 	{{{app}}}
 </section>
 </body>
+<script type="application/javascript">
+	document.body.className = "js"
+</script>
 <script src="js/app.js"></script>
 </html>

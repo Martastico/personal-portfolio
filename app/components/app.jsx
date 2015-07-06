@@ -32,7 +32,6 @@ var Node 		= require('../components/node/node.jsx');
 
 if(typeof window !== 'undefined') {
 	 require('malihu-custom-scrollbar-plugin')($);
-	 $("body").addClass("js");
 }
 
 var App = React.createClass({
@@ -41,7 +40,7 @@ var App = React.createClass({
 	 componentDidMount: function() {
 
 			var mainColumnMiddleContent = React.findDOMNode(this.refs.mainColumnMiddleContent);
-
+			$(mainColumnMiddleContent).addClass("loaded");
 			resizedw();
 
 			function resizedw() {
@@ -108,6 +107,7 @@ var App = React.createClass({
 														</div>
 												 </div>
 												 <div className="right">
+														<button id="fullscreen" onClick={Actions.fullScreen}><span>Full Screen App</span></button>
 												 </div>
 											</div>
 											<div className="bottom">

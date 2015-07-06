@@ -18,26 +18,6 @@ var Node 		= require('../../app/components/node/node.jsx');
 
 var App = require('../../app/components/app.jsx');
 
-var Test = React.createClass({
-  render: function() {
-    console.log("test1");
-    return(<div>Works</div>)
-  }
-});
-var Test2 = React.createClass({
-  render: function() {
-    console.log("test2");
-    return(<div>Works</div>)
-  }
-});
-
-//var AppRoutes = (
-//    <Route name="app" path='' handler={App}>
-//      <Route name="node" path="/:path" handler={Test}></Route>
-//<DefaultRouterRedirect path="/" handler={DefaultRouterRedirect}/>
-//    </Route>
-//);
-
 var RRoutes = (
     <Route name="app" path='' handler={App}>
       <Route name="nodes" handler={Nodes}>
