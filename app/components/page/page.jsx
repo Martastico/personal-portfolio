@@ -53,6 +53,7 @@ module.exports = React.createClass({
 	 },
 
 	 styles: function(data, route) {
+			console.log("Page Styles");
 
 			var title 	= data.showTitle ? (<h1 className="big-title" ref="big_title">{data.title}</h1>) : false;
 			var body 		= !_.isEmpty(data.body) ? (<div className="body" dangerouslySetInnerHTML={{__html: data.body}}></div>) : false;
@@ -121,6 +122,7 @@ module.exports = React.createClass({
 			// TODO: Make it also accept node types.
 
 			// If is node.
-			if (isNode && data && route) return this.styles(data, route);
+			if (data && route) return this.styles(data, route);
+			else return (<div></div>);
 	 }
 });

@@ -11,6 +11,7 @@ var Route 				= Router.Route;
 //var Route 				= Router.Route;
 //var RouteHandler 	= Router.RouteHandler;
 
+var Config 	= require('../../app/app.config');
 var Actions 	= require('../../app/actions/actions');
 
 var Nodes 	= require('../../app/components/node/nodes.jsx');
@@ -18,21 +19,39 @@ var Node 		= require('../../app/components/node/node.jsx');
 
 var App = require('../../app/components/app.jsx');
 
+var Home = React.createClass({
+  render: function() {
+    console.log("home");
+    return (
+        <Nodes />
+    );
+  }
+});
+
 var RRoutes = (
-    <Route name="app" path='' handler={App}>
-      <Route name="nodes" handler={Nodes}>
-        <Route name="node" path="/:path" handler={Node}/>
-      </Route>
+    <Route name="app" path="" handler={App}>
+       <Route name="home" path="/" handler={Home}/>
+       <Route name="nodes" handler={Nodes}>
+          <Route name="node" path="/:path" handler={Node}/>
+       </Route>
     </Route>
 );
 
+/*
+ <Route name="nodes" handler={Nodes}>
+ <Route name="node" path="/:path" handler={Node}>
+ </Route>
+ </Route>
+* */
 
 NodeRouter.get('*', function(req, res, next) {
   //res.sendFile(path.join(__dirname+'/../../client/app.html'))
-  var path = req.path === "/" ? "/home" : req.path;
-  console.log(path);
 
-  Router.run(RRoutes, path, function(Handler, State) {
+  //if(req.path === "/") {
+  //  res.redirect('/home')
+  //}
+
+  Router.run(RRoutes, req.path, function(Handler, State) {
 
     Actions.routeLoad.triggerPromise(State).then(function() {
       res.render("index", {app: React.renderToString(<Handler />)});

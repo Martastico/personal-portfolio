@@ -103,7 +103,7 @@ var App = React.createClass({
 											<div className="top">
 												 <div className="left">
 														<div className="logo">
-															<Link to="node" params={{path: "home"}} className="home"></Link>
+															<Link to="home" className="home"></Link>
 														</div>
 												 </div>
 												 <div className="right">
@@ -250,11 +250,20 @@ var App = React.createClass({
 //	 render: function() { return null; }
 //});
 
-
 if(typeof window !== 'undefined') {
 	 console.log("HI");
+	 var Home = React.createClass({
+			render: function() {
+				 console.log("home");
+				 return (
+						 <Nodes />
+				 );
+			}
+	 });
+
 	 var RRoutes = (
-			 <Route name="app" path='' handler={App}>
+			 <Route name="app" path="" handler={App}>
+					<Route name="home" path="/" handler={Home}/>
 					<Route name="nodes" handler={Nodes}>
 						 <Route name="node" path="/:path" handler={Node}/>
 					</Route>

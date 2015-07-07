@@ -3,7 +3,6 @@
 var React 				= require('react');
 var Reflux 				= require('reflux');
 var _ 				 		= require('lodash');
-var DocumentTitle	= require('react-document-title');
 
 // Stores
 var NodeStore = require('../../stores/nodeStore');
@@ -25,9 +24,12 @@ module.exports = React.createClass({
 	 },
 
 	 renderNodes: function() {
-			this.props.params.path = _.isUndefined(this.props.params.path) ? "home": this.props.params.path;
+			var params = _.isUndefined(this.props.params) ? {path: "/home"} : this.props.params;
+
+			console.log(params);
+
 			var filteredNode = _.filter(this.state.NodeStore.nodes, function (n, nk) {
-				 return _.snakeCase(n.path) === _.snakeCase(this.props.params.path);
+				 return _.snakeCase(n.path) === _.snakeCase(params.path);
 			}.bind(this));
 
 			//// No Nodes

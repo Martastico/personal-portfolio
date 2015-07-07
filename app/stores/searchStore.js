@@ -17,9 +17,9 @@ var _data = {
 var _allSearchResults = [
 	 {
 			title: "Home",
-			type: "node",
+			type: "home",
 			NID: 1,
-			path: "home"
+			path: ""
 	 },
 	 {
 			title: "About Myself",
