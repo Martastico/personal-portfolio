@@ -3,7 +3,6 @@ var React = require('react/addons');
 var Reflux = require('reflux');
 var _ 				 		= require('lodash');
 var classnames 		= require('classnames');
-var Helmet 				= require('react-helmet');
 var $ 				 		= require('jquery');
 
 var Router = require('react-router');
@@ -151,107 +150,9 @@ var App = React.createClass({
 						 </section>
 					</div>
 			);
-
-			//return (
-			//		<div className={classnames(pageWrapperClasses)}>
-			//			 <img id="image-background" style={{backgroundImage: 'url(image/bigbg_1.jpg)'}} alt="Saarman Background"/>
-			//			 <section id="page">
-			//					<div className="content">
-			//						 <header id="header">
-			//								<div className="top">
-			//									 <div className="left">
-			//											<div className="logo">
-			//											</div>
-			//									 </div>
-			//									 <div className="right">
-			//									 </div>
-			//								</div>
-			//								<div className="bottom">
-			//									 <div className="left">
-			//											<span>Web Designer &amp; Developer in Finland</span>
-			//									 </div>
-			//									 <div className={classnames(HeaderBottomRightWidgetsClasses)}>
-			//									 </div>
-			//								</div>
-			//						 </header>
-			//						 <div className="main-content-wrapper">
-			//								<section id="main_content">
-			//									 <section id="main_column_left">
-			//											<div id="main_column_left_widgets">
-			//												 <div className="content">
-			//														<div id="main_column_left_navi" className="widget-1 widget widget-wrapper">
-			//														</div>
-			//												 </div>
-			//											</div>
-			//											<footer>
-			//												 <div className="bottom">
-			//														<div className="country left">
-			//															 <h3 className="country">Finland</h3>
-			//														</div>
-			//												 </div>
-			//											</footer>
-			//									 </section>
-			//									 <section id="main_column_middle">
-			//											<div className="content" ref="mainColumnMiddleContent">
-			//												 <Helmet
-			//														 titleTemplate = {Config.titleTemplate}
-			//														 meta={[
-			//																 {"name": "description", "content": ""},
-			//																 {"property": "og:type", "content": "article"}
-			//														 ]}
-			//														 />
-			//
-			//											</div>
-			//											<div className="loading">
-			//												 <span>loading</span>
-			//											</div>
-			//									 </section>
-			//								</section>
-			//						 </div>
-			//					</div>
-			//			 </section>
-			//		</div>
-			//);
-
-
-
-			//return(
-			//		<html>
-			//		<head lang="en">
-			//			 <meta charset="UTF-8" />
-			//			 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			//			 <link rel="stylesheet" href="css/app.css"/>
-			//			 <title>Mart Saarman | Front-End Web Developer and Designer, including Javascript</title>
-			//		</head>
-			//		<body>
-			//
-			//		<section id="app">
-			//			 <AppTemplate />
-			//		</section>
-			//		</body>
-			//		</html>
-			//);
-
 	 }
 });
-
-//var Test = React.createClass({
-//	 render: function() {
-//			return(<div>Works</div>)
-//	 }
-//});
-
-//var DefaultRouterRedirect = React.createClass({
-//	 statics: {
-//			willTransitionTo: function (transition, params) {
-//				 transition.redirect(Config.path.relative + "/home");
-//			}
-//	 },
-//	 render: function() { return null; }
-//});
-
 if(typeof window !== 'undefined') {
-	 console.log("HI");
 	 var Home = React.createClass({
 			render: function() {
 				 console.log("home");
@@ -274,7 +175,6 @@ if(typeof window !== 'undefined') {
 
 			Actions.routeLoad.triggerPromise(State).then(function () {
 				 console.log("Route changed");
-				 console.log(document);
 				 React.render(<Handler path={window.location.pathname} />, document.getElementById('app'));
 			})
 	 })

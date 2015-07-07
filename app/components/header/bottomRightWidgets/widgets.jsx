@@ -26,7 +26,7 @@ module.exports = React.createClass({
 
 	 handleWidgets: function(e) {
 			var widget = e.target.id;
-			//ga('send', 'event', 'Header Widgets', 'Clicked', widget);
+			ga('send', 'event', 'Header Widgets', 'Clicked', widget);
 			Actions.widgetOpen(widget);
 	 },
 

@@ -65,9 +65,9 @@ module.exports = Reflux.createStore({
 			});
 
 			if(!_.isEmpty(_data.searchResults)) {
-				 //ga('send', 'event', 'Header Widgets', 'Searched (Found)', _data.searchValue);
+				 ga('send', 'event', 'Header Widgets', 'Searched (Found)', _data.searchValue);
 			} else {
-				 //ga('send', 'event', 'Header Widgets', 'Searched (Not Found)', _data.searchValue);
+				 ga('send', 'event', 'Header Widgets', 'Searched (Not Found)', _data.searchValue);
 			}
 
 			// Fake Loading Time

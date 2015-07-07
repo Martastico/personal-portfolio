@@ -3,6 +3,7 @@ var NodeRouter = express.Router();
 var path = require("path");
 var React = require('react/addons');
 var Router = require('react-router');
+var Helmet 				= require('react-helmet');
 
 var Route 				= Router.Route;
 
@@ -20,12 +21,12 @@ var Node 		= require('../../app/components/node/node.jsx');
 var App = require('../../app/components/app.jsx');
 
 var Home = React.createClass({
-  render: function() {
-    console.log("home");
-    return (
-        <Nodes />
-    );
-  }
+   render: function() {
+      console.log("home");
+      return (
+          <Nodes />
+      );
+   }
 });
 
 var RRoutes = (
@@ -42,27 +43,32 @@ var RRoutes = (
  <Route name="node" path="/:path" handler={Node}>
  </Route>
  </Route>
-* */
+ * */
+
+
 
 NodeRouter.get('*', function(req, res, next) {
-  //res.sendFile(path.join(__dirname+'/../../client/app.html'))
+   //res.sendFile(path.join(__dirname+'/../../client/app.html'))
 
-  //if(req.path === "/") {
-  //  res.redirect('/home')
-  //}
+   //if(req.path === "/") {
+   //  res.redirect('/home')
+   //}
 
-  Router.run(RRoutes, req.path, function(Handler, State) {
+   Router.run(RRoutes, req.path, function(Handler, State) {
 
-    Actions.routeLoad.triggerPromise(State).then(function() {
-      res.render("index", {app: React.renderToString(<Handler />)});
-      console.log("Route changed");
-      //ga('send', 'pageview', State.path);
-    }).catch(function(err) {
-      console.log(err);
-    });
+      Actions.routeLoad.triggerPromise(State).then(function() {
+         var reactRenderString = React.renderToString(<Handler />);
+         head = Helmet.rewind();
+         res.render("index", {app: reactRenderString, head: head});
 
-    //React.renderToString(<Handler />))
-  });
+         console.log("Route changed");
+         //ga('send', 'pageview', State.path);
+      }).catch(function(err) {
+         console.log(err);
+      });
+
+      //React.renderToString(<Handler />))
+   });
 
 });
 

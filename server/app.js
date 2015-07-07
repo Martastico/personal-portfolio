@@ -37,14 +37,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
-app.use(express.static(path.join(__dirname, '../storage')));
 
 
 //app.use('/test', test);
 
-app.use('/storage', express.static(path.join(__dirname, '../storage')));
 app.use('/api', api);
 app.use('/users', users);
+//app.use(function(req, res) {
+//  ReactRouter.run(routes, req.path, function(Handler) {
+//    res.render('index', {
+//			reactOutput: 1
+//	 })
+//  })
+//});
+
 app.use('/', index);
 
 // catch 404 and forward to error handler

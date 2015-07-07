@@ -36,7 +36,9 @@ module.exports = Reflux.createStore({
 
 			console.log("path '/" + path + "' did not exist, requesting to load node from server if node exists");
 			// TODO: REplace with real query
-			request.get(Config.path.api + '/nodes/' + path).end(function(err, res) {
+			var request_path = typeof window === 'undefined' ? Config.path.server.api : Config.path.api;
+			request.get(request_path + '/nodes/' + path).end(function(err, res) {
+				 console.log("Node Request Path: " + request_path);
 				 if(!err) {
 						// Success
 						console.log("Successfully requested node for path '/" + path + "'");
