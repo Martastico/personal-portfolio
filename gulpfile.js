@@ -65,10 +65,10 @@ function buildScript(file, watch) {
 //});
 
 gulp.task('build', function () {
-	 return buildScript('app.js', false);
+	 return buildScript('components/app.jsx', false);
 });
 
 gulp.task('default', ['build'], function() {
 	 //gulp.watch(PATHS.client.dev + 'scss/**/*.scss', ['sass']);
-	 return buildScript('app.js', true)
+	 return buildScript('components/app.jsx', true)
 });

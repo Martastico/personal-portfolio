@@ -1,5 +1,5 @@
 
-var React = require('react/addons');
+var React = require('react');
 var Reflux = require('reflux');
 var _ 				 		= require('lodash');
 var classnames 		= require('classnames');
@@ -9,8 +9,6 @@ var Router = require('react-router');
 var Route 				= Router.Route;
 var RouteHandler 	= Router.RouteHandler;
 var Link 					= Router.Link;
-
-var AppRoutes = require('../routes.jsx');
 
 var HeaderBottomRightWidgets = require('../components/header/bottomRightWidgets/widgets.jsx');
 

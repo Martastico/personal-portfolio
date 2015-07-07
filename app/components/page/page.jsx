@@ -1,6 +1,6 @@
 // Use it to have unique pages using nodes.
 
-var React 				= require('react/addons');
+var React 				= require('react');
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 var _ 				 		= require('lodash');
 var classnames 		= require('classnames');
