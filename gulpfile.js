@@ -26,7 +26,7 @@ var PATHS = {
 function buildScript(file, watch) {
 	 var props = {
 			entries: ['app' + '/' + file],
-			debug: true,
+			debug: false,
 			cache: {},
 			packageCache: {}
 	 };
@@ -36,10 +36,10 @@ function buildScript(file, watch) {
 			var stream = bundler.bundle();
 			return stream.on('error', console.log.bind(console))
 					.pipe(source(file))
-					//.pipe(streamify(sourcemaps.init({loadMaps: true})))
+				///.pipe(streamify(sourcemaps.init({loadMaps: true})))
 					.pipe(streamify(uglify()))
 					//.pipe(source(file))
-					//.pipe(streamify(sourcemaps.write('./')))
+				///.pipe(streamify(sourcemaps.write('./')))
 					.pipe(gulp.dest(PATHS.client.dev + 'js'));
 	 }
 	 bundler.on('update', function() {
@@ -65,10 +65,10 @@ function buildScript(file, watch) {
 //});
 
 gulp.task('build', function () {
-	 return buildScript('components/app.jsx', false);
+	 return buildScript('app.js', false);
 });
 
 gulp.task('default', ['build'], function() {
 	 //gulp.watch(PATHS.client.dev + 'scss/**/*.scss', ['sass']);
-	 return buildScript('components/app.jsx', true)
+	 return buildScript('app.js', true)
 });

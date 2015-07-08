@@ -64,11 +64,10 @@ module.exports = React.createClass({
 			var metaDescription = !_.isEmpty(data.meta) && !_.isEmpty(data.meta.description) ? data.meta.description : "";
 
 			var metaData = {
-				 title: metaTitle,
+				 title: "Mart Saarman | " + metaTitle,
 				 description: metaDescription
 			};
 
-			console.log(Config.appTitle);
 			console.log(metaTitle);
 
 			// Style: Default
