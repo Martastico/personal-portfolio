@@ -180,10 +180,11 @@
 		display:table;
 		clear:both;
 	}
-	//@include browser(laptopwide) {
 	border-bottom: 10px solid #d8d8d8;
-	padding-bottom: 20px;
-	//}
+	padding-bottom: 5px;
+	@include browser(tabletsmall) {
+		padding-bottom: 20px;
+	}
 	.item {
 		position: relative;
 		float: left;
@@ -388,10 +389,16 @@
 					display:table;
 					clear:both;
 				}
-				padding: 30px 20px;
+				padding: 20px 10px;
+
+				@include browser(tabletsmall) {
+					padding: 30px 20px;
+				}
+
 				@include browser(laptop) {
 					padding: 90px 35px 110px 35px;
 				}
+
 			}
 			.wrapper > .header {
 				font-size: 1.1em;
@@ -405,11 +412,17 @@
 					margin-bottom: 5px;
 					padding-bottom: 0;
 					font-size: 2.8em;
+					@include browser(mobile) {
+						font-size: 2.5em;
+					}
 				}
 				h2 {
 					color: #ff5566;
 					font-size: 1.5em;
-					@include text-shadow(1px 1px rgba(0,0,0,0.2));
+					@include text-shadow(1px 1px rgba(0,0,0,0.2)); 
+					@include browser(mobile) {
+						font-size: 1.3em;
+					}
 				}
 			}
 
@@ -452,6 +465,7 @@
 						clear:both;
 					}
 					.item {
+
 						@include browser(mobiletablet) {
 							margin-top: 20px;
 							&:first-child {
@@ -533,11 +547,11 @@
 		margin-bottom: 0 !important;
 
 		@include browser(mobile) {
-			font-size: 2.4em !important;
+			font-size: 2.1em !important;
 		}
 	}
 	> span {
-		font-size: 2.1em !important;
+		font-size: 1.6em !important;
 		color: $color_main_red;
 		line-height: 1em;
 		font-weight: normal !important;

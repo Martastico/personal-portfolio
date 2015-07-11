@@ -27,7 +27,7 @@ var AppStore 		= require('./stores/appStore');
 var Nodes 	= require('./components/node/nodes.jsx');
 var Node 		= require('./components/node/node.jsx' );
 
-if(typeof window !== 'undefined') {
+if(Config.isBrowser) {
 	 require('malihu-custom-scrollbar-plugin')($);
 }
 
@@ -43,7 +43,7 @@ var App = React.createClass({
 			function resizedw() {
 				 console.log("Browser resized");
 				 if($(window).width() < 639) {
-						$(mainColumnMiddleContent).mCustomScrollbar("destroy")
+						$(mainColumnMiddleContent).mCustomScrollbar("destroy");
 				 } else {
 						$(mainColumnMiddleContent).mCustomScrollbar({
 							 theme: "mcc",
@@ -66,10 +66,7 @@ var App = React.createClass({
 			var mainColumnMiddleContent = React.findDOMNode(this.refs.mainColumnMiddleContent);
 			if(this.state.AppStore.classes.routeLoading) {
 				 $(mainColumnMiddleContent).mCustomScrollbar("scrollTo", [0, null]);
-				 $("#main_column_middle > .content").scrollTop(0);
 			}
-			window.scrollTo(22,22);
-			console.log("scrolled");
 
 	 },
 

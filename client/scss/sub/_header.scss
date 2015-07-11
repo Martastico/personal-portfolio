@@ -3,7 +3,7 @@
    position: fixed;
    background: #f1f1f1;
    width: 100%;
-   height: $height - 55px;
+   height: $height - 60px;
    top: 0;
    left: 0;
    z-index: 5;
@@ -22,13 +22,16 @@
    .top {
       position: relative;
       height: $height - 55px;
+      z-index: 5;
+      @include browser(mobile) {
+         width: 90px;
+      }
       @include browser(desktopextreme) {
          height: $height - 35px;
       }
 
       .logo {
          position: relative;
-         width: 350px;
          font-size: 1.1em;
          @include browser(desktopextreme) {
             width: 400px;
@@ -52,7 +55,8 @@
             text-indent: -99999em;
             //}
             @include browser(mobile) {
-               width: 80px;
+               width: 65px;
+               height: 70px;
                background-size: cover;
 
             }
@@ -79,11 +83,13 @@
 
       .left {
          position: absolute;
-         padding-left: 8px;
+         padding-left: 10px;
+         padding-top: 2px;
          left: 0;
          top: 0;
          @include browser(tabletsmall) {
             padding-left: 15px;
+            padding-top: 0;
          }
       }
       .right {
@@ -126,7 +132,14 @@
    }
    .bottom {
       position: relative;
-      height: 80px;
+      @include browser(mobile) {
+         position: absolute;
+         top: 0;
+         right: 0;
+         width: 100%;
+         height: 100%;
+      }
+
       @include browser(tabletsmall) {
          height: 55px;
          line-height: 55px;
@@ -153,13 +166,13 @@
 
       }
       .right {
-         position: absolute;
-         top: -100%;
-         right: 0;
-         height: 100%;
-         width: 100%;
 
          @include browser(tabletsmall) {
+            position: absolute;
+            top: -100%;
+            right: 0;
+            height: 100%;
+            width: 100%;
             width: 50%;
             top: 0;
          }
