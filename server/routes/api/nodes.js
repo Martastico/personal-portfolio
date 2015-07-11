@@ -73,6 +73,8 @@ router.get('/nodes', function(req, res, next) {
 
 router.get('/nodes/:path', function(req, res, next) {
 
+
+
 	 var returnJSON = _.filter(nodes, function(en, enk) {
 			return _.snakeCase(en.path) === _.snakeCase(req.params.path);
 	 });
@@ -91,6 +93,7 @@ router.get('/nodes/:path', function(req, res, next) {
 					]
 			)
 	 } else {
+			res.setHeader("Cache-Control", "public, max-age=36000");
 			res.json(returnJSON)
 	 }
 
