@@ -38,15 +38,6 @@ var RRoutes = (
     </Route>
 );
 
-/*
- <Route name="nodes" handler={Nodes}>
- <Route name="node" path="/:path" handler={Node}>
- </Route>
- </Route>
- * */
-
-
-
 NodeRouter.get('*', function(req, res, next) {
 
    Router.run(RRoutes, req.path, function(Handler, State) {
