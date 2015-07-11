@@ -28,15 +28,15 @@ module.exports = Reflux.createStore({
 	 },
 
 	 // Todo: Combine with onRouteLoadDone
-	 onRouteLoad: function() {
+	 onRouteLoad: function(State) {
+			_classes.page = !_.isEmpty(State.params.path)? _.kebabCase(State.params.path) : "home";
 			_classes.routeLoading = true;
-			this.updateApp();
+			this.updateApp(); 
 	 },
 
 	 onRouteLoadDone: function(State) {
-			_classes.page = !_.isEmpty(State.params.path) ? _.kebabCase(State.params.path) : "home";
 			_classes.routeLoading = !Config.isBrowser; // Without it, there will be react error saying client and server html is different hence reducing performance
-			this.updateApp(); 
+			this.updateApp();
 	 },
 
 	 onIsMobile: function(value) {
