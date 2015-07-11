@@ -71,21 +71,19 @@ var App = React.createClass({
 
 	 },
 
-	 //shouldComponentUpdate: function(nextProps, nextState) {
-		//	console.log(nextState);
-		//	return !_.isEqual(nextState, this.state);
-	 //},
-
 	 render: function() {
 			var SApp = this.state.AppStore;
 
 			// Default ".page-wrapper" Classes
-			var pageWrapperClasses = {
-				 "page-wrapper": true,
-				 "fullscreen-open": SApp.classes.fullScreenOpen,
-				 "routeLoading": SApp.classes.routeLoading,
-				 "isMobile": SApp.classes.isMobile
-			};
+			var pageWrapperClasses = [
+				 {
+						"page-wrapper": true,
+						"fullscreen-open": SApp.classes.fullScreenOpen,
+						"routeLoading": SApp.classes.routeLoading,
+						"isMobile": SApp.classes.isMobile
+				 },
+				 SApp.classes.page
+			];
 
 			var HeaderBottomRightWidgetsClasses = ["right"];
 

@@ -11,7 +11,8 @@ var _classes = {
 	 "openWidget": "",
 	 "fullScreenOpen": false,
 	 "routeLoading": true,
-	 "isMobile": false
+	 "isMobile": false,
+	 "page": ""
 };
 
 // Construction for what data to return as AppStore state.
@@ -32,9 +33,10 @@ module.exports = Reflux.createStore({
 			this.updateApp();
 	 },
 
-	 onRouteLoadDone: function() {
-			_classes.routeLoading = !Config.isBrowser;
-			this.updateApp();
+	 onRouteLoadDone: function(State) {
+			_classes.page = !_.isEmpty(State.params.path) ? _.kebabCase(State.params.path) : "home";
+			_classes.routeLoading = !Config.isBrowser; // Without it, there will be react error saying client and server html is different hence reducing performance
+			this.updateApp(); 
 	 },
 
 	 onIsMobile: function(value) {

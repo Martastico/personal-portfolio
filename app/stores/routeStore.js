@@ -17,7 +17,7 @@ module.exports = Reflux.createStore({
 			//console.log("routeLoadCompleted");
 			_data = State;
 			Actions.routeLoad.completed();
-			Actions.routeLoadDone();
+			Actions.routeLoadDone(State);
 			this.updateApp();
 	 },
 

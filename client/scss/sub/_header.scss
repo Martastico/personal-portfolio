@@ -179,6 +179,9 @@
          .widgets {
             height: 100%;
             &#quickbuttons {
+               > ul {
+                  height: 100%;
+               }
                ul {
                   //background: blue;
                   //height: 100%;
@@ -424,6 +427,7 @@
                               float: none;
 
                               a {
+                                 position: relative;
                                  display: block;
                                  text-align: center;
                                  line-height: 60px;
@@ -436,8 +440,35 @@
                                  border-bottom: 1px solid #d1d1d1;
                                  &.active, &:hover {
                                     background: $color_main_red;
+                                    border-bottom-color: $color_main_red - #111111;
                                     color: #ffffff;
                                  }
+
+                                 .icon {
+                                    font-family: FontAwesome;
+                                    //background: red;
+                                    display: block;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 15px;
+                                    font-size: 1.8em;
+                                    font-weight: normal;
+                                    //width: 40px;
+
+                                    @include browser(tabletsmalllaptopplus) {
+                                       text-align: center;
+                                       width: 100%;
+                                       left: 0;
+                                       right: auto; 
+                                       padding-right: 0;
+                                    }
+                                 }
+
+                                 &.home .icon:after {  content: "\f015";  }
+                                 &.about .icon:after {  content: "\f007";  }
+                                 &.portfolio .icon:after {  content: "\f0b1";  }
+                                 &.freebies .icon:after {  content: "\f06b";  }
+                                 &.contact .icon:after {  content: "\f0e6";  }
                               }
 
                               &:last-child a {
