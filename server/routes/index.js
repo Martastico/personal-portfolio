@@ -18,7 +18,7 @@ var Actions 	= require('../../app/actions/actions');
 var Nodes 	= require('../../app/components/node/nodes.jsx');
 var Node 		= require('../../app/components/node/node.jsx');
 
-var App = require('../../app/components/app.jsx');
+var App = require('../../app/app');
 
 var Home = React.createClass({
    render: function() {
@@ -48,26 +48,19 @@ var RRoutes = (
 
 
 NodeRouter.get('*', function(req, res, next) {
-   //res.sendFile(path.join(__dirname+'/../../client/app.html'))
-
-   //if(req.path === "/") {
-   //  res.redirect('/home')
-   //}
 
    Router.run(RRoutes, req.path, function(Handler, State) {
 
       Actions.routeLoad.triggerPromise(State).then(function() {
          var reactRenderString = React.renderToString(<Handler />);
          head = Helmet.rewind();
-         res.render("index", {app: reactRenderString, head: head});
+         res.render("index", {APP: reactRenderString, head: head});
 
          console.log("Route changed");
-         //ga('send', 'pageview', State.path);
       }).catch(function(err) {
          console.log(err);
       });
 
-      //React.renderToString(<Handler />))
    });
 
 });

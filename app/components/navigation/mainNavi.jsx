@@ -12,7 +12,6 @@ var Actions			= require('../../actions/actions');
 var Link 					= Router.Link;
 
 // Todo: More robust
-
 var Links = [
 	 {
 			id: 1,
@@ -54,10 +53,10 @@ var Links = [
 
 module.exports = React.createClass({
 
-//	handleClick: function(e) {
-//		// Close if clicked and is mobileNavi
-//		if(!_.isUndefined(this.props.mobileNavi) && this.props.mobileNavi) Actions.widgetOpen("mobilenavi");
-//	}, ///
+	handleClick: function(e) {
+		// Close if clicked and is mobileNavi
+		if(!_.isUndefined(this.props.mobileNavi) && this.props.mobileNavi) Actions.widgetOpen("mobilenavi");
+	},
 	 linkTemplate: function() {
 			var path;
 			return _.map(Links, function(l, lk) {

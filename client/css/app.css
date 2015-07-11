@@ -678,16 +678,11 @@ table {
 #header .bottom .right .widgets {
   height: 100%;
 }
-/* line 167, ../scss/sub/_header.scss */
-#header .bottom .right .widgets#quickbuttons ul {
-  height: 100%;
-}
 /* line 170, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons ul li {
   float: right;
-  height: 100%;
 }
-/* line 174, ../scss/sub/_header.scss */
+/* line 172, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons ul li button {
   position: relative;
   z-index: 1;
@@ -717,7 +712,7 @@ table {
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 194, ../scss/sub/_header.scss */
+/* line 192, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons ul li button:hover {
   color: #a9303b;
   background: #f8f8f8;
@@ -725,7 +720,7 @@ table {
   -webkit-box-shadow: inset 1px 1px 0px #ffffff;
   box-shadow: inset 1px 1px 0px #ffffff;
 }
-/* line 200, ../scss/sub/_header.scss */
+/* line 198, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons ul li button.active, #header .bottom .right .widgets#quickbuttons ul li button:active {
   color: #ffffff;
   background: #870e19;
@@ -734,30 +729,30 @@ table {
   -webkit-box-shadow: inset 1px 1px 0px #a9303b;
   box-shadow: inset 1px 1px 0px #a9303b;
 }
-/* line 207, ../scss/sub/_header.scss */
+/* line 205, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons ul li button span {
   display: none;
 }
-/* line 209, ../scss/sub/_header.scss */
+/* line 207, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons ul li button:after {
   font-size: 1.5em;
   font-family: FontAwesome;
 }
-/* line 214, ../scss/sub/_header.scss */
+/* line 212, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons ul li button.search:after {
   content: "\f002";
 }
 @media only screen and (min-width: 640px) {
-  /* line 215, ../scss/sub/_header.scss */
+  /* line 213, ../scss/sub/_header.scss */
   #header .bottom .right .widgets#quickbuttons ul li button.mobilenavi {
     display: none;
   }
 }
-/* line 217, ../scss/sub/_header.scss */
+/* line 215, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons ul li button.mobilenavi:after {
   content: "\f037";
 }
-/* line 221, ../scss/sub/_header.scss */
+/* line 219, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons ul li.active button {
   color: #ffffff;
   background: #870e19;
@@ -766,15 +761,15 @@ table {
   -webkit-box-shadow: inset 1px 1px 0px #a9303b;
   box-shadow: inset 1px 1px 0px #a9303b;
 }
-/* line 226, ../scss/sub/_header.scss */
+/* line 224, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons ul li.active button:hover {
   background: #981f2a;
 }
-/* line 228, ../scss/sub/_header.scss */
+/* line 226, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons ul li.active button:hover:before {
   color: #981f2a;
 }
-/* line 233, ../scss/sub/_header.scss */
+/* line 231, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons ul li.active button:before {
   content: "\f0d7";
   position: absolute;
@@ -787,7 +782,7 @@ table {
   line-height: 0.2em;
   color: #870e19;
 }
-/* line 249, ../scss/sub/_header.scss */
+/* line 247, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
@@ -808,7 +803,7 @@ table {
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 259, ../scss/sub/_header.scss */
+/* line 257, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper {
   position: relative;
   background: #f1f1f1;
@@ -819,18 +814,18 @@ table {
   -webkit-box-shadow: inset 1px 1px 0px #fafafa;
   box-shadow: inset 1px 1px 0px #fafafa;
 }
-/* line 268, ../scss/sub/_header.scss */
+/* line 266, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget {
   width: 100%;
   float: right;
 }
 @media only screen and (min-width: 640px) {
-  /* line 268, ../scss/sub/_header.scss */
+  /* line 266, ../scss/sub/_header.scss */
   #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget {
     max-width: 400px;
   }
 }
-/* line 274, ../scss/sub/_header.scss */
+/* line 272, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget input {
   line-height: 40px;
   background: #ffffff;
@@ -841,7 +836,7 @@ table {
   width: 85%;
   font-size: 1.2em;
 }
-/* line 284, ../scss/sub/_header.scss */
+/* line 282, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget button {
   position: relative;
   width: 15%;
@@ -854,11 +849,11 @@ table {
   outline: none;
   cursor: pointer;
 }
-/* line 295, ../scss/sub/_header.scss */
+/* line 293, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget button:hover {
   background: #981f2a;
 }
-/* line 299, ../scss/sub/_header.scss */
+/* line 297, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget button:after {
   position: absolute;
   top: 0;
@@ -869,7 +864,7 @@ table {
   font-family: FontAwesome;
   font-size: 1.8em;
 }
-/* line 311, ../scss/sub/_header.scss */
+/* line 309, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results {
   width: 100.5%;
   position: absolute;
@@ -900,14 +895,14 @@ table {
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 328, ../scss/sub/_header.scss */
+/* line 326, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results li {
   width: 100%;
   height: auto;
   border-bottom: 1px solid #e5e5e5;
   line-height: 44px;
 }
-/* line 335, ../scss/sub/_header.scss */
+/* line 333, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results li a, #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results li.no-result {
   line-height: 44px;
   padding: 0 10px;
@@ -920,33 +915,33 @@ table {
   text-decoration: none;
   border-right: 3px solid #d1d1d1;
 }
-/* line 346, ../scss/sub/_header.scss */
+/* line 344, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results li a.active, #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results li.no-result.active {
   border-right-color: #870e19;
   color: #870e19;
   background: #ffffff;
   cursor: default;
 }
-/* line 352, ../scss/sub/_header.scss */
+/* line 350, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results li a:hover, #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results li.no-result:hover {
   background: #ffffff;
   color: #870e19;
 }
-/* line 357, ../scss/sub/_header.scss */
+/* line 355, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results li:last-child {
   border-bottom-color: #d1d1d1;
 }
-/* line 362, ../scss/sub/_header.scss */
+/* line 360, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget.hasResults .results, #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget.searched .results {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
-/* line 366, ../scss/sub/_header.scss */
+/* line 364, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget.searching input, #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget.searching button {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
   opacity: 0.4;
 }
-/* line 370, ../scss/sub/_header.scss */
+/* line 368, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget.searching button:after {
   content: "\f0e2";
   height: 102%;
@@ -989,32 +984,32 @@ table {
   }
 }
 @-keyframes Rotate {
-  /* line 399, ../scss/sub/_header.scss */
+  /* line 397, ../scss/sub/_header.scss */
   #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget.searching button:after from {
     transform: rotate(0deg);
   }
-  /* line 400, ../scss/sub/_header.scss */
+  /* line 398, ../scss/sub/_header.scss */
   #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget.searching button:after to {
     transform: rotate(-360deg);
   }
 }
-/* line 405, ../scss/sub/_header.scss */
+/* line 403, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget {
   width: 100%;
   overflow: hidden;
   *zoom: 1;
 }
 @media only screen and (min-width: 640px) {
-  /* line 405, ../scss/sub/_header.scss */
+  /* line 403, ../scss/sub/_header.scss */
   #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget {
     display: none;
   }
 }
-/* line 410, ../scss/sub/_header.scss */
+/* line 408, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget ul li {
   float: none;
 }
-/* line 413, ../scss/sub/_header.scss */
+/* line 411, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget ul li a {
   display: block;
   text-align: center;
@@ -1027,24 +1022,24 @@ table {
   width: 100%;
   border-bottom: 1px solid #d1d1d1;
 }
-/* line 424, ../scss/sub/_header.scss */
+/* line 422, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget ul li a.active, #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget ul li a:hover {
   background: #870e19;
   color: #ffffff;
 }
-/* line 430, ../scss/sub/_header.scss */
+/* line 428, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget ul li:last-child a {
   border-bottom: none;
   line-height: 56px;
 }
-/* line 441, ../scss/sub/_header.scss */
+/* line 439, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#main_search {
   display: none;
   width: 30%;
   vertical-align: middle;
   margin-right: 10px;
 }
-/* line 446, ../scss/sub/_header.scss */
+/* line 444, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#main_search input {
   width: 100%;
   padding: 0 15px;
@@ -1056,7 +1051,7 @@ table {
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 458, ../scss/sub/_header.scss */
+/* line 456, ../scss/sub/_header.scss */
 #header .bottom .right.open #quickbuttons.widgets .widget {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
@@ -2025,7 +2020,7 @@ body.js #personalCounter .item {
   }
 }
 /* line 221, ../scss/sub/_contentStyles.scss */
-body.js #personalCounter .item.spinner h2 {
+body.js #personalCounter .item.spinner span.number {
   -webkit-animation: spin 1.8s 1 ease-in-out;
   animation: spin 1.8s 1 ease-in-out;
 }
@@ -2075,7 +2070,7 @@ body.js #personalCounter .item.loaded {
   opacity: 1;
 }
 /* line 257, ../scss/sub/_contentStyles.scss */
-#personalCounter .item h2 {
+#personalCounter .item span.number {
   position: absolute;
   z-index: 2;
   display: block;
@@ -2089,7 +2084,7 @@ body.js #personalCounter .item.loaded {
   font-family: UbuntuRegular, sans-serif !important;
 }
 /* line 269, ../scss/sub/_contentStyles.scss */
-body.js #personalCounter .item h2 {
+body.js #personalCounter .item span.number {
   -webkit-animation: rotatetext 1.2s 1 ease-in-out;
   animation: rotatetext 1.2s 1 ease-in-out;
 }
@@ -2114,12 +2109,12 @@ body.js #personalCounter .item h2 {
   }
 }
 /* line 297, ../scss/sub/_contentStyles.scss */
-#personalCounter .item h2 {
+#personalCounter .item span.number {
   font-size: 7em !important;
 }
 @media only screen and (min-width: 1000px) and (max-width: 1290px) {
   /* line 297, ../scss/sub/_contentStyles.scss */
-  #personalCounter .item h2 {
+  #personalCounter .item span.number {
     font-size: 5em !important;
   }
 }
@@ -2137,7 +2132,7 @@ body.js #personalCounter .item h2 {
 }
 @media only screen and (min-width: 1600px) {
   /* line 319, ../scss/sub/_contentStyles.scss */
-  #personalCounter .item h2 {
+  #personalCounter .item span.number {
     font-size: 9em !important;
   }
 }
@@ -2166,18 +2161,18 @@ body.js #personalCounter .item h2 {
   }
 }
 /* line 350, ../scss/sub/_contentStyles.scss */
-#personalCounter .item.creativity h2 {
+#personalCounter .item.creativity span.number {
   font-size: 14em !important;
 }
 @media only screen and (max-width: 638px) {
   /* line 350, ../scss/sub/_contentStyles.scss */
-  #personalCounter .item.creativity h2 {
+  #personalCounter .item.creativity span.number {
     font-size: 9em !important;
   }
 }
 @media only screen and (min-width: 1000px) and (max-width: 1290px) {
   /* line 350, ../scss/sub/_contentStyles.scss */
-  #personalCounter .item.creativity h2 {
+  #personalCounter .item.creativity span.number {
     font-size: 11em !important;
   }
 }
@@ -2254,7 +2249,7 @@ body.js .index > .body > .bottom.loaded {
   font-size: 2.8em;
 }
 /* line 409, ../scss/sub/_contentStyles.scss */
-.index.default #helpWith > .item .wrapper > .header span {
+.index.default #helpWith > .item .wrapper > .header h2 {
   color: #ff5566;
   font-size: 1.5em;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
@@ -2399,7 +2394,7 @@ body.js .index > .body > .bottom.loaded {
   }
 }
 /* line 539, ../scss/sub/_contentStyles.scss */
-#youDeserveTheBest > h2 {
+#youDeserveTheBest > span {
   font-size: 2.1em !important;
   color: #870e19;
   line-height: 1em;

@@ -218,7 +218,7 @@
 				  }
 			}
 
-			&.spinner h2 {
+			&.spinner span.number {
 				-webkit-animation: spin 1.8s 1 ease-in-out;
 				animation: spin 1.8s 1 ease-in-out;
 				@-webkit-keyframes spin {
@@ -254,7 +254,7 @@
 			&.loaded {opacity: 1;}
 		}
 
-		h2 {
+		span.number {
 			position: absolute;
 			z-index: 2;
 			display: block;
@@ -294,7 +294,7 @@
 		}
 
 
-		h2 {
+		span.number {
 			font-size: 7em !important;
 
 			@include browser(laptoplaptopwide) {
@@ -316,7 +316,7 @@
 
 
 		@include browser(desktoplarge) {
-			h2 {
+			span.number {
 				font-size: 9em !important;
 			}
 		}
@@ -347,7 +347,7 @@
 		}
 
 		&.creativity {
-			h2 {
+			span.number {
 				font-size: 14em !important;
 				@include browser(mobile) {
 					font-size: 9em !important;
@@ -406,7 +406,7 @@
 					padding-bottom: 0;
 					font-size: 2.8em;
 				}
-				span {
+				h2 {
 					color: #ff5566;
 					font-size: 1.5em;
 					@include text-shadow(1px 1px rgba(0,0,0,0.2));
@@ -536,7 +536,7 @@
 			font-size: 2.4em !important;
 		}
 	}
-	> h2 {
+	> span {
 		font-size: 2.1em !important;
 		color: $color_main_red;
 		line-height: 1em;
