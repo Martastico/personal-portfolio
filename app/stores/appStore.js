@@ -10,7 +10,8 @@ var _HeaderBottomRightWidgets = {};
 var _classes = {
 	 "openWidget": "",
 	 "fullScreenOpen": false,
-	 "routeLoading": true
+	 "routeLoading": true,
+	 "isMobile": false
 };
 
 // Construction for what data to return as AppStore state.
@@ -34,6 +35,13 @@ module.exports = Reflux.createStore({
 	 onRouteLoadDone: function() {
 			_classes.routeLoading = !Config.isBrowser;
 			this.updateApp();
+	 },
+
+	 onIsMobile: function(value) {
+			if(_classes.isMobile !== value) {
+				 _classes.isMobile = value;
+				 this.updateApp();
+			}
 	 },
 
 	 onWidgetOpen: function(widget) {

@@ -1,12 +1,15 @@
 // Use it to have unique pages using nodes.
 
 var React 				= require('react');
+var Reflux = require('reflux');
+
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 var _ 				 		= require('lodash');
 var classnames 		= require('classnames');
 var $ 				 		= require('jquery');
 var Helmet 				= require('react-helmet');
 
+var AppStore 		= require('../../stores/appStore');
 
 // Config
 var Config = require('../../app.config');
@@ -15,10 +18,14 @@ var Config = require('../../app.config');
 // TODO: Make it more dynamic.
 // TODO: Ability to define styles from server side
 module.exports = React.createClass({
+	 mixins: [Reflux.connect(AppStore,"AppStore")],
 
 	 componentDidMount: function() {
 			var big_title = $(React.findDOMNode(this.refs.big_title));
 			var content = $(".gr.animation");
+			var SApp = this.state.AppStore;
+
+			console.log(SApp);
 
 
 			// Do animations here for specific custom pages..
@@ -35,19 +42,27 @@ module.exports = React.createClass({
 								pci4 = $(".index .main_content .personalcounter_item_4"),
 								index_bottom = $(".index > .body > .bottom");
 
-						$(pci1).addClass("loaded spinner").delay(500).show(function() {
-							 $(pci2).addClass("loaded spinner").delay(400).show(function() {
-									$(pci3).addClass("loaded spinner").delay(400).show(function() {
-										 $(pci4).addClass("loaded spinner").delay(1400).show(function() {
-												$(index_bottom).addClass("loaded");
-												$(pci1).addClass("perspective");
-												$(pci2).addClass("perspective");
-												$(pci3).addClass("perspective");
-												$(pci4).addClass("perspective");
+						if(SApp.classes.isMobile) {
+							 $(index_bottom).addClass("loaded");
+							 $(pci1).addClass("loaded spinner");
+							 $(pci2).addClass("loaded spinner");
+							 $(pci3).addClass("loaded spinner");
+							 $(pci4).addClass("loaded spinner");
+						} else {
+							 $(pci1).addClass("loaded spinner").delay(500).show(function() {
+									$(pci2).addClass("loaded spinner").delay(400).show(function() {
+										 $(pci3).addClass("loaded spinner").delay(400).show(function() {
+												$(pci4).addClass("loaded spinner").delay(1400).show(function() {
+													 $(index_bottom).addClass("loaded");
+													 $(pci1).addClass("perspective");
+													 $(pci2).addClass("perspective");
+													 $(pci3).addClass("perspective");
+													 $(pci4).addClass("perspective");
+												});
 										 });
 									});
 							 });
-						});
+						}
 				 }
 			}.bind(this), 150);
 	 },

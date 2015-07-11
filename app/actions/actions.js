@@ -6,5 +6,6 @@ module.exports = Reflux.createActions({
 	 "widgetOpen": { asyncResult: false },
 	 "routeLoad": { asyncResult: true },
 	 "routeLoadDone": { asyncResult: true },
-	 "getDataRoute": { asyncResult: true }
+	 "getDataRoute": { asyncResult: true },
+	 "isMobile": { asyncResult: false }
 });

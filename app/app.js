@@ -38,19 +38,22 @@ var App = React.createClass({
 
 			var mainColumnMiddleContent = React.findDOMNode(this.refs.mainColumnMiddleContent);
 			$(mainColumnMiddleContent).addClass("loaded");
+			$(mainColumnMiddleContent).mCustomScrollbar({
+				 theme: "mcc",
+				 scrollInertia: 120,
+				 advanced:{ updateOnContentResize: true },
+				 mouseWheel:{ scrollAmount: 120 }
+			});
+
 			resizedw();
 
 			function resizedw() {
-				 console.log("Browser resized");
 				 if($(window).width() < 639) {
-						$(mainColumnMiddleContent).mCustomScrollbar("destroy");
+						Actions.isMobile(true);
+						//console.log($(mainColumnMiddleContent).mCustomScrollbar);
+						//$(mainColumnMiddleContent).mCustomScrollbar("destroy");
 				 } else {
-						$(mainColumnMiddleContent).mCustomScrollbar({
-							 theme: "mcc",
-							 scrollInertia: 120,
-							 advanced:{ updateOnContentResize: true },
-							 mouseWheel:{ scrollAmount: 120 }
-						});
+						Actions.isMobile(false);
 				 }
 			}
 
@@ -72,16 +75,17 @@ var App = React.createClass({
 
 	 render: function() {
 
-			console.log("App Rendered");
-
 			var SApp = this.state.AppStore;
 
 			// Default ".page-wrapper" Classes
 			var pageWrapperClasses = {
 				 "page-wrapper": true,
 				 "fullscreen-open": SApp.classes.fullScreenOpen,
-				 "routeLoading": SApp.classes.routeLoading
+				 "routeLoading": SApp.classes.routeLoading,
+				 "isMobile": SApp.classes.isMobile
 			};
+
+			console.log(SApp.classes.isMobile);
 
 			var HeaderBottomRightWidgetsClasses = ["right"];
 

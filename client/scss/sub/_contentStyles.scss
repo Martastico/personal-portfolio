@@ -389,7 +389,7 @@
 					display:table;
 					clear:both;
 				}
-				padding: 20px 10px;
+				padding: 30px 10px;
 
 				@include browser(tabletsmall) {
 					padding: 30px 20px;
@@ -406,19 +406,20 @@
 				font-family: 'UbuntuLight';
 				h1 {
 					//text-transform: uppercase;
+					margin-bottom: 0;
+					padding-bottom: 0;
 					font-weight: normal;
+					font-size: 2.2em;
 					border-bottom: none;
 					color: #ffffff;
-					margin-bottom: 5px;
-					padding-bottom: 0;
-					font-size: 2.8em;
-					@include browser(mobile) {
+					@include browser(tabletsmall) {
+						margin-bottom: 5px;
 						font-size: 2.5em;
 					}
 				}
 				h2 {
-					color: #ff5566;
-					font-size: 1.5em;
+					color: #ff5566; 
+					font-size: 1.4em;
 					@include text-shadow(1px 1px rgba(0,0,0,0.2)); 
 					@include browser(mobile) {
 						font-size: 1.3em;
@@ -547,11 +548,11 @@
 		margin-bottom: 0 !important;
 
 		@include browser(mobile) {
-			font-size: 2.1em !important;
+			font-size: 1.9em !important;
 		}
 	}
 	> span {
-		font-size: 1.6em !important;
+		font-size: 1.5em !important;
 		color: $color_main_red;
 		line-height: 1em;
 		font-weight: normal !important;
