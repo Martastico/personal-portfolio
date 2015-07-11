@@ -2,6 +2,7 @@
 var Reflux 	= require('reflux');
 var Actions = require('../actions/actions.js');
 var _ 			= require('lodash');
+var Config 	= require('../app.config');
 
 var _HeaderBottomRightWidgets = {};
 
@@ -31,7 +32,7 @@ module.exports = Reflux.createStore({
 	 },
 
 	 onRouteLoadDone: function() {
-			_classes.routeLoading = false;
+			_classes.routeLoading = !Config.isBrowser;
 			this.updateApp();
 	 },
 

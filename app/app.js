@@ -60,7 +60,6 @@ var App = React.createClass({
 				 doit = setTimeout(resizedw, 200);
 			};
 
-
 	 },
 
 	 componentWillUpdate: function() {
@@ -69,6 +68,9 @@ var App = React.createClass({
 				 $(mainColumnMiddleContent).mCustomScrollbar("scrollTo", [0, null]);
 				 $("#main_column_middle > .content").scrollTop(0);
 			}
+			window.scrollTo(22,22);
+			console.log("scrolled");
+
 	 },
 
 	 render: function() {
