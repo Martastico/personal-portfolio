@@ -93,7 +93,7 @@ router.get('/nodes/:path', function(req, res, next) {
 					]
 			)
 	 } else {
-			res.setHeader("Cache-Control", "public, max-age=36000");
+			res.setHeader("Cache-Control", "public, max-age=604800000");
 			res.json(returnJSON)
 	 }
 
