@@ -50,8 +50,6 @@ var App = React.createClass({
 			function resizedw() {
 				 if($(window).width() < 639) {
 						Actions.isMobile(true);
-						//console.log($(mainColumnMiddleContent).mCustomScrollbar);
-						//$(mainColumnMiddleContent).mCustomScrollbar("destroy");
 				 } else {
 						Actions.isMobile(false);
 				 }
@@ -73,8 +71,12 @@ var App = React.createClass({
 
 	 },
 
-	 render: function() {
+	 //shouldComponentUpdate: function(nextProps, nextState) {
+		//	console.log(nextState);
+		//	return !_.isEqual(nextState, this.state);
+	 //},
 
+	 render: function() {
 			var SApp = this.state.AppStore;
 
 			// Default ".page-wrapper" Classes
@@ -84,8 +86,6 @@ var App = React.createClass({
 				 "routeLoading": SApp.classes.routeLoading,
 				 "isMobile": SApp.classes.isMobile
 			};
-
-			console.log(SApp.classes.isMobile);
 
 			var HeaderBottomRightWidgetsClasses = ["right"];
 

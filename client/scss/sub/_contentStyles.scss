@@ -12,15 +12,18 @@
 		.big-title {
 			background: $color_main_red;
 			color: #ffffff;
-			padding: 51px 30px 23px 30px;
 			margin-bottom: 0;
-
 			font-family: UbuntuRegular, sans-serif !important;
 			//font-weight: normal;
 			//@include text-shadow(1px 1px #000000);
+			padding: 50px 10px 15px 10px;
 			@include transition-property(all);
 			@include transition-duration(0.4s);
 			@include transition-timing-function(ease-in);
+
+			@include browser(tabletsmall) {
+				padding: 51px 30px 23px 30px;
+			}
 
 			body.js & {
 				opacity: 0;
@@ -86,6 +89,8 @@
 				margin: 10px 0;
 				line-height: 1.5em;
 				width: 100%;
+				margin-left: -10px;
+
 				@include browser(laptop) {
 					margin: 10px 0 30px -25px;
 					width: 70%;

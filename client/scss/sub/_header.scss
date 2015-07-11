@@ -58,7 +58,6 @@
                width: 65px;
                height: 70px;
                background-size: cover;
-
             }
 
             @include browser(desktopextreme) {
@@ -88,6 +87,7 @@
          left: 0;
          top: 0;
          @include browser(tabletsmall) {
+            width: 390px;
             padding-left: 15px;
             padding-top: 0;
          }

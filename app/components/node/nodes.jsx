@@ -26,8 +26,6 @@ module.exports = React.createClass({
 	 renderNodes: function() {
 			var params = _.isUndefined(this.props.params) ? {path: "/home"} : this.props.params;
 
-			console.log(params);
-
 			var filteredNode = _.filter(this.state.NodeStore.nodes, function (n, nk) {
 				 return _.snakeCase(n.path) === _.snakeCase(params.path);
 			}.bind(this));

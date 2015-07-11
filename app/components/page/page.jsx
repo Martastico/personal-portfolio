@@ -20,13 +20,14 @@ var Config = require('../../app.config');
 module.exports = React.createClass({
 	 mixins: [Reflux.connect(AppStore,"AppStore")],
 
+	 shouldComponentUpdate: function(nextProps, nextState) {
+			return !_.isEqual(nextProps, this.props);
+	 },
+
 	 componentDidMount: function() {
 			var big_title = $(React.findDOMNode(this.refs.big_title));
 			var content = $(".gr.animation");
 			var SApp = this.state.AppStore;
-
-			console.log(SApp);
-
 
 			// Do animations here for specific custom pages..
 			setTimeout(function() { // Small delay because of browser support..
