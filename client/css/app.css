@@ -2708,8 +2708,34 @@ body.js .me-pic {
 .skills-list.work-in-action p {
   color: #ffffff;
 }
+/* line 702, ../scss/sub/_contentStyles.scss */
+.skills-list.work-in-action a.view {
+  display: block;
+  position: relative;
+  background: black;
+  padding: 0 20px;
+  text-align: center;
+  color: white !important;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  line-height: 55px;
+  font-family: 'UbuntuRegular';
+}
+/* line 713, ../scss/sub/_contentStyles.scss */
+.skills-list.work-in-action a.view:hover {
+  background: #222222;
+}
+/* line 716, ../scss/sub/_contentStyles.scss */
+.skills-list.work-in-action a.view:before {
+  content: "\f113";
+  font-family: 'FontAwesome';
+  position: absolute;
+  top: 0;
+  left: 20px;
+  font-size: 2em;
+}
 
-/* line 706, ../scss/sub/_contentStyles.scss */
+/* line 729, ../scss/sub/_contentStyles.scss */
 .gr > header.default > h2 {
   color: #870e19;
   font-size: 2.2em !important;

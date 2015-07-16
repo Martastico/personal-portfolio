@@ -699,6 +699,29 @@
 		p {
 			color: #ffffff;
 		}
+		a.view {
+			display: block;
+			position: relative;
+			background: black;
+			padding: 0 20px;
+			text-align: center;
+			color: white !important;
+			margin-bottom: 20px;
+			text-transform: uppercase;
+			line-height: 55px;
+			font-family: 'UbuntuRegular';
+			&:hover {
+				background: #222222;
+			}
+			&:before {
+				content: "\f113";
+				font-family: 'FontAwesome';
+				position: absolute;
+				top: 0;
+				left: 20px;
+				font-size: 2em;
+			}
+		}
 	}
 
 }
