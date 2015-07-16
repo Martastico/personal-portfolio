@@ -166,13 +166,12 @@
 
       }
       .right {
+         height: 100%;
 
          @include browser(tabletsmall) {
             position: absolute;
-            top: -100%;
             right: 0;
             height: 100%;
-            width: 100%;
             width: 50%;
             top: 0;
          }
@@ -187,6 +186,7 @@
                   //height: 100%;
                   li {
                      float: right;
+                     height: 100%;
                      button {
                         position: relative;
                         z-index: 1;

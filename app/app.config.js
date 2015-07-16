@@ -23,8 +23,8 @@ module.exports = {
 //  relative: '',
 //  api: "http://saarman.net" + '/api',
 //  server: {
-//   absolute: "127.0.0.1:15500",
-//   api: "127.0.0.1:15500/api"
+//   absolute: "127.0.0.1:3000",
+//   api: "127.0.0.1:3000/api"
 //  }
 // },
 // isBrowser: typeof window !== 'undefined'

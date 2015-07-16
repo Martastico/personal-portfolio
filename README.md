@@ -17,10 +17,10 @@ My personal portfolio source files. [ssaarman.net](http://saarman.net)
 Current minified JS file size: ~430kb
 
 ##Server-Side
-
-* Node.js with Express 4 
-* MongoDB To be implemented
+* [Node.js](https://nodejs.org) with Express 4 
 * App is pre-rendered by server. Site is SEO friendly and can be viewed and navigated without JavaScript enabled.
+* [nginx](http://nginx.org) as Proxy Server
+* [MongoDB](https://www.mongodb.org) To be implemented, currently getting data directly from node.js static json
  
 ##Developing Environment
 
