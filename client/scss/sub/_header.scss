@@ -1,13 +1,13 @@
 #header {
    $height: 135px;
    position: fixed;
-   background: #f1f1f1;
+   background: #ffffff;
    width: 100%;
    height: $height - 60px;
    top: 0;
    left: 0;
    z-index: 5;
-   border-bottom: 1px solid #d3d3d3;
+   border-bottom: 1px solid #e1e1e1;
 
    @include browser(tabletsmall) {
       position: absolute;
@@ -100,8 +100,8 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 35px;
-            line-height: 35px;
+            width: 40px;
+            line-height: 40px;
             border: none;
             background: none;
             cursor: pointer;
@@ -143,7 +143,7 @@
       @include browser(tabletsmall) {
          height: 55px;
          line-height: 55px;
-         border-top: 1px solid #e1e1e1;
+         border-top: 1px solid #f1f1f1;
       }
 
       .left {
@@ -200,7 +200,6 @@
                         color: $color_main_red;
                         cursor: pointer;
                         outline: none;
-                        @include box-shadow(inset 1px 1px 0px #f9f9f9);
 
 
                         @include transition-property(all);
@@ -263,23 +262,21 @@
                   }
                }
                .widget {
-
                   @include opacity(0);
-                  @include transform(translate(0px, -15px));
+                  @include transform(translate(0, -8px));
 
                   @include transition-property(all);
-                  @include transition-duration(0.2s);
+                  @include transition-duration(0.25s);
                   @include transition-timing-function(ease-in);
-
 
                   > .wrapper {
                      // Default values?
                      position: relative;
-                     background: #f1f1f1;
-                     border: 1px solid #e5e5e5;
+                     background: #f8f8f8;
+                     border: 1px solid #e1e1e1;
+                     //border-top: none;
                      border-right: none;
                      padding: 12px 12px 5px 12px;
-                     @include box-shadow(inset 1px 1px 0px #fafafa);
 
                      &.search-widget {
                         width: 100%;
