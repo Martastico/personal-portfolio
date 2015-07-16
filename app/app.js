@@ -121,9 +121,9 @@ var App = React.createClass({
 												 <section id="main_column_left">
 														<div id="main_column_left_widgets">
 															 <div className="content">
-																	<div id="main_column_left_navi" className="widget-1 widget widget-wrapper">
+																	<nav id="main_column_left_navi" className="widget-1 widget widget-wrapper">
 																		 <MainNavi />
-																	</div>
+																	</nav>
 															 </div>
 														</div>
 														<footer>

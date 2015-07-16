@@ -2574,11 +2574,14 @@ body.js .index > .body > .bottom.loaded {
   max-width: 30%;
   margin-left: 30px;
   margin-bottom: 20px;
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   -moz-border-radius: 10%;
   -webkit-border-radius: 10%;
   border-radius: 10%;
 }
-/* line 601, ../scss/sub/_contentStyles.scss */
+/* line 602, ../scss/sub/_contentStyles.scss */
 body.js .me-pic {
   -moz-transform: translate(30px, 0);
   -ms-transform: translate(30px, 0);
@@ -2597,7 +2600,7 @@ body.js .me-pic {
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 609, ../scss/sub/_contentStyles.scss */
+/* line 610, ../scss/sub/_contentStyles.scss */
 .gr.animation.loaded .me-pic {
   -moz-transform: translate(0px, 0);
   -ms-transform: translate(0px, 0);
@@ -2621,36 +2624,39 @@ body.js .me-pic {
   }
 }
 
-/* line 633, ../scss/sub/_contentStyles.scss */
+/* line 634, ../scss/sub/_contentStyles.scss */
 .redcolor {
   color: #870e19 !important;
 }
 
-/* line 637, ../scss/sub/_contentStyles.scss */
+/* line 638, ../scss/sub/_contentStyles.scss */
 .sizem {
   font-size: 1.15em !important;
 }
 
-/* line 640, ../scss/sub/_contentStyles.scss */
+/* line 641, ../scss/sub/_contentStyles.scss */
 .sizel {
   font-size: 1.25em !important;
 }
 
-/* line 644, ../scss/sub/_contentStyles.scss */
+/* line 645, ../scss/sub/_contentStyles.scss */
 .skills-list {
   background: #ffffff;
   font-size: 1.1em;
   line-height: 1.4em;
   margin-bottom: 20px;
   border: 1px solid #e1e1e1;
+  -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
 }
-/* line 645, ../scss/sub/_contentStyles.scss */
+/* line 646, ../scss/sub/_contentStyles.scss */
 .skills-list:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 656, ../scss/sub/_contentStyles.scss */
+/* line 658, ../scss/sub/_contentStyles.scss */
 .skills-list h3 {
   display: block;
   color: #870e19;
@@ -2659,32 +2665,51 @@ body.js .me-pic {
   padding: 18px 20px;
   border-bottom: 1px solid #eeeeee;
 }
-/* line 664, ../scss/sub/_contentStyles.scss */
+/* line 666, ../scss/sub/_contentStyles.scss */
 .skills-list > ul {
   padding: 20px;
 }
-/* line 666, ../scss/sub/_contentStyles.scss */
+/* line 668, ../scss/sub/_contentStyles.scss */
 .skills-list > ul li {
   list-style-type: square;
   margin-bottom: 5px;
   margin-left: 25px;
 }
-/* line 670, ../scss/sub/_contentStyles.scss */
+/* line 672, ../scss/sub/_contentStyles.scss */
 .skills-list > ul li ul {
   margin: 5px 0 10px 0;
 }
-/* line 673, ../scss/sub/_contentStyles.scss */
+/* line 675, ../scss/sub/_contentStyles.scss */
 .skills-list > ul li li {
   margin-left: 25px;
   list-style-type: circle;
 }
-/* line 681, ../scss/sub/_contentStyles.scss */
+/* line 683, ../scss/sub/_contentStyles.scss */
 .skills-list:last-child {
   border-bottom: none;
   margin-bottom: 10px;
 }
-
 /* line 688, ../scss/sub/_contentStyles.scss */
+.skills-list.work-in-action {
+  background: #870e19;
+}
+/* line 690, ../scss/sub/_contentStyles.scss */
+.skills-list.work-in-action h3 {
+  color: #ffffff;
+  border-bottom-color: #720004;
+  text-align: center;
+  text-transform: uppercase;
+}
+/* line 696, ../scss/sub/_contentStyles.scss */
+.skills-list.work-in-action > div {
+  padding: 20px 20px 5px 20px;
+}
+/* line 699, ../scss/sub/_contentStyles.scss */
+.skills-list.work-in-action p {
+  color: #ffffff;
+}
+
+/* line 706, ../scss/sub/_contentStyles.scss */
 .gr > header.default > h2 {
   color: #870e19;
   font-size: 2.2em !important;
