@@ -14,7 +14,7 @@ My personal portfolio source files. [saarman.net](http://saarman.net "Mart Saarm
 * [malihu-custom-scrollbar-plugin](https://github.com/malihu/malihu-custom-scrollbar-plugin)
 * [FontAwesome](https://github.com/FortAwesome/Font-Awesome)
 
-Current minified JS file size: ~500kb
+Current minified JS file size: ~550kb
 
 ##Server-Side
 * [Node.js](https://nodejs.org) with [Express 4](http://expressjs.com) 
@@ -22,6 +22,9 @@ Current minified JS file size: ~500kb
 * [nginx](http://nginx.org) as Proxy Server
 * [MongoDB](https://www.mongodb.org) To be implemented, currently getting data directly from node.js static json
 * TODO: More robust error handling and production/development environment.
+ 
+##API Back-end
+* Drupal 7 
  
 ##Developing Environment
 
