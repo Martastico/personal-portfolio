@@ -13,16 +13,34 @@
 			background: $color_main_red;
 			color: #ffffff;
 			margin-bottom: 0;
-			font-family: UbuntuRegular, sans-serif !important;
+			font-family: RobotoBlack, sans-serif !important;
+			font-weight: bold;
 			//font-weight: normal;
 			//@include text-shadow(1px 1px #000000);
 			padding: 50px 15px 15px 15px;
-			@include transition-property(all);
-			@include transition-duration(0.4s);
-			@include transition-timing-function(ease-in);
+
+			body.js & {
+				@include transition-property(all);
+				@include transition-duration(0.4s);
+				@include transition-timing-function(ease-in);
+			}
 
 			@include browser(tabletsmall) {
-				padding: 51px 30px 23px 30px;
+				padding: 60px 30px 23px 20px;
+
+			}
+			@include browser(tablet) {
+				padding: 91px 25px 24px 25px;
+			}
+			@include browser(laptop) {
+				padding: 91px 25px 24px 25px;
+			}
+			@include browser(desktop) {
+				padding: 88px 45px 24px 45px;
+			}
+
+			@include browser(desktoplarge) {
+				padding: 88px 55px 24px 55px;
 			}
 
 			body.js & {
@@ -33,113 +51,6 @@
 					opacity: 1;
 				}
 			}
-
-			@include browser(tabletsmalllaptopplus) {
-				//font-size: 1.8em !important;
-				padding: 77px 15px 24px 15px;
-				font-size: 2.1em;
-			}
-
-			@include browser(desktoplarge) {
-				min-height: 121px;
-				line-height: 40px;
-			}
-		}
-	}
-	> .content {
-		.default {
-			//background: red;
-
-			@include browser(mobile) {
-				.about & h2.redcolor.line {
-					color: #000000 !important;
-				}
-			}
-
-			p {
-				display: block;
-				padding-bottom: 20px;
-				font-size: 1.05em;
-				line-height: 1.6em;
-			}
-
-			a {
-				text-decoration: none;
-				color: $color_main_red;
-			}
-
-			h1, h2 {
-				font-family: 'UbuntuLight';
-				font-weight: normal;
-				line-height: 1.3em;
-			}
-			h2 {
-				font-size: 1.6em;
-				margin-bottom: 15px;
-				&.line {
-					border-bottom: 2px solid #cccccc;
-					padding-bottom: 10px;
-				}
-				@include browser(mobile) {
-					font-size: 1.4em;
-				}
-			}
-
-			h1 {
-				font-size: 2.2em;
-				@include browser(mobile) {
-					font-size: 2em;
-				}
-			}
-
-			h1.title2 {
-				border-bottom: none;
-				margin-bottom: 0;
-			}
-
-			.text-box {
-				background: #000000;
-				color: #ffffff;
-				padding: 30px 25px;
-				font-size: 1.3em;
-				font-family: 'UbuntuLight';
-				margin: 15px 0 20px -15px; // Grid spacing 15px
-				line-height: 1.5em;
-				width: 90%;
-				@include browser(mobile) {
-					border-right: 4px solid $color_main_red;
-
-				}
-
-				@include browser(laptop) {
-					margin: 10px 0 30px -25px;
-					width: 70%;
-				}
-
-				@include browser(desktop) {
-					margin: 10px 0 30px -35px;
-				}
-				p:last-child {
-					padding-bottom: 0;
-				}
-				&:last-child {
-					margin-bottom: 0;
-
-					@include browser(mobile) {
-						margin-bottom: 20px;
-					}
-				}
-			}
-
-			.wide {
-
-			}
-			.regular {
-				//padding: 30px 35px 30px 30px;
-			}
-			@include browser(desktopextreme) {
-				font-size: 1.1em;
-			}
 		}
 	}
 }
@@ -148,11 +59,10 @@
 	.gwrapper {
 		.gr {
 			&.animation {
-				@include transition-property(opacity, transform);
-				@include transition-duration(0.3s);
-				@include transition-timing-function(ease-in);
-
 				body.js & {
+					@include transition-property(opacity, transform);
+					@include transition-duration(0.3s);
+					@include transition-timing-function(ease-in);
 					opacity: 0;
 					@include transform(translate(-20px, 0px));
 					&.loaded {
@@ -167,16 +77,22 @@
 		}
 		&.index {
 			>.big-title {
-				font-size: 2em;
+				font-size: 2.2em;
 				text-align: center;
+				//text-transform: uppercase;
 				text-transform: uppercase;
+				@include browser(laptopplus) {
+					font-size: 2.7em;
+				}
 				@include browser(desktop) {
-					font-size: 2.5em;
-					height: 121px;
-					line-height: 40px;
+					font-size: 2.9em !important;
+					height: 162px;
+					line-height: 100px;
+					padding-top: 49px;
 				}
 
-				@include browser(mobile) {
+				@include browser(mobiletablet) {
+					padding-bottom: 40px;
 					background: #000000;
 					//padding: 30px;
 					//font-size: 1.6em;
@@ -209,7 +125,7 @@
 		display:table;
 		clear:both;
 	}
-	border-bottom: 10px solid #d8d8d8;
+	border-bottom: 5px solid #e2e2e2;
 	padding-bottom: 5px;
 	@include browser(tabletsmall) {
 		padding-bottom: 20px;
@@ -223,6 +139,7 @@
 		margin-bottom: 80px;
 		background-color: $color_main_red;
 		background-size: contain;
+		font-family: RobotoRegular, sans-serif !important;
 
 		&.item-1 { background-image: url('../image/bigredbox.jpg'); }
 		&.item-2 { background-image: url('../image/bigredbox2.jpg'); }
@@ -289,13 +206,18 @@
 			z-index: 2;
 			display: block;
 			color: #ffffff;
-			font-size: 9em !important;
-			font-weight: bold !important;
+			font-size: 6em !important;
+			//font-weight: bold !important;
 			text-align: center;
 			line-height: 0 !important;
 			width: 100%;
 			top: 50%;
-			font-family: UbuntuRegular, sans-serif !important;
+
+			font-family: RobotoBlack, sans-serif !important;
+			font-weight: bold !important;
+			@include browser(tablet) {
+				//font-size: 7em !important;
+			}
 			body.js & {
 
 				-webkit-animation: rotatetext 1.2s 1 ease-in-out;
@@ -314,40 +236,33 @@
 			color: #ffffff;
 			text-transform: uppercase;
 			text-align: center;
-			font-size: 1.1em;
+			font-size: 0.9em;
+			font-family: RobotoBlack, sans-serif !important;
 			font-weight: bold;
 		}
+
 		@include browser(mobilelaptop) {
 			&:nth-child(2n + 1) {
 				margin-left: 0;
 			}
+
 		}
-
-
-		span.number {
-			font-size: 7em !important;
-
-			@include browser(laptoplaptopwide) {
-				font-size: 5em !important;
-			}
-		}
-
-
-
 
 		@include browser(laptop) {
 			width: 23.5%;
 			margin-left: 2%;
 			padding-top: 18.5%;
+		}
+		@include browser(laptopwide) {
 			.description {
-				font-size: 1em;
+				font-size: 1.05em;
 			}
 		}
 
 
 		@include browser(desktoplarge) {
 			span.number {
-				font-size: 9em !important;
+				font-size: 7.5em !important;
 			}
 		}
 
@@ -363,24 +278,11 @@
 
 		}
 
-		@include browser(laptoplaptopwide) {
-			.description {
-				font-size: 0.8em;
-			}
-		}
-
-
-		@include browser(laptopwide) {
-			.description {
-				font-size: 1em;
-			}
-		}
-
 		&.creativity {
 			span.number {
-				font-size: 14em !important;
-				@include browser(mobile) {
-					font-size: 9em !important;
+				font-size: 11em !important;
+				@include browser(tablet) {
+					font-size: 14em !important;
 				}
 
 				@include browser(laptoplaptopwide) {
@@ -393,10 +295,11 @@
 
 .index > .body > .bottom {
 
-	@include transition-property(all);
-	@include transition-duration(0.3s);
-	@include transition-timing-function(ease-in);
+
 	body.js & {
+		@include transition-property(all);
+		@include transition-duration(0.3s);
+		@include transition-timing-function(ease-in);
 		@include opacity(0);
 		&.loaded {
 			@include opacity(1);
@@ -418,10 +321,10 @@
 					display:table;
 					clear:both;
 				}
-				padding: 30px 15px;
+				padding: 50px 25px;
 
 				@include browser(tabletsmall) {
-					padding: 30px 20px;
+					padding: 60px 30px;
 				}
 
 				@include browser(laptop) {
@@ -432,24 +335,23 @@
 			.wrapper > .header {
 				font-size: 1.1em;
 				margin-bottom: 30px;
-				font-family: 'UbuntuLight';
+				font-family: RobotoLight, sans-serif;
 				h1 {
 					//text-transform: uppercase;
 					margin-bottom: 0;
 					padding-bottom: 0;
-					font-weight: normal;
-					font-size: 2.2em;
+					font-size: 2.3em;
 					border-bottom: none;
 					color: #ffffff;
 					@include browser(tabletsmall) {
 						margin-bottom: 5px;
-						font-size: 2.5em;
+						font-size: 2.7em;
 					}
 				}
 				h2 {
-					color: #ff5566; 
-					font-size: 1.4em;
-					@include text-shadow(1px 1px rgba(0,0,0,0.2)); 
+					color: #ff5566;
+					font-size: 1.8em;
+					@include text-shadow(1px 1px rgba(0,0,0,0.2));
 					@include browser(mobile) {
 						font-size: 1.3em;
 					}
@@ -485,7 +387,7 @@
 						font-size: 1.8em;
 						color: #ff5566;
 						margin-bottom: 15px;
-						font-family: 'UbuntuLight';
+						font-family: RobotoLight, sans-serif;
 					}
 				}
 				.items {
@@ -517,7 +419,7 @@
 								font-size: 1.3em;
 								//color: #cccccc;
 								margin-bottom: 8px;
-								font-family: 'UbuntuLight';
+								font-family: RobotoLight, sans-serif;
 							}
 						}
 						ul > li {
@@ -561,7 +463,7 @@
 }
 
 #youDeserveTheBest {
-	font-family: 'UbuntuLight';
+	font-family: RobotoLight, sans-serif;
 	text-align: center;
 	margin-top: 20px;
 	@include browser(tablet) {
@@ -569,36 +471,46 @@
 	}
 	> h1 {
 		display: block;
-		font-size: 3.5em !important;
+		font-size: 3em !important;
 		border-bottom: none !important;
 		color: #333333 !important;
-		line-height: 1.2em !important;
+		line-height: 1.4em !important;
 		font-weight: normal !important;
 		margin-bottom: 0 !important;
-
+		font-family: RobotoLight, sans-serif !important;
 		@include browser(mobile) {
-			font-size: 1.9em !important;
+			font-size: 2.9em !important;
+			line-height: 1.1em !important;
+			text-align: left !important;
+		}
+		@include browser(tablet) {
+			font-size: 4em !important;
+			line-height: 1.5em !important;
 		}
 	}
 	> span {
-		font-size: 2.4em !important;
+		font-size: 2em !important;
 		color: $color_main_red;
 		line-height: 1em;
 		font-weight: normal !important;
 		@include browser(mobile) {
 			font-size: 1.5em !important;
+			text-align: left !important;
+			display: block;
+		}
+		@include browser(tablet) {
+			font-size: 2.4em !important;
 		}
 	}
 }
 
+
 .me-pic {
 	border-bottom: 5px solid #870e19;
-	float: right;
 	max-width: 30%;
-	margin-left: 30px;
-	margin-bottom: 20px;
+	margin: 0 20px 20px 0;
 	@include box-shadow(0 0 15px rgba(0,0,0,0.1));
-	@include border-radius(10%);
+	//@include border-radius(10%);
 	body.js & {
 		@include transform(translate(30px, 0));
 
@@ -619,6 +531,9 @@
 		margin-bottom: 20px;
 		float: none;
 	}
+	@include browser(tablet) {
+		//margin: -25px 20px 20px -20px;
+	};
 	@include browser(desktoplarge) {
 		max-width: 25%;
 	}
@@ -637,9 +552,15 @@
 
 .sizem {
 	font-size: 1.15em !important;
+	@include browser(tablet) {
+		font-size: 1.2em !important;
+	}
 }
 .sizel {
 	font-size: 1.25em !important;
+	@include browser(tablet) {
+		font-size: 1.35em !important;
+	}
 }
 
 .skills-list {
@@ -708,7 +629,7 @@
 			color: white !important;
 			margin-bottom: 20px;
 			text-transform: uppercase;
-			line-height: 55px;
+			line-height: 65px;
 			font-family: 'UbuntuRegular';
 			&:hover {
 				background: #222222;
@@ -726,7 +647,120 @@
 
 }
 
-.gr > header.default > h2 {
+.gr header.default > h2 {
 	color: $color_main_red;
-	font-size: 2.2em !important;
+	font-size: 2.3em !important;
+	margin-top: 15px;
+}
+
+
+.text-box {
+	background: #000000;
+	color: #ffffff;
+	padding: 30px 25px;
+	font-size: 1.3em;
+	font-family: 'UbuntuLight';
+	margin: 15px 0 20px -25px; // Grid spacing 15px
+	line-height: 1.5em;
+	width: 90%;
+	@include browser(mobile) {
+		border-right: 4px solid $color_main_red;
+
+	}
+
+	@include browser(laptop) {
+		margin: 10px 0 30px -35px;
+		padding-left: 35px;
+		padding-right: 35px;
+		width: 70%;
+	}
+
+	@include browser(desktop) {
+		margin: 10px 0 30px -35px;
+	}
+	@include browser(desktop) {
+		margin: 10px 0 30px -55px;
+		padding-left: 55px;
+		padding-right: 55px;
+	}
+	p:last-child {
+		padding-bottom: 0;
+	}
+	&:last-child {
+		margin-bottom: 0;
+
+		@include browser(mobile) {
+			margin-bottom: 20px;
+		}
+	}
+	p {
+		&:last-child {
+			padding-bottom: 0;
+		}
+	}
+}
+
+
+.text-style__default {
+	//background: red;
+	font-family: RobotoRegular;
+	@include browser(mobile) {
+		.about & h2.redcolor.line {
+			color: #000000 !important;
+		}
+	}
+
+	p {
+		display: block;
+		padding-bottom: 20px;
+		font-size: 1.1em;
+		line-height: 1.6em;
+	}
+	@include browser(tablet) {
+		font-size: 1.05em;
+	}
+
+	a {
+		text-decoration: none;
+		color: $color_main_red;
+	}
+
+	h1, h2 {
+		font-weight: normal;
+		line-height: 1.3em;
+	}
+	h2 {
+		font-family: RobotoLight, sans-serif;
+		font-size: 1.6em;
+		margin-bottom: 15px;
+		&.line {
+			border-bottom: 2px solid #cccccc;
+			padding-bottom: 10px;
+		}
+		@include browser(mobile) {
+			font-size: 1.4em;
+		}
+	}
+
+	h1 {
+		font-family: RobotoBlack, sans-serif;
+		font-weight: bold;
+		font-size: 2.2em;
+		@include browser(mobile) {
+			font-size: 2em;
+		}
+	}
+
+	h1.title2 {
+		border-bottom: none;
+		margin-bottom: 0;
+	}
+
+
+	.wide {
+
+	}
+	.regular {
+		//padding: 30px 35px 30px 30px;
+	}
 }

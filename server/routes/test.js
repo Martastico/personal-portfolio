@@ -13,6 +13,7 @@ var Router = require('react-router');
 var App = require('../../app/components/app.jsx');
 
 router.get('*', function(req, res, next) {
+	 console.log("/test.js");
 	 var path = req.path === "/" ? "/home" : req.path;
 	 console.log(path);
 

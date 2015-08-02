@@ -65,9 +65,11 @@
             }
 
             @include opacity(1);
-            @include transition-property(all);
-            @include transition-duration(0.12s);
-            @include transition-timing-function(ease-in);
+            body.js & {
+               @include transition-property(all);
+               @include transition-duration(0.12s);
+               @include transition-timing-function(ease-in);
+            }
 
             &:hover {
                @include opacity(0.6);
@@ -132,6 +134,7 @@
    }
    .bottom {
       position: relative;
+      font-family: RobotoRegular, sans-serif;
       @include browser(mobile) {
          position: absolute;
          top: 0;
@@ -152,7 +155,6 @@
          left: 0;
          top: 0;
          text-transform: uppercase;
-         font-size: 0.9em;
          color: #444444;
          width: 50%;
          display: none;
@@ -228,7 +230,7 @@
 
                         &.search:after { content: "\f002"; }
                         &.mobilenavi{
-                           @include browser(tabletsmall) {display: none}
+                           @include browser(tablet) {display: none}
                            &:after { content: "\f037"; }
                         }
                      }
@@ -285,6 +287,7 @@
                            max-width: 400px;
                         }
                         input {
+                           font-family: RobotoRegular, sans-serif;
                            line-height: 40px;
                            background: #ffffff;
                            border: 1px solid #e5e5e5;
@@ -417,7 +420,7 @@
                      }
                      &.mobilenavi-widget {
                         width: 100%;
-                        @include browser(tabletsmall) {display: none}
+                        @include browser(tablet) {display: none}
                         @include clearfix();
                         ul {
                            li {
@@ -452,7 +455,7 @@
                                     font-weight: normal;
                                     //width: 40px;
 
-                                    @include browser(tabletsmalllaptopplus) {
+                                    @include browser(tabletlaptopplus) {
                                        text-align: center;
                                        width: 100%;
                                        left: 0;

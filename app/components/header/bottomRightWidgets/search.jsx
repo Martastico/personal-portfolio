@@ -84,11 +84,10 @@ module.exports = React.createClass({
 				 "hasResults":		SStore.hasResults
 			};
 
-			//console.log("search rendered");
-			//console.log(SStore.searchResults);
-
 			var searchResults = _.map(SStore.searchResults, function(sr, srk) {
-				 return (<li key={srk}> <Link to={Config.path.relative + "/" + sr.path} params={{path: sr.path}}>{sr.title}</Link> </li>)
+
+				 sr.path = sr.path === "/home" ? "" : sr.path;
+				 return (<li key={srk}> <Link to={sr.type} params={{path: (sr.path).replace('/', ''), splat: ""}}>{sr.title}</Link> </li>)
 			});
 
 			if(_.isEmpty(searchResults)) searchResults = (<li className="no-result">No Results</li>);

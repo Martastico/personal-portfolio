@@ -9,135 +9,39 @@ var classnames 		= require('classnames');
 var $ 				 		= require('jquery');
 var Helmet 				= require('react-helmet');
 
+// Stores
+var NodeStore = require('../../stores/nodeStore');
 var AppStore 		= require('../../stores/appStore');
+
+// Components
+var PageStyles = require('./pageStyles.jsx');
 
 // Config
 var Config = require('../../app.config');
 
+var _Data = {};
 
 // TODO: Make it more dynamic.
 // TODO: Ability to define styles from server side
 module.exports = React.createClass({
-	 mixins: [Reflux.connect(AppStore,"AppStore")],
+	 mixins: [
+			Reflux.connect(AppStore,"AppStore"),
+			Reflux.connect(NodeStore,"NodeStore")
+	 ],
 
 	 shouldComponentUpdate: function(nextProps, nextState) {
 			return !_.isEqual(nextProps, this.props);
 	 },
 
-	 componentDidMount: function() {
-			var big_title = $(React.findDOMNode(this.refs.big_title));
-			var content = $(".gr.animation");
-			var SApp = this.state.AppStore;
 
-			// Do animations here for specific custom pages..
-			setTimeout(function() { // Small delay because of browser support..
-				 $(big_title).addClass("loaded").delay(400).show(function() {
-						$(content).addClass("loaded");
-				 });
-
-				 // If Home
-				 if(!_.isEmpty(this.props.data.style) && this.props.data.style.name === "index") {
-						var pci1 = $(".index .main_content .personalcounter_item_1"),
-								pci2 = $(".index .main_content .personalcounter_item_2"),
-								pci3 = $(".index .main_content .personalcounter_item_3"),
-								pci4 = $(".index .main_content .personalcounter_item_4"),
-								index_bottom = $(".index > .body > .bottom");
-
-						if(SApp.classes.isMobile) {
-							 $(index_bottom).addClass("loaded");
-							 $(pci1).addClass("loaded spinner");
-							 $(pci2).addClass("loaded spinner");
-							 $(pci3).addClass("loaded spinner");
-							 $(pci4).addClass("loaded spinner");
-						} else {
-							 $(pci1).addClass("loaded spinner").delay(500).show(function() {
-									$(pci2).addClass("loaded spinner").delay(400).show(function() {
-										 $(pci3).addClass("loaded spinner").delay(400).show(function() {
-												$(pci4).addClass("loaded spinner").delay(1400).show(function() {
-													 $(index_bottom).addClass("loaded");
-													 $(pci1).addClass("perspective");
-													 $(pci2).addClass("perspective");
-													 $(pci3).addClass("perspective");
-													 $(pci4).addClass("perspective");
-												});
-										 });
-									});
-							 });
-						}
-				 }
-			}.bind(this), 150);
-	 },
-
-	 styles: function(data, route) {
-			console.log("Page Styles");
-
-			var title 	= data.showTitle ? (<h1 className="big-title" ref="big_title">{data.title}</h1>) : false;
-			var body 		= !_.isEmpty(data.body) ? (<div className="body" dangerouslySetInnerHTML={{__html: data.body}}></div>) : false;
-			var style 	= !_.isEmpty(data.style) ? data.style : false;
-			var template = [];
-
-			var metaTitle = !_.isEmpty(data.meta) && !_.isEmpty(data.meta.title) ? data.meta.title : data.title;
-			var metaDescription = !_.isEmpty(data.meta) && !_.isEmpty(data.meta.description) ? data.meta.description : "";
-
-			var metaData = {
-				 title: "Mart Saarman | " + metaTitle,
-				 description: metaDescription
-			};
-
-			console.log(metaTitle);
-
-			// Style: Default
-			if (!style) {
-				 template = (
-						 <div className={"gwrapper default " + _.kebabCase(data.path)}>
-								{title}
-								<section className="gr animation" ref="main_content">
-									 <div className="gc g12">
-											<div className="content">
-												 <div className="default">
-														{body}
-												 </div>
-											</div>
-									 </div>
-								</section>
-						 </div>
-				 )
-			}
-
-			// Style: Index
-			if (style.name === "index") {
-				 template = (
-						 <div className={classnames([style.name, "gwrapper"])}>
-								{title}
-								{body}
-						 </div>
-				 )
-			}
-
-			return (
-					<Helmet
-							title = {metaData.title}
-							meta={[
-									{"name": "description", "content": metaData.description}
-							]}
-							>
-						 {template}
-					</Helmet>
-			);
-
-	 },
 
 	 render: function() {
+			var data = _.filter(this.state.NodeStore.nodes, function (n, nk) {
+				 this.props.params.path = !_.isUndefined(this.props.params.path) ? this.props.params.path : "home";
+				 return _.snakeCase(n.path) === _.snakeCase("/"+ this.props.params.path);
+			}.bind(this))[0];
+
 			console.log("Page Rendered");
-			// Props: data, route
-			var data = !_.isEmpty(this.props.data) ? this.props.data : false;
-			var route = !_.isEmpty(this.props.route) ? this.props.route: false;
-			var isNode = !_.isEmpty(this.props.route.params.path) && route;
-
-			// TODO: Make it also accept node types.
-
-			// If is node.
-			if (data && route) return this.styles(data, route);
-			else return (<div></div>);
+			return <PageStyles key={data.NID} AppStore={this.state.AppStore} data={_.clone(data)}/>
 	 }
 });

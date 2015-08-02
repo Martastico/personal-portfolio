@@ -26,9 +26,9 @@
 <html>
 <head lang="en">
 	<meta charSet="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	{{{head.meta}}}
-	<link rel="stylesheet" href="css/app.css?v=0.45"/>
+	<link rel="stylesheet" href="/css/app.css?v=0.51"/>
 	<title>{{head.title}}</title>
 </head>
 <body>
@@ -47,5 +47,5 @@
 	ga('send', 'pageview');
 
 </script>
-<script src="js/app.js?v=0.33"></script>
+<script src="/js/app.js?v=0.36"></script>
 </html>

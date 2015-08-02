@@ -3,13 +3,9 @@ module.exports = {
  appTitle: 'Mart Saarman',
  titleTemplate: 'Mart Saarman | %s',
  path: {
-  absolute: "http://192.168.1.65:3000",
+  absolute: "http://localhost.saarman.net",
   relative: '',
-  api: "http://192.168.1.65:3000" + '/api',
-  server: {
-   absolute: "127.0.0.1:3000",
-   api: "127.0.0.1:3000/api"
-  }
+  api: "http://api.localhost.saarman.net"
  },
  isBrowser: typeof window !== 'undefined'
 };

@@ -31,7 +31,7 @@ module.exports = Reflux.createStore({
 	 onRouteLoad: function(State) {
 			_classes.page = !_.isEmpty(State.params.path)? _.kebabCase(State.params.path) : "home";
 			_classes.routeLoading = true;
-			this.updateApp(); 
+			this.updateApp();
 	 },
 
 	 onRouteLoadDone: function(State) {
@@ -69,7 +69,7 @@ module.exports = Reflux.createStore({
 	 },
 
 	 updateApp: function() {
-			this.trigger(_data);
+			this.trigger(_.cloneDeep(_data));
 	 }
 
 });

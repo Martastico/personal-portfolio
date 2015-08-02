@@ -5,6 +5,9 @@
 	@if $media == mobilelaptop {
 		@media only screen and (max-width: 999px) { @content; }
 	}
+	@if $media == mobilelaptopwide {
+		@media only screen and (max-width: 1289px) { @content; }
+	}
 	@if $media == mobiletabletsmall {
 		@media only screen and (max-width: 639px) { @content; }
 	}
@@ -19,6 +22,9 @@
 	}
 	@else if $media == tablet {
 		@media only screen and (min-width: 768px) { @content; }
+	}
+	@else if $media == tabletlaptopplus {
+		@media only screen and (min-width: 768px) and (max-width: 1100px) { @content; }
 	}
 	@else if $media == tabletsmalllaptopplus {
 		@media only screen and (min-width: 640px) and (max-width: 1100px) { @content; }
@@ -39,7 +45,7 @@
 		@media only screen and (min-width: 1400px) { @content; }
 	}
 	@else if $media == desktoplarge {
-		@media only screen and (min-width: 1600px) { @content; }
+		@media only screen and (min-width: 1700px) { @content; }
 	}
 	@else if $media == desktopextreme {
 		@media only screen and (min-width: 2100px) { @content; }

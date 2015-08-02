@@ -27,6 +27,8 @@ var MainNavi= require('../../navigation/mainNavi.jsx');
 module.exports = React.createClass({
 	 mixins: [require('react-onclickoutside')],
 
+
+
 	 // If clicked outside the search wrapper, close it.
 	 handleClickOutside: function(evt) {
 			Actions.widgetOpen("mobilenavi");

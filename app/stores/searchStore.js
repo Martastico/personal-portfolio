@@ -3,6 +3,9 @@ var Reflux 	= require('reflux');
 var Actions = require('../actions/actions.js');
 var _ 			= require('lodash');
 
+var request 		= require('superagent');
+
+var Config = require('../app.config');
 
 // Construction for what data to return as SearchStore state.
 var _data = {
@@ -56,11 +59,14 @@ module.exports = Reflux.createStore({
 
 	 setSearchValue: function(searchValue) {
 			_data.searchValue = searchValue;
-			this.searchResults();
+
+			request.get(Config.path.api + '/page/search/'+searchValue).end(function(err, res) {
+				 this.searchResults(res.body);
+			}.bind(this));
 	 },
 
-	 searchResults: function() {
-			_data.searchResults = _.filter(_allSearchResults, function(sr, srk) {
+	 searchResults: function(searchResults) {
+			_data.searchResults = _.filter(searchResults, function(sr, srk) {
 				 return !_.isEmpty(_data.searchValue) && _.includes(sr.title.toLowerCase(), _data.searchValue.toLowerCase());
 			});
 
@@ -71,7 +77,6 @@ module.exports = Reflux.createStore({
 			}
 
 			// Fake Loading Time
-			setTimeout(function () {
 
 				 _data.hasResults = !_.isEmpty(_data.searchResults);
 				 _data.searched 	= !_.isEmpty(_data.searchValue);
@@ -79,7 +84,6 @@ module.exports = Reflux.createStore({
 				 _data.searching = false;
 
 				 this.updateApp();
-			}.bind(this), 200);
 	 },
 
 	 onMainSearch: function(searchValue) {

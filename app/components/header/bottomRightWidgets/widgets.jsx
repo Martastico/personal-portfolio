@@ -24,6 +24,11 @@ var _widgets = [
 
 module.exports = React.createClass({
 
+	 shouldComponentUpdate: function(nextProps, nextState) {
+			console.log("Update bottomRightWidgets widgets.jsx: " + !_.isEqual(nextProps, this.props));
+			return !_.isEqual(nextProps, this.props);
+	 },
+
 	 handleWidgets: function(e) {
 			var widget = e.target.id;
 			ga('send', 'event', 'Header Widgets', 'Clicked', widget);
@@ -72,7 +77,7 @@ module.exports = React.createClass({
 	 },
 
 	 render: function() {
-
+			console.log("Render: bottomRightWidgets .widgets.jsx");
 			return (
 					<section id="quickbuttons" className="widgets widgets-wrapper quickbuttons">
 						 <ul>

@@ -13,12 +13,6 @@ var NodesStore 	= require('../stores/nodeStore');
 
 
 var _data = {
-	 nodeTypes: {
-			1: {
-				 NTID: 1,
-				 name: "Page"
-			}
-	 },
 	 nodes: []
 };
 
@@ -30,15 +24,16 @@ module.exports = Reflux.createStore({
 			return _data;
 	 },
 
+	 emptyNodes: function() {
+
+	 },
+
 	 fetchNode: function(path) {
-			//console.log("fetching node");
-			//console.log(path);
 
 			console.log("path '/" + path + "' did not exist, requesting to load node from server if node exists");
 			// TODO: REplace with real query
-			var request_path = typeof window === 'undefined' ? Config.path.server.api : Config.path.api;
-			request.get(request_path + '/nodes/' + path).end(function(err, res) {
-				 console.log("Node Request Path: " + request_path);
+
+			request.get(Config.path.api + "/page/" + path).end(function(err, res) {
 				 if(!err) {
 						// Success
 						console.log("Successfully requested node for path '/" + path + "'");
@@ -46,7 +41,7 @@ module.exports = Reflux.createStore({
 				 } else {
 						// Handle Errors
 						// todo: more robust
-						// If there's an error, an NID -1 is created with the path provided.
+						// If there's an error, an uuid[0].value -1 is created with the path provided.
 						// So when going back to same path it will retry to get the node.
 						if(!_.isUndefined(res)) {
 							 if(res.status === 404) {
@@ -54,15 +49,14 @@ module.exports = Reflux.createStore({
 									this.updateNodes(res.body);
 							 }
 						} else {
-							 var title = "Unknown error";
-							 var body = "An unknown error has occured. Please try again later.";
 							 this.updateNodes([{
-									NID: -1,
+									nid: -1,
 									nodeType: 1,
 									path: path,
-									title: title,
+									date: 0,
+									title: "error",
 									showTitle: true,
-									body: body,
+									body: "",
 									error: true
 							 }]);
 						}
@@ -71,8 +65,8 @@ module.exports = Reflux.createStore({
 	 },
 
 
+	 // New Node/Page has been fetched
 	 updateNodes: function(receivedNodes) {
-			//console.log("updateNodes");
 
 			var old_time = new Date();
 			var nodes = _.clone(_data.nodes);
@@ -82,7 +76,8 @@ module.exports = Reflux.createStore({
 				 var update = true;
 				 _.forEach(receivedNodes, function (rn, rnk) {
 						// en.error is to determine wether it has to be requeried due to errors.
-						if((_.snakeCase(en.path) === _.snakeCase(rn.path)) && en.NID === -1) update = false;
+						//console.log(rn);
+						if((_.snakeCase(en.path) === _.snakeCase(rn.path)) && en.nid === -1) update = false;
 				 });
 				 return update;
 			});
@@ -93,8 +88,9 @@ module.exports = Reflux.createStore({
 			});
 
 			_data.nodes = _.clone(existingNodes);
+			var test = _.clone(_data);
 
-			this.updateApp();
+			this.updateApp(test);
 
 			var new_time = new Date();
 
@@ -104,24 +100,24 @@ module.exports = Reflux.createStore({
 
 	 // Perform a test to check wheter node exists, if not,  fetch it.
 	 doesNodeExist: function(State) {
-			var path = State.params.path;
-			if(_.isUndefined(path)) {
-				 path = "home";
-			}
+			// Empty paths will be set as /home. This will only happen if there is no path
+			var path = _.isEmpty(State.params.path) ? "home" : State.params.path;
+
 			console.log("Checking if path '/" + path + "' with node exists");
-			//console.log("Check if Node ID: " + path + " Exists.");
+
+			// Disable caching if server rendering.
+			_data.nodes = Config.isBrowser ? _data.nodes : [];
 
 			// If empty, fetch node from server.
 			var nodeExists = _.filter(_data.nodes, function(n, nk) {
-				 return (_.kebabCase(n.path) === _.kebabCase(path)) && n.NID !== -1;
+				 return (_.kebabCase(n.path) === _.kebabCase(path)) && n.nid !== -1;
 			});
 
-			//console.log("Exists: " + !_.isEmpty(nodeExists));
 			// Node doesn't exist, fetch it from server.
-			if(_.isEmpty(nodeExists)) this.fetchNode(path);
-
+			if(_.isEmpty(nodeExists)) {
+				 this.fetchNode(path);
+			} else {
 			// Node exists, show it.
-			else {
 				 console.log("path '/" + path + "' exists, displaying now");
 				 Actions.getDataRoute.completed();
 			}
@@ -135,8 +131,9 @@ module.exports = Reflux.createStore({
 			}
 	 },
 
-	 updateApp: function() {
-			this.trigger(_.cloneDeep(_data));
+	 updateApp: function(data) {
+			//console.log("-----------UPDATE APP ------------");
+			//this.trigger(data);
 	 }
 
 });

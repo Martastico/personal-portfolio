@@ -19,12 +19,12 @@
 	// Grid Content
 	.gc {
 		float: left;
-		padding: 20px 15px 0 15px;
+		padding: 30px 25px 0 25px;
 		@include browser(laptopplus) {
-			padding: 30px 25px 0 25px;
+			padding: 40px 35px 0 35px;
 		}
 		@include browser(desktoplarge) {
-			padding: 40px 35px 0 35px;
+			padding: 60px 55px 0 55px;
 		}
 		&.no-margin {
 			margin-left: 0 !important;
@@ -43,10 +43,41 @@
 		&.no-spacing {
 			padding: 0;
 		}
+
+		&.bg1 {
+			background: #ffffff;
+			padding-bottom: 50px;
+			padding-top: 50px;
+			border-bottom: 1px solid #d6d6d6;
+		}
+		&.bg-spacing {
+			padding: 20px 20px;
+			.text-box {
+				margin-left: -20px;
+				margin-top: 20px;
+				margin-bottom: 20px;
+			}
+			@include browser(laptop) {
+				padding: 45px 35px;
+				.text-box {
+					margin-left: -35px;
+					margin-top: 35px;
+					margin-bottom: 35px;
+				}
+			}
+			@include browser(desktop) {
+				padding: 80px 60px;
+				.text-box {
+					margin-left: -60px;
+				}
+			}
+
+		}
 	}
 	&.no-spacing {
 		padding: 0 !important;
 	}
+
 	.g1 { width: 100%; }
 	.g2 { width: 100%; }
 	.g3 { width: 100%; }

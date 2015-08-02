@@ -16,36 +16,34 @@ var Link 					= ReactRouter.Link;
 var Route 				= ReactRouter.Route;
 var RouteHandler 	= ReactRouter.RouteHandler;
 
-var url = require('url');
+//var url = require('url');
 
 //var index = require('./routes/index');
 var api = require('./routes/api/nodes');
 var users = require('./routes/users');
 var index = require('./routes/index');
 
-
-
-
 //127.0.0.1:27017
 //mongoose.connect('mongodb://127.0.0.1:27017');
 
 var app = express();
 
-// Dev Enviorment Only
+// Use if no NGINX proxy
 app.use(express.static(path.join(__dirname, '../client'), {maxAge: 604800000}));
 app.use(express.static(path.join(__dirname, '../storage'), {maxAge: 604800000}));
 
-function wwwRedirect(req, res, next) {
-  console.log(req.headers.host);
-  if (req.headers.host.slice(0, 4) === 'www.') {
-    var newHost = req.headers.host.slice(4);
-    return res.redirect(301, req.protocol + '://' + newHost + req.originalUrl);
-  }
-  next();
-}
+//function wwwRedirect(req, res, next) {
+//  console.log("wwwRedirect: " + req.headers.host);
+//  if (req.headers.host.slice(0, 4) === 'www.') {
+//    console.log("MUST REDIRECTERINO");
+//    var newHost = req.headers.host.slice(4);
+//    return res.redirect(301, req.protocol + '://' + newHost + req.originalUrl);
+//  }
+//  next();
+//}
 
 app.set('trust proxy', true);
-app.use(wwwRedirect);
+//app.use(wwwRedirect);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -59,8 +57,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(compression());
 
-//app.use(express.static(path.join(__dirname, '../client'), {maxAge: 604800000}));
-app.use(express.static(path.join(__dirname, '../storage'), {maxAge: 604800000}));
 
 app.use('/api', api);
 app.use('/users', users);

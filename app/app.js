@@ -4,11 +4,13 @@ var Reflux = require('reflux');
 var _ 				 		= require('lodash');
 var classnames 		= require('classnames');
 var $ 				 		= require('jquery');
+var url						= require('url');
 
 var Router = require('react-router');
 var Route 				= Router.Route;
 var RouteHandler 	= Router.RouteHandler;
 var Link 					= Router.Link;
+var DefaultRoute 	= Router.DefaultRoute;
 
 var HeaderBottomRightWidgets = require('./components/header/bottomRightWidgets/widgets.jsx');
 
@@ -26,24 +28,49 @@ var AppStore 		= require('./stores/appStore');
 
 var Nodes 	= require('./components/node/nodes.jsx');
 var Node 		= require('./components/node/node.jsx' );
+var Page = require('./components/page/page.jsx');
+var Home = React.createClass({
+	 render: function() {
+			return (
+					<Page />
+			);
+	 }
+});
 
 if(Config.isBrowser) {
 	 require('malihu-custom-scrollbar-plugin')($);
 }
 
 var App = React.createClass({
-	 mixins: [Reflux.connect(AppStore,"AppStore")],
+	 mixins: [
+			Reflux.connect(AppStore,"AppStore"),
+			Reflux.connect(RouteStore,"RouteStore")
+	 ],
+
+	 // Detect touch device
+	 isTouchDevice: function() {
+			return (('ontouchstart' in window)
+			|| (navigator.MaxTouchPoints > 0)
+			|| (navigator.msMaxTouchPoints > 0));
+	 },
 
 	 componentDidMount: function() {
 
 			var mainColumnMiddleContent = React.findDOMNode(this.refs.mainColumnMiddleContent);
+
+			// Loaded
 			$(mainColumnMiddleContent).addClass("loaded");
-			$(mainColumnMiddleContent).mCustomScrollbar({
-				 theme: "mcc",
-				 scrollInertia: 120,
-				 advanced:{ updateOnContentResize: true },
-				 mouseWheel:{ scrollAmount: 120 }
-			});
+
+
+			// Enabling custom scrollbar because native scroll for touch devices is usually much faster and smoother
+			if (!this.isTouchDevice()) {
+				 $(mainColumnMiddleContent).mCustomScrollbar({
+						theme: "mcc",
+						scrollInertia: 120,
+						advanced:{ updateOnContentResize: true },
+						mouseWheel:{ scrollAmount: 120 }
+				 });
+			}
 
 			resizedw();
 
@@ -61,6 +88,8 @@ var App = React.createClass({
 				 doit = setTimeout(resizedw, 200);
 			};
 
+
+
 	 },
 
 	 componentWillUpdate: function() {
@@ -72,6 +101,7 @@ var App = React.createClass({
 	 },
 
 	 render: function() {
+			console.log("----- App.js Updated -----");
 			var SApp = this.state.AppStore;
 
 			// Default ".page-wrapper" Classes
@@ -89,7 +119,6 @@ var App = React.createClass({
 
 			// AppStore classes
 			HeaderBottomRightWidgetsClasses.push(SApp.classes.openWidget);
-
 			return(
 
 					<div className={classnames(pageWrapperClasses)}>
@@ -100,7 +129,7 @@ var App = React.createClass({
 											<div className="top">
 												 <div className="left">
 														<div className="logo">
-															 <Link to="home" className="home"></Link>
+															 <Link to="pages" params={{path: '', splat: ''}} className="home"></Link>
 														</div>
 												 </div>
 												 <div className="right">
@@ -150,28 +179,22 @@ var App = React.createClass({
 			);
 	 }
 });
+
 if(Config.isBrowser) {
-	 var Home = React.createClass({
-			render: function() {
-				 return (
-						 <Nodes />
-				 );
-			}
-	 });
 
 	 var RRoutes = (
-			 <Route name="app" path="" handler={App}>
-					<Route name="home" path="/" handler={Home}/>
-					<Route name="nodes" handler={Nodes}>
-						 <Route name="node" path="/:path" handler={Node}/>
-					</Route>
+			 <Route path="/" handler={App}>
+					<DefaultRoute handler={Page} />
+					<Route name="pages" path="/:path*" handler={Page} />
 			 </Route>
 	 );
 
 	 Router.run(RRoutes, Router.HistoryLocation, function(Handler, State) {
+			console.log("Client: Router.run");
 
 			Actions.routeLoad.triggerPromise(State).then(function () {
-				 console.log("Route changed");
+				 console.log("CLIENT: Route changed");
+
 				 ga('send', 'pageview', window.location.pathname);
 				 React.render(<Handler path={window.location.pathname} />, document.getElementById('app'));
 			})
