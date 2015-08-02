@@ -20,10 +20,9 @@ Current minified JS file size: ~550kb
 * [Node.js](https://nodejs.org) with [Express 4](http://expressjs.com) 
 * App is pre-rendered by server. Site is SEO friendly and can be viewed and navigated without JavaScript enabled.
 * [nginx](http://nginx.org) as Proxy Server
-* [MongoDB](https://www.mongodb.org) To be implemented, currently getting data directly from node.js static json
 * TODO: More robust error handling and production/development environment.
  
-##API Back-end
+##API Back-end 
 * Drupal 7 
  
 ##Developing Environment
