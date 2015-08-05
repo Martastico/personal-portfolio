@@ -20,7 +20,7 @@
     "npm": "^2.11.2",
     "react": "^0.13.3",
     "react-helmet": "^1.1.0",
-    "react-onclickoutside": "^0.2.4",
+    "react-onclickoutside": "^0.2.5",
     "react-router": "^0.13.3",
     "serve-favicon": "~2.2.1",
     "superagent": "^1.2.0",

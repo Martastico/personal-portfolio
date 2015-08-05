@@ -22,14 +22,14 @@ var Link 					= Router.Link;
 
 module.exports = React.createClass({
 	 mixins: [
-			require('react-onclickoutside'),
+			//require('react-onclickoutside'),
 			Reflux.connect(SearchStore,"SearchStore")
 	 ],
 
 	 // If clicked outside the search wrapper, close it.
 	 handleClickOutside: function(evt) {
-			Actions.widgetOpen("search");
-			ga('send', 'event', 'Header Widgets', 'Closed (Clicked Outside)', "search");
+			//Actions.widgetOpen("search");
+			//ga('send', 'event', 'Header Widgets', 'Closed (Clicked Outside)', "search");
 	 },
 
 	 handleSearchChange: function(e) {

@@ -1,157 +1,157 @@
 .gr {
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	margin-bottom: 20px;
-	&:last-child {
-		margin-bottom: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin-bottom: 20px;
+  &:last-child {
+	margin-bottom: 0;
+  }
+  &.fixed {
+	.g6 {max-width: 950px;}
+  }
+
+  &:after {
+	content:"";
+	display:table;
+	clear:both;
+  }
+
+  // Grid Content
+  .gc {
+	float: left;
+	padding: 30px 25px 0 25px;
+	@include browser(laptopplus) {
+	  padding: 40px 35px 0 35px;
 	}
-	&.fixed {
-		.g6 {max-width: 950px;}
+	@include browser(desktoplarge) {
+	  padding: 60px 55px 0 55px;
 	}
-
-	&:after {
-		content:"";
-		display:table;
-		clear:both;
+	&.no-margin {
+	  margin-left: 0 !important;
 	}
+	&:first-child { margin-left: 0;}
+	@include browser(laptop) {
 
-	// Grid Content
-	.gc {
-		float: left;
-		padding: 30px 25px 0 25px;
-		@include browser(laptopplus) {
-			padding: 40px 35px 0 35px;
-		}
-		@include browser(desktoplarge) {
-			padding: 60px 55px 0 55px;
-		}
-		&.no-margin {
-			margin-left: 0 !important;
-		}
-		&:first-child { margin-left: 0;}
-		@include browser(laptop) {
-
-			margin-left: 2%;
-		}
-		.gr {
-			padding: 0;
-			.gc {
-				padding: 0 0 20px 0;
-			}
-		}
-		&.no-spacing {
-			padding: 0;
-		}
-
-		&.bg1 {
-			background: #ffffff;
-			padding-bottom: 50px;
-			padding-top: 50px;
-			border-bottom: 1px solid #d6d6d6;
-		}
-		&.bg-spacing {
-			padding: 20px 20px;
-			.text-box {
-				margin-left: -20px;
-				margin-top: 20px;
-				margin-bottom: 20px;
-			}
-			@include browser(laptop) {
-				padding: 45px 35px;
-				.text-box {
-					margin-left: -35px;
-					margin-top: 35px;
-					margin-bottom: 35px;
-				}
-			}
-			@include browser(desktop) {
-				padding: 80px 60px;
-				.text-box {
-					margin-left: -60px;
-				}
-			}
-
-		}
+	  margin-left: 2%;
+	}
+	.gr {
+	  padding: 0;
+	  .gc {
+		padding: 0 0 20px 0;
+	  }
 	}
 	&.no-spacing {
-		padding: 0 !important;
+	  padding: 0;
 	}
+
+	&.bg1 {
+	  background: #ffffff;
+	  padding-bottom: 50px;
+	  padding-top: 50px;
+	  border-bottom: 1px solid #d6d6d6;
+	}
+	&.bg-spacing {
+	  padding: 20px 20px;
+	  .text-box {
+		margin-left: -20px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	  }
+	  @include browser(laptop) {
+		padding: 45px 35px;
+		.text-box {
+		  margin-left: -35px;
+		  margin-top: 35px;
+		  margin-bottom: 35px;
+		}
+	  }
+	  @include browser(desktop) {
+		padding: 80px 60px;
+		.text-box {
+		  margin-left: -60px;
+		}
+	  }
+
+	}
+  }
+  &.no-spacing {
+	padding: 0 !important;
+  }
+
+  .g1 { width: 100%; }
+  .g2 { width: 100%; }
+  .g3 { width: 100%; }
+  .g4 {
+	width: 100%;
+	> .gr {
+	  @include browser(tabletsmall) {
+		.g12 {
+		  width: 48.5%;
+		  margin-left: 3%;
+		  float: left;
+
+
+		  &:nth-child(2n + 1) {
+			margin-left: 0;
+		  }
+		}
+	  }
+	}
+  }
+  .g5 { width: 100%; }
+  .g6 { width: 100%; }
+  .g7 { width: 100%; }
+  .g8 { width: 100%; }
+  .g9 { width: 100%; }
+  .g10 { width: 100%; }
+  .g11 { width: 100%; }
+  .g12 {
+	width: 100%;
+	float: none;
+	&.gc {
+	  margin-left: 0;
+	}
+  }
+
+  @include browser(laptop) {
 
 	.g1 { width: 100%; }
 	.g2 { width: 100%; }
 	.g3 { width: 100%; }
 	.g4 {
-		width: 100%;
-		> .gr {
-			@include browser(tabletsmall) {
-				.g12 {
-					width: 48.5%;
-					margin-left: 3%;
-					float: left;
-
-
-					&:nth-child(2n + 1) {
-						margin-left: 0;
-					}
-				}
-			}
+	  width: 35%;
+	  > .gr {
+		.g12 {
+		  width: 100%;
+		  float: none;
+		  margin-left: 0 !important;
 		}
+	  }
 	}
-	.g5 { width: 100%; }
-	.g6 { width: 100%; }
-	.g7 { width: 100%; }
-	.g8 { width: 100%; }
+	.g5 { width: 30%; }
+	.g6 { width: 49%; }
+	.g7 { width: 68%;}
+	.g8 { width: 65%; }
 	.g9 { width: 100%; }
 	.g10 { width: 100%; }
 	.g11 { width: 100%; }
 	.g12 {
-		width: 100%;
-		float: none;
-		&.gc {
-			margin-left: 0;
-		}
+	  &:after { // Clearfix
+		content:"";
+		display:table;
+		clear:both;
+	  }
+	  width: 100%;
+	  float: none;
+	  &.gc {
+		margin-left: 0;
+	  }
 	}
+  }
 
-	@include browser(laptop) {
-
-		.g1 { width: 100%; }
-		.g2 { width: 100%; }
-		.g3 { width: 100%; }
-		.g4 {
-			width: 35%;
-			> .gr {
-				.g12 {
-					width: 100%;
-					float: none;
-					margin-left: 0 !important;
-				}
-			}
-		}
-		.g5 { width: 30%; }
-		.g6 { width: 49%; }
-		.g7 { width: 68%;}
-		.g8 { width: 65%; }
-		.g9 { width: 100%; }
-		.g10 { width: 100%; }
-		.g11 { width: 100%; }
-		.g12 {
-			&:after { // Clearfix
-				content:"";
-				display:table;
-				clear:both;
-			}
-			width: 100%;
-			float: none;
-			&.gc {
-				margin-left: 0;
-			}
-		}
-	}
-
-	@include browser(desktop) {
-		.g4 { width: 28%; }
-		.g8 { width: 72%; }
-	}
+  @include browser(desktop) {
+	.g4 { width: 28%; }
+	.g8 { width: 72%; }
+  }
 
 }

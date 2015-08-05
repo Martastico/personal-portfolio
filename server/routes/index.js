@@ -6,6 +6,7 @@ var Router = require('react-router');
 var Helmet 				= require('react-helmet');
 var request 		= require('superagent');
 var Async 		= require('async');
+var _ 			= require('lodash');
 
 var Route 				= Router.Route;
 
@@ -24,46 +25,49 @@ var Page 		= require('../../app/components/page/page.jsx');
 var App = require('../../app/app');
 
 var RRoutes = (
-    <Route path="/" handler={App}>
-       <DefaultRoute handler={Page} />
-       <Route name="pages" path="/:path" handler={Page} />
-    </Route>
+   <Route path="/" handler={App}>
+      <DefaultRoute handler={Page} />
+      <Route name="pages" path="/:path" handler={Page} />
+   </Route>
 );
 
 
 NodeRouter.get('*', function(req, res, next) {
    // User disconnect
    req.connection.addListener('close', function () {
-      Actions.routeLoad.completed(false);
+      Actions.routeLoad.completed("fail");
    }.bind(this));
 
-   Router.run(RRoutes, req.path, function(Handler, State) {
-      console.log(req.path);
+   console.log("PATHHHHHHH:");
+   console.log(req.path);
 
+   Router.run(RRoutes, req.path, function(Handler, State) {
 
       Actions.routeLoad.triggerPromise(State)
-          .then(function(status) {
-             // status:
-             // true     Send Response
-             // false    Don't send response (User disconnect)
+         .then(function(response) {
+            // status:
+            // "success"         Send Response
+            // "fail"            Don't send response (User disconnect)
+            // "page-not-found"
 
-             console.log("Actions.routeLoad status: " + status);
+            console.log("Actions.routeLoad state: " + response.state);
 
-             if(status) {
-                console.log("SERVER: Route changed");
-                console.log(status);
-
-                var reactRenderString = React.renderToString(<Handler />);
-                head = Helmet.rewind();
-                res.render("index", {APP: reactRenderString, head: head});
-             } else {
-                return res.end();
-             }
+            if(response.state === "success") {
+               console.log("SERVER: Route changed");
+               if(response.status === 404) res.status(404);
 
 
-          }).catch(function(err) {
-             console.log(err);
-          });
+               var reactRenderString = React.renderToString(<Handler />);
+               head = Helmet.rewind();
+               res.render("index", {APP: reactRenderString, head: head});
+            } else if (response.state === "fail") {
+               return res.end();
+            }
+
+
+         }).catch(function(err) {
+            console.log(err);
+         });
 
    });
 

@@ -1,419 +1,440 @@
 #app {
+  width: 100%;
+  height: 100%;
+  background: #b1b1b1;
+  position: relative;
+  @include browser(tabletsmall) {
+	overflow: hidden;
+  }
+
+  > .loading {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	background: #eeeeee;
+
+	&:after {
+	  content: '';
+	  width: 128px;
+	  height: 128px;
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  bottom: 0;
+	  right: 0;
+	  margin: auto;
+	  background: url('../image/loading-icon-large.gif');
+	  @include border-radius(50px);
+	}
+  }
+
+  #image-background {
+	position: absolute;
 	width: 100%;
 	height: 100%;
-	background: #b1b1b1;
-	position: relative;
-	@include browser(tabletsmall) {
-		overflow: hidden;
+	@include background-size(130% 100%);
+	background-position: 60% 0;
+	background-repeat: no-repeat;
+	text-indent: -99999em;
+  }
+  > .page-wrapper {
+	min-width: 320px;
+	height: 100%;
+	#background-effect {
+	  width: 100%;
+	  height: 100%;
 	}
 
-	> .loading {
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		margin: auto;
-		background: #eeeeee;
-
-		&:after {
-			content: '';
-			width: 128px;
-			height: 128px;
-			position: absolute;
-			top: 0;
-			left: 0;
-			bottom: 0;
-			right: 0;
-			margin: auto;
-			background: url('../image/loading-icon-large.gif');
-			@include border-radius(50px);
-		}
+	&.fullscreen-open {
+	  > #page {
+		width: 100% !important;
+		height: 100% !important;
+	  }
 	}
 
-	#image-background {
+	> #page {
+	  position: absolute;
+	  width: 100%;
+	  height: 100%;
+	  top: 0;
+	  right: 0;
+	  bottom: 0;
+	  left: 0;
+	  margin: auto;
+	  min-width: 320px;
+
+	  max-width: 2420px;
+
+	  body.js & {
+		@include transition-property(width, height);
+		@include transition-duration(0.15s);
+		@include transition-timing-function(ease-in);
+	  }
+
+	  @include browser(desktop) {
+		width: 94%;
+		height: 92%;
+	  }
+
+	  @include browser(desktoplarge) {
+		width: 93%;
+		height: 90%;
+	  }
+	  @include browser(desktopextreme) {
+		width: 89%;
+		height: 85%;
+	  }
+
+	  > .content {
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		@include background-size(130% 100%);
-		background-position: 60% 0;
-		background-repeat: no-repeat;
-		text-indent: -99999em;
+		//border-top: 5px solid #e1e1e1;
+		@include box-shadow(0 0 15px rgba(#000000, 0.3))
+	  }
 	}
-	> .page-wrapper {
-		min-width: 320px;
-		height: 100%;
-		#background-effect {
-			width: 100%;
-			height: 100%;
-		}
-
-		&.fullscreen-open {
-			> #page {
-				width: 100% !important;
-				height: 100% !important;
-			}
-		}
-
-		> #page {
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			margin: auto;
-			min-width: 320px;
-
-			max-width: 2420px;
-
-			body.js & {
-				@include transition-property(width, height);
-				@include transition-duration(0.15s);
-				@include transition-timing-function(ease-in);
-			}
-
-			@include browser(laptopplus) {
-				width: 94%;
-				height: 92%;
-			}
-
-			@include browser(desktoplarge) {
-				width: 93%;
-				height: 90%;
-			}
-			@include browser(desktopextreme) {
-				width: 89%;
-				height: 85%;
-			}
-
-			> .content {
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				//border-top: 5px solid #e1e1e1;
-				@include box-shadow(0 0 15px rgba(#000000, 0.3))
-			}
-		}
-	}
+  }
 }
 
 
 
 .main-content-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 70px;
+
+  @include browser(desktop) {
+	padding-top: 135px;
+  }
+  @include browser(desktopextreme) {
+	padding-top: 155px;
+  }
+
+  #main_content {
 	position: relative;
 	width: 100%;
 	height: 100%;
-	padding-top: 70px;
-
-	@include browser(tabletsmall) {
-		padding-top: 135px;
-	}
-	@include browser(desktopextreme) {
-		padding-top: 155px;
+	@include browser(mobile) {
+	  background: #e1e1e1;
 	}
 
-	#main_content {
-		position: relative;
+	#main_column_left {
+	  position: absolute;
+	  width: 100%;
+	  height: 60px;
+	  padding-right: 9px;
+	  border-top: 1px solid #e8e8e8;
+	  background: #000000;
+	  z-index: 2;
+	  .fullscreen-open & {
+		background: rgba(#000000, 1);
+	  }
+	  @include browser(desktop) {
+		height: 70px;
+	  }
+	  @include browser(mobiletablet) {
+		display: none;
+	  }
+	  //@include browser(tabletsmalllaptopplus) {
+	  //width: 100%;
+	  //height: 50px;
+	  //}
+	  //border-top: 1px solid #e1e1e1;
+	  //&:after {
+	  //content: '';
+	  //width: 9px;
+	  //height: 100%;
+	  //background: $color_main_red;
+	  //position: absolute;
+	  //right: 0;
+	  //top: 0;
+	  //}
+
+	  footer {
+		font: 400 0.9em/18px Arial, Helvetica, sans-serif;
+		position: absolute;
 		width: 100%;
-		height: 100%;
-		@include browser(mobile) {
-			background: #e1e1e1;
+		left: 0;
+		height: 70px;
+		border-top: 1px solid #111111;
+		color: #777777;
+
+		bottom: 0;
+		padding: 15px 20px 0 20px;
+
+		display: none;
+
+
+		//@include browser(laptopplus) {
+		//	display: block;
+		//}
+
+		h3 {
+		  display: block;
+		  font-weight: bold;
+		  text-transform: uppercase;
+		  font-style: italic;
+		  color: $color_main_red;
 		}
 
-		#main_column_left {
-			position: absolute;
-			width: 8%;
-			height: 100%;
-			padding-right: 9px;
-			background: rgba(#000000, 0.78);
-			border-top: 1px solid #e8e8e8;
-			.fullscreen-open & {
-				background: rgba(#000000, 1);
+		.bottom {
+
+		  .left {
+			float: left;
+			line-height: 40px;
+		  }
+
+		  button.right {
+			width: 30px;
+			line-height: 40px;
+			float: right;
+			text-align: right;
+			border: none;
+			background: none;
+			color: $color_main_red;
+			cursor: pointer;
+
+			span { display: none; }
+
+			&.phone {
+			  &:after {
+				content: "\f10b";
+				font-family: FontAwesome;
+				font-size: 2.5em;
+			  }
 			}
-			@include browser(mobiletablet) {
-				display: none;
+
+			&.email {
+			  width: 35px;
+			  &:after {
+				content: "\f0e0";
+				font-family: FontAwesome;
+				font-size: 2.15em;
+			  }
+
 			}
-			@include browser(tabletsmalllaptopplus) {
-				width: 12%;
-			}
-			//border-top: 1px solid #e1e1e1;
-			&:after {
-				content: '';
-				width: 9px;
-				height: 100%;
-				background: $color_main_red;
-				position: absolute;
-				right: 0;
-				top: 0;
-			}
-
-			footer {
-				font: 400 0.9em/18px Arial, Helvetica, sans-serif;
-				position: absolute;
-				width: 100%;
-				left: 0;
-				height: 70px;
-				border-top: 1px solid #111111;
-				color: #777777;
-
-				bottom: 0;
-				padding: 15px 20px 0 20px;
-
-				display: none;
-
-
-				//@include browser(laptopplus) {
-				//	display: block;
-				//}
-
-				h3 {
-					display: block;
-					font-weight: bold;
-					text-transform: uppercase;
-					font-style: italic;
-					color: $color_main_red;
-				}
-
-				.bottom {
-
-					.left {
-						float: left;
-						line-height: 40px;
-					}
-
-					button.right {
-						width: 30px;
-						line-height: 40px;
-						float: right;
-						text-align: right;
-						border: none;
-						background: none;
-						color: $color_main_red;
-						cursor: pointer;
-
-						span { display: none; }
-
-						&.phone {
-							&:after {
-								content: "\f10b";
-								font-family: FontAwesome;
-								font-size: 2.5em;
-							}
-						}
-
-						&.email {
-							width: 35px;
-							&:after {
-								content: "\f0e0";
-								font-family: FontAwesome;
-								font-size: 2.15em;
-							}
-
-						}
-					}
-				}
-			}
+		  }
 		}
-
-		#main_column_left_widgets {
-			height: 100%;
-			padding-bottom: 70px;
-		}
-
-		#main_column_left_navi {
-			li {
-				a {
-					position: relative;
-					display: block;
-					//padding-left: 15px;
-					line-height: 80px;
-					border-top: 1px solid #121212;
-					border-right: 1px solid transparent;
-					background: transparent;
-					color: #fff;
-					text-transform: uppercase;
-					text-decoration: none;
-					font-size: 0.95em;
-					width: 100%;
-					height: 80px;
-
-
-
-					.fullscreen-open & {
-						border-top-color: #131313;
-					}
-
-					> span {
-						display: none;
-					}
-
-					@include browser(tabletsmalllaptopplus) {
-						text-align: center;
-						> span {
-							display: none;
-						}
-					}
-
-					@include browser(desktoplarge) {
-						line-height: 80px;
-						height: 80px;
-						font-size: 1.1em;
-					}
-
-
-
-					body.js & {
-						@include transition-property(all);
-						@include transition-duration(0.1s);
-						@include transition-timing-function(ease-in);
-					}
-
-					.icon {
-						font-family: FontAwesome;
-						//background: red;
-						display: block;
-						position: absolute;
-						top: 0;
-						right: 0;
-						font-size: 2em;
-						//width: 40px;
-						width: 100%;
-						text-align: center;
-
-						@include browser(tabletsmalllaptopplus) {
-							text-align: center;
-							width: 100%;
-							left: 0;
-							right: auto;
-							padding-right: 0;
-						}
-					}
-
-					&.home .icon:after {  content: "\f015";  }
-					&.about .icon:after {  content: "\f007";  }
-					&.portfolio .icon:after {  content: "\f0b1";  }
-					&.freebies .icon:after {  content: "\f06b";  }
-					&.contact .icon:after {  content: "\f0e6";  }
-
-					&:hover, &.active, .home &.home {
-						background: $color_main_red;
-						border-top-color: $color_main_red - #111111;
-						border-right-color: $color_main_red - #111111;
-						color: #fff;
-					}
-
-					&.active, .home &.home {
-						border-right-color: transparent;
-						&:hover {
-							background: $color_main_red;
-							border-top-color: $color_main_red - #111111;
-							cursor: default;
-						}
-					}
-				}
-
-				&:first-child a {
-					border-top-color: transparent;
-				}
-			}
-		}
-
-		#main_column_middle {
-			position: absolute;
-			left: 0;
-			width: 100%;
-			//border-top: 1px solid #d8d8d8;
-			background: #eeeeee;
-
-			@include browser(tabletsmall) {
-				height: 100%;
-			}
-
-			@include browser(tabletlaptopplus) {
-				width: 88%;
-				left: 12%;
-			}
-			@include browser(laptopplus) {
-				left: 8%;
-				width: 92%;
-			}
-
-			> .content {
-				height: 100%;
-				position: relative;
-				z-index: 2;
-				border-top: 1px solid #e8e8e8;
-				@include browser(mobile) {
-					overflow: visible !important;
-				}
-
-				.mCSB_container {
-					margin-right: 10px;
-				}
-
-				&.mCS_no_scrollbar .mCSB_container {
-					margin-right: 0;
-				}
-				@include opacity(1);
-
-
-				body.js & {
-					@include opacity(0);
-					&.loaded {
-						@include opacity(1);
-						@include transition-property(opacity);
-						@include transition-duration(0.2s);
-						@include transition-timing-function(ease-in);
-
-					}
-				}
-				.js .routeLoading & {
-					opacity: 0 !important;
-				}
-			}
-			> .loading {
-				@include opacity(0);
-				position: absolute;
-				z-index: 1;
-				top: 100px;
-				right: 0;
-				left: 0;
-				width: 50%;
-				height: 50%;
-				bottom: 0;
-				margin: 0 auto;
-
-				body.js & {
-					@include transition-property(opacity);
-					@include transition-duration(0.2s);
-					@include transition-timing-function(ease-in);
-				}
-				@include browser(tabletsmall) {
-					top: 0;
-				}
-
-				span { display: none }
-				&:after {
-					content: '';
-					width: 96px;
-					height: 96px;
-					position: absolute;
-					top: 0;
-					left: 0;
-					bottom: 0;
-					right: 0;
-					margin: auto;
-					background: url('../image/loading-icon-large.gif');
-					background-size: 100% 100%;
-					@include border-radius(60px);
-				}
-
-				body.js .routeLoading & {
-						@include opacity(1);
-				}
-			}
-		}
+	  }
 	}
+
+	#main_column_left_widgets {
+	  height: 100%;
+	  //padding-bottom: 70px;
+	}
+
+	#main_column_left_navi {
+	  ul {
+		@include clearfix;
+	  }
+	  li {
+		float: left;
+		a {
+		  position: relative;
+		  display: block;
+		  //padding-left: 15px;
+		  line-height: 60px;
+		  border-top: 1px solid #121212;
+		  border-right: 1px solid transparent;
+		  border-left: 1px solid transparent;
+		  background: transparent;
+		  color: #fff;
+		  text-transform: uppercase;
+		  text-decoration: none;
+		  font-size: 0.95em;
+		  width: 100%;
+		  height: 59px;
+		  padding-left: 60px;
+		  padding-right: 20px;
+
+		  .fullscreen-open & {
+			border-top-color: #131313;
+		  }
+
+		  > span {
+			//display: none;
+		  }
+
+
+
+		  body.js & {
+			@include transition-property(all);
+			@include transition-duration(0.1s);
+			@include transition-timing-function(ease-in);
+		  }
+
+		  .icon {
+			font-family: FontAwesome;
+			//background: red;
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			font-size: 2em;
+			//width: 40px;
+			width: 100%;
+			padding-left: 20px;
+
+			//@include browser(tabletsmalllaptopplus) {
+			//  text-align: center;
+			//  width: 100%;
+			//  left: 0;
+			//  right: auto;
+			//  padding-right: 0;
+			//}
+		  }
+
+
+		  @include browser(desktop) {
+			line-height: 70px;
+			height: 69px;
+			font-size: 1.1em;
+			padding-left: 80px;
+			padding-right: 35px;
+			.icon {
+			  padding-left: 35px;
+			}
+		  }
+
+		  @include browser(tabletsmalllaptopplus) {
+			//text-align: center;
+			> span {
+			  //display: none;
+			}
+		  }
+
+		  &.home .icon:after {  content: "\f015";  }
+		  &.about .icon:after {  content: "\f007";  }
+		  &.portfolio .icon:after {  content: "\f0b1";  }
+		  &.freebies .icon:after {  content: "\f06b";  }
+		  &.contact .icon:after {  content: "\f0e6";  }
+
+		  &:hover, &.active, .home &.home {
+			background: $color_main_red;
+			border-top-color: $color_main_red - #111111;
+			border-right-color: $color_main_red - #111111;
+			color: #fff;
+		  }
+
+		  &.active, .home &.home {
+			border-right-color: transparent;
+			&:hover {
+			  background: $color_main_red;
+			  border-top-color: $color_main_red - #111111;
+			  border-right-color: $color_main_red - #111111;
+			  border-left-color: $color_main_red - #111111;
+			  cursor: default;
+			}
+		  }
+		}
+
+		&:first-child a {
+		  border-top-color: transparent;
+		}
+	  }
+	}
+
+	#main_column_middle {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  //border-top: 1px solid #d8d8d8
+
+	  @include browser(tabletsmall) {
+		background: #eeeeee;
+		height: 100%;
+	  }
+	  @include browser(tablet) {
+
+		padding-top: 60px;
+	  }
+
+	  @include browser(desktop) {
+		padding-top: 70px;
+	  }
+	  @include browser(desktopwide) {
+		left: 8%;
+		width: 92%;
+	  }
+
+	  > .content {
+		height: 100%;
+		position: relative;
+		z-index: 2;
+		//border-top: 1px solid #e8e8e8;
+		@include browser(mobile) {
+		  overflow: visible !important;
+		}
+
+		.mCSB_container {
+		  margin-right: 10px;
+		}
+
+		&.mCS_no_scrollbar .mCSB_container {
+		  margin-right: 0;
+		}
+		@include opacity(1);
+
+
+		body.js & {
+		  @include opacity(0);
+		  &.loaded {
+			@include opacity(1);
+			@include transition-property(opacity);
+			@include transition-duration(0.2s);
+			@include transition-timing-function(ease-in);
+
+		  }
+		}
+		.js .routeLoading & {
+		  opacity: 0 !important;
+		}
+	  }
+	  > .loading {
+		@include opacity(0);
+		position: absolute;
+		z-index: 1;
+		top: 170px;
+		left: 0;
+		width: 100%;
+		margin: 0 auto 0 auto;
+
+		@include browser(desktop) {
+		  top: 250px;
+		}
+
+
+		body.js & {
+		  @include transition-property(opacity);
+		  @include transition-duration(0.2s);
+		  @include transition-timing-function(ease-in);
+		}
+
+		span { display: none }
+		&:after {
+		  content: '';
+		  width: 96px;
+		  height: 96px;
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  bottom: 0;
+		  right: 0;
+		  margin: auto;
+		  background: url('../image/loading-icon-large.gif');
+		  background-size: 100% 100%;
+		  @include border-radius(60px);
+		}
+
+		body.js .routeLoading & {
+		  @include opacity(1);
+		}
+	  }
+	}
+  }
 }
