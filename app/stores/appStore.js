@@ -40,7 +40,7 @@ module.exports = Reflux.createStore({
 		console.log("onRouteLoadDone");
 		Actions.sidebarToggle(true);
 		this.updateApp();
-	}, 
+	},
 
 	onIsMobile: function(value) {
 		if(_classes.isMobile !== value) {
