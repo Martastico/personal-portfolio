@@ -8,6 +8,7 @@ var classnames 		= require('classnames');
 // Search Widget
 var SearchWidget = require('./search.jsx');
 var Mobilenavi = require('./mobilenavi.jsx');
+var UserLogin = require('../../users/user_login.jsx');
 
 // Actions
 var Actions = require('../../../actions/actions');
@@ -19,15 +20,18 @@ var _widgets = [
 	 },
 	 {
 			name: "Mobilenavi"
+	 },
+	 {
+			name: "UserLogin"
 	 }
 ].reverse();
 
 module.exports = React.createClass({
 
-	 //shouldComponentUpdate: function(nextProps, nextState) {
-		//	console.log("Update bottomRightWidgets widgets.jsx: " + !_.isEqual(nextProps, this.props));
-		//	return !_.isEqual(nextProps, this.props) || !_.isEqual(nextState, this.state);
-	 //},
+	 shouldComponentUpdate: function(nextProps, nextState) {
+			console.log("Update bottomRightWidgets widgets.jsx: " + !_.isEqual(nextProps, this.props));
+			return !_.isEqual(nextProps, this.props) || !_.isEqual(nextState, this.state);
+	 },
 
 	 handleWidgets: function(e) { 
 			var widget = e.target.id;
@@ -72,6 +76,7 @@ module.exports = React.createClass({
 				 // Add Widget Components Here
 				 if(openWidget === "search-open open") return ( <SearchWidget /> );
 				 if(openWidget === "mobilenavi-open open") return ( <Mobilenavi /> );
+				 if(openWidget === "user-login-open open") return ( <UserLogin /> );
 				 else return (null);
 			}
 	 },

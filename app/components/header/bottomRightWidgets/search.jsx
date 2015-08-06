@@ -78,9 +78,9 @@ module.exports = React.createClass({
 
 			var resultClasses = {
 				 "search-widget": true,		// Default class
-				 "wrapper": 			true,
-				 "searching":			SStore.searching,	// Searching
-				 "searched":			SStore.searched,
+				 "wrapper": 		true,
+				 "searching":		SStore.searching,	// Searching
+				 "searched":		SStore.searched,
 				 "hasResults":		SStore.hasResults
 			};
 

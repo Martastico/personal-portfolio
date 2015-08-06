@@ -240,6 +240,9 @@
                            @include browser(tablet) {display: none}
                            &:after { content: "\f037"; }
                         }
+                        &.user-login {
+                           &:after { content: "\f007"; font-size: 1.9em}
+                        }
                      }
                      &.active {
                         button {
@@ -481,6 +484,104 @@
                               &:last-child a {
                                  border-bottom: none;
                                  line-height: 56px;
+                              }
+                           }
+                        }
+                     }
+                     &.user-login-widget {
+                        float: right;
+                        width: 50%;
+                        padding: 20px 30px;
+                        h3 {
+                           font-size: 1.9em;
+                           font-family: RobotoLight, sans-serif;
+                           color: $color_main_red;
+                        }
+                        .fields {
+                           @include clearfix;
+                           input {
+                              width: 100%;
+                              border: none;
+                              line-height: 60px;
+                              padding: 0 15px;
+                              margin-bottom: 5px;
+                              font-size: 1.1em;
+                              outline: none;
+                              border: 1px solid #eeeeee;
+                              &:last-child {
+                                 margin-bottom: 0;
+                              }
+                           }
+                           button.submit {
+                              padding: 0 40px;
+                              line-height: 55px;
+                              background: $color_main_red;
+                              float: right;
+                              color: #ffffff;
+                              border: none;
+                              font-size: 1.1em;
+                              border: 1px solid transparent;
+                              font-family: RobotoRegular, sans-serif;
+                              cursor: pointer;
+
+                              @include transition-property(all);
+                              @include transition-duration(0.17s);
+                              @include transition-timing-function(ease-in);
+                              &:hover {
+                                 background: #000000;
+                              }
+
+                              span {
+                                 padding-left: 0px;
+                                 @include transition-property(padding);
+                                 @include transition-duration(0.17s);
+                                 @include transition-timing-function(ease-in);
+                              }
+                              &:before {
+                                 display: none;
+                                 font-family: FontAwesome;
+                                 content: "\f110";
+                                 font-size: 1.13em;
+                              }
+                           }
+                        }
+
+                        &.loading {
+                           .fields {
+                              button.submit {
+                                 span {
+                                    padding-left: 15px;
+                                 }
+                                 &:before {
+                                    display: inline-block;
+
+                                    -webkit-animation: Rotate 500ms infinite linear;
+                                    -moz-animation: Rotate 500ms infinite linear;
+                                    -ms-animation: Rotate 500ms infinite linear;
+                                    -o-animation: Rotate 500ms infinite linear;
+                                    animation: Rotate 500ms infinite linear;
+
+                                    @-o-keyframes Rotate {
+                                       from {-o-transform:rotate(0deg);}
+                                       to {-o-transform:rotate(-360deg);}
+                                    }
+                                    @-moz-keyframes Rotate {
+                                       from {-moz-transform:rotate(0deg);}
+                                       to {-moz-transform:rotate(-360deg);}
+                                    }
+                                    @-ms-keyframes Rotate {
+                                       from {-ms-transform:rotate(0deg);}
+                                       to {-ms-transform:rotate(-360deg);}
+                                    }
+                                    @-webkit-keyframes Rotate {
+                                       from {-webkit-transform:rotate(0deg);}
+                                       to {-webkit-transform:rotate(-360deg);}
+                                    }
+                                    @-keyframes Rotate {
+                                       from { transform:rotate(0deg);}
+                                       to { transform:rotate(-360deg);}
+                                    }
+                                 }
                               }
                            }
                         }

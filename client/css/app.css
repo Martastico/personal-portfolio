@@ -810,7 +810,12 @@ body.js #header .top .logo a {
 #header .bottom .right .widgets#quickbuttons ul li button.mobilenavi:after {
   content: "\f037";
 }
-/* line 245, ../scss/sub/_header.scss */
+/* line 244, ../scss/sub/_header.scss */
+#header .bottom .right .widgets#quickbuttons ul li button.user-login:after {
+  content: "\f007";
+  font-size: 1.9em;
+}
+/* line 248, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons ul li.active button {
   color: #ffffff;
   background: #870e19;
@@ -819,15 +824,15 @@ body.js #header .top .logo a {
   -webkit-box-shadow: inset 1px 1px 0px #a9303b;
   box-shadow: inset 1px 1px 0px #a9303b;
 }
-/* line 250, ../scss/sub/_header.scss */
+/* line 253, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons ul li.active button:hover {
   background: #981f2a;
 }
-/* line 252, ../scss/sub/_header.scss */
+/* line 255, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons ul li.active button:hover:before {
   color: #981f2a;
 }
-/* line 257, ../scss/sub/_header.scss */
+/* line 260, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons ul li.active button:before {
   content: "\f0d7";
   position: absolute;
@@ -840,7 +845,7 @@ body.js #header .top .logo a {
   line-height: 0.2em;
   color: #870e19;
 }
-/* line 273, ../scss/sub/_header.scss */
+/* line 276, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
@@ -861,7 +866,7 @@ body.js #header .top .logo a {
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 281, ../scss/sub/_header.scss */
+/* line 284, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper {
   position: relative;
   background: #f8f8f8;
@@ -869,18 +874,18 @@ body.js #header .top .logo a {
   border-right: none;
   padding: 12px 12px 12px 12px;
 }
-/* line 290, ../scss/sub/_header.scss */
+/* line 293, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget {
   width: 100%;
   float: right;
 }
 @media only screen and (min-width: 640px) {
-  /* line 290, ../scss/sub/_header.scss */
+  /* line 293, ../scss/sub/_header.scss */
   #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget {
     max-width: 400px;
   }
 }
-/* line 296, ../scss/sub/_header.scss */
+/* line 299, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget input {
   font-family: RobotoRegular, sans-serif;
   line-height: 40px;
@@ -892,7 +897,7 @@ body.js #header .top .logo a {
   width: 85%;
   font-size: 1.2em;
 }
-/* line 307, ../scss/sub/_header.scss */
+/* line 310, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget button {
   position: relative;
   width: 15%;
@@ -905,11 +910,11 @@ body.js #header .top .logo a {
   outline: none;
   cursor: pointer;
 }
-/* line 318, ../scss/sub/_header.scss */
+/* line 321, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget button:hover {
   background: #981f2a;
 }
-/* line 322, ../scss/sub/_header.scss */
+/* line 325, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget button:after {
   position: absolute;
   top: 0;
@@ -920,7 +925,7 @@ body.js #header .top .logo a {
   font-family: FontAwesome;
   font-size: 1.8em;
 }
-/* line 334, ../scss/sub/_header.scss */
+/* line 337, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results {
   width: 100.5%;
   position: absolute;
@@ -951,14 +956,14 @@ body.js #header .top .logo a {
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 351, ../scss/sub/_header.scss */
+/* line 354, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results li {
   width: 100%;
   height: auto;
   border-bottom: 1px solid #e5e5e5;
   line-height: 44px;
 }
-/* line 358, ../scss/sub/_header.scss */
+/* line 361, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results li a, #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results li.no-result {
   line-height: 44px;
   padding: 0 10px;
@@ -971,33 +976,33 @@ body.js #header .top .logo a {
   text-decoration: none;
   border-right: 3px solid #d1d1d1;
 }
-/* line 369, ../scss/sub/_header.scss */
+/* line 372, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results li a.active, #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results li.no-result.active {
   border-right-color: #870e19;
   color: #870e19;
   background: #ffffff;
   cursor: default;
 }
-/* line 375, ../scss/sub/_header.scss */
+/* line 378, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results li a:hover, #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results li.no-result:hover {
   background: #ffffff;
   color: #870e19;
 }
-/* line 380, ../scss/sub/_header.scss */
+/* line 383, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget .results li:last-child {
   border-bottom-color: #d1d1d1;
 }
-/* line 385, ../scss/sub/_header.scss */
+/* line 388, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget.hasResults .results, #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget.searched .results {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
-/* line 389, ../scss/sub/_header.scss */
+/* line 392, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget.searching input, #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget.searching button {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
   opacity: 0.4;
 }
-/* line 393, ../scss/sub/_header.scss */
+/* line 396, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget.searching button:after {
   content: "\f0e2";
   height: 102%;
@@ -1040,32 +1045,32 @@ body.js #header .top .logo a {
   }
 }
 @-keyframes Rotate {
-  /* line 422, ../scss/sub/_header.scss */
+  /* line 425, ../scss/sub/_header.scss */
   #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget.searching button:after from {
     transform: rotate(0deg);
   }
-  /* line 423, ../scss/sub/_header.scss */
+  /* line 426, ../scss/sub/_header.scss */
   #header .bottom .right .widgets#quickbuttons .widget > .wrapper.search-widget.searching button:after to {
     transform: rotate(-360deg);
   }
 }
-/* line 428, ../scss/sub/_header.scss */
+/* line 431, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget {
   width: 100%;
   overflow: hidden;
   *zoom: 1;
 }
 @media only screen and (min-width: 768px) {
-  /* line 428, ../scss/sub/_header.scss */
+  /* line 431, ../scss/sub/_header.scss */
   #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget {
     display: none;
   }
 }
-/* line 433, ../scss/sub/_header.scss */
+/* line 436, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget ul li {
   float: none;
 }
-/* line 436, ../scss/sub/_header.scss */
+/* line 439, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget ul li a {
   position: relative;
   display: block;
@@ -1079,13 +1084,13 @@ body.js #header .top .logo a {
   width: 100%;
   border-bottom: 1px solid #d1d1d1;
 }
-/* line 448, ../scss/sub/_header.scss */
+/* line 451, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget ul li a.active, #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget ul li a:hover {
   background: #870e19;
   border-bottom-color: #760008;
   color: #ffffff;
 }
-/* line 454, ../scss/sub/_header.scss */
+/* line 457, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget ul li a .icon {
   font-family: FontAwesome;
   display: block;
@@ -1096,7 +1101,7 @@ body.js #header .top .logo a {
   font-weight: normal;
 }
 @media only screen and (min-width: 768px) and (max-width: 1100px) {
-  /* line 454, ../scss/sub/_header.scss */
+  /* line 457, ../scss/sub/_header.scss */
   #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget ul li a .icon {
     text-align: center;
     width: 100%;
@@ -1105,39 +1110,178 @@ body.js #header .top .logo a {
     padding-right: 0;
   }
 }
-/* line 474, ../scss/sub/_header.scss */
+/* line 477, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget ul li a.home .icon:after {
   content: "\f015";
 }
-/* line 475, ../scss/sub/_header.scss */
+/* line 478, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget ul li a.about .icon:after {
   content: "\f007";
 }
-/* line 476, ../scss/sub/_header.scss */
+/* line 479, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget ul li a.portfolio .icon:after {
   content: "\f0b1";
 }
-/* line 477, ../scss/sub/_header.scss */
+/* line 480, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget ul li a.freebies .icon:after {
   content: "\f06b";
 }
-/* line 478, ../scss/sub/_header.scss */
+/* line 481, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget ul li a.contact .icon:after {
   content: "\f0e6";
 }
-/* line 481, ../scss/sub/_header.scss */
+/* line 484, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#quickbuttons .widget > .wrapper.mobilenavi-widget ul li:last-child a {
   border-bottom: none;
   line-height: 56px;
 }
-/* line 492, ../scss/sub/_header.scss */
+/* line 491, ../scss/sub/_header.scss */
+#header .bottom .right .widgets#quickbuttons .widget > .wrapper.user-login-widget {
+  float: right;
+  width: 50%;
+  padding: 20px 30px;
+}
+/* line 495, ../scss/sub/_header.scss */
+#header .bottom .right .widgets#quickbuttons .widget > .wrapper.user-login-widget h3 {
+  font-size: 1.9em;
+  font-family: RobotoLight, sans-serif;
+  color: #870e19;
+}
+/* line 500, ../scss/sub/_header.scss */
+#header .bottom .right .widgets#quickbuttons .widget > .wrapper.user-login-widget .fields {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 502, ../scss/sub/_header.scss */
+#header .bottom .right .widgets#quickbuttons .widget > .wrapper.user-login-widget .fields input {
+  width: 100%;
+  border: none;
+  line-height: 60px;
+  padding: 0 15px;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+  outline: none;
+  border: 1px solid #eeeeee;
+}
+/* line 511, ../scss/sub/_header.scss */
+#header .bottom .right .widgets#quickbuttons .widget > .wrapper.user-login-widget .fields input:last-child {
+  margin-bottom: 0;
+}
+/* line 515, ../scss/sub/_header.scss */
+#header .bottom .right .widgets#quickbuttons .widget > .wrapper.user-login-widget .fields button.submit {
+  padding: 0 40px;
+  line-height: 55px;
+  background: #870e19;
+  float: right;
+  color: #ffffff;
+  border: none;
+  font-size: 1.1em;
+  border: 1px solid transparent;
+  font-family: RobotoRegular, sans-serif;
+  cursor: pointer;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.17s;
+  -o-transition-duration: 0.17s;
+  -webkit-transition-duration: 0.17s;
+  transition-duration: 0.17s;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+/* line 530, ../scss/sub/_header.scss */
+#header .bottom .right .widgets#quickbuttons .widget > .wrapper.user-login-widget .fields button.submit:hover {
+  background: #000000;
+}
+/* line 534, ../scss/sub/_header.scss */
+#header .bottom .right .widgets#quickbuttons .widget > .wrapper.user-login-widget .fields button.submit span {
+  padding-left: 0px;
+  -moz-transition-property: padding;
+  -o-transition-property: padding;
+  -webkit-transition-property: padding;
+  transition-property: padding;
+  -moz-transition-duration: 0.17s;
+  -o-transition-duration: 0.17s;
+  -webkit-transition-duration: 0.17s;
+  transition-duration: 0.17s;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+/* line 540, ../scss/sub/_header.scss */
+#header .bottom .right .widgets#quickbuttons .widget > .wrapper.user-login-widget .fields button.submit:before {
+  display: none;
+  font-family: FontAwesome;
+  content: "\f110";
+  font-size: 1.13em;
+}
+/* line 552, ../scss/sub/_header.scss */
+#header .bottom .right .widgets#quickbuttons .widget > .wrapper.user-login-widget.loading .fields button.submit span {
+  padding-left: 15px;
+}
+/* line 555, ../scss/sub/_header.scss */
+#header .bottom .right .widgets#quickbuttons .widget > .wrapper.user-login-widget.loading .fields button.submit:before {
+  display: inline-block;
+  -webkit-animation: Rotate 500ms infinite linear;
+  -moz-animation: Rotate 500ms infinite linear;
+  -ms-animation: Rotate 500ms infinite linear;
+  -o-animation: Rotate 500ms infinite linear;
+  animation: Rotate 500ms infinite linear;
+}
+@-o-keyframes Rotate {
+  from {
+    -o-transform: rotate(0deg);
+  }
+  to {
+    -o-transform: rotate(-360deg);
+  }
+}
+@-moz-keyframes Rotate {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(-360deg);
+  }
+}
+@-ms-keyframes Rotate {
+  from {
+    -ms-transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(-360deg);
+  }
+}
+@-webkit-keyframes Rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(-360deg);
+  }
+}
+@-keyframes Rotate {
+  /* line 581, ../scss/sub/_header.scss */
+  #header .bottom .right .widgets#quickbuttons .widget > .wrapper.user-login-widget.loading .fields button.submit:before from {
+    transform: rotate(0deg);
+  }
+  /* line 582, ../scss/sub/_header.scss */
+  #header .bottom .right .widgets#quickbuttons .widget > .wrapper.user-login-widget.loading .fields button.submit:before to {
+    transform: rotate(-360deg);
+  }
+}
+/* line 593, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#main_search {
   display: none;
   width: 30%;
   vertical-align: middle;
   margin-right: 10px;
 }
-/* line 497, ../scss/sub/_header.scss */
+/* line 598, ../scss/sub/_header.scss */
 #header .bottom .right .widgets#main_search input {
   width: 100%;
   padding: 0 15px;
@@ -1149,7 +1293,7 @@ body.js #header .top .logo a {
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 509, ../scss/sub/_header.scss */
+/* line 610, ../scss/sub/_header.scss */
 #header .bottom .right.open #quickbuttons.widgets .widget {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;

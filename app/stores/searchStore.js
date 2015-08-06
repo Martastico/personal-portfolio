@@ -16,40 +16,6 @@ var _data = {
 	 searchResults: []
 };
 
-// TODO: Server-side
-var _allSearchResults = [
-	 {
-			title: "Home",
-			type: "home",
-			NID: 1,
-			path: ""
-	 },
-	 {
-			title: "About Myself",
-			type: "node",
-			NID: 2,
-			path: "about"
-	 },
-	 {
-			title: "Portfolio",
-			type: "node",
-			NID: 3,
-			path: "portfolio"
-	 },
-	 {
-			title: "Freebies",
-			type: "node",
-			NID: 4,
-			path: "freebies"
-	 },
-	 {
-			title: "Contact",
-			type: "node",
-			NID: 5,
-			path: "contact"
-	 }
-];
-
 module.exports = Reflux.createStore({
 	 listenables: Actions,
 

@@ -19,7 +19,7 @@ var RouteHandler 	= ReactRouter.RouteHandler;
 //var url = require('url');
 
 //var index = require('./routes/index');
-var api = require('./routes/api/nodes');
+var api = require('./routes/api/api');
 var users = require('./routes/users');
 var index = require('./routes/index');
 
