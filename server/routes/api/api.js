@@ -1,20 +1,16 @@
 var express 	= require('express');
-var router 		= express.Router();
-var path 			= require("path");
-var _ 				= require("lodash");
+var app 		   = express.Router();
+var _ 			= require("lodash");
+var passport = require('passport');
 
+//var passportDrupal  = require('passport-drupal');
+//var dStrategy = passportDrupal.DrupalStrategy;
 
-// User Login
-router.get('/login', function(req, res, next) {
+app.post('/login', passport.authenticate('drupal'), function(req, res, next) {
 	console.log("/login");
 	res.json({user: "123"});
 });
 
-router.get('/auth', function(req, res, next) {
-	console.log("/auth");
-	res.end("auth");
-});
-
-module.exports = router;
+module.exports = app;
 
 

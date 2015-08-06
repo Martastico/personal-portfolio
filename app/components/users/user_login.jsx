@@ -19,6 +19,10 @@ module.exports    = React.createClass({
 		Reflux.connect(UserStore,"UserStore")
 	],
 
+	componentDidMount: function() {
+		this.refs.userfield.getDOMNode().focus();
+	},
+
 	componentWillMount: function() {
 		if(!_.isEmpty(this.state.UserStore.user)) {
 			this.setState({searchValue: this.state.UserStore.user})
@@ -56,7 +60,7 @@ module.exports    = React.createClass({
 			<section className={classnames(resultClasses)}>
 				<h3>Login</h3>
 				<div className="fields">
-					<input type="text" className="user" onChange={this.handleSearchChange} value={this.state.user} onKeyDown={this.handleSearchKeyDown} placeholder="Username"/>
+					<input type="text" className="user" ref="userfield" onChange={this.handleSearchChange} value={this.state.user} onKeyDown={this.handleSearchKeyDown} placeholder="Username"/>
 					<input type="password" className="pass" onChange={this.handleSearchChange} value={this.state.pass} onKeyDown={this.handleSearchKeyDown} placeholder="password"/>
 					<button className="submit" onClick={this.handleSearchKeyDown}><span className="submit">Login</span></button>
 				</div>

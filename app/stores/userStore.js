@@ -30,10 +30,13 @@ module.exports = Reflux.createStore({
 	validate: function(data) {
 		console.log("userStore.js: validate");
 
-		setTimeout(function() {
+		request.get('http://localhost.saarman.net/auth/drupal')
+			.send({hello: 1})
+			.end(function (err, res) {
 			_data.login.loading = false;
+			console.log(res.body);
 			this.updateApp();
-		}.bind(this), 1000)
+		}.bind(this));
 	},
 
 	onUserLogin: function(data) {
