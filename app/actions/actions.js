@@ -7,5 +7,6 @@ module.exports = Reflux.createActions({
 	 "routeLoad": { asyncResult: true },
 	 "routeLoadDone": { asyncResult: true },
 	 "getDataRoute": { asyncResult: true },
-	 "isMobile": { asyncResult: false }
+	 "isMobile": { asyncResult: false },
+	 "sidebarToggle": { asyncResult: false }
 });

@@ -37,10 +37,6 @@ var Home = React.createClass({
 	}
 });
 
-if(Config.isBrowser) {
-	require('malihu-custom-scrollbar-plugin')($);
-}
-
 var App = React.createClass({
 	mixins: [
 		Reflux.connect(AppStore,"AppStore"),
@@ -62,14 +58,8 @@ var App = React.createClass({
 		$(mainColumnMiddleContent).addClass("loaded");
 
 
-		// Enabling custom scrollbar because native scroll for touch devices is usually much faster and smoother
 		if (!this.isTouchDevice()) {
-			$(mainColumnMiddleContent).mCustomScrollbar({
-				theme: "mcc",
-				scrollInertia: 120,
-				advanced:{ updateOnContentResize: true },
-				mouseWheel:{ scrollAmount: 120 }
-			});
+
 		}
 
 		resizedw();
@@ -93,9 +83,7 @@ var App = React.createClass({
 	},
 
 	componentWillUpdate: function() {
-		var mainColumnMiddleContent = React.findDOMNode(this.refs.mainColumnMiddleContent);
 		if(this.state.AppStore.classes.routeLoading) {
-			$(mainColumnMiddleContent).mCustomScrollbar("scrollTo", [0, null]);
 			$("#main_column_middle > .content").scrollTop(0);
 		}
 
@@ -104,6 +92,7 @@ var App = React.createClass({
 	render: function() {
 		//console.log("----- App.js Updated -----");
 		var SApp = this.state.AppStore;
+		console.log( SApp.classes);
 
 		// Default ".page-wrapper" Classes
 		var pageWrapperClasses = [
@@ -111,7 +100,8 @@ var App = React.createClass({
 				"page-wrapper": true,
 				"fullscreen-open": SApp.classes.fullScreenOpen,
 				"routeLoading": SApp.classes.routeLoading,
-				"isMobile": SApp.classes.isMobile
+				"isMobile": SApp.classes.isMobile,
+				"sidebar-open": SApp.classes.sidebar
 			},
 			SApp.classes.page
 		];
@@ -147,6 +137,9 @@ var App = React.createClass({
 						</header>
 						<div className="main-content-wrapper">
 							<section id="main_content">
+								<section id="main_column_sidebar">
+									<div>hello</div>
+								</section>
 								<section id="main_column_left">
 									<div id="main_column_left_widgets">
 										<div className="content">

@@ -1,14 +1,11 @@
 
 var Reflux 	= require('reflux');
 var Actions = require('../actions/actions.js');
-var _ 			= require('lodash');
+var _ 		= require('lodash');
+var request = require('superagent');
+var Async   = require('async');
 
-var request 		= require('superagent');
-
-var Config 		= require('../app.config');
-
-var Async = require('async');
-
+var Config 	= require('../app.config');
 
 // Construction for what data to return as SearchStore state.
 var _data = {
@@ -39,19 +36,23 @@ module.exports = Reflux.createStore({
 					var menuStartTime = Date.now();
 					// If menu exists for client no need to refetch, on the other hand server will always check for update.
 					if(_.isEmpty(_data.menu.main) || !Config.isBrowser) {
+						console.log("Main Menu: " + Config.path.api + '/menu/main');
 						request.get(Config.path.api + '/menu/main')
 							.set('Accept', 'application/json')
 							.end(function(err, res) {
-							//console.log("Getting main menu from: " + Config.path.api + '/menu/main --- SUCCESS');
+								//console.log("Getting main menu from: " + Config.path.api + '/menu/main --- SUCCESS');
 
-							_data.menu.main = _.map(res.body, function (m, mk) {
-								m.path = m.path === "/home" ? "" : m.path;
-								return m;
+								if(!Config.isBrowser && _.isUndefined(res.body)) {
+									callback(null, 0);
+								}
+								_data.menu.main = _.map(res.body, function (m, mk) {
+									m.path = m.path === "/home" ? "" : m.path;
+									return m;
+								});
+
+								console.log("menuStartTime request time: " + (Date.now() - menuStartTime));
+								callback(null, 1);
 							});
-
-							console.log("menuStartTime request time: " + (Date.now() - menuStartTime));
-							callback(null, 1);
-						});
 					} else {
 						//console.log("Already have main menu --- showing cached menu");
 						callback(null, 1);
@@ -79,7 +80,11 @@ module.exports = Reflux.createStore({
 			],
 			function(err, res) {
 				console.log("Async request time: " + (Date.now() - asyncStartTime));
-				this.updateApp(res[1])
+				if(!res[0] === 0) {
+					Actions.routeLoad.completed({state: "critical_error", status: status});
+				} else {
+					this.updateApp(res[1]);
+				}
 
 			}.bind(this)
 		)

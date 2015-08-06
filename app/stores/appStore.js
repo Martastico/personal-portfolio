@@ -8,69 +8,80 @@ var _HeaderBottomRightWidgets = {};
 
 // Used for ".page-wrapper"
 var _classes = {
-	 "openWidget": "",
-	 "fullScreenOpen": false,
-	 "routeLoading": true,
-	 "isMobile": false,
-	 "page": ""
+	"openWidget": "",
+	"fullScreenOpen": false,
+	"routeLoading": true,
+	"isMobile": false,
+	"page": "",
+	"sidebar": false
 };
 
 // Construction for what data to return as AppStore state.
 var _data = {
-	 classes: _classes
+	classes: _classes
 };
 
 module.exports = Reflux.createStore({
-	 listenables: Actions,
+	listenables: Actions,
 
-	 getInitialState: function() {
-			return _data;
-	 },
+	getInitialState: function() {
+		return _data;
+	},
 
-	 // Todo: Combine with onRouteLoadDone
-	 onRouteLoad: function(State) {
-			_classes.page = !_.isEmpty(State.params.path)? _.kebabCase(State.params.path) : "home";
-			_classes.routeLoading = true;
+	// Todo: Combine with onRouteLoadDone
+	onRouteLoad: function(State) {
+		_classes.page = !_.isEmpty(State.params.path)? _.kebabCase(State.params.path) : "home";
+		_classes.routeLoading = true;
+		this.updateApp();
+	},
+
+	onRouteLoadDone: function(State) {
+		_classes.routeLoading = !Config.isBrowser; // Without it, there will be react error saying client and server html is different hence reducing performance
+		console.log("onRouteLoadDone");
+		Actions.sidebarToggle(true);
+		this.updateApp();
+	}, 
+
+	onIsMobile: function(value) {
+		if(_classes.isMobile !== value) {
+			_classes.isMobile = value;
 			this.updateApp();
-	 },
+		}
+	},
 
-	 onRouteLoadDone: function(State) {
-			_classes.routeLoading = !Config.isBrowser; // Without it, there will be react error saying client and server html is different hence reducing performance
-			this.updateApp();
-	 },
+	onSiderbarToggle: function(toggle) {
+		// toggle:
+		// true (open)
+		// false (close)
 
-	 onIsMobile: function(value) {
-			if(_classes.isMobile !== value) {
-				 _classes.isMobile = value;
-				 this.updateApp();
-			}
-	 },
+		console.log("onSiderbarToggle");
+	},
 
-	 onWidgetOpen: function(widget) {
-			// Only one widget may be open.
-			widget = widget + "-open open";
+	onWidgetOpen: function(widget) {
+		// Only one widget may be open.
+		widget = widget + "-open open";
 
-			// If same widget is already open the "close" it
-			if(_classes.openWidget === widget)
-				 widget = "";
+		// If same widget is already open the "close" it
+		if(_classes.openWidget === widget)
+			widget = "";
 
-			_classes.openWidget = widget;
+		_classes.openWidget = widget;
 
-			this.updateApp();
+		this.updateApp();
 
-	 },
+	},
 
-	 onFullScreen: function() {
-			_classes.fullScreenOpen = !_classes.fullScreenOpen;
-			var fullScreenTranslate = _classes.fullScreenOpen ? "Fullscreen" : "Not Fullscreen";
+	onFullScreen: function() {
+		_classes.fullScreenOpen = !_classes.fullScreenOpen;
+		var fullScreenTranslate = _classes.fullScreenOpen ? "Fullscreen" : "Not Fullscreen";
 
-			ga('send', 'event', 'Header Widgets', 'Changed Fullscreen Option', fullScreenTranslate);
-			this.updateApp();
-	 },
+		ga('send', 'event', 'Header Widgets', 'Changed Fullscreen Option', fullScreenTranslate);
+		this.updateApp();
+	},
 
-	 updateApp: function() {
-			this.trigger(_.cloneDeep(_data));
-	 }
+	updateApp: function() {
+		this.trigger(_.cloneDeep(_data));
+	}
 
 });
 

@@ -36,7 +36,6 @@ module.exports = React.createClass({
 				var pci1 = $(".index .main_content .personalcounter_item_1"),
 					pci2 = $(".index .main_content .personalcounter_item_2"),
 					pci3 = $(".index .main_content .personalcounter_item_3"),
-					pci4 = $(".index .main_content .personalcounter_item_4"),
 					index_bottom = $(".index > .body > .bottom");
 
 				if(SApp.classes.isMobile) {
@@ -44,18 +43,11 @@ module.exports = React.createClass({
 					$(pci1).addClass("loaded spinner");
 					$(pci2).addClass("loaded spinner");
 					$(pci3).addClass("loaded spinner");
-					$(pci4).addClass("loaded spinner");
 				} else {
-					$(pci1).addClass("loaded spinner").delay(500).show(function() {
-						$(pci2).addClass("loaded spinner").delay(400).show(function() {
-							$(pci3).addClass("loaded spinner").delay(400).show(function() {
-								$(pci4).addClass("loaded spinner").delay(1400).show(function() {
-									$(index_bottom).addClass("loaded");
-									$(pci1).addClass("perspective");
-									$(pci2).addClass("perspective");
-									$(pci3).addClass("perspective");
-									$(pci4).addClass("perspective");
-								});
+					$(pci1).addClass("loaded spinner").delay(600).show(function() {
+						$(pci2).addClass("loaded spinner").delay(600).show(function() {
+							$(pci3).addClass("loaded spinner").delay(500).show(function() {
+								$(index_bottom).addClass("loaded");
 							});
 						});
 					});
@@ -69,7 +61,7 @@ module.exports = React.createClass({
 
 		data.title           = _.isEmpty(data.title_alt) ? data.title : data.title_alt;
 
-		var title 	         = data.showTitle ? (<h1 className="big-title" ref="big_title">{data.title}</h1>) : false;
+		var title 	         = data.showTitle ? (<h1 className="big-title" ref="big_title"><span className="gwrapper">{data.title}</span></h1>) : false;
 		var body 		      = !_.isEmpty(data.body) ? (<div className="body" dangerouslySetInnerHTML={{__html: data.body}}></div>) : false;
 		var style 	         = !_.isEmpty(data.style) ? data.style : false;
 		var template         = [];
@@ -88,7 +80,7 @@ module.exports = React.createClass({
 		// Style: Default
 		if (!style || style === "default") {
 			template = (
-				<div className={"gwrapper text-style__default " + _.kebabCase(data.path)}>
+				<div className={"text-style__default " + _.kebabCase(data.path)}>
 					{title}
 					<section className="gr animation">
 						{body}
@@ -99,11 +91,11 @@ module.exports = React.createClass({
 
 		if (!style || style === "empty") {
 			template = (
-				<div className={"gwrapper text-style__default " + _.kebabCase(data.path)}>
+				<div className={"text-style__default " + _.kebabCase(data.path)}>
 					{title}
 					<section className="gr animation">
 						<section className="gc g12">
-							<div className="default">
+							<div className="text-style__default gwrapper">
 								{body}
 							</div>
 						</section>
@@ -115,7 +107,7 @@ module.exports = React.createClass({
 		// Style: Index
 		if (style === "index") {
 			template = (
-				<div className={classnames([style, "gwrapper"])}>
+				<div className={classnames([style, "text-style__default"])}>
 					{title}
 					{body}
 				</div>
@@ -132,7 +124,7 @@ module.exports = React.createClass({
 					{"property": "og:image", "content": ogImage.src},
 					{"property": "og:type", "content": ogType}
 				]}
-			   link={[
+				link={[
 			      {"rel": "author", "href": metaRelAuthor}
 			   ]}
 				>

@@ -19,13 +19,6 @@
   // Grid Content
   .gc {
 	float: left;
-	padding: 30px 25px 0 25px;
-	@include browser(laptopplus) {
-	  padding: 40px 35px 0 35px;
-	}
-	@include browser(desktoplarge) {
-	  padding: 60px 55px 0 55px;
-	}
 	&.no-margin {
 	  margin-left: 0 !important;
 	}
@@ -154,4 +147,18 @@
 	.g8 { width: 72%; }
   }
 
+}
+
+
+.gwrapper {
+  display: block;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px 25px 30px 25px;
+  @include browser(laptopplus) {
+	padding: 50px 65px 50px 45px;
+  }
+  @include browser(desktoplarge) {
+	padding: 70px 65px 70px 65px;
+  }
 }

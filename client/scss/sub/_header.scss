@@ -88,6 +88,7 @@
          padding-top: 2px;
          left: 0;
          top: 0;
+         z-index: 8;
          @include browser(tabletsmall) {
             width: 300px;
             padding-left: 15px;
@@ -141,10 +142,13 @@
       position: absolute;
       top: 0;
       right: 0;
-      width: 60%;
+      width: 100%;
       height: 100%;
       z-index: 5;
       //}
+      @include browser(tabletsmall) {
+         width: 60%;
+      }
 
       @include browser(desktop) {
          position: relative;
@@ -198,7 +202,7 @@
                         display: block;
                         background: transparent;
                         border: none;
-                        border-left: 1px solid #e1e1e1;
+                        //border-left: 1px solid #e1e1e1;
                         height: 99%;
                         width: 55px;
                         text-align: center;
