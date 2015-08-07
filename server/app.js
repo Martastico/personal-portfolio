@@ -87,8 +87,8 @@ app.use(passport.session());
 
 passport.use(new OAuth.Strategy({
 
-      consumerKey: "J92VvSjRD2Xd9F7TXGMSUutFBae74Qzu",
-      consumerSecret: "n8PXpFyBd9cMrAwuJKaGvsp9TcPvZWB6",
+      consumerKey: "DpACMNxMdriHUK5A6EbukR3rJxomgkWB",
+      consumerSecret: "rS5b64e9aSFVsBgemDHaS5HNVrdcTWT5",
 
       requestTokenURL: 'http://api.localhost.saarman.net/oauth/request_token',
       accessTokenURL: 'http://api.localhost.saarman.net/oauth/access_token',

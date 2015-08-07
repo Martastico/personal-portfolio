@@ -7,6 +7,8 @@ var classnames 		= require('classnames');
 var $ 				 		= require('jquery');
 var Helmet 				= require('react-helmet');
 
+var Portfolio = require('../page/portfolio.jsx');
+
 // Config
 var Config = require('../../app.config');
 
@@ -110,6 +112,16 @@ module.exports = React.createClass({
 				<div className={classnames([style, "text-style__default"])}>
 					{title}
 					{body}
+				</div>
+			)
+		}
+
+		// Style: Index
+		if (style === "portfolio") {
+			template = (
+				<div className={classnames([style, "text-style__default"])}>
+					{title}
+					<Portfolio body={body} />
 				</div>
 			)
 		}

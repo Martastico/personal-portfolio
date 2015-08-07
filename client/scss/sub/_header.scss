@@ -294,7 +294,7 @@
                         width: 100%;
                         float: right;
                         @include browser(tabletsmall) {
-                           max-width: 400px;
+                           width: 400px;
                         }
                         input {
                            font-family: RobotoRegular, sans-serif;
@@ -448,7 +448,7 @@
                                  text-decoration: none;
                                  width: 100%;
                                  border-bottom: 1px solid #d1d1d1;
-                                 &.active, &:hover {
+                                 &.active, &:hover, .home &.home {
                                     background: $color_main_red;
                                     border-bottom-color: $color_main_red - #111111;
                                     color: #ffffff;
@@ -490,24 +490,40 @@
                      }
                      &.user-login-widget {
                         float: right;
-                        width: 50%;
+                        position: relative;
+                        width: 100%;
                         padding: 20px 30px;
-                        h3 {
-                           font-size: 1.9em;
-                           font-family: RobotoLight, sans-serif;
-                           color: $color_main_red;
+                        @include transition-property(height);
+                        @include transition-duration(0.25s);
+                        @include transition-timing-function(ease-in);
+                        @include browser(tabletsmall) {
+                           width: 400px;
                         }
+                        header {
+                           @include clearfix;
+                           line-height: 40px;
+                           h3 {
+                              display: inline-block;
+                              font-size: 1.9em;
+                              font-family: RobotoLight, sans-serif;
+                              color: $color_main_red;
+                           }
+                        }
+
                         .fields {
                            @include clearfix;
                            input {
                               width: 100%;
                               border: none;
-                              line-height: 60px;
                               padding: 0 15px;
                               margin-bottom: 5px;
                               font-size: 1.1em;
+                              line-height: 40px;
                               outline: none;
                               border: 1px solid #eeeeee;
+                              @include browser(tabletsmall) {
+                                 line-height: 60px;
+                              }
                               &:last-child {
                                  margin-bottom: 0;
                               }
@@ -518,73 +534,81 @@
                               background: $color_main_red;
                               float: right;
                               color: #ffffff;
-                              border: none;
                               font-size: 1.1em;
                               border: 1px solid transparent;
                               font-family: RobotoRegular, sans-serif;
                               cursor: pointer;
-
+                              @include opacity(1);
                               @include transition-property(all);
                               @include transition-duration(0.17s);
                               @include transition-timing-function(ease-in);
                               &:hover {
-                                 background: #000000;
-                              }
-
-                              span {
-                                 padding-left: 0px;
-                                 @include transition-property(padding);
-                                 @include transition-duration(0.17s);
-                                 @include transition-timing-function(ease-in);
-                              }
-                              &:before {
-                                 display: none;
-                                 font-family: FontAwesome;
-                                 content: "\f110";
-                                 font-size: 1.13em;
+                                 background: $color_main_red + #222222;
                               }
                            }
                         }
-
+                        .warnings {
+                           display: none;
+                           @include opacity(0);
+                           position: relative;
+                           float: right;
+                           color: $color_main_red;
+                           @include transform(translate(-20px, 0px));
+                           span {
+                              display: none;
+                              text-indent: -9999em;
+                           } 
+                           &:before {
+                              content: "\f071";
+                              font-family: FontAwesome;
+                              font-size: 1.8em;
+                           }
+                           .messages {
+                              position: absolute;
+                              top: 0;
+                              right: 40px;
+                              width: 200px;
+                              text-align: right;
+                              font-size: 0.9em;
+                              @include transition-property(all);
+                              @include transition-duration(0.17s);
+                              @include transition-timing-function(ease-in);
+                           }
+                        }
+                        &.authendication-fail {
+                           .warnings {
+                              display: block;
+                              @include opacity(1);
+                              @include transform(translate(0px, 0px));
+                              -webkit-animation: fadeIn 400ms linear;
+                              -moz-animation: fadeIn 400ms linear;
+                              -ms-animation: fadeIn 400ms linear;
+                              -o-animation: fadeIn 400ms linear;
+                              animation: fadeIn 400ms linear;
+                           }
+                        }
                         &.loading {
                            .fields {
                               button.submit {
-                                 span {
-                                    padding-left: 15px;
-                                 }
-                                 &:before {
-                                    display: inline-block;
-
-                                    -webkit-animation: Rotate 500ms infinite linear;
-                                    -moz-animation: Rotate 500ms infinite linear;
-                                    -ms-animation: Rotate 500ms infinite linear;
-                                    -o-animation: Rotate 500ms infinite linear;
-                                    animation: Rotate 500ms infinite linear;
-
-                                    @-o-keyframes Rotate {
-                                       from {-o-transform:rotate(0deg);}
-                                       to {-o-transform:rotate(-360deg);}
-                                    }
-                                    @-moz-keyframes Rotate {
-                                       from {-moz-transform:rotate(0deg);}
-                                       to {-moz-transform:rotate(-360deg);}
-                                    }
-                                    @-ms-keyframes Rotate {
-                                       from {-ms-transform:rotate(0deg);}
-                                       to {-ms-transform:rotate(-360deg);}
-                                    }
-                                    @-webkit-keyframes Rotate {
-                                       from {-webkit-transform:rotate(0deg);}
-                                       to {-webkit-transform:rotate(-360deg);}
-                                    }
-                                    @-keyframes Rotate {
-                                       from { transform:rotate(0deg);}
-                                       to { transform:rotate(-360deg);}
-                                    }
+                                 @include opacity(0.2);
+                                 cursor: default;
+                                 &:focus {
+                                    outline: none;
                                  }
                               }
                            }
                         }
+                     }
+
+                     @-webkit-keyframes fadeIn {
+                        0%    { display: none;  @include opacity(0); @include transform(translate(-20px, 0px)); }
+                        1%    { display: block; @include opacity(0); @include transform(translate(-20px, 0px));}
+                        100%  { display: block; @include opacity(1); @include transform(translate(0px, 0px)); }
+                     }
+                     @keyframes fadeIn {
+                        0%    { display: none;  @include opacity(0); @include transform(translate(-20px, 0px));}
+                        1%    { display: block; @include opacity(0); @include transform(translate(-20px, 0px));}
+                        100%  { display: block; @include opacity(1); @include transform(translate(0px, 0px));}
                      }
 
                   }

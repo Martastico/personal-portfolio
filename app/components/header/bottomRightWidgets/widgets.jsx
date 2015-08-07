@@ -15,84 +15,84 @@ var Actions = require('../../../actions/actions');
 
 // TODO: Serverside Widgets
 var _widgets = [
-	 {
-			name: "Search"
-	 },
-	 {
-			name: "Mobilenavi"
-	 },
-	 {
-			name: "UserLogin"
-	 }
+	{
+		name: "Search"
+	},
+	{
+		name: "UserLogin"
+	},
+	{
+		name: "Mobilenavi"
+	}
 ].reverse();
 
 module.exports = React.createClass({
 
-	 shouldComponentUpdate: function(nextProps, nextState) {
-			console.log("Update bottomRightWidgets widgets.jsx: " + !_.isEqual(nextProps, this.props));
-			return !_.isEqual(nextProps, this.props) || !_.isEqual(nextState, this.state);
-	 },
+	shouldComponentUpdate: function(nextProps, nextState) {
+		//console.log("Update bottomRightWidgets widgets.jsx: " + !_.isEqual(nextProps, this.props));
+		return !_.isEqual(nextProps, this.props) || !_.isEqual(nextState, this.state);
+	},
 
-	 handleWidgets: function(e) { 
-			var widget = e.target.id;
-			ga('send', 'event', 'Header Widgets', 'Clicked', widget);
-			Actions.widgetOpen(widget);
-	 },
+	handleWidgets: function(e) {
+		var widget = e.target.id;
+		ga('send', 'event', 'Header Widgets', 'Clicked', widget);
+		Actions.widgetOpen(widget);
+	},
 
-	 renderWidgets: function() {
-			var openWidget = this.props.openWidget;
+	renderWidgets: function() {
+		var openWidget = this.props.openWidget;
 
-			return _.map(_widgets, function(w, wk) {
-				 var name = _.kebabCase(w.name),
-						 id = w.id;
+		return _.map(_widgets, function(w, wk) {
+			var name = _.kebabCase(w.name),
+				id = w.id;
 
-				 var classes = [];
+			var classes = [];
 
-				 classes = [
-						name,
-						"widget-" + wk,
-						 "ignore-react-onclickoutside"
-				 ];
+			classes = [
+				name,
+				"widget-" + wk,
+				"ignore-react-onclickoutside"
+			];
 
-				 if(openWidget === name + "-open open") {
-						classes.push("active");
-				 }
-
-				 return (
-						 <li className={classnames(classes)} key={wk}>
-								<button className={name} id={name} onClick={this.handleWidgets}><span>{w.name}</span></button>
-						 </li>
-				 );
-			}.bind(this));
-
-	 },
-
-	 renderOpenWidgets: function() {
-			var openWidget = this.props.openWidget;
-
-			if(_.isEmpty(openWidget)) {
-				 return (null);
-			} else {
-				 // Add Widget Components Here
-				 if(openWidget === "search-open open") return ( <SearchWidget /> );
-				 if(openWidget === "mobilenavi-open open") return ( <Mobilenavi /> );
-				 if(openWidget === "user-login-open open") return ( <UserLogin /> );
-				 else return (null);
+			if(openWidget === name + "-open open") {
+				classes.push("active");
 			}
-	 },
 
-	 render: function() {
-			//console.log("Render: bottomRightWidgets .widgets.jsx");
 			return (
-					<section id="quickbuttons" className="widgets widgets-wrapper quickbuttons">
-						 <ul>
-								{this.renderWidgets()}
-						 </ul>
-						 <div className="widget">
-								{this.renderOpenWidgets()}
-						 </div>
-					</section>
-			)
+				<li className={classnames(classes)} key={wk}>
+					<button className={name} id={name} onClick={this.handleWidgets}><span>{w.name}</span></button>
+				</li>
+			);
+		}.bind(this));
 
-	 }
+	},
+
+	renderOpenWidgets: function() {
+		var openWidget = this.props.openWidget;
+
+		if(_.isEmpty(openWidget)) {
+			return (null);
+		} else {
+			// Add Widget Components Here
+			if(openWidget === "search-open open") return ( <SearchWidget /> );
+			if(openWidget === "mobilenavi-open open") return ( <Mobilenavi /> );
+			if(openWidget === "user-login-open open") return ( <UserLogin /> );
+			else return (null);
+		}
+	},
+
+	render: function() {
+		//console.log("Render: bottomRightWidgets .widgets.jsx");
+		return (
+			<section id="quickbuttons" className="widgets widgets-wrapper quickbuttons">
+				<ul>
+					{this.renderWidgets()}
+				</ul>
+				<div className="widget">
+					{this.renderOpenWidgets()}
+				</div>
+			</section>
+		)
+
+	}
 });

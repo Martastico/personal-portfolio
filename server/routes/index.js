@@ -33,6 +33,9 @@ var RRoutes = (
 
 
 NodeRouter.get('*', function(req, res, next) {
+
+   console.log(req);
+
    // User disconnect
    req.connection.addListener('close', function () {
       Actions.routeLoad.completed("fail");

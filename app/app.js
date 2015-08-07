@@ -90,7 +90,7 @@ var App = React.createClass({
 	},
 
 	render: function() {
-		console.log("----- App.js Updated -----");
+		//console.log("----- App.js Updated -----");
 		var SApp = this.state.AppStore;
 		//console.log( SApp.classes);
 		// Default ".page-wrapper" Classes

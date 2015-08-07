@@ -42,6 +42,7 @@
     "gulp-util": "^3.0.5",
     "hjs": "0.0.6",
     "malihu-custom-scrollbar-plugin": "^3.0.8",
+    "node-inspector": "^0.12.2",
     "node-jsx": "^0.13.3",
     "reactify": "^1.1.1",
     "reflux": "^0.2.7",

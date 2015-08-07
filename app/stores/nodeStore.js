@@ -3,12 +3,11 @@ var Reflux 			= require('reflux');
 var Actions 		= require('../actions/actions.js');
 var _ 					= require('lodash');
 var request 		= require('superagent');
+var Async   = require('async');
 
 // Config
 var Config 		= require('../app.config');
 
-// Stores
-var NodesStore 	= require('../stores/nodeStore');
 
 
 
@@ -24,51 +23,80 @@ module.exports = Reflux.createStore({
 		return _data;
 	},
 
+	nodeRequest: function(path, callback) {
+		request.get(Config.path.api + "/page/" + path)
+			.set('Accept', 'application/json')
+			.end(function(err, res) {
+				if(!err) {
+					// Success
+					console.log("Successfully requested node for path '/" + path + "'");
+					// If body is empty, add not found to it.
+					if(_.isEmpty(res.body)) {
+						res.body[0] = {
+							NID: '0',
+							path: '/' + path,
+							type: 'pages',
+							date: '0',
+							title: 'Page Not Found 404',
+							showTitle: '1',
+							title_alt: 'Page Not Found (404)',
+							style: 'default',
+							body: 'The page you\'re looking for doesn\'t seem to exist... Sorry'
+						};
+						res.status = 404;
+					}
+					callback(null, res);
+				} else {
+					// Handle Errors
+					// todo: more robust
+					// If there's an error, an uuid[0].value -1 is created with the path provided.
+					// So when going back to same path it will retry to get the node.
+					if(!_.isUndefined(res)) {
+						if(res.status === 404) {
+							console.log("404 - path '/" + path + "' not found");
+							callback(null, res);
+						}
+					} else {
+						callback(null, res);
+					}
+				}
+			});
+	},
+
+	// Using this to get extra required data for some unique page.
+	// Such as list of portfolio items.
+	extraNodeDataRequest: function(path, callback) {
+		if(path === "portfolio") {
+			Actions.getPortfolioItems.triggerPromise().then(function() {
+				callback(null, 1);
+			})
+		} else {
+			callback(null, 1);
+		}
+	},
+
+	fetchNodeEnd: function(err, res) {
+		console.log("fetchNodeEnd");
+		console.log(res);
+
+		this.updateNodes(res[0]);
+	},
+
 	fetchNode: function(path) {
 
 		console.log("path '/" + path + "' did not exist, requesting to load node from server if node exists");
 		// TODO: REplace with real query
 
 		console.log("Node: " + Config.path.api + "/page/" + path);
-		request.get(Config.path.api + "/page/" + path)
-			.set('Accept', 'application/json')
-			.end(function(err, res) {
-			if(!err) {
-				// Success
-				console.log("Successfully requested node for path '/" + path + "'");
-				// If body is empty, add not found to it.
-				if(_.isEmpty(res.body)) {
-					res.body[0] = {
-						NID: '0',
-						path: '/' + path,
-						type: 'pages',
-						date: '0',
-						title: 'Page Not Found 404',
-						showTitle: '1',
-						title_alt: 'Page Not Found (404)',
-						style: 'default',
-						body: 'The page you\'re looking for doesn\'t seem to exist... Sorry'
-					};
-					res.status = 404;
-				}
-				this.updateNodes(res);
-			} else {
-				// Handle Errors
-				// todo: more robust
-				// If there's an error, an uuid[0].value -1 is created with the path provided.
-				// So when going back to same path it will retry to get the node.
-				if(!_.isUndefined(res)) {
-					if(res.status === 404) {
-						console.log("404 - path '/" + path + "' not found");
-						this.updateNodes(res);
-					}
-				} else {
-					this.updateNodes(res);
-				}
-			}
-		}.bind(this));
-	},
 
+
+		Async.parallel([
+				_.partial(this.nodeRequest, path),
+				_.partial(this.extraNodeDataRequest, path)
+			],
+			this.fetchNodeEnd
+		);
+	},
 
 	// New Node/Page has been fetched
 	updateNodes: function(res) {

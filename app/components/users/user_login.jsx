@@ -9,8 +9,9 @@ var Actions			= require('../../actions/actions');
 // Stores
 var UserStore	   = require('../../stores/userStore');
 
-
-
+//
+// Currently a placeholder for later implementation of user authendication
+//
 
 module.exports    = React.createClass({
 
@@ -24,9 +25,13 @@ module.exports    = React.createClass({
 	},
 
 	componentWillMount: function() {
-		if(!_.isEmpty(this.state.UserStore.user)) {
-			this.setState({searchValue: this.state.UserStore.user})
+		if(!_.isEmpty(this.state.UserStore.login.user)) {
+			this.setState({user: this.state.UserStore.login.user})
 		}
+	},
+
+	componentWillUnmount: function() {
+		Actions.resetLoginForm();
 	},
 
 	handleSearchChange: function(e) {
@@ -41,7 +46,7 @@ module.exports    = React.createClass({
 	},
 
 	handleSearchKeyDown: function(e) {
-		if (e.keyCode === 13 || e.target.className === "submit") {
+		if (!this.state.UserStore.login.loading && (e.keyCode === 13 || e.target.className === "submit")) {
 			Actions.userLogin(this.state);
 			this.setState({pass: ""})
 		}
@@ -51,14 +56,24 @@ module.exports    = React.createClass({
 	},
 
 	render: function() {
+		var uStore = this.state.UserStore;
+		var messages = !uStore.login.authendication ? (<div className="messages">Incorrect User/Pass</div>) : false;
+
 		var resultClasses = {
-			"user-login-widget": true,		// Default class
-			"wrapper": true,		// Default class
-			"loading": this.state.UserStore.login.loading
+			"user-login-widget": true,
+			"wrapper": true,
+			"authendication-fail": !uStore.login.authendication,
+			"loading": uStore.login.loading
 		};
 		return (
 			<section className={classnames(resultClasses)}>
-				<h3>Login</h3>
+				<header>
+					<h3>Login</h3>
+					<div className="warnings">
+						<span className="warning-icon">Warning</span>
+						{messages}
+					</div>
+				</header>
 				<div className="fields">
 					<input type="text" className="user" ref="userfield" onChange={this.handleSearchChange} value={this.state.user} onKeyDown={this.handleSearchKeyDown} placeholder="Username"/>
 					<input type="password" className="pass" onChange={this.handleSearchChange} value={this.state.pass} onKeyDown={this.handleSearchKeyDown} placeholder="password"/>

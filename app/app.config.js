@@ -5,7 +5,7 @@ module.exports = {
  path: {
   absolute: "http://localhost.saarman.net",
   relative: '',
-  api: "http://api.localhost.saarman.net"
+  api: "http://api.saarman.net"
  },
  isBrowser: typeof window !== 'undefined'
 };
