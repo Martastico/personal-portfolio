@@ -26,32 +26,44 @@ module.exports = React.createClass({
 		if(!_.isUndefined(this.props.mobileNavi) && this.props.mobileNavi) Actions.widgetOpen("mobilenavi");
 	},
 
+	linkConstruction: function(data) {
+		var classes;
+		classes = [
+			_.kebabCase(data.name)
+		];
+		if (data.path === "" || data.path === "/portfolio") {
+			data.path = data.path === "" ? "home" : data.path;
+			return (
+				<Link to={data.path} onClick={this.handleClick} className={classnames(classes)}>
+					<span>{data.name}</span><span className="icon"></span>
+				</Link>
+			)
+		} else {
+			return (
+				<Link to={data.type} params={{page: (data.path).replace('/', '')}} onClick={this.handleClick} className={classnames(classes)}>
+					<span>{data.name}</span><span className="icon"></span>
+				</Link>
+			)
+		}
+	},
+
 	linkTemplate: function() {
 		//console.log("linkTemplate");
 		var path;
-		var classes;
 
 		return _.map(this.state.RouteStore.menu.main, function(l, lk) {
-			classes = [
-				_.kebabCase(l.name),
-				{
-					// WORKAROUND: Problem when rendering server side, for some reason it doesn't apply the ".active" class to the links...
-					// Todo: find solution for it.
-					"active" : (this.state.RouteStore.state.path === l.path) && !Config.isBrowser
-				}
-			];
-			path = {path: (l.path).replace('/', ''), splat: ""}
-			;
+			//	return _.map(menus, function(l, lk) {
+			path = {path: (l.path).replace('/', ''), splat: ""};
 			return (
 				<li key={lk}>
-					<Link to={l.type} params={path} onClick={this.handleClick} className={classnames(classes)}>
-						<span>{l.name}</span><span className="icon"></span>
-					</Link>
+					{this.linkConstruction({type: l.type, name: l.name, path: l.path})}
 				</li>)
 		}.bind(this))
 	},
+
 	render: function() {
 		//console.log("mainNavi RENDERED");
+		//return (<div>nothing</div>);
 		return (<ul>{this.linkTemplate()}</ul>);
 	}
 });

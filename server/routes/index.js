@@ -24,10 +24,34 @@ var Page 		= require('../../app/components/page/page.jsx');
 
 var App = require('../../app/app');
 
+
+
+
+var test = React.createClass({
+   render: function() {
+      return (<div>asd</div>)
+   }
+});
+
+var test2 = React.createClass({
+   render: function() {
+      return (<div>asd</div>)
+   }
+});
+
 var RRoutes = (
-   <Route path="/" handler={App}>
-      <DefaultRoute handler={Page} />
-      <Route name="pages" path="/:path" handler={Page} />
+   <Route handler={App}>
+
+      <DefaultRoute name="home" handler={Page} />
+
+      <Route name="portfolio">
+         <DefaultRoute handler={Page} />
+         <Route name="portfolio.items" path=":page" handler={test} />
+      </Route>
+
+      <Route name="pages" path=":page" handler={Page} />
+
+
    </Route>
 );
 

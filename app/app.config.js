@@ -3,7 +3,7 @@ module.exports = {
  appTitle: 'Mart Saarman',
  titleTemplate: 'Mart Saarman | %s',
  path: {
-  absolute: "http://localhost.saarman.net",
+  absolute: "http://saarman.net",
   relative: '',
   api: "http://api.saarman.net"
  },

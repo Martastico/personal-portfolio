@@ -111,14 +111,14 @@ var App = React.createClass({
 		HeaderBottomRightWidgetsClasses.push(SApp.classes.openWidget);
 		return(
 			<div className={classnames(pageWrapperClasses)}>
-				<img id="image-background" style={{backgroundImage: 'url(image/bigbg_1.jpg)'}} alt="Saarman Background"/>
+				<img id="image-background" style={{backgroundImage: 'url(/image/bigbg_1.jpg)'}} alt="Saarman Background"/>
 				<section id="page">
 					<div className="content">
 						<header id="header">
 							<div className="top">
 								<div className="left">
 									<div className="logo">
-										<Link to="pages" params={{path: '', splat: ''}} className="home"></Link>
+										<Link to="home" className="home"></Link>
 									</div>
 								</div>
 								<div className="right">
@@ -172,12 +172,43 @@ var App = React.createClass({
 	}
 });
 
+
+
+var test = React.createClass({
+
+	render: function() {
+		return (<div>asd 1</div>)
+	}
+});
+
+var test2 = React.createClass({
+	render: function() {
+		return (<div>asd 2</div>)
+	}
+});
+
+//<Route name="home" path="/" handler={test} />
+//<Route name="about" path="/about" handler={test} />
+//	<Route name="contact" path="/contact" handler={test} />
+//	<Route name="portfolio" path="/portfolio" handler={test} />
+//	<Route name="pages" path=":/path" handler={Page} />
+
 if(Config.isBrowser) {
+	//<DefaultRoute handler={Page} />
 
 	var RRoutes = (
-		<Route path="/" handler={App}>
-			<DefaultRoute handler={Page} />
-			<Route name="pages" path="/:path*" handler={Page} />
+		<Route handler={App}>
+
+			<DefaultRoute name="home" handler={Page} />
+
+			<Route name="portfolio">
+				<DefaultRoute handler={Page} />
+				<Route name="portfolio.items" path=":page" handler={test} />
+			</Route>
+
+			<Route name="pages" path=":page" handler={Page} />
+
+
 		</Route>
 	);
 

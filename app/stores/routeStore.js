@@ -59,12 +59,11 @@ module.exports = Reflux.createStore({
 	},
 
 	// Get current route Page (Node)
-	routeLoadGetPage: function(State, callback) {
+	routeLoadGetPage: function(State, callback)  {
 		var getDataRouteStart = Date.now();
 
 		Actions.getDataRoute.triggerPromise("node", State)
 			.then(function(res) {
-				//console.log("STATTTUSS");
 				console.log("getDataRouteStart request time: " + (Date.now() - getDataRouteStart));
 				if(res.status === 200) {
 					return callback(null, 200);
@@ -85,10 +84,10 @@ module.exports = Reflux.createStore({
 
 	onRouteLoad: function(State) {
 		console.log("RouteLoad: Start");
-
 		Async.parallel([
 				// Get Main Menu Links
 				_.partial(this.routeLoadGetMenu, State),
+
 				// Get current route Page (Node)
 				_.partial(this.routeLoadGetPage, State)
 			],

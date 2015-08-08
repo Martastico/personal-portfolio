@@ -63,7 +63,7 @@ module.exports = React.createClass({
 
 		data.title           = _.isEmpty(data.title_alt) ? data.title : data.title_alt;
 
-		var title 	         = data.showTitle ? (<h1 className="big-title" ref="big_title"><span className="gwrapper">{data.title}</span></h1>) : false;
+		var title 	         = _.isUndefined(data.showTitle) || (!_.isEmpty(data.showTitle) && data.showTitle) ? (<h1 className="big-title" ref="big_title"><span className="gwrapper">{data.title}</span></h1>) : false;
 		var body 		      = !_.isEmpty(data.body) ? (<div className="body" dangerouslySetInnerHTML={{__html: data.body}}></div>) : false;
 		var style 	         = !_.isEmpty(data.style) ? data.style : false;
 		var template         = [];
@@ -121,7 +121,9 @@ module.exports = React.createClass({
 			template = (
 				<div className={classnames([style, "text-style__default"])}>
 					{title}
-					<Portfolio body={body} />
+					<section className="gr animation">
+						<Portfolio body={body} />
+					</section>
 				</div>
 			)
 		}
