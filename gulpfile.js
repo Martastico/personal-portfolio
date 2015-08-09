@@ -27,7 +27,7 @@ function buildScript(file, watch) {
 	var props = {
 		entries: ['app' + '/' + file],
 		debug: false,
-		cache: {},
+		cache: {}, 
 		packageCache: {}
 	};
 	var bundler = watch ? watchify(browserify(props)) : browserify(props);
@@ -36,9 +36,9 @@ function buildScript(file, watch) {
 		var stream = bundler.bundle();
 		return stream.on('error', console.log.bind(console))
 			.pipe(source(file))
-			//.pipe(streamify(sourcemaps.init({loadMaps: true})))
-			.pipe(streamify(uglify()))
-			//.pipe(streamify(sourcemaps.write('./')))
+			.pipe(streamify(sourcemaps.init({loadMaps: true})))
+			//.pipe(streamify(uglify()))
+			.pipe(streamify(sourcemaps.write('./')))
 			.pipe(gulp.dest(PATHS.client.dev + 'js'));
 	}
 	bundler.on('update', function() {

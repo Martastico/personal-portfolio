@@ -30,6 +30,7 @@ module.exports = React.createClass({
 			<section className="gc g12">
 				<div className="text-style__default gwrapper">
 					{this.props.body}
+					<Link to="portfolio.items" params={{page: "elwis"}}>Asd</Link>
 				</div>
 			</section>
 		)

@@ -118,7 +118,7 @@ var App = React.createClass({
 							<div className="top">
 								<div className="left">
 									<div className="logo">
-										<Link to="home" className="home"></Link>
+										<Link to="home" params={{path: '', splat: ''}} className="home"></Link>
 									</div>
 								</div>
 								<div className="right">
@@ -199,9 +199,9 @@ if(Config.isBrowser) {
 	var RRoutes = (
 		<Route handler={App}>
 
-			<DefaultRoute name="home" handler={Page} />
+			<Route name="home" path="/" handler={Page} />
 
-			<Route name="portfolio">
+			<Route name="portfolio" path="portfolio">
 				<DefaultRoute handler={Page} />
 				<Route name="portfolio.items" path=":page" handler={test} />
 			</Route>
