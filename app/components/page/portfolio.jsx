@@ -15,6 +15,7 @@ var Actions = require('../../actions/actions');
 
 // Store
 var PortfolioStore = require('../../stores/portfolioStore');
+var PortfolioItems = require('../../components/navigation/portfolioItems.jsx');
 
 module.exports = React.createClass({
 
@@ -31,17 +32,18 @@ module.exports = React.createClass({
 		return _.map(items, function (i, ik) {
 			return (
 				<article key={i.NID} className={classnames(["item"], "item-"+ik, "shadow")}>
-					<div className="header">{i.title}</div>
-					<div className="content">
+					<div className="wrapper">
 						<Link to="portfolio.items" params={{page: (i.path).replace("/portfolio/", "")}}>
-							<div className="view">
-								<span>View</span>
+							<div className="content">
+								<header><h2>{i.title}</h2></header>
+								<div className="view">
+									<span>View</span>
+								</div>
+								<div className="thumbnail">
+									<img src={i.thumbnail.src} alt={i.thumbnail.alt} />
+								</div>
 							</div>
-
 						</Link>
-					</div>
-					<div className="thumbnail">
-						<img src={i.thumbnail.src} alt={i.thumbnail.alt} />
 					</div>
 				</article>
 			)
@@ -56,6 +58,7 @@ module.exports = React.createClass({
 					{this.props.body}
 					{this.listPortfolioItems()}
 				</div>
+				<PortfolioItems />
 			</section>
 		)
 	}
