@@ -312,15 +312,14 @@
 		  &.portfolio .icon:after {  content: "\f0b1";  }
 		  &.freebies .icon:after {  content: "\f06b";  }
 		  &.contact .icon:after {  content: "\f0e6";  }
-
-		  &:hover, &.active, .home &.home {
+		  &:hover, &.active, .portfolio &.portfolio {
 			background: $color_main_red;
 			border-top-color: $color_main_red - #111111;
 			border-right-color: $color_main_red - #111111;
 			color: #fff;
 		  }
 
-		  &.active, .home &.home {
+		  &.active {
 			border-right-color: transparent;
 			&:hover {
 			  background: $color_main_red;
@@ -329,6 +328,10 @@
 			  border-left-color: $color_main_red - #111111;
 			  cursor: default;
 			}
+		  }
+
+		  .portfolio &.portfolio:hover {
+			cursor: pointer;
 		  }
 		}
 

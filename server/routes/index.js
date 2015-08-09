@@ -40,17 +40,16 @@ var test2 = React.createClass({
 });
 
 var RRoutes = (
-   <Route handler={App}>
+   <Route path="/" handler={App}>
 
       <DefaultRoute name="home" handler={Page} />
 
-      <Route name="portfolio">
+      <Route name="portfolio" path="portfolio">
          <DefaultRoute handler={Page} />
-         <Route name="portfolio.items" path=":page" handler={test} />
+         <Route name="portfolio.items" path=":page" handler={Page} />
       </Route>
 
       <Route name="pages" path=":page" handler={Page} />
-
 
    </Route>
 );

@@ -27,10 +27,12 @@ module.exports = React.createClass({
 	},
 
 	linkConstruction: function(data) {
+		data.path = (data.path).replace('/', '');
 		var classes;
 		classes = [
 			_.kebabCase(data.name)
 		];
+
 		if (data.path === "" || data.path === "/portfolio") {
 			data.path = data.path === "" ? "home" : data.path;
 			return (
@@ -40,7 +42,7 @@ module.exports = React.createClass({
 			)
 		} else {
 			return (
-				<Link to={data.type} params={{page: (data.path).replace('/', '')}} onClick={this.handleClick} className={classnames(classes)}>
+				<Link to={data.type} params={{page: data.path}} onClick={this.handleClick} className={classnames(classes)}>
 					<span>{data.name}</span><span className="icon"></span>
 				</Link>
 			)

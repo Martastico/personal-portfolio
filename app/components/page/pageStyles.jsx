@@ -28,10 +28,10 @@ module.exports = React.createClass({
 
 		// Do animations here for specific custom pages..
 		setTimeout(function() { // Small delay because of browser support..
+
 			$(big_title).addClass("loaded").delay(400).show(function() {
 				$(content).addClass("loaded");
 			});
-
 
 			// If Home
 			if(!_.isEmpty(data.style) && data.style === "index") {
@@ -63,7 +63,7 @@ module.exports = React.createClass({
 
 		data.title           = _.isEmpty(data.title_alt) ? data.title : data.title_alt;
 
-		var title 	         = _.isUndefined(data.showTitle) || (!_.isEmpty(data.showTitle) && data.showTitle) ? (<h1 className="big-title" ref="big_title"><span className="gwrapper">{data.title}</span></h1>) : false;
+		var title 	         = _.isUndefined(data.showTitle) || data.showTitle ? (<h1 className="big-title" ref="big_title"><span className="gwrapper">{data.title}</span></h1>) : false;
 		var body 		      = !_.isEmpty(data.body) ? (<div className="body" dangerouslySetInnerHTML={{__html: data.body}}></div>) : false;
 		var style 	         = !_.isEmpty(data.style) ? data.style : false;
 		var template         = [];
@@ -73,6 +73,13 @@ module.exports = React.createClass({
 		var metaRelAuthor    = !_.isEmpty(data.meta_rel_author)  ? data.meta_rel_author : "";
 		var ogImage          = !_.isEmpty(data.og_image)  ? data.og_image : {src: "http://api.saarman.net/sites/default/files/slogo.jpg"};
 		var ogType           = !_.isEmpty(data.og_type)  ? data.og_type : "article";
+
+		console.log("title");
+		console.log(title);
+		console.log("body");
+		console.log(body);
+		console.log("style");
+		console.log(style);
 
 		var metaData = {
 			title: "Mart Saarman | " + metaTitle,
@@ -116,7 +123,7 @@ module.exports = React.createClass({
 			)
 		}
 
-		// Style: Index
+		// Style: Portfolio
 		if (style === "portfolio") {
 			template = (
 				<div className={classnames([style, "text-style__default"])}>
