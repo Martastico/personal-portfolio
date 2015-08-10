@@ -137,7 +137,9 @@ var App = React.createClass({
 								<Sidebar />
 								<section id="main_column_middle">
 									<div className="content" ref="mainColumnMiddleContent">
-										<RouteHandler/>
+										<div className="scroll">
+											<RouteHandler/>
+										</div>
 									</div>
 									<div className="loading">
 										<span>loading</span>

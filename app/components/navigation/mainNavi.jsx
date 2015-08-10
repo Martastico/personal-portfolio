@@ -33,7 +33,7 @@ module.exports = React.createClass({
 			_.kebabCase(data.name)
 		];
 
-		if (data.path === "" || data.path === "/portfolio") {
+		if (data.path === "" || data.path === "portfolio") {
 			data.path = data.path === "" ? "home" : data.path;
 			return (
 				<Link to={data.path} onClick={this.handleClick} className={classnames(classes)}>
@@ -55,7 +55,7 @@ module.exports = React.createClass({
 
 		return _.map(this.state.RouteStore.menu.main, function(l, lk) {
 			//	return _.map(menus, function(l, lk) {
-			path = {path: (l.path).replace('/', ''), splat: ""};
+			path = {path: l.path, splat: ""};
 			return (
 				<li key={lk}>
 					{this.linkConstruction({type: l.type, name: l.name, path: l.path})}
