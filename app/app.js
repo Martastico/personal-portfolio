@@ -65,7 +65,7 @@ var App = React.createClass({
 
 	componentWillUpdate: function() {
 		if(this.state.AppStore.classes.routeLoading) {
-			$("#main_column_middle > .content").scrollTop(0);
+			$("#main_column_middle > .content > .scroll").scrollTop(0);
 		}
 
 	},

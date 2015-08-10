@@ -586,9 +586,8 @@
 
 
 .me-pic {
-  border-bottom: 5px solid #870e19;
-  max-width: 30%;
-  margin: 0 20px 20px 0;
+  max-width: 60%;
+  margin: 0 auto 20px auto;
   @include box-shadow(0 0 15px rgba(0,0,0,0.1));
   //@include border-radius(10%);
   body.js & {
@@ -611,16 +610,21 @@
 	margin-bottom: 20px;
 	float: none;
   }
-  @include browser(tablet) {
-	//margin: -25px 20px 20px -20px;
+  @include browser(laptop) {
+	width: 40%;
   };
   @include browser(desktoplarge) {
-	max-width: 25%;
+	max-width: 35%;
   }
   @include browser(mobilelaptop) {
 	//display: block;
 	//max-width: 60% !important;
 	//margin: 0 auto;
+  }
+
+  img {
+	display: block;
+	width: 100%;
   }
 }
 
@@ -667,7 +671,6 @@
   > ul {
 	padding: 20px;
 	li {
-	  list-style-type: square;
 	  margin-bottom: 5px;
 	  margin-left: 25px;
 	  ul {
@@ -675,7 +678,11 @@
 	  }
 	  li {
 		margin-left: 25px;
-		list-style-type: circle;
+		&:after {
+		  content: "\f10c";
+		  font-size: 0.5em;
+		  top: 8px;
+		}
 	  }
 	}
   }

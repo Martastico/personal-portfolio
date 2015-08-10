@@ -9,9 +9,9 @@ var bodyParser      = require('body-parser');
 var compression     = require('compression');
 var passport        = require('passport');
 var session         = require('express-session');
-var OAuth            = require('passport-oauth1');
+//var OAuth            = require('passport-oauth1');
 
-var OAuthStrategy = OAuth.Strategy;
+//var OAuthStrategy = OAuth.Strategy;
 
 var ReactRouter   = require('react-router');
 
@@ -33,8 +33,8 @@ var index = require('./routes/index');
 var app = express();
 
 // Use if no NGINX proxy
-app.use(express.static(path.join(__dirname, '../client'), {maxAge: 604800000}));
-app.use(express.static(path.join(__dirname, '../storage'), {maxAge: 604800000}));
+//app.use(express.static(path.join(__dirname, '../client'), {maxAge: 604800000}));
+//app.use(express.static(path.join(__dirname, '../storage'), {maxAge: 604800000}));
 
 //function wwwRedirect(req, res, next) {
 //  console.log("wwwRedirect: " + req.headers.host);
@@ -60,12 +60,12 @@ app.set('view engine', 'hjs');
 app.use(logger('dev'));
 
 // serialize and deserialize
-passport.serializeUser(function(user, done) {
-   done(null, user);
-});
-passport.deserializeUser(function(obj, done) {
-   done(null, obj);
-});
+//passport.serializeUser(function(user, done) {
+//   done(null, user);
+//});
+//passport.deserializeUser(function(obj, done) {
+//   done(null, obj);
+//});
 
 
 //Cookies
@@ -75,57 +75,57 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //Sessions
-app.use(session({
-   secret: 'secret',
-   resave: false,
-   saveUninitialized: false
-}));
+//app.use(session({
+//   secret: 'secret',
+//   resave: false,
+//   saveUninitialized: false
+//}));
 
-app.use(passport.initialize());
-app.use(passport.session());
-
-
-passport.use(new OAuth.Strategy({
-
-      consumerKey: "DpACMNxMdriHUK5A6EbukR3rJxomgkWB",
-      consumerSecret: "rS5b64e9aSFVsBgemDHaS5HNVrdcTWT5",
-
-      requestTokenURL: 'http://api.localhost.saarman.net/oauth/request_token',
-      accessTokenURL: 'http://api.localhost.saarman.net/oauth/access_token',
-      userAuthorizationURL: 'http://api.localhost.saarman.net/oauth/authorize',
-
-      callbackURL: "http://84.250.101.180:3000/auth/drupal/callback"
-
-   }, function(req, token, tokenSecret, profile, done) {
-      console.log("hi");
-      User.findOrCreate({ exampleId: profile.id }, function (err, user) {
-         console.log("hi");
-         return done(err, user);
-      });
-   }
-));
+//app.use(passport.initialize());
+//app.use(passport.session());
 
 
-app.get('/auth/drupal',
-   passport.authenticate('oauth')
-);
+//passport.use(new OAuth.Strategy({
+//
+//      consumerKey: "DpACMNxMdriHUK5A6EbukR3rJxomgkWB",
+//      consumerSecret: "rS5b64e9aSFVsBgemDHaS5HNVrdcTWT5",
+//
+//      requestTokenURL: 'http://api.localhost.saarman.net/oauth/request_token',
+//      accessTokenURL: 'http://api.localhost.saarman.net/oauth/access_token',
+//      userAuthorizationURL: 'http://api.localhost.saarman.net/oauth/authorize',
+//
+//      callbackURL: "http://84.250.101.180:3000/auth/drupal/callback"
+//
+//   }, function(req, token, tokenSecret, profile, done) {
+//      console.log("hi");
+//      User.findOrCreate({ exampleId: profile.id }, function (err, user) {
+//         console.log("hi");
+//         return done(err, user);
+//      });
+//   }
+//));
 
-app.get('/oauth/authorize',
-   function(req, res) {
-      console.log("hello");
-      res.json({hello: 1})
-   }
-);
 
-
-app.get('/auth/drupal/callback',
-   passport.authenticate('oauth', { failureRedirect: '/' }),
-   function(req, res) {
-      // Successful authentication, redirect home.
-      console.log("HAI");
-      res.json({success: true})
-   }
-);
+//app.get('/auth/drupal',
+//   passport.authenticate('oauth')
+//);
+//
+//app.get('/oauth/authorize',
+//   function(req, res) {
+//      console.log("hello");
+//      res.json({hello: 1})
+//   }
+//);
+//
+//
+//app.get('/auth/drupal/callback',
+//   passport.authenticate('oauth', { failureRedirect: '/' }),
+//   function(req, res) {
+//      // Successful authentication, redirect home.
+//      console.log("HAI");
+//      res.json({success: true})
+//   }
+//);
 
 
 

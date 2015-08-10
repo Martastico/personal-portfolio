@@ -2913,14 +2913,13 @@ body.js .index > .body > .bottom.loaded {
 
 /* line 588, ../scss/sub/_contentStyles.scss */
 .me-pic {
-  border-bottom: 5px solid #870e19;
-  max-width: 30%;
-  margin: 0 20px 20px 0;
+  max-width: 60%;
+  margin: 0 auto 20px auto;
   -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
-/* line 594, ../scss/sub/_contentStyles.scss */
+/* line 593, ../scss/sub/_contentStyles.scss */
 body.js .me-pic {
   -moz-transform: translate(30px, 0);
   -ms-transform: translate(30px, 0);
@@ -2939,7 +2938,7 @@ body.js .me-pic {
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 602, ../scss/sub/_contentStyles.scss */
+/* line 601, ../scss/sub/_contentStyles.scss */
 .gr.animation.loaded .me-pic {
   -moz-transform: translate(0px, 0);
   -ms-transform: translate(0px, 0);
@@ -2956,41 +2955,52 @@ body.js .me-pic {
     float: none;
   }
 }
+@media only screen and (min-width: 1000px) {
+  /* line 588, ../scss/sub/_contentStyles.scss */
+  .me-pic {
+    width: 40%;
+  }
+}
 @media only screen and (min-width: 1700px) {
   /* line 588, ../scss/sub/_contentStyles.scss */
   .me-pic {
-    max-width: 25%;
+    max-width: 35%;
   }
 }
+/* line 625, ../scss/sub/_contentStyles.scss */
+.me-pic img {
+  display: block;
+  width: 100%;
+}
 
-/* line 629, ../scss/sub/_contentStyles.scss */
+/* line 633, ../scss/sub/_contentStyles.scss */
 .redcolor {
   color: #870e19 !important;
 }
 
-/* line 633, ../scss/sub/_contentStyles.scss */
+/* line 637, ../scss/sub/_contentStyles.scss */
 .sizem {
   font-size: 1.15em !important;
 }
 @media only screen and (min-width: 768px) {
-  /* line 633, ../scss/sub/_contentStyles.scss */
+  /* line 637, ../scss/sub/_contentStyles.scss */
   .sizem {
     font-size: 1.2em !important;
   }
 }
 
-/* line 639, ../scss/sub/_contentStyles.scss */
+/* line 643, ../scss/sub/_contentStyles.scss */
 .sizel {
   font-size: 1.25em !important;
 }
 @media only screen and (min-width: 768px) {
-  /* line 639, ../scss/sub/_contentStyles.scss */
+  /* line 643, ../scss/sub/_contentStyles.scss */
   .sizel {
     font-size: 1.35em !important;
   }
 }
 
-/* line 646, ../scss/sub/_contentStyles.scss */
+/* line 650, ../scss/sub/_contentStyles.scss */
 .skills-list {
   background: #ffffff;
   font-size: 1.1em;
@@ -3001,13 +3011,13 @@ body.js .me-pic {
   -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
 }
-/* line 647, ../scss/sub/_contentStyles.scss */
+/* line 651, ../scss/sub/_contentStyles.scss */
 .skills-list:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 659, ../scss/sub/_contentStyles.scss */
+/* line 663, ../scss/sub/_contentStyles.scss */
 .skills-list h3 {
   display: block;
   color: #870e19;
@@ -3016,50 +3026,54 @@ body.js .me-pic {
   padding: 18px 20px;
   border-bottom: 1px solid #eeeeee;
 }
-/* line 667, ../scss/sub/_contentStyles.scss */
+/* line 671, ../scss/sub/_contentStyles.scss */
 .skills-list > ul {
   padding: 20px;
 }
-/* line 669, ../scss/sub/_contentStyles.scss */
+/* line 673, ../scss/sub/_contentStyles.scss */
 .skills-list > ul li {
-  list-style-type: square;
   margin-bottom: 5px;
   margin-left: 25px;
 }
-/* line 673, ../scss/sub/_contentStyles.scss */
+/* line 676, ../scss/sub/_contentStyles.scss */
 .skills-list > ul li ul {
   margin: 5px 0 10px 0;
 }
-/* line 676, ../scss/sub/_contentStyles.scss */
+/* line 679, ../scss/sub/_contentStyles.scss */
 .skills-list > ul li li {
   margin-left: 25px;
-  list-style-type: circle;
 }
-/* line 684, ../scss/sub/_contentStyles.scss */
+/* line 681, ../scss/sub/_contentStyles.scss */
+.skills-list > ul li li:after {
+  content: "\f10c";
+  font-size: 0.5em;
+  top: 8px;
+}
+/* line 691, ../scss/sub/_contentStyles.scss */
 .skills-list:last-child {
   border-bottom: none;
   margin-bottom: 25px;
 }
-/* line 689, ../scss/sub/_contentStyles.scss */
+/* line 696, ../scss/sub/_contentStyles.scss */
 .skills-list.work-in-action {
   background: #870e19;
 }
-/* line 691, ../scss/sub/_contentStyles.scss */
+/* line 698, ../scss/sub/_contentStyles.scss */
 .skills-list.work-in-action h3 {
   color: #ffffff;
   border-bottom-color: #720004;
   text-align: center;
   text-transform: uppercase;
 }
-/* line 697, ../scss/sub/_contentStyles.scss */
+/* line 704, ../scss/sub/_contentStyles.scss */
 .skills-list.work-in-action > div {
   padding: 20px 20px 5px 20px;
 }
-/* line 700, ../scss/sub/_contentStyles.scss */
+/* line 707, ../scss/sub/_contentStyles.scss */
 .skills-list.work-in-action p {
   color: #ffffff;
 }
-/* line 703, ../scss/sub/_contentStyles.scss */
+/* line 710, ../scss/sub/_contentStyles.scss */
 .skills-list.work-in-action a.view {
   display: block;
   position: relative;
@@ -3072,11 +3086,11 @@ body.js .me-pic {
   line-height: 65px;
   font-family: 'UbuntuRegular';
 }
-/* line 714, ../scss/sub/_contentStyles.scss */
+/* line 721, ../scss/sub/_contentStyles.scss */
 .skills-list.work-in-action a.view:hover {
   background: #222222;
 }
-/* line 717, ../scss/sub/_contentStyles.scss */
+/* line 724, ../scss/sub/_contentStyles.scss */
 .skills-list.work-in-action a.view:before {
   content: "\f113";
   font-family: 'FontAwesome';
@@ -3086,14 +3100,14 @@ body.js .me-pic {
   font-size: 2em;
 }
 
-/* line 730, ../scss/sub/_contentStyles.scss */
+/* line 737, ../scss/sub/_contentStyles.scss */
 .gr header.default > h2 {
   color: #870e19;
   font-size: 2.3em !important;
   margin-top: 15px;
 }
 
-/* line 737, ../scss/sub/_contentStyles.scss */
+/* line 744, ../scss/sub/_contentStyles.scss */
 .text-box {
   background: #000000;
   color: #ffffff;
@@ -3105,13 +3119,13 @@ body.js .me-pic {
   width: 90%;
 }
 @media only screen and (max-width: 638px) {
-  /* line 737, ../scss/sub/_contentStyles.scss */
+  /* line 744, ../scss/sub/_contentStyles.scss */
   .text-box {
     border-right: 4px solid #870e19;
   }
 }
 @media only screen and (min-width: 1000px) {
-  /* line 737, ../scss/sub/_contentStyles.scss */
+  /* line 744, ../scss/sub/_contentStyles.scss */
   .text-box {
     margin: 10px 0 30px 0;
     padding-left: 35px;
@@ -3120,49 +3134,49 @@ body.js .me-pic {
   }
 }
 @media only screen and (min-width: 1400px) {
-  /* line 737, ../scss/sub/_contentStyles.scss */
+  /* line 744, ../scss/sub/_contentStyles.scss */
   .text-box {
     margin: 10px 0 30px 0;
   }
 }
 @media only screen and (min-width: 1400px) {
-  /* line 737, ../scss/sub/_contentStyles.scss */
+  /* line 744, ../scss/sub/_contentStyles.scss */
   .text-box {
     margin: 10px 0 30px 0;
     padding-left: 55px;
     padding-right: 55px;
   }
 }
-/* line 766, ../scss/sub/_contentStyles.scss */
+/* line 773, ../scss/sub/_contentStyles.scss */
 .text-box p:last-child {
   padding-bottom: 0;
 }
-/* line 769, ../scss/sub/_contentStyles.scss */
+/* line 776, ../scss/sub/_contentStyles.scss */
 .text-box:last-child {
   margin-bottom: 0;
 }
 @media only screen and (max-width: 638px) {
-  /* line 769, ../scss/sub/_contentStyles.scss */
+  /* line 776, ../scss/sub/_contentStyles.scss */
   .text-box:last-child {
     margin-bottom: 20px;
   }
 }
-/* line 777, ../scss/sub/_contentStyles.scss */
+/* line 784, ../scss/sub/_contentStyles.scss */
 .text-box p:last-child {
   padding-bottom: 0;
 }
 
-/* line 784, ../scss/sub/_contentStyles.scss */
+/* line 791, ../scss/sub/_contentStyles.scss */
 .text-style__default {
   font-family: RobotoRegular;
 }
 @media only screen and (max-width: 638px) {
-  /* line 788, ../scss/sub/_contentStyles.scss */
+  /* line 795, ../scss/sub/_contentStyles.scss */
   .about .text-style__default h2.redcolor.line {
     color: #000000 !important;
   }
 }
-/* line 793, ../scss/sub/_contentStyles.scss */
+/* line 800, ../scss/sub/_contentStyles.scss */
 .text-style__default p {
   display: block;
   padding-bottom: 20px;
@@ -3170,60 +3184,60 @@ body.js .me-pic {
   line-height: 1.6em;
 }
 @media only screen and (min-width: 768px) {
-  /* line 784, ../scss/sub/_contentStyles.scss */
+  /* line 791, ../scss/sub/_contentStyles.scss */
   .text-style__default {
     font-size: 1.05em;
   }
 }
-/* line 803, ../scss/sub/_contentStyles.scss */
+/* line 810, ../scss/sub/_contentStyles.scss */
 .text-style__default a {
   text-decoration: none;
   color: #870e19;
 }
-/* line 808, ../scss/sub/_contentStyles.scss */
+/* line 815, ../scss/sub/_contentStyles.scss */
 .text-style__default h1, .text-style__default h2 {
   font-weight: normal;
   line-height: 1.3em;
 }
-/* line 812, ../scss/sub/_contentStyles.scss */
+/* line 819, ../scss/sub/_contentStyles.scss */
 .text-style__default h2 {
   font-family: RobotoLight, sans-serif;
   font-size: 1.8em;
   margin-bottom: 15px;
 }
-/* line 816, ../scss/sub/_contentStyles.scss */
+/* line 823, ../scss/sub/_contentStyles.scss */
 .text-style__default h2.line {
   border-bottom: 2px solid #cccccc;
   padding-bottom: 10px;
 }
 @media only screen and (max-width: 638px) {
-  /* line 812, ../scss/sub/_contentStyles.scss */
+  /* line 819, ../scss/sub/_contentStyles.scss */
   .text-style__default h2 {
     font-size: 1.4em;
   }
 }
-/* line 825, ../scss/sub/_contentStyles.scss */
+/* line 832, ../scss/sub/_contentStyles.scss */
 .text-style__default h1 {
   font-family: RobotoBlack, sans-serif;
   font-weight: bold;
   font-size: 2.2em;
 }
 @media only screen and (max-width: 638px) {
-  /* line 825, ../scss/sub/_contentStyles.scss */
+  /* line 832, ../scss/sub/_contentStyles.scss */
   .text-style__default h1 {
     font-size: 2em;
   }
 }
-/* line 834, ../scss/sub/_contentStyles.scss */
+/* line 841, ../scss/sub/_contentStyles.scss */
 .text-style__default h1.title2 {
   border-bottom: none;
   margin-bottom: 0;
 }
-/* line 839, ../scss/sub/_contentStyles.scss */
+/* line 846, ../scss/sub/_contentStyles.scss */
 .text-style__default ul {
   margin: 8px 0 4px 0;
 }
-/* line 841, ../scss/sub/_contentStyles.scss */
+/* line 848, ../scss/sub/_contentStyles.scss */
 .text-style__default ul li {
   position: relative;
   margin-left: 20px;
@@ -3232,7 +3246,7 @@ body.js .me-pic {
   font-size: 1.1em;
   margin-bottom: 10px;
 }
-/* line 848, ../scss/sub/_contentStyles.scss */
+/* line 855, ../scss/sub/_contentStyles.scss */
 .text-style__default ul li:after {
   content: "\f0da";
   font-family: FontAwesome;
@@ -3243,18 +3257,18 @@ body.js .me-pic {
   left: 0;
 }
 
-/* line 869, ../scss/sub/_contentStyles.scss */
+/* line 876, ../scss/sub/_contentStyles.scss */
 #main_column_sidebar {
   display: none;
   border-top: 1px solid #e8e8e8;
   overflow: auto;
 }
-/* line 873, ../scss/sub/_contentStyles.scss */
+/* line 880, ../scss/sub/_contentStyles.scss */
 #main_column_sidebar header {
   display: none;
 }
 @media only screen and (min-width: 1290px) {
-  /* line 869, ../scss/sub/_contentStyles.scss */
+  /* line 876, ../scss/sub/_contentStyles.scss */
   #main_column_sidebar {
     width: 25%;
     height: 100%;
@@ -3262,7 +3276,7 @@ body.js .me-pic {
     top: 0;
     left: 0;
   }
-  /* line 882, ../scss/sub/_contentStyles.scss */
+  /* line 889, ../scss/sub/_contentStyles.scss */
   #main_column_sidebar header {
     display: block;
     line-height: 59px;
@@ -3270,7 +3284,7 @@ body.js .me-pic {
     padding-left: 30px;
     color: #ffffff;
   }
-  /* line 889, ../scss/sub/_contentStyles.scss */
+  /* line 896, ../scss/sub/_contentStyles.scss */
   #main_column_sidebar li a {
     display: block;
     width: 100%;
@@ -3283,7 +3297,7 @@ body.js .me-pic {
     border-right: 5px solid #000000;
     border-bottom: 1px solid transparent;
   }
-  /* line 900, ../scss/sub/_contentStyles.scss */
+  /* line 907, ../scss/sub/_contentStyles.scss */
   #main_column_sidebar li a.active, #main_column_sidebar li a:hover {
     background: #870e19;
     border-left-color: #650000;
@@ -3291,20 +3305,20 @@ body.js .me-pic {
   }
 }
 @media only screen and (min-width: 1400px) {
-  /* line 908, ../scss/sub/_contentStyles.scss */
+  /* line 915, ../scss/sub/_contentStyles.scss */
   #main_column_sidebar header {
     line-height: 69px;
   }
 }
 @media only screen and (min-width: 1700px) {
-  /* line 869, ../scss/sub/_contentStyles.scss */
+  /* line 876, ../scss/sub/_contentStyles.scss */
   #main_column_sidebar {
     width: 20%;
   }
 }
 
 @media only screen and (min-width: 1290px) {
-  /* line 920, ../scss/sub/_contentStyles.scss */
+  /* line 927, ../scss/sub/_contentStyles.scss */
   .sidebar-open .main-content-wrapper #main_content #main_column_middle,
   .sidebar-open .main-content-wrapper #main_content #main_column_left {
     width: 75%;
@@ -3312,21 +3326,21 @@ body.js .me-pic {
   }
 }
 @media only screen and (min-width: 1700px) {
-  /* line 920, ../scss/sub/_contentStyles.scss */
+  /* line 927, ../scss/sub/_contentStyles.scss */
   .sidebar-open .main-content-wrapper #main_content #main_column_middle,
   .sidebar-open .main-content-wrapper #main_content #main_column_left {
     width: 80%;
     left: 20%;
   }
 }
-/* line 933, ../scss/sub/_contentStyles.scss */
+/* line 940, ../scss/sub/_contentStyles.scss */
 .sidebar-open #main_column_sidebar {
   display: none;
   background: #000000;
   z-index: 10;
 }
 @media only screen and (min-width: 1290px) {
-  /* line 937, ../scss/sub/_contentStyles.scss */
+  /* line 944, ../scss/sub/_contentStyles.scss */
   .js .sidebar-open #main_column_sidebar {
     display: block;
     filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
@@ -3355,36 +3369,36 @@ body.js .me-pic {
     opacity: 1;
   }
 }
-/* line 962, ../scss/sub/_contentStyles.scss */
+/* line 969, ../scss/sub/_contentStyles.scss */
 .portfolio-list {
   overflow: hidden;
   *zoom: 1;
   padding-bottom: 40px;
   padding-top: 20px;
 }
-/* line 966, ../scss/sub/_contentStyles.scss */
+/* line 973, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item {
   position: relative;
 }
 @media only screen and (min-width: 768px) {
-  /* line 966, ../scss/sub/_contentStyles.scss */
+  /* line 973, ../scss/sub/_contentStyles.scss */
   .portfolio-list article.item {
     float: left;
     width: 32.45%;
     margin-left: 1.25%;
     margin-bottom: 3%;
   }
-  /* line 973, ../scss/sub/_contentStyles.scss */
+  /* line 980, ../scss/sub/_contentStyles.scss */
   .portfolio-list article.item:nth-child(3n + 2) {
     margin-top: 3%;
     margin-bottom: 0;
   }
-  /* line 977, ../scss/sub/_contentStyles.scss */
+  /* line 984, ../scss/sub/_contentStyles.scss */
   .portfolio-list article.item:nth-child(3n + 1) {
     margin-left: 0;
   }
 }
-/* line 984, ../scss/sub/_contentStyles.scss */
+/* line 991, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item:hover header {
   -moz-transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
@@ -3393,29 +3407,29 @@ body.js .me-pic {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
-/* line 991, ../scss/sub/_contentStyles.scss */
+/* line 998, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item:hover .view {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
   color: #ffffff;
 }
-/* line 996, ../scss/sub/_contentStyles.scss */
+/* line 1003, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item:hover img {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=8);
   opacity: 0.08;
 }
-/* line 999, ../scss/sub/_contentStyles.scss */
+/* line 1006, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item:hover .wrapper {
   -moz-transform: perspective(1200) translateZ(20px);
   -ms-transform: perspective(1200) translateZ(20px);
   -webkit-transform: perspective(1200) translateZ(20px);
   transform: perspective(1200) translateZ(20px);
 }
-/* line 1001, ../scss/sub/_contentStyles.scss */
+/* line 1008, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item:hover .wrapper:before {
   width: 100%;
 }
-/* line 1008, ../scss/sub/_contentStyles.scss */
+/* line 1015, ../scss/sub/_contentStyles.scss */
 .portfolio-list .wrapper {
   background: #fbfbfb;
   -moz-transition-property: all;
@@ -3438,7 +3452,7 @@ body.js .me-pic {
   -webkit-transform: perspective(1200) translateZ(-100px);
   transform: perspective(1200) translateZ(-100px);
 }
-/* line 1015, ../scss/sub/_contentStyles.scss */
+/* line 1022, ../scss/sub/_contentStyles.scss */
 .portfolio-list .wrapper:before {
   content: '';
   position: absolute;
@@ -3463,7 +3477,7 @@ body.js .me-pic {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-/* line 1031, ../scss/sub/_contentStyles.scss */
+/* line 1038, ../scss/sub/_contentStyles.scss */
 .portfolio-list a {
   display: block;
   width: 100%;
@@ -3475,7 +3489,7 @@ body.js .me-pic {
   -webkit-box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.08);
   box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.08);
 }
-/* line 1038, ../scss/sub/_contentStyles.scss */
+/* line 1045, ../scss/sub/_contentStyles.scss */
 .portfolio-list a .content {
   position: relative;
   z-index: 2;
@@ -3483,12 +3497,12 @@ body.js .me-pic {
   height: 100%;
   overflow: hidden;
 }
-/* line 1047, ../scss/sub/_contentStyles.scss */
+/* line 1054, ../scss/sub/_contentStyles.scss */
 .portfolio-list div.thumbnail {
   position: relative;
   z-index: 2;
 }
-/* line 1051, ../scss/sub/_contentStyles.scss */
+/* line 1058, ../scss/sub/_contentStyles.scss */
 .portfolio-list header {
   position: absolute;
   z-index: 3;
@@ -3517,19 +3531,19 @@ body.js .me-pic {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-/* line 1069, ../scss/sub/_contentStyles.scss */
+/* line 1076, ../scss/sub/_contentStyles.scss */
 .portfolio-list header h2 {
   font-family: RobotoRegular, sans-serif;
   font-size: 1.4em;
 }
 @media only screen and (min-width: 1400px) {
-  /* line 1069, ../scss/sub/_contentStyles.scss */
+  /* line 1076, ../scss/sub/_contentStyles.scss */
   .portfolio-list header h2 {
     font-family: RobotoLight, sans-serif;
     font-size: 2.1em;
   }
 }
-/* line 1078, ../scss/sub/_contentStyles.scss */
+/* line 1085, ../scss/sub/_contentStyles.scss */
 .portfolio-list img {
   display: block;
   height: 100%;
@@ -3549,7 +3563,7 @@ body.js .me-pic {
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 1087, ../scss/sub/_contentStyles.scss */
+/* line 1094, ../scss/sub/_contentStyles.scss */
 .portfolio-list .view {
   position: absolute;
   z-index: 3;
@@ -3571,7 +3585,7 @@ body.js .me-pic {
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 1098, ../scss/sub/_contentStyles.scss */
+/* line 1105, ../scss/sub/_contentStyles.scss */
 .portfolio-list .view span {
   display: inline-block;
   text-transform: lowercase;
@@ -3583,7 +3597,7 @@ body.js .me-pic {
   background: #870e19;
 }
 
-/* line 1113, ../scss/sub/_contentStyles.scss */
+/* line 1120, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image {
   position: relative;
   display: inline-block;
@@ -3602,7 +3616,7 @@ body.js .me-pic {
   -webkit-transform: perspective(200px) translateZ(0px);
   transform: perspective(200px) translateZ(0px);
 }
-/* line 1125, ../scss/sub/_contentStyles.scss */
+/* line 1132, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image img {
   display: block;
   max-width: 100%;
@@ -3610,7 +3624,7 @@ body.js .me-pic {
   -webkit-box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.08);
   box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.08);
 }
-/* line 1131, ../scss/sub/_contentStyles.scss */
+/* line 1138, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image, .portfolio_items a.image span.full {
   -moz-transition-property: all;
   -o-transition-property: all;
@@ -3625,7 +3639,7 @@ body.js .me-pic {
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 1136, ../scss/sub/_contentStyles.scss */
+/* line 1143, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image span.full {
   position: absolute;
   width: 100%;
@@ -3641,14 +3655,14 @@ body.js .me-pic {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-/* line 1150, ../scss/sub/_contentStyles.scss */
+/* line 1157, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image:hover {
   -moz-transform: perspective(200px) translateZ(4px);
   -ms-transform: perspective(200px) translateZ(4px);
   -webkit-transform: perspective(200px) translateZ(4px);
   transform: perspective(200px) translateZ(4px);
 }
-/* line 1153, ../scss/sub/_contentStyles.scss */
+/* line 1160, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image:hover .full {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
