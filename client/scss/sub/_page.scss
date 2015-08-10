@@ -3,7 +3,7 @@
   height: 100%;
   background: #b1b1b1;
   position: relative;
-  @include browser(laptopwide) {
+  @include browser(laptopplus) {
 	overflow: hidden;
   }
 
@@ -132,7 +132,7 @@
 	  .fullscreen-open & {
 		background: rgba(#000000, 1);
 	  }
-	  @include browser(laptopwide) {
+	  @include browser(laptopplus) {
 		position: absolute;
 
 	  }
@@ -348,7 +348,7 @@
 		background: #eeeeee;
 	  }
 
-	  @include browser(laptopwide) {
+	  @include browser(laptopplus) {
 		padding-top: 60px;
 		position: absolute;
 		top: 0;
@@ -373,7 +373,7 @@
 		  overflow: visible !important;
 		}
 		.scroll {
-		  @include browser(laptopwide) {
+		  @include browser(laptopplus) {
 			position: relative;
 			overflow: auto;
 			height: 100%;

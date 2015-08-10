@@ -1395,7 +1395,7 @@ body.js #header .top .logo a {
   background: #b1b1b1;
   position: relative;
 }
-@media only screen and (min-width: 1290px) {
+@media only screen and (min-width: 1100px) {
   /* line 1, ../scss/sub/_page.scss */
   #app {
     overflow: hidden;
@@ -1558,7 +1558,7 @@ body.js #app > .page-wrapper > #page {
 .fullscreen-open .main-content-wrapper #main_content #main_column_left {
   background: black;
 }
-@media only screen and (min-width: 1290px) {
+@media only screen and (min-width: 1100px) {
   /* line 125, ../scss/sub/_page.scss */
   .main-content-wrapper #main_content #main_column_left {
     position: absolute;
@@ -1761,7 +1761,7 @@ body.js .main-content-wrapper #main_content #main_column_left_navi li a {
     background: #eeeeee;
   }
 }
-@media only screen and (min-width: 1290px) {
+@media only screen and (min-width: 1100px) {
   /* line 343, ../scss/sub/_page.scss */
   .main-content-wrapper #main_content #main_column_middle {
     padding-top: 60px;
@@ -1791,7 +1791,7 @@ body.js .main-content-wrapper #main_content #main_column_left_navi li a {
     overflow: visible !important;
   }
 }
-@media only screen and (min-width: 1290px) {
+@media only screen and (min-width: 1100px) {
   /* line 375, ../scss/sub/_page.scss */
   .main-content-wrapper #main_content #main_column_middle > .content .scroll {
     position: relative;
@@ -3235,7 +3235,7 @@ body.js .me-pic {
 }
 /* line 846, ../scss/sub/_contentStyles.scss */
 .text-style__default ul {
-  margin: 8px 0 4px 0;
+  margin: 8px 0 15px 0;
 }
 /* line 848, ../scss/sub/_contentStyles.scss */
 .text-style__default ul li {
@@ -3259,15 +3259,14 @@ body.js .me-pic {
 
 /* line 876, ../scss/sub/_contentStyles.scss */
 #main_column_sidebar {
-  display: none;
   border-top: 1px solid #e8e8e8;
   overflow: auto;
 }
-/* line 880, ../scss/sub/_contentStyles.scss */
+/* line 879, ../scss/sub/_contentStyles.scss */
 #main_column_sidebar header {
   display: none;
 }
-@media only screen and (min-width: 1290px) {
+@media only screen and (min-width: 1100px) {
   /* line 876, ../scss/sub/_contentStyles.scss */
   #main_column_sidebar {
     width: 25%;
@@ -3276,7 +3275,7 @@ body.js .me-pic {
     top: 0;
     left: 0;
   }
-  /* line 889, ../scss/sub/_contentStyles.scss */
+  /* line 888, ../scss/sub/_contentStyles.scss */
   #main_column_sidebar header {
     display: block;
     line-height: 59px;
@@ -3284,7 +3283,7 @@ body.js .me-pic {
     padding-left: 30px;
     color: #ffffff;
   }
-  /* line 896, ../scss/sub/_contentStyles.scss */
+  /* line 895, ../scss/sub/_contentStyles.scss */
   #main_column_sidebar li a {
     display: block;
     width: 100%;
@@ -3297,7 +3296,7 @@ body.js .me-pic {
     border-right: 5px solid #000000;
     border-bottom: 1px solid transparent;
   }
-  /* line 907, ../scss/sub/_contentStyles.scss */
+  /* line 906, ../scss/sub/_contentStyles.scss */
   #main_column_sidebar li a.active, #main_column_sidebar li a:hover {
     background: #870e19;
     border-left-color: #650000;
@@ -3305,7 +3304,7 @@ body.js .me-pic {
   }
 }
 @media only screen and (min-width: 1400px) {
-  /* line 915, ../scss/sub/_contentStyles.scss */
+  /* line 914, ../scss/sub/_contentStyles.scss */
   #main_column_sidebar header {
     line-height: 69px;
   }
@@ -3317,8 +3316,8 @@ body.js .me-pic {
   }
 }
 
-@media only screen and (min-width: 1290px) {
-  /* line 927, ../scss/sub/_contentStyles.scss */
+@media only screen and (min-width: 1100px) {
+  /* line 926, ../scss/sub/_contentStyles.scss */
   .sidebar-open .main-content-wrapper #main_content #main_column_middle,
   .sidebar-open .main-content-wrapper #main_content #main_column_left {
     width: 75%;
@@ -3326,21 +3325,24 @@ body.js .me-pic {
   }
 }
 @media only screen and (min-width: 1700px) {
-  /* line 927, ../scss/sub/_contentStyles.scss */
+  /* line 926, ../scss/sub/_contentStyles.scss */
   .sidebar-open .main-content-wrapper #main_content #main_column_middle,
   .sidebar-open .main-content-wrapper #main_content #main_column_left {
     width: 80%;
     left: 20%;
   }
 }
-/* line 940, ../scss/sub/_contentStyles.scss */
+/* line 939, ../scss/sub/_contentStyles.scss */
 .sidebar-open #main_column_sidebar {
-  display: none;
   background: #000000;
+}
+/* line 941, ../scss/sub/_contentStyles.scss */
+.js .sidebar-open #main_column_sidebar {
+  display: none;
   z-index: 10;
 }
-@media only screen and (min-width: 1290px) {
-  /* line 944, ../scss/sub/_contentStyles.scss */
+@media only screen and (min-width: 1100px) {
+  /* line 941, ../scss/sub/_contentStyles.scss */
   .js .sidebar-open #main_column_sidebar {
     display: block;
     filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
@@ -3369,36 +3371,36 @@ body.js .me-pic {
     opacity: 1;
   }
 }
-/* line 969, ../scss/sub/_contentStyles.scss */
+/* line 968, ../scss/sub/_contentStyles.scss */
 .portfolio-list {
   overflow: hidden;
   *zoom: 1;
   padding-bottom: 40px;
   padding-top: 20px;
 }
-/* line 973, ../scss/sub/_contentStyles.scss */
+/* line 972, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item {
   position: relative;
 }
 @media only screen and (min-width: 768px) {
-  /* line 973, ../scss/sub/_contentStyles.scss */
+  /* line 972, ../scss/sub/_contentStyles.scss */
   .portfolio-list article.item {
     float: left;
     width: 32.45%;
     margin-left: 1.25%;
     margin-bottom: 3%;
   }
-  /* line 980, ../scss/sub/_contentStyles.scss */
+  /* line 979, ../scss/sub/_contentStyles.scss */
   .portfolio-list article.item:nth-child(3n + 2) {
     margin-top: 3%;
     margin-bottom: 0;
   }
-  /* line 984, ../scss/sub/_contentStyles.scss */
+  /* line 983, ../scss/sub/_contentStyles.scss */
   .portfolio-list article.item:nth-child(3n + 1) {
     margin-left: 0;
   }
 }
-/* line 991, ../scss/sub/_contentStyles.scss */
+/* line 990, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item:hover header {
   -moz-transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
@@ -3407,29 +3409,29 @@ body.js .me-pic {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
-/* line 998, ../scss/sub/_contentStyles.scss */
+/* line 997, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item:hover .view {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
   color: #ffffff;
 }
-/* line 1003, ../scss/sub/_contentStyles.scss */
+/* line 1002, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item:hover img {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=8);
   opacity: 0.08;
 }
-/* line 1006, ../scss/sub/_contentStyles.scss */
+/* line 1005, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item:hover .wrapper {
   -moz-transform: perspective(1200) translateZ(20px);
   -ms-transform: perspective(1200) translateZ(20px);
   -webkit-transform: perspective(1200) translateZ(20px);
   transform: perspective(1200) translateZ(20px);
 }
-/* line 1008, ../scss/sub/_contentStyles.scss */
+/* line 1007, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item:hover .wrapper:before {
   width: 100%;
 }
-/* line 1015, ../scss/sub/_contentStyles.scss */
+/* line 1014, ../scss/sub/_contentStyles.scss */
 .portfolio-list .wrapper {
   background: #fbfbfb;
   -moz-transition-property: all;
@@ -3452,7 +3454,7 @@ body.js .me-pic {
   -webkit-transform: perspective(1200) translateZ(-100px);
   transform: perspective(1200) translateZ(-100px);
 }
-/* line 1022, ../scss/sub/_contentStyles.scss */
+/* line 1021, ../scss/sub/_contentStyles.scss */
 .portfolio-list .wrapper:before {
   content: '';
   position: absolute;
@@ -3477,7 +3479,7 @@ body.js .me-pic {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-/* line 1038, ../scss/sub/_contentStyles.scss */
+/* line 1037, ../scss/sub/_contentStyles.scss */
 .portfolio-list a {
   display: block;
   width: 100%;
@@ -3489,7 +3491,7 @@ body.js .me-pic {
   -webkit-box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.08);
   box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.08);
 }
-/* line 1045, ../scss/sub/_contentStyles.scss */
+/* line 1044, ../scss/sub/_contentStyles.scss */
 .portfolio-list a .content {
   position: relative;
   z-index: 2;
@@ -3497,12 +3499,12 @@ body.js .me-pic {
   height: 100%;
   overflow: hidden;
 }
-/* line 1054, ../scss/sub/_contentStyles.scss */
+/* line 1053, ../scss/sub/_contentStyles.scss */
 .portfolio-list div.thumbnail {
   position: relative;
   z-index: 2;
 }
-/* line 1058, ../scss/sub/_contentStyles.scss */
+/* line 1057, ../scss/sub/_contentStyles.scss */
 .portfolio-list header {
   position: absolute;
   z-index: 3;
@@ -3531,19 +3533,19 @@ body.js .me-pic {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-/* line 1076, ../scss/sub/_contentStyles.scss */
+/* line 1075, ../scss/sub/_contentStyles.scss */
 .portfolio-list header h2 {
   font-family: RobotoRegular, sans-serif;
   font-size: 1.4em;
 }
 @media only screen and (min-width: 1400px) {
-  /* line 1076, ../scss/sub/_contentStyles.scss */
+  /* line 1075, ../scss/sub/_contentStyles.scss */
   .portfolio-list header h2 {
     font-family: RobotoLight, sans-serif;
     font-size: 2.1em;
   }
 }
-/* line 1085, ../scss/sub/_contentStyles.scss */
+/* line 1084, ../scss/sub/_contentStyles.scss */
 .portfolio-list img {
   display: block;
   height: 100%;
@@ -3563,7 +3565,7 @@ body.js .me-pic {
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 1094, ../scss/sub/_contentStyles.scss */
+/* line 1093, ../scss/sub/_contentStyles.scss */
 .portfolio-list .view {
   position: absolute;
   z-index: 3;
@@ -3585,7 +3587,7 @@ body.js .me-pic {
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 1105, ../scss/sub/_contentStyles.scss */
+/* line 1104, ../scss/sub/_contentStyles.scss */
 .portfolio-list .view span {
   display: inline-block;
   text-transform: lowercase;
@@ -3597,12 +3599,12 @@ body.js .me-pic {
   background: #870e19;
 }
 
-/* line 1120, ../scss/sub/_contentStyles.scss */
+/* line 1119, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image {
   position: relative;
-  display: inline-block;
+  display: block;
   border: 5px solid #ffffff;
-  margin: 20px auto 0 auto;
+  margin: 40px auto 0 auto;
   max-width: 100%;
   width: auto;
   background: url("../image/loading-icon-large.gif") center center no-repeat;
@@ -3616,7 +3618,13 @@ body.js .me-pic {
   -webkit-transform: perspective(200px) translateZ(0px);
   transform: perspective(200px) translateZ(0px);
 }
-/* line 1132, ../scss/sub/_contentStyles.scss */
+@media only screen and (min-width: 1000px) {
+  /* line 1119, ../scss/sub/_contentStyles.scss */
+  .portfolio_items a.image {
+    max-width: 70%;
+  }
+}
+/* line 1134, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image img {
   display: block;
   max-width: 100%;
@@ -3624,7 +3632,7 @@ body.js .me-pic {
   -webkit-box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.08);
   box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.08);
 }
-/* line 1138, ../scss/sub/_contentStyles.scss */
+/* line 1141, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image, .portfolio_items a.image span.full {
   -moz-transition-property: all;
   -o-transition-property: all;
@@ -3639,7 +3647,7 @@ body.js .me-pic {
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 1143, ../scss/sub/_contentStyles.scss */
+/* line 1146, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image span.full {
   position: absolute;
   width: 100%;
@@ -3655,14 +3663,14 @@ body.js .me-pic {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-/* line 1157, ../scss/sub/_contentStyles.scss */
+/* line 1160, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image:hover {
   -moz-transform: perspective(200px) translateZ(4px);
   -ms-transform: perspective(200px) translateZ(4px);
   -webkit-transform: perspective(200px) translateZ(4px);
   transform: perspective(200px) translateZ(4px);
 }
-/* line 1160, ../scss/sub/_contentStyles.scss */
+/* line 1163, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image:hover .full {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;

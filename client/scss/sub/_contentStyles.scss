@@ -844,7 +844,7 @@
   }
 
   ul {
-	margin: 8px 0 4px 0;
+	margin: 8px 0 15px 0;
 	li {
 	  position: relative;
 	  margin-left: 20px;
@@ -874,13 +874,12 @@
 }
 
 #main_column_sidebar {
-  display: none;
   border-top: 1px solid #e8e8e8;
   overflow: auto;
   header {
 	display: none;
   }
-  @include browser(laptopwide) {
+  @include browser(laptopplus) {
 	width: 25%;
 	height: 100%;
 	position: absolute;
@@ -926,7 +925,7 @@
 .sidebar-open {
   .main-content-wrapper #main_content #main_column_middle,
   .main-content-wrapper #main_content #main_column_left {
-	@include browser(laptopwide) {
+	@include browser(laptopplus) {
 	  width: 75%;
 	  left: 25%;
 	}
@@ -938,11 +937,11 @@
   }
 
   #main_column_sidebar {
-	display: none;
 	background: #000000;
-	z-index: 10;
 	.js & {
-	  @include browser(laptopwide) {
+	  display: none;
+	  z-index: 10;
+	  @include browser(laptopplus) {
 		display: block;
 		@include opacity(1);
 		-webkit-animation: opensidebar 0.6s 1 ease-out;
@@ -1119,9 +1118,9 @@
 .portfolio_items {
   a.image {
 	position: relative;
-	display: inline-block;
+	display: block;
 	border: 5px solid #ffffff;
-	margin: 20px auto 0 auto;
+	margin: 40px auto 0 auto;
 	max-width: 100%;
 	width: auto;
 	background: url("../image/loading-icon-large.gif") center center no-repeat;
@@ -1129,10 +1128,14 @@
 	min-height: 250px;
 	@include box-shadow(0px 0px 15px rgba(#000000, 0.1));
 	@include transform(perspective(200px) translateZ(0px));
+	@include browser(laptop) {
+	  max-width: 70%;
+	}
 	img {
 	  display: block;
 	  max-width: 100%;
 	  @include box-shadow(3px 4px 5px rgba(#000000, 0.08));
+
 
 	}
 	&, span.full {

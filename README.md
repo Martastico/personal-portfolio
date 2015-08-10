@@ -35,11 +35,8 @@ Current minified JS file size: ~550kb
     * browserify
     * reactify
     * watchify
-    * gulp-minify-css
-    * gulp-sass
     * gulp-notify
     * gulp-util
-    * gulp-uglify
     * gulp-streamify
     * gulp-sourcemaps
 * SCSS with Compass
