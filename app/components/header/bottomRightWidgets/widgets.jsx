@@ -28,10 +28,10 @@ var _widgets = [
 
 module.exports = React.createClass({
 
-	shouldComponentUpdate: function(nextProps, nextState) {
-		//console.log("Update bottomRightWidgets widgets.jsx: " + !_.isEqual(nextProps, this.props));
-		return !_.isEqual(nextProps, this.props) || !_.isEqual(nextState, this.state);
-	},
+	//shouldComponentUpdate: function(nextProps, nextState) {
+	//	//console.log("Update bottomRightWidgets widgets.jsx: " + !_.isEqual(nextProps, this.props));
+	//	return !_.isEqual(nextProps, this.props) || !_.isEqual(nextState, this.state);
+	//},
 
 	handleWidgets: function(e) {
 		var widget = e.target.id;

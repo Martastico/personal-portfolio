@@ -24,21 +24,6 @@ var Page 		= require('../../app/components/page/page.jsx');
 
 var App = require('../../app/app');
 
-
-
-
-var test = React.createClass({
-   render: function() {
-      return (<div>asd</div>)
-   }
-});
-
-var test2 = React.createClass({
-   render: function() {
-      return (<div>asd</div>)
-   }
-});
-
 var RRoutes = (
    <Route path="/" handler={App}>
 
@@ -57,15 +42,10 @@ var RRoutes = (
 
 NodeRouter.get('*', function(req, res, next) {
 
-   console.log(req);
-
    // User disconnect
    req.connection.addListener('close', function () {
       Actions.routeLoad.completed("fail");
    }.bind(this));
-
-   console.log("PATHHHHHHH:");
-   console.log(req.path);
 
    Router.run(RRoutes, req.path, function(Handler, State) {
 

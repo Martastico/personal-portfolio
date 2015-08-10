@@ -9,6 +9,7 @@ var Helmet 				= require('react-helmet');
 
 var Portfolio = require('../page/portfolio.jsx');
 
+
 // Config
 var Config = require('../../app.config');
 
@@ -74,13 +75,6 @@ module.exports = React.createClass({
 		var ogImage          = !_.isEmpty(data.og_image)  ? data.og_image : {src: "http://api.saarman.net/sites/default/files/slogo.jpg"};
 		var ogType           = !_.isEmpty(data.og_type)  ? data.og_type : "article";
 
-		console.log("title");
-		console.log(title);
-		console.log("body");
-		console.log(body);
-		console.log("style");
-		console.log(style);
-
 		var metaData = {
 			title: "Mart Saarman | " + metaTitle,
 			description: metaDescription
@@ -124,6 +118,16 @@ module.exports = React.createClass({
 		}
 
 		// Style: Portfolio
+		if (style === "portfolio_items") {
+			template = (
+				<div className={classnames([style, "text-style__default"])}>
+					{title}
+					<section className="gr animation">
+						{body}
+					</section>
+				</div>
+			)
+		}
 		if (style === "portfolio") {
 			template = (
 				<div className={classnames([style, "text-style__default"])}>

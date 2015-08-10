@@ -69,7 +69,8 @@ module.exports = Reflux.createStore({
 	// Using this to get extra required data for some unique page.
 	// Such as list of portfolio items.
 	extraNodeDataRequest: function(path, callback) {
-		if(path === "/portfolio") {
+		// Check first pathname
+		if(path.replace(/^\/([^\/]*).*$/, '$1') === "portfolio") {
 			Actions.getPortfolioItems.triggerPromise().then(function() {
 				callback(null, 1);
 			})

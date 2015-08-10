@@ -58,7 +58,6 @@ module.exports = React.createClass({
 					{this.props.body}
 					{this.listPortfolioItems()}
 				</div>
-				<PortfolioItems />
 			</section>
 		)
 	}

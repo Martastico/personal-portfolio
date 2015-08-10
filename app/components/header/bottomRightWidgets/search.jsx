@@ -86,13 +86,31 @@ module.exports = React.createClass({
 
 		var searchResults = _.map(SStore.searchResults, function(sr, srk) {
 
-			sr.path = sr.path === "/home" ? "" : sr.path;
+			sr.path = sr.path === "" ? "home" : sr.path;
 
-			return (
-				<li key={srk}>
-					<Link to={sr.type} params={{page: (sr.path).replace('/', ''), splat: ""}}>{sr.title}</Link>
-				</li>
-			)
+			if (sr.path === "/home" || sr.path === "/portfolio") {
+				sr.type = sr.type === "/portfolio" ? "portfolio" : "home";
+				return (
+					<li key={srk}>
+						<Link to={sr.type}>
+							<span>{sr.title}</span><span className="icon"></span>
+						</Link>
+					</li>
+				)
+			} else {
+				if(sr.type === "portfolio") {
+					sr.path = (sr.path).replace('/portfolio/', '');
+					sr.type = "portfolio.items";
+				}
+				return (
+					<li key={srk}>
+						<Link to={sr.type} params={{page: (sr.path).replace('/', '')}}>
+							<span>{sr.title}</span>
+						</Link>
+					</li>
+				)
+			}
+
 		});
 
 		if(_.isEmpty(searchResults)) searchResults = (<li className="no-result">No Results</li>);

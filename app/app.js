@@ -19,23 +19,12 @@ var Config			= require('./app.config');
 
 //// Components
 var MainNavi	= require('./components/navigation/mainNavi.jsx');
+var Page = require('./components/page/page.jsx');
+var Sidebar = require('./components/navigation/sidebar.jsx');
 
 //// Stores
-var RouteStore 	= require('./stores/routeStore');
-var NodesStore 	= require('./stores/nodeStore');
-
 var AppStore 		= require('./stores/appStore');
-
-var Nodes 	= require('./components/node/nodes.jsx');
-var Node 		= require('./components/node/node.jsx' );
-var Page = require('./components/page/page.jsx');
-var Home = React.createClass({
-	render: function() {
-		return (
-			<Page />
-		);
-	}
-});
+var RouteStore 	= require('./stores/routeStore');
 
 var App = React.createClass({
 	mixins: [
@@ -57,11 +46,6 @@ var App = React.createClass({
 		// Loaded
 		$(mainColumnMiddleContent).addClass("loaded");
 
-
-		if (!this.isTouchDevice()) {
-
-		}
-
 		resizedw();
 
 		function resizedw() {
@@ -77,9 +61,6 @@ var App = React.createClass({
 			clearTimeout(doit);
 			doit = setTimeout(resizedw, 200);
 		};
-
-
-
 	},
 
 	componentWillUpdate: function() {
@@ -136,9 +117,6 @@ var App = React.createClass({
 						</header>
 						<div className="main-content-wrapper">
 							<section id="main_content">
-								<section id="main_column_sidebar">
-									<div>hello</div>
-								</section>
 								<section id="main_column_left">
 									<div id="main_column_left_widgets">
 										<div className="content">
@@ -155,6 +133,8 @@ var App = React.createClass({
 										</div>
 									</footer>
 								</section>
+
+								<Sidebar />
 								<section id="main_column_middle">
 									<div className="content" ref="mainColumnMiddleContent">
 										<RouteHandler/>
@@ -172,29 +152,7 @@ var App = React.createClass({
 	}
 });
 
-
-
-var test = React.createClass({
-
-	render: function() {
-		return (<div>asd 1</div>)
-	}
-});
-
-var test2 = React.createClass({
-	render: function() {
-		return (<div>asd 2</div>)
-	}
-});
-
-//<Route name="home" path="/" handler={test} />
-//<Route name="about" path="/about" handler={test} />
-//	<Route name="contact" path="/contact" handler={test} />
-//	<Route name="portfolio" path="/portfolio" handler={test} />
-//	<Route name="pages" path=":/path" handler={Page} />
-
 if(Config.isBrowser) {
-	//<DefaultRoute handler={Page} />
 
 	var RRoutes = (
 		<Route path="/" handler={App}>
