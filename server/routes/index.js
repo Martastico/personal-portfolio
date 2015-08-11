@@ -11,9 +11,7 @@ var _ 			= require('lodash');
 var Route 				= Router.Route;
 
 var DefaultRoute 	= Router.DefaultRoute;
-//var Link 					= Router.Link;
-//var Route 				= Router.Route;
-//var RouteHandler 	= Router.RouteHandler;
+var NotFoundRoute = Router.NotFoundRoute;
 
 var Config 	= require('../../app/app.config');
 var Actions 	= require('../../app/actions/actions');
@@ -22,22 +20,10 @@ var Nodes 	= require('../../app/components/node/nodes.jsx');
 var Node 		= require('../../app/components/node/node.jsx');
 var Page 		= require('../../app/components/page/page.jsx');
 
+
+var RRoutes       = require('../../app/routes');
+
 var App = require('../../app/app');
-
-var RRoutes = (
-   <Route path="/" handler={App}>
-
-      <DefaultRoute name="home" handler={Page} />
-
-      <Route name="portfolio" path="portfolio">
-         <DefaultRoute handler={Page} />
-         <Route name="portfolio.items" path=":page" handler={Page} />
-      </Route>
-
-      <Route name="pages" path=":page" handler={Page} />
-
-   </Route>
-);
 
 
 NodeRouter.get('*', function(req, res, next) {
