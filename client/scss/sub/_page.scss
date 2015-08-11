@@ -105,6 +105,10 @@
   height: 100%;
   padding-top: 74px;
 
+  body.js & {
+	overflow: hidden;
+  }
+
   @include browser(desktop) {
 	padding-top: 135px;
   }
@@ -124,6 +128,14 @@
 	  padding-right: 9px;
 	  border-top: 1px solid #e8e8e8;
 	  background: #000000;
+
+	  body.js.transition & {
+		@include transition-property(transform);
+		@include transition-duration(0.25s);
+		@include transition-timing-function(ease-in);
+		@include transform(translateX(0%));
+	  }
+
 	  .fullscreen-open & {
 		background: rgba(#000000, 1);
 	  }
@@ -243,7 +255,7 @@
 		  text-decoration: none;
 		  font-size: 0.95em;
 		  width: 100%;
-		  height: 50px;
+		  height: 49px;
 		  padding-left: 71px;
 		  padding-right: 25px;
 
@@ -274,7 +286,7 @@
 
 		  @include browser(desktop) {
 			line-height: 60px;
-			height: 60px;
+			height: 59px;
 			font-size: 1.1em;
 			padding-left: 71px;
 			padding-right: 25px;
@@ -314,6 +326,12 @@
 	#main_column_middle {
 	  width: 100%;
 	  //border-top: 1px solid #d8d8d8
+	  body.js.transition & {
+		@include transition-property(transform);
+		@include transition-duration(0.25s);
+		@include transition-timing-function(ease-in);
+		@include transform(translateX(0%));
+	  }
 
 	  @include browser(tabletsmall) {
 		background: #eeeeee;
@@ -330,10 +348,6 @@
 	  }
 	  @include browser(desktop) {
 		padding-top: 60px;
-	  }
-	  @include browser(desktopwide) {
-		left: 8%;
-		width: 92%;
 	  }
 
 	  > .content {

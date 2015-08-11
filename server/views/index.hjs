@@ -28,14 +28,37 @@
 	<meta charSet="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	{{{head.meta}}}
-	<link rel="stylesheet" href="/css/app.css?v=0.66"/>
+	<link rel="stylesheet" href="/css/app.css?v=0.68"/>
 	<title>{{head.title}}</title>
 </head>
 <body>
 <section id="app">{{{APP}}}</section>
 </body>
 <script type="application/javascript">
-	document.body.className = "js"
+	document.body.className = "js";
+	function detectCSSFeature(featurename){
+        var feature = false,
+        domPrefixes = 'Webkit Moz ms O'.split(' '),
+        elm = document.createElement('div'),
+        featurenameCapital = null;
+
+        featurename = featurename.toLowerCase();
+
+        if( elm.style[featurename] !== undefined ) { feature = true; }
+
+        if( feature === false ) {
+            featurenameCapital = featurename.charAt(0).toUpperCase() + featurename.substr(1);
+            for( var i = 0; i < domPrefixes.length; i++ ) {
+                if( elm.style[domPrefixes[i] + featurenameCapital ] !== undefined ) {
+                  feature = true;
+                  break;
+                }
+            }
+        }
+        return feature;
+    }
+
+	document.body.className = "js transition";
 </script>
 <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -47,5 +70,5 @@
 	ga('send', 'pageview');
 
 </script>
-<script src="/js/app.js?v=0.48"></script>
+<script src="/js/app.js?v=0.50"></script>
 </html>

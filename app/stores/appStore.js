@@ -31,6 +31,7 @@ module.exports = Reflux.createStore({
 	// Todo: Combine with onRouteLoadDone
 	onRouteLoad: function(State) {
 		console.log("onRouteLoad");
+		_classes.sidebar = false;
 		_classes.page = !_.isEmpty(State.path) ? _.trim((State.path).replace(/\//g, ' ')) : "home";
 		_classes.routeLoading = true;
 		this.updateApp();
