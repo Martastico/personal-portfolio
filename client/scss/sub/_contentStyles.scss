@@ -1026,7 +1026,7 @@
 		color: #ffffff;
 	  }
 	  img {
-		@include opacity(0)
+		@include opacity(0.03)
 	  }
 	  .wrapper {
 		@include transform(perspective(1200) translateZ(20px));

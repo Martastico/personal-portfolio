@@ -145,6 +145,7 @@ module.exports = Reflux.createStore({
 
 		console.log("doesNodeExist");
 		var path = State.pathname === "/" ? "/home" : State.pathname;
+		path = _.isUndefined(path) ? "/wrong-path" : path;
 
 		console.log("Checking if path '" + path + "' with node exists");
 

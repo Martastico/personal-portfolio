@@ -3382,8 +3382,8 @@ body.js.transition .sidebar-open #main_column_sidebar {
 }
 /* line 1028, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item:hover img {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=3);
+  opacity: 0.03;
 }
 /* line 1031, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item:hover .wrapper {
