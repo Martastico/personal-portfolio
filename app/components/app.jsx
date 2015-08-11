@@ -1,28 +1,27 @@
+// NPM
 var React      = require('react/addons');
 var Reflux     = require('reflux');
 var classnames = require('classnames');
 var $          = require('jquery');
 
+// Router
 var Router        = require('react-router');
 var RouteHandler  = Router.RouteHandler;
 var Link 			= Router.Link;
 
-//// Components
-// App
-var Header = require('./app/header.jsx');
+// Components
 
-
-var MainNavi	= require('./navigation/mainNavi.jsx');
+var Header     = require('./app/header.jsx');
+var MainColumnLeft     = require('./app/mainColumnLeft.jsx');
+var MainColumnMiddle     = require('./app/mainColumnMiddle.jsx');
 var Sidebar    = require('./navigation/sidebar.jsx');
 
-//// Stores
-var AppStore 		= require('../stores/appStore');
-var RouteStore 	= require('../stores/routeStore');
+// Stores
+var AppStore 	= require('../stores/appStore');
+var RouteStore = require('../stores/routeStore');
 
-var Actions			= require('../actions/actions');
-
-
-
+// Actions
+var Actions		= require('../actions/actions');
 
 module.exports = React.createClass({
 	mixins: [
@@ -38,12 +37,9 @@ module.exports = React.createClass({
 	},
 
 	componentDidMount: function() {
+		var resizing;
 
-		var mainColumnMiddleContent = React.findDOMNode(this.refs.mainColumnMiddleContent);
-
-		// Loaded
-		$(mainColumnMiddleContent).addClass("loaded");
-
+		// Fire every time browser is resized
 		resizedw();
 
 		function resizedw() {
@@ -54,15 +50,16 @@ module.exports = React.createClass({
 			}
 		}
 
-		var doit;
+		// Window Resize
 		window.onresize = function(){
-			clearTimeout(doit);
-			doit = setTimeout(resizedw, 200);
+			clearTimeout(resizing);
+			resizing = setTimeout(resizedw, 200);
 		};
 
 	},
 
 	componentWillUpdate: function() {
+		// Without this the scrollbar wont move to top when route changed.
 		if(this.state.AppStore.classes.routeLoading) {
 			$("#main_column_middle > .content > .scroll").scrollTop(0);
 		}
@@ -70,9 +67,8 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
-		//console.log("----- App.js Updated -----");
 		var SApp = this.state.AppStore;
-		//console.log( SApp.classes);
+
 		// Default ".page-wrapper" Classes
 		var pageWrapperClasses = [
 			{
@@ -97,34 +93,9 @@ module.exports = React.createClass({
 						<Header AppStore={this.state.AppStore} />
 						<div className="main-content-wrapper">
 							<section id="main_content">
-								<section id="main_column_left">
-									<div id="main_column_left_widgets">
-										<div className="content">
-											<nav id="main_column_left_navi" className="widget-1 widget widget-wrapper">
-												<MainNavi />
-											</nav>
-										</div>
-									</div>
-									<footer>
-										<div className="bottom">
-											<div className="country left">
-												<h3 className="country">Finland</h3>
-											</div>
-										</div>
-									</footer>
-								</section>
-
+								<MainColumnLeft />
 								<Sidebar />
-								<section id="main_column_middle">
-									<div className="content" ref="mainColumnMiddleContent">
-										<div id="main_scroll" className="scroll">
-											<RouteHandler/>
-										</div>
-									</div>
-									<div className="loading">
-										<span>loading</span>
-									</div>
-								</section>
+								<MainColumnMiddle AppStore={this.state.AppStore}/>
 							</section>
 						</div>
 					</div>

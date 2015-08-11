@@ -1,10 +1,13 @@
-
+// NPM
 var React         = require('react/addons');
+
+// Router
 var Router        = require('react-router');
 var Route 			= Router.Route;
 var DefaultRoute 	= Router.DefaultRoute;
 var NotFoundRoute = Router.NotFoundRoute;
 
+// Components
 var Application  = require('./components/app.jsx');
 var Page = require('./components/page/page.jsx');
 

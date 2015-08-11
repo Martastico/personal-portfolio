@@ -23,7 +23,7 @@ var Page 		= require('../../app/components/page/page.jsx');
 
 var RRoutes       = require('../../app/routes');
 
-var App = require('../../app/app');
+var App = require('../../app/components/app.jsx');
 
 
 NodeRouter.get('*', function(req, res, next) {

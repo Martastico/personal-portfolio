@@ -12,17 +12,14 @@ var Actions			= require('./actions/actions');
 var Config			= require('./app.config');
 
 
-if(Config.isBrowser) {
+Router.run(RRoutes, Router.HistoryLocation, function(Handler, State) {
+	//console.log("Client: Router.run");
 
-	Router.run(RRoutes, Router.HistoryLocation, function(Handler, State) {
-		//console.log("Client: Router.run");
+	Actions.routeLoad.triggerPromise(State).then(function (res) {
+		//console.log("CLIENT: Route changed");
 
-		Actions.routeLoad.triggerPromise(State).then(function (res) {
-			//console.log("CLIENT: Route changed");
-
-			ga('send', 'pageview', window.location.pathname);
-			React.render(<Handler path={window.location.pathname} />, document.getElementById('app'));
-			return false;
-		});
+		ga('send', 'pageview', window.location.pathname);
+		React.render(<Handler path={window.location.pathname} />, document.getElementById('app'));
+		return false;
 	});
-}
+});
