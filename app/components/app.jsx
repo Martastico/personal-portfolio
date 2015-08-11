@@ -1,6 +1,7 @@
 // NPM
 var React      = require('react/addons');
 var Reflux     = require('reflux');
+var _ 			= require('lodash');
 var classnames = require('classnames');
 var $          = require('jquery');
 
@@ -28,6 +29,7 @@ module.exports = React.createClass({
 		Reflux.connect(AppStore,"AppStore"),
 		Reflux.connect(RouteStore,"RouteStore")
 	],
+
 
 	// Detect touch device
 	isTouchDevice: function() {
@@ -67,8 +69,10 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
+
 		var SApp = this.state.AppStore;
 
+		// Element Classes
 		// Default ".page-wrapper" Classes
 		var pageWrapperClasses = [
 			{
@@ -81,23 +85,22 @@ module.exports = React.createClass({
 			SApp.classes.page
 		];
 
-		var HeaderBottomRightWidgetsClasses = ["right"];
-
-		// AppStore classes
-		HeaderBottomRightWidgetsClasses.push(SApp.classes.openWidget);
 		return(
 			<div className={classnames(pageWrapperClasses)}>
 				<img id="image-background" style={{backgroundImage: 'url(/image/bigbg_1.jpg)'}} alt="Saarman Background"/>
 				<section id="page">
 					<div className="content">
+
 						<Header AppStore={this.state.AppStore} />
+
 						<div className="main-content-wrapper">
 							<section id="main_content">
-								<MainColumnLeft />
-								<Sidebar />
-								<MainColumnMiddle AppStore={this.state.AppStore}/>
+								<MainColumnLeft AppStore={this.state.AppStore} />
+								<Sidebar RouteStore={this.state.RouteStore} AppStore={this.state.AppStore}/>
+								<MainColumnMiddle AppStore={this.state.AppStore} />
 							</section>
 						</div>
+
 					</div>
 				</section>
 			</div>

@@ -5,7 +5,13 @@ var React      = require('react/addons');
 var MainNavi	= require('../navigation/mainNavi.jsx');
 
 module.exports = React.createClass({
+
+	shouldComponentUpdate: function(nextProps, nextState) {
+		return nextProps.AppStore.classes.routeLoading !== this.props.AppStore.classes.routeLoading;
+	},
+
 	render: function() {
+		console.log("mainColumnLeft.jsx");
 		return (
 			<section id="main_column_left">
 				<div id="main_column_left_widgets">

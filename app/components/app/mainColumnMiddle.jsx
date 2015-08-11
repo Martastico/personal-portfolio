@@ -8,6 +8,10 @@ var RouteHandler  = Router.RouteHandler;
 var Link 			= Router.Link;
 
 module.exports = React.createClass({
+	shouldComponentUpdate: function(nextProps, nextState) {
+		return nextProps.AppStore.classes.routeLoading !== this.props.AppStore.classes.routeLoading;
+	},
+
 	componentDidMount: function() {
 		var mainColumnMiddleContent = React.findDOMNode(this.refs.mainColumnMiddleContent);
 
@@ -17,6 +21,7 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
+		console.log("mainColumnMiddle.jsx");
 		return (
 			<section id="main_column_middle">
 				<div className="content" ref="mainColumnMiddleContent">

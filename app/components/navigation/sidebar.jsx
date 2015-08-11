@@ -11,15 +11,14 @@ var PortfolioItems = require('../navigation/portfolioItems.jsx');
 //<PortfolioItems />
 
 module.exports = React.createClass({
-	mixins: [Reflux.connect(RouteStore,"RouteStore")],
 
-	//shouldComponentUpdate: function(nextProps, nextState) {
-	//	console.log("SHOULD SIDEBAR UPDATE? " + !_.isEqual(nextState, this.state));
-	//	return !_.isEqual(nextState, this.state);
-	//},
+	shouldComponentUpdate: function(nextProps) {
+		return !_.isEqual(nextProps, this.props);
+	},
 
 	render: function() {
-		var route = this.state.RouteStore;
+		console.log("sidebar.jsx");
+		var route = this.props.RouteStore;
 		var path = route.state.path;
 
 		if((path.replace(/^\/([^\/]*).*$/, '$2'))) {

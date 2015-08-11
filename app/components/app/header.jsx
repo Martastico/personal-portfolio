@@ -24,7 +24,12 @@ module.exports = React.createClass({
 		// AppStore
 
 		var SApp = this.props.AppStore;
-		var HeaderBottomRightWidgets__Classes = ["right", SApp.classes.openWidget];
+
+		// Element Classes
+		var HeaderBottomRightWidgets__Classes = [
+			"right",
+			SApp.classes.openWidget
+		];
 
 		return (
 			<header id="header">
