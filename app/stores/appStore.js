@@ -39,7 +39,7 @@ module.exports = Reflux.createStore({
 	onRouteLoadDone: function(State) {
 		_classes.routeLoading = !Config.isBrowser; // Without it, there will be react error saying client and server html is different hence reducing performance
 		console.log("onRouteLoadDone");
-		if((State.path.replace(/^\/([^\/]*).*$/, '$1')) === "portfolio") {
+		if(State.path.replace(/^\/([^\/]*).*$/, '$1') === "portfolio") {
 			_classes.sidebar = true;
 		} else {
 			_classes.sidebar = false;

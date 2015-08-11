@@ -10,6 +10,7 @@ var Helmet 				= require('react-helmet');
 var Portfolio = require('../page/portfolio.jsx');
 
 
+
 // Config
 var Config = require('../../app.config');
 
@@ -26,7 +27,6 @@ module.exports = React.createClass({
 		var content = $(".gr.animation");
 		var SApp = this.props.AppStore;
 		var data = this.props.data;
-
 		// Do animations here for specific custom pages..
 		setTimeout(function() { // Small delay because of browser support..
 
@@ -34,29 +34,8 @@ module.exports = React.createClass({
 				$(content).addClass("loaded");
 			});
 
-			// If Home
-			if(!_.isEmpty(data.style) && data.style === "index") {
-				var pci1 = $(".index .main_content .personalcounter_item_1"),
-					pci2 = $(".index .main_content .personalcounter_item_2"),
-					pci3 = $(".index .main_content .personalcounter_item_3"),
-					index_bottom = $(".index > .body > .bottom");
 
-				if(SApp.classes.isMobile) {
-					$(index_bottom).addClass("loaded");
-					$(pci1).addClass("loaded spinner");
-					$(pci2).addClass("loaded spinner");
-					$(pci3).addClass("loaded spinner");
-				} else {
-					$(pci1).addClass("loaded spinner").delay(600).show(function() {
-						$(pci2).addClass("loaded spinner").delay(600).show(function() {
-							$(pci3).addClass("loaded spinner").delay(500).show(function() {
-								$(index_bottom).addClass("loaded");
-							});
-						});
-					});
-				}
-			}
-		}.bind(this), 150);
+		}.bind(this), 120);
 	},
 
 	styles: function() {

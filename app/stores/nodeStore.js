@@ -144,7 +144,6 @@ module.exports = Reflux.createStore({
 		// Empty paths will be set as /home. This will only happen if there is no path
 
 		console.log("doesNodeExist");
-		console.log(State);
 		var path = State.pathname === "/" ? "/home" : State.pathname;
 
 		console.log("Checking if path '" + path + "' with node exists");
@@ -158,7 +157,6 @@ module.exports = Reflux.createStore({
 			return (n.path === path) && n.NID !== -1;
 		});
 
-		console.log(_data.nodes);
 
 		// Node doesn't exist, fetch it from server.
 		if(_.isEmpty(nodeExists)) {

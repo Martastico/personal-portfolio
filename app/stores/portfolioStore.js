@@ -25,7 +25,6 @@ module.exports = Reflux.createStore({
 		request.get(Config.path.api + '/portfolio/list')
 			.set({'Accept': 'application/json'})
 			.end(function(err, res) {
-				console.log(res);
 				_data.portfolio = res.body;
 				Actions.getPortfolioItems.completed();
 			}.bind(this)

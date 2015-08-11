@@ -26,6 +26,7 @@ var Sidebar = require('./components/navigation/sidebar.jsx');
 var AppStore 		= require('./stores/appStore');
 var RouteStore 	= require('./stores/routeStore');
 
+
 var App = React.createClass({
 	mixins: [
 		Reflux.connect(AppStore,"AppStore"),
@@ -61,6 +62,7 @@ var App = React.createClass({
 			clearTimeout(doit);
 			doit = setTimeout(resizedw, 200);
 		};
+
 	},
 
 	componentWillUpdate: function() {
@@ -137,7 +139,7 @@ var App = React.createClass({
 								<Sidebar />
 								<section id="main_column_middle">
 									<div className="content" ref="mainColumnMiddleContent">
-										<div className="scroll">
+										<div id="main_scroll" className="scroll">
 											<RouteHandler/>
 										</div>
 									</div>
@@ -174,13 +176,14 @@ if(Config.isBrowser) {
 	Router.run(RRoutes, Router.HistoryLocation, function(Handler, State) {
 		//console.log("Client: Router.run");
 
-		Actions.routeLoad.triggerPromise(State).then(function () {
+		Actions.routeLoad.triggerPromise(State).then(function (res) {
 			//console.log("CLIENT: Route changed");
 
 			ga('send', 'pageview', window.location.pathname);
 			React.render(<Handler path={window.location.pathname} />, document.getElementById('app'));
-		})
-	})
+			return false;
+		});
+	});
 }
 
 module.exports = App;

@@ -25,6 +25,7 @@
     "react-helmet": "^1.1.0",
     "react-onclickoutside": "^0.2.5",
     "react-router": "^0.13.3",
+    "scrollreveal": "^2.3.2",
     "serve-favicon": "~2.2.1",
     "superagent": "^1.2.0",
     "url": "^0.10.3"

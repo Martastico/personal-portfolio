@@ -31,7 +31,7 @@ module.exports = React.createClass({
 
 		return _.map(items, function (i, ik) {
 			return (
-				<article key={i.NID} className={classnames(["item"], "item-"+ik, "shadow")}>
+				<article key={i.NID} className={classnames(["item"], "item-"+ik, "shadow")} >
 					<div className="wrapper">
 						<Link to="portfolio.items" params={{page: (i.path).replace("/portfolio/", "")}}>
 							<div className="content">

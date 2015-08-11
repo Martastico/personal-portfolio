@@ -21,7 +21,7 @@ module.exports = React.createClass({
 
 	linkConstruction: function(data) {
 		return (
-			<Link to="portfolio.items" params={{page: data.path}}>
+			<Link to="portfolio.items" data-lol="123" params={{page: data.path}}>
 				<span>{data.title}</span>
 			</Link>
 		)
