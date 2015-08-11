@@ -130,9 +130,9 @@
 	  background: #000000;
 
 	  body.js.transition & {
-		@include transition-property(transform);
-		@include transition-duration(0.25s);
-		@include transition-timing-function(ease-in);
+		@include transition-property(all);
+		@include transition-duration(0.35s);
+		@include transition-timing-function(ease-out);
 		@include transform(translateX(0%));
 	  }
 
@@ -339,9 +339,9 @@
 	  width: 100%;
 	  //border-top: 1px solid #d8d8d8
 	  body.js.transition & {
-		@include transition-property(transform);
-		@include transition-duration(0.25s);
-		@include transition-timing-function(ease-in);
+		@include transition-property(all);
+		@include transition-duration(0.35s);
+		@include transition-timing-function(ease-out);
 		@include transform(translateX(0%));
 	  }
 

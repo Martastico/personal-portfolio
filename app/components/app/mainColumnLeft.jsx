@@ -4,6 +4,8 @@ var React      = require('react/addons');
 // Components
 var MainNavi	= require('../navigation/mainNavi.jsx');
 
+var Config = require('../../app.config');
+
 module.exports = React.createClass({
 
 	shouldComponentUpdate: function(nextProps, nextState) {
@@ -11,9 +13,9 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
-		console.log("mainColumnLeft.jsx");
+		if(Config.dev) console.log("mainColumnLeft.jsx");
 		return (
-			<section id="main_column_left">
+			<section id="main_column_left">  
 				<div id="main_column_left_widgets">
 					<div className="content">
 						<nav id="main_column_left_navi" className="widget-1 widget widget-wrapper">

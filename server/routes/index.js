@@ -34,6 +34,7 @@ NodeRouter.get('*', function(req, res, next) {
    }.bind(this));
 
    Router.run(RRoutes, req.path, function(Handler, State) {
+      console.log("#############");
 
       Actions.routeLoad.triggerPromise(State)
          .then(function(response) {

@@ -48,7 +48,7 @@ module.exports = React.createClass({
 			return (<div>Error</div>)
 		}
 
-		console.log("Page Rendered");
+		if(Config.dev) console.log("Page Rendered");
 		return <PageStyles key={data.NID} AppStore={this.state.AppStore} data={_.clone(data)}/>
 	}
 });

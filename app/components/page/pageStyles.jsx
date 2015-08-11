@@ -17,7 +17,7 @@ var Config = require('../../app.config');
 module.exports = React.createClass({
 
 	shouldComponentUpdate: function(nextProps, nextState) {
-		console.log("SHOULD PAGESTYLES UPDATE? " + !_.isEqual(nextProps, this.props));
+		if(Config.dev) console.log("SHOULD PAGESTYLES UPDATE? " + !_.isEqual(nextProps, this.props));
 		return !_.isEqual(nextProps, this.props);
 	},
 
@@ -30,9 +30,13 @@ module.exports = React.createClass({
 		// Do animations here for specific custom pages..
 		setTimeout(function() { // Small delay because of browser support..
 
-			$(big_title).addClass("loaded").delay(400).show(function() {
+			if(this.props.data.style === "index") {
 				$(content).addClass("loaded");
-			});
+			} else {
+				$(big_title).addClass("loaded").delay(400).show(function() {
+					$(content).addClass("loaded");
+				});
+			}
 
 
 		}.bind(this), 120);

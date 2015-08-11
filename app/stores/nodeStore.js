@@ -24,15 +24,15 @@ module.exports = Reflux.createStore({
 	},
 
 	nodeRequest: function(path, callback) {
-		console.log("27 nodeRequest");
+		if(Config.dev) console.log("27 nodeRequest");
 		path = (path !== "/") ? path : "/home";
 		request.get(Config.path.api + "/page" + path)
 			.set('Accept', 'application/json')
 			.end(function(err, res) {
-				console.log("33 res nodeRequest");
+				if(Config.dev) console.log("33 res nodeRequest");
 				if(!err) {
 					// Success
-					console.log("Successfully requested node for path '" + path + "'");
+					if(Config.dev) console.log("Successfully requested node for path '" + path + "'");
 					// If body is empty, add not found to it.
 					if(_.isEmpty(res.body)) {
 						res.body[0] = {
@@ -80,17 +80,16 @@ module.exports = Reflux.createStore({
 	},
 
 	fetchNodeEnd: function(err, res) {
-		console.log("fetchNodeEnd");
+		console.log("Successfully received node(s)");
 
 		this.updateNodes(res[0]);
 	},
 
 	fetchNode: function(path) {
 
-		console.log("path '" + path + "' did not exist, requesting to load node from server if node exists");
-		// TODO: REplace with real query
+		if(Config.isBrowser) console.log("path '" + path + "' did not exist, requesting to load node from server if node exists");
 
-		console.log("Node: " + Config.path.api + "/page" + path);
+		console.log("Requesting Node: " + Config.path.api + "/page" + path);
 
 		Async.parallel([
 				_.partial(this.nodeRequest, path),
@@ -103,14 +102,13 @@ module.exports = Reflux.createStore({
 	// New Node/Page has been fetched
 	updateNodes: function(res) {
 
-
 		var old_time = new Date();
 		var nodes = _.clone(_data.nodes);
 
 		// Remove node if Path exists within receivedNodes and replace with the new received node
 		var existingNodes = _.filter(nodes, function(en, enk) {
 			var update = true;
-			console.log("updateNodes");
+			if(Config.dev) console.log("updateNodes");
 			_.forEach(res.body, function (rn, rnk) {
 				// en.error is to determine wether it has to be requeried due to errors.
 				//console.log(rn);
@@ -127,9 +125,7 @@ module.exports = Reflux.createStore({
 		_data.nodes = _.clone(existingNodes);
 		var test = _.clone(_data);
 
-
-
-		console.log("updateNodes");
+		if(Config.dev) console.log("updateNodes");
 
 		this.updateApp(test);
 
@@ -143,11 +139,11 @@ module.exports = Reflux.createStore({
 	doesNodeExist: function(State) {
 		// Empty paths will be set as /home. This will only happen if there is no path
 
-		console.log("doesNodeExist");
+		if(Config.dev) console.log("doesNodeExist");
 		var path = State.pathname === "/" ? "/home" : State.pathname;
 		path = _.isUndefined(path) ? "/wrong-path" : path;
 
-		console.log("Checking if path '" + path + "' with node exists");
+		if(Config.isBrowser) console.log("Checking if path '" + path + "' with node exists in cache");
 
 		// Disable caching if server rendering.
 		_data.nodes = Config.isBrowser ? _data.nodes : [];
@@ -164,7 +160,7 @@ module.exports = Reflux.createStore({
 			this.fetchNode(path);
 		} else {
 			// Node exists, show it.
-			console.log("path '" + path + "' exists, displaying now");
+			if(Config.isBrowser) console.log("path '" + path + "' exists in cache, displaying now");
 			// Cached status
 			Actions.getDataRoute.completed({body: nodeExists, status: 200});
 		}

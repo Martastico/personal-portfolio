@@ -8,7 +8,8 @@ var _ 				 		= require('lodash');
 var RouteStore 	= require('../../stores/routeStore');
 
 var PortfolioItems = require('../navigation/portfolioItems.jsx');
-//<PortfolioItems />
+
+var Config = require('../../app.config');
 
 module.exports = React.createClass({
 
@@ -16,20 +17,32 @@ module.exports = React.createClass({
 		return !_.isEqual(nextProps, this.props);
 	},
 
-	render: function() {
-		console.log("sidebar.jsx");
-		var route = this.props.RouteStore;
-		var path = route.state.path;
+	sidebarContent: function() {
 
-		if((path.replace(/^\/([^\/]*).*$/, '$2'))) {
+		var path = this.props.RouteStore.state.path;
+
+		if(path.replace(/^\/([^\/]*).*$/, '$1') === "portfolio") {
 			return (
-				<section id="main_column_sidebar">
+				<div className="content">
 					<header>Recent Work</header>
 					<PortfolioItems />
+				</div>
+			)
+		} else {
+			return false;
+		}
+
+	},
+
+	render: function() {
+		if(Config.dev) console.log("sidebar.jsx");
+
+			return (
+				<section id="main_column_sidebar">
+					{this.sidebarContent()}
 				</section>
 			)
-		}
-		return false;
+
 	}
 });
 

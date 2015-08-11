@@ -30,7 +30,7 @@ module.exports = Reflux.createStore({
 
 	// Todo: Combine with onRouteLoadDone
 	onRouteLoad: function(State) {
-		console.log("onRouteLoad");
+		if(Config.dev) console.log("onRouteLoad");
 		_classes.sidebar = State.path.replace(/^\/([^\/]*).*$/, '$1') === "portfolio";
 		_classes.page = !_.isEmpty(State.path) ? _.trim((State.path).replace(/\//g, ' ')) : "home";
 		_classes.routeLoading = true;
@@ -39,7 +39,7 @@ module.exports = Reflux.createStore({
 
 	onRouteLoadDone: function(State) {
 		_classes.routeLoading = !Config.isBrowser; // Without it, there will be react error saying client and server html is different hence reducing performance
-		console.log("onRouteLoadDone");
+		if(Config.dev) console.log("onRouteLoadDone");
 		if(State.path.replace(/^\/([^\/]*).*$/, '$1') === "portfolio") {
 			_classes.sidebar = true;
 		} else {
@@ -60,7 +60,7 @@ module.exports = Reflux.createStore({
 		// true (open)
 		// false (close)
 
-		console.log("onSiderbarToggle");
+		if(Config.dev) console.log("onSiderbarToggle");
 	},
 
 	onWidgetOpen: function(widget) {

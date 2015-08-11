@@ -5,11 +5,6 @@ var _ 			= require('lodash');
 var classnames = require('classnames');
 var $          = require('jquery');
 
-// Router
-var Router        = require('react-router');
-var RouteHandler  = Router.RouteHandler;
-var Link 			= Router.Link;
-
 // Components
 
 var Header     = require('./app/header.jsx');

@@ -13,10 +13,8 @@ var Config			= require('./app.config');
 
 
 Router.run(RRoutes, Router.HistoryLocation, function(Handler, State) {
-	//console.log("Client: Router.run");
-
+	console.log("#############");
 	Actions.routeLoad.triggerPromise(State).then(function (res) {
-		//console.log("CLIENT: Route changed");
 
 		ga('send', 'pageview', window.location.pathname);
 		React.render(<Handler path={window.location.pathname} />, document.getElementById('app'));

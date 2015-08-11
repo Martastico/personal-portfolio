@@ -7,7 +7,8 @@ module.exports = {
   relative: '',
   api: "http://api.saarman.net"
  },
- isBrowser: typeof window !== 'undefined'
+ isBrowser: typeof window !== 'undefined',
+ dev: false
 };
 
 // Saarman.net

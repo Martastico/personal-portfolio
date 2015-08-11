@@ -884,10 +884,11 @@
   //display: none;
   border-top: 1px solid #e8e8e8;
   overflow: auto;
+  background: #000000;
   body.js.transition & {
 	@include transform(translateX(-100%));
 	@include transition-property(transform);
-	@include transition-duration(0.25s);
+	@include transition-duration(0.35s);
 	@include transition-timing-function(ease-out);
   }
   header {
@@ -899,6 +900,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+	z-index: 5;
 	header {
 	  display: block;
 	  line-height: 49px;
@@ -941,7 +943,7 @@
 
 	@include browser(laptopplus) {
 	  width: 80%;
-	  left: 20%;
+	  right: 0;
 
 	  body.js.transition & {
 		@include transform(translateX(25%));
@@ -957,7 +959,6 @@
 
   #main_column_sidebar {
 	display: block;
-	background: #000000;
 	li a {
 	  border-right: 5px solid #000000;
 	}
@@ -969,25 +970,12 @@
 	  z-index: 10;
 	  @include browser(laptopplus) {
 		display: block;
-		@include opacity(1);
-		-webkit-animation: opensidebar 0.6s 1 ease-out;
-		animation: opensidebar 0.6s 1 ease-out;
 	  }
 	}
 
   }
 
 
-
-  @-webkit-keyframes opensidebar {
-	0%, 100% { @include opacity(0); }
-	100% { @include opacity(1); }
-  }
-
-  @keyframes opensidebar {
-	0%, 100% { @include opacity(0); }
-	100% { @include opacity(1); }
-  }
 
 }
 

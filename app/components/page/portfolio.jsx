@@ -1,14 +1,14 @@
 "use strict";
 
 // NPM Modules
-var React	= require('react');
-var Reflux	= require('reflux');
-var _	= require('lodash');
-var classnames 		= require('classnames');
+var React	   = require('react');
+var Reflux	   = require('reflux');
+var _	         = require('lodash');
+var classnames = require('classnames');
 
 
-var Router 		 		= require('react-router');
-var Link 					= Router.Link;
+var Router  = require('react-router');
+var Link 	= Router.Link;
 
 // Actions
 var Actions = require('../../actions/actions');
@@ -16,6 +16,8 @@ var Actions = require('../../actions/actions');
 // Store
 var PortfolioStore = require('../../stores/portfolioStore');
 var PortfolioItems = require('../../components/navigation/portfolioItems.jsx');
+
+var Config = require('../../app.config');
 
 module.exports = React.createClass({
 
@@ -51,7 +53,7 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
-		console.log("portfolio.jsx");
+		if(Config.dev) console.log("portfolio.jsx");
 		return (
 			<section className="gc g12">
 				<div className="text-style__default gwrapper portfolio-list">

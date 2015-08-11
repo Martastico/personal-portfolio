@@ -7,6 +7,8 @@ var Router        = require('react-router');
 var RouteHandler  = Router.RouteHandler;
 var Link 			= Router.Link;
 
+var Config = require('../../app.config');
+
 module.exports = React.createClass({
 	shouldComponentUpdate: function(nextProps, nextState) {
 		return nextProps.AppStore.classes.routeLoading !== this.props.AppStore.classes.routeLoading;
@@ -21,7 +23,7 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
-		console.log("mainColumnMiddle.jsx");
+		if(Config.dev) console.log("mainColumnMiddle.jsx");
 		return (
 			<section id="main_column_middle">
 				<div className="content" ref="mainColumnMiddleContent">

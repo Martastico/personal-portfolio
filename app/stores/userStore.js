@@ -33,14 +33,14 @@ module.exports = Reflux.createStore({
 	},
 
 	onResetLoginForm: function() {
-		console.log("reset login form");
+		if(Config.dev) console.log("reset login form");
 		_data.login.loading        = false;
 		_data.login.authendication = true;
 		_data.login.pass           = "";
 	},
 
 	validate: function(data) {
-		console.log("userStore.js: validate");
+		if(Config.dev) console.log("userStore.js: validate");
 
 		setTimeout(function() {
 			_data.login.loading        = false;
@@ -51,7 +51,7 @@ module.exports = Reflux.createStore({
 
 	onUserLogin: function(data) {
 		// data: { user:user, pass:pass }
-		console.log("userStore.js: onUserLogin");
+		if(Config.dev) console.log("userStore.js: onUserLogin");
 		_data.login.loading        = true;
 		_data.login.authendication = true;
 		this.updateApp();

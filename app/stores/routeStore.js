@@ -34,12 +34,12 @@ module.exports = Reflux.createStore({
 
 		// If menu exists for client no need to refetch, on the other hand server will always check for update.
 		if(_.isEmpty(_data.menu.main) || !Config.isBrowser) {
-			console.log("Main Menu: " + Config.path.api + '/menu/main');
+			console.log("Getting Main Menu: " + Config.path.api + '/menu/main');
 
 			request.get(Config.path.api + '/menu/main')
 				.set('Accept', 'application/json')
 				.end(function(err, res) {
-					//console.log("Getting main menu from: " + Config.path.api + '/menu/main --- SUCCESS');
+					console.log("Getting main menu from: " + Config.path.api + '/menu/main --- SUCCESS');
 
 					if(!Config.isBrowser && _.isUndefined(res.body)) return callback(null, 0);
 
@@ -48,7 +48,7 @@ module.exports = Reflux.createStore({
 						return m;
 					});
 
-					console.log("menuStartTime request time: " + (Date.now() - menuStartTime));
+					console.log("menuStartTime request time: " + (Date.now() - menuStartTime) + "ms");
 					return callback(null, 1);
 				});
 
@@ -64,7 +64,7 @@ module.exports = Reflux.createStore({
 
 		Actions.getDataRoute.triggerPromise("node", State)
 			.then(function(res) {
-				console.log("getDataRouteStart request time: " + (Date.now() - getDataRouteStart));
+				console.log("Node request time: " + (Date.now() - getDataRouteStart) + "ms");
 				if(res.status === 200) {
 					return callback(null, 200);
 				} else {
@@ -74,7 +74,7 @@ module.exports = Reflux.createStore({
 	},
 
 	routeLoadEnd: function(asyncStartTime, err, res) {
-		console.log("Async request time: " + (Date.now() - asyncStartTime));
+		console.log("Route loading async request time: " + (Date.now() - asyncStartTime) + "ms");
 		if(!res[0] === 0) {
 			Actions.routeLoad.completed({state: "critical_error", status: status});
 		} else {
@@ -83,7 +83,7 @@ module.exports = Reflux.createStore({
 	},
 
 	onRouteLoad: function(State) {
-		console.log("RouteLoad: Start");
+		if(Config.dev) console.log("RouteLoad: Start");
 		Async.parallel([
 				// Get Main Menu Links
 				_.partial(this.routeLoadGetMenu, State),
