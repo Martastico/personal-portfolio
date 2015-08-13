@@ -33,8 +33,8 @@ var index = require('./routes/index');
 var app = express();
 
 // Use if no NGINX proxy
-app.use(express.static(path.join(__dirname, '../client'), {maxAge: 604800000}));
-app.use(express.static(path.join(__dirname, '../storage'), {maxAge: 604800000}));
+//app.use(express.static(path.join(__dirname, '../client'), {maxAge: 604800000}));
+//app.use(express.static(path.join(__dirname, '../storage'), {maxAge: 604800000}));
 
 function wwwRedirect(req, res, next) {
   console.log("wwwRedirect: " + req.headers.host);

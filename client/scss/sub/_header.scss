@@ -13,6 +13,14 @@
       position: absolute;
       height: $height;
       border-bottom: none;
+      -webkit-border-radius: 10px 10px 0 0;
+      -moz-border-radius: 10px 10px 0 0;
+      border-radius: 10px 10px 0 0;
+      .fullscreen-open & {
+         -webkit-border-radius: 0;
+         -moz-border-radius: 0;
+         border-radius: 0;
+      }
    }
 
    @include browser(desktopextreme) {

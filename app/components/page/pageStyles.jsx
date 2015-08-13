@@ -1,13 +1,13 @@
-var React 				= require('react');
-var Reflux = require('reflux');
+var React   = require('react');
+var Reflux  = require('reflux');
 
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
-var _ 				 		= require('lodash');
-var classnames 		= require('classnames');
-var $ 				 		= require('jquery');
-var Helmet 				= require('react-helmet');
+var _ 				= require('lodash');
+var classnames 	= require('classnames');
+var $ 				= require('jquery');
+var Helmet        = require('react-helmet');
 
-var Portfolio = require('../page/portfolio.jsx');
+var Portfolio     = require('../page/portfolio.jsx');
 
 
 
@@ -28,6 +28,12 @@ module.exports = React.createClass({
 		var SApp = this.props.AppStore;
 		var data = this.props.data;
 		// Do animations here for specific custom pages..
+
+		window.sr = require('scrollreveal')({
+			viewport: document.getElementById("main_scroll"),
+			vFactor: 0.30
+		});
+
 		setTimeout(function() { // Small delay because of browser support..
 
 			if(this.props.data.style === "index") {

@@ -34,9 +34,9 @@ module.exports = React.createClass({
 		State,
 	],
 
-	shouldComponentUpdate: function(nextProps, nextState) {
-		return !_.isEqual(nextProps, this.props);
-	},
+	//shouldComponentUpdate: function(nextProps, nextState) {
+	//	return !_.isEqual(nextProps, this.props);
+	//},
 
 	render: function() {
 		var data = _.filter(this.state.NodeStore.nodes, function (n, nk) {

@@ -13,9 +13,9 @@ var Config = require('../../app.config');
 
 module.exports = React.createClass({
 
-	shouldComponentUpdate: function(nextProps) {
-		return !_.isEqual(nextProps, this.props);
-	},
+	//shouldComponentUpdate: function(nextProps) {
+	//	return !_.isEqual(nextProps, this.props);
+	//},
 
 	sidebarContent: function() {
 

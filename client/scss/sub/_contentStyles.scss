@@ -19,7 +19,7 @@
 	  //@include text-shadow(1px 1px #000000);
 	  padding: 50px 25px 15px 25px;
 
-	  body.js & {
+	  html.js & {
 		@include transition-property(all);
 		@include transition-duration(0.4s);
 		@include transition-timing-function(ease-in);
@@ -35,7 +35,7 @@
 		padding: 71px 65px 34px 65px;
 	  }
 
-	  body.js & {
+	  html.js & {
 		opacity: 0;
 		@include transform(translate(0%, -30%));
 		&.loaded {
@@ -55,7 +55,7 @@
 #main_column_middle {
   .gr {
 	&.animation {
-	  body.js & {
+	  html.js & {
 		@include transition-property(opacity, transform);
 		@include transition-duration(0.3s);
 		@include transition-timing-function(ease-in);
@@ -81,7 +81,7 @@
 	  overflow: hidden;
 	  @include browser(tablet) {
 		> .g12 {
-		  padding: 90px 0 300px 0;
+		  padding: 90px 0 90px 0;
 		}
 	  }
 	  @include browser(laptop) {
@@ -124,7 +124,7 @@
 	  }
 	}
 	> .gr.bottom {
-	  /*body.js & {
+	  /*html.js & {
 		opacity: 0;
 		@include transition-property(opacity);
 		@include transition-duration(0.3s);
@@ -180,7 +180,7 @@
 	@include transition-duration(0.3s);
 	@include transition-timing-function(ease-in);
 
-	//body.js & {
+	//html.js & {
 	//  opacity: 0;
 	//  @-webkit-keyframes rotatetext {
 	//	0%, 100% { -webkit-transform: scale(0.0) }
@@ -245,7 +245,7 @@
 		line-height: 1.1em;
 	  }
 
-	  body.js & {
+	  html.js & {
 		-webkit-animation: rotatetext 1.2s 1 ease-in-out;
 		animation: rotatetext 1.2s 1 ease-in-out;
 	  }
@@ -306,7 +306,7 @@
 .index > .body > .bottom {
 
 
-  /*body.js & {
+  /*html.js & {
 	@include transition-property(all);
 	@include transition-duration(0.3s);
 	@include transition-timing-function(ease-in);
@@ -320,7 +320,9 @@
 .index {
   #helpWith {
 	>.item {
+	  position: relative;
 	  color: #ffffff;
+
 	  .gwrapper {
 		&:after { // Clearfix
 		  content:"";
@@ -353,11 +355,23 @@
 		  }
 		}
 		h2 {
-		  color: #ff5566;
-		  font-size: 1.8em;
+		  position: relative;
+		  width: 90%;
+		  margin: 15px 0 15px -25px;
+		  padding: 35px 25px 25px 25px;
+		  font-size: 1.3em;
+		  @include border-radius(0 15px 15px 0);
 		  @include text-shadow(1px 1px rgba(0,0,0,0.2));
-		  @include browser(mobile) {
-			font-size: 1.3em;
+		  @include browser(tablet) {
+			width: 80%;
+			margin: 25px 0 45px 0;
+			padding: 35px 35px 20px 35px;
+			font-size: 1.7em;
+			@include border-radius(15px);
+		  }
+
+		  @include browser(desktop) {
+			width: 70%;
 		  }
 		}
 	  }
@@ -393,7 +407,7 @@
 		  span.tldr-text {
 			display: block;
 			font-size: 2em;
-			color: #ff5566;
+			color: $color_main_red + #555555;
 			margin-bottom: 15px;
 			font-family: RobotoLight, sans-serif;
 		  }
@@ -425,7 +439,6 @@
 			  }
 			  h2 {
 				font-size: 1.3em;
-				//color: #cccccc;
 				margin-bottom: 8px;
 				font-family: RobotoLight, sans-serif;
 			  }
@@ -456,9 +469,15 @@
 
 	  &.design {
 		background: $color_main_red;
+		.gwrapper > .header h2 {
+		  background: #000000;
+		}
 	  }
 	  &.development {
 		background: #060609;
+		.gwrapper > .header h2 {
+		  background: $color_main_red;
+		}
 		> .gwrapper {
 		  &:after { // Clearfix
 			content:"";
@@ -593,11 +612,12 @@
 
 
 .me-pic {
-  max-width: 60%;
-  margin: 0 auto 20px auto;
+  max-width: 70%;
+  margin: 0 auto 50px auto;
+  padding: 10px;
   @include box-shadow(0 0 15px rgba(0,0,0,0.1));
-  //@include border-radius(10%);
-  body.js & {
+  @include border-radius(50%);
+  html.js & {
 	@include transform(translate(30px, 0));
 
 	@include transition-property(all);
@@ -612,16 +632,15 @@
 
   @include browser(mobile) {
 	display: block;
-	min-width: 85%;
 	margin: 0 auto;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 	float: none;
   }
   @include browser(laptop) {
-	width: 40%;
+	max-width: 30%;
   };
   @include browser(desktoplarge) {
-	max-width: 35%;
+	max-width: 25%;
   }
   @include browser(mobilelaptop) {
 	//display: block;
@@ -632,6 +651,7 @@
   img {
 	display: block;
 	width: 100%;
+	@include border-radius(50%);
   }
 }
 
@@ -665,12 +685,13 @@
   line-height: 1.4em;
   margin-bottom: 20px;
   border: 1px solid #e1e1e1;
+  @include border-radius(10px);
   @include box-shadow(1px 1px 4px rgba(black, 0.1));
 
   h3 {
 	display: block;
 	color: $color_main_red;
-	font-family: 'UbuntuRegular';
+	font-family: 'RobotoRegular';
 	font-size: 1.2em;
 	padding: 18px 20px;
 	border-bottom: 1px solid #eeeeee;
@@ -724,7 +745,8 @@
 	  margin-bottom: 20px;
 	  text-transform: uppercase;
 	  line-height: 65px;
-	  font-family: 'UbuntuRegular';
+	  font-family: 'RobotoRegular';
+	  @include border-radius(10px);
 	  &:hover {
 		background: #222222;
 	  }
@@ -753,10 +775,11 @@
   color: #ffffff;
   padding: 30px 25px;
   font-size: 1.4em;
-  font-family: 'UbuntuLight';
+  font-family: 'RobotoLight';
   margin: 15px 0 20px 0; // Grid spacing 15px
   line-height: 1.5em;
   width: 90%;
+  @include border-radius(0 40px 40px 0);
   @include browser(mobile) {
 	border-right: 4px solid $color_main_red;
 
@@ -881,12 +904,12 @@
 }
 
 #main_column_sidebar {
-  //display: none;
+  //display: none; 
   border-top: 1px solid #e8e8e8;
   overflow: auto;
   background: #000000;
   display: none;
-  body.js.transition & {
+  html.js.csstransitions & {
 	@include transform(translateX(-100%));
 	@include transition-property(transform);
 	@include transition-duration(0.35s);
@@ -917,12 +940,11 @@
 	  padding-left: 19px;
 	  font-size: 1.1em;
 	  text-decoration: none;
-	  border-left: 6px solid transparent;
-	  border-bottom: 1px solid transparent;
+	  border-left: 5px solid transparent;
+	  margin-bottom: 5px;
 	  &.active, &:hover {
 		background: $color_main_red;
 		border-left-color: $color_main_red - #222222 ;
-		border-bottom-color: $color_main_red - #222222;
 	  }
 	}
   }
@@ -947,7 +969,7 @@
 	  right: 0;
 	  left: 20%;
 
-	  body.js.transition & {
+	  html.js.csstransitions & {
 		@include transform(translateX(25%));
 		left: 0;
 	  }
@@ -957,14 +979,16 @@
 	//  width: 80%;
 	//  left: 20%;
 	//}
+	#main_column_left_navi li:first-child {
+	  margin-left: 0;
+	}
   }
 
   #main_column_sidebar {
-	display: block;
 	li a {
 	  border-right: 5px solid #000000;
 	}
-	body.js.transition & {
+	html.js.csstransitions & {
 	  @include transform(translateX(0%));
 	}
 	.js & {
@@ -1124,6 +1148,8 @@
 	  font-size: 1.2em;
 	  color: #fff;
 	  background: $color_main_red;
+
+	  @include border-radius(25px);
 	}
   }
 
@@ -1184,16 +1210,21 @@
 
 a.big-button {
   background: $color_main_red;
-  margin: 15px auto;
+  margin: 35px auto;
   line-height: 1.3em;
   text-align: center;
   padding: 35px 25px;
   color: #ffffff;
   display: block;
   font-size: 1.2em;
+  @include transition-property(background);
+  @include transition-duration(0.2s);
+  @include transition-timing-function(ease-out);
+
   &:hover {
-	background: $color_main_red + #151515;
+	background: $color_main_red + #202020;
   }
+  @include border-radius(25px);
   @include browser(tablet) {
 	width: 50%;
   }

@@ -10,9 +10,9 @@ var Link 			= Router.Link;
 var Config = require('../../app.config');
 
 module.exports = React.createClass({
-	shouldComponentUpdate: function(nextProps, nextState) {
-		return nextProps.AppStore.classes.routeLoading !== this.props.AppStore.classes.routeLoading;
-	},
+	//shouldComponentUpdate: function(nextProps, nextState) {
+	//	return nextProps.AppStore.classes.routeLoading !== this.props.AppStore.classes.routeLoading;
+	//},
 
 	componentDidMount: function() {
 		var mainColumnMiddleContent = React.findDOMNode(this.refs.mainColumnMiddleContent);

@@ -8,9 +8,9 @@ var Config = require('../../app.config');
 
 module.exports = React.createClass({
 
-	shouldComponentUpdate: function(nextProps, nextState) {
-		return nextProps.AppStore.classes.routeLoading !== this.props.AppStore.classes.routeLoading;
-	},
+	//shouldComponentUpdate: function(nextProps, nextState) {
+	//	return nextProps.AppStore.classes.routeLoading !== this.props.AppStore.classes.routeLoading;
+	//},
 
 	render: function() {
 		if(Config.dev) console.log("mainColumnLeft.jsx");
