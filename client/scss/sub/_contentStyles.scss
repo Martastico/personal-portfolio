@@ -885,6 +885,7 @@
   border-top: 1px solid #e8e8e8;
   overflow: auto;
   background: #000000;
+  display: none;
   body.js.transition & {
 	@include transform(translateX(-100%));
 	@include transition-property(transform);
@@ -944,6 +945,7 @@
 	@include browser(laptopplus) {
 	  width: 80%;
 	  right: 0;
+	  left: 20%;
 
 	  body.js.transition & {
 		@include transform(translateX(25%));
@@ -966,11 +968,10 @@
 	  @include transform(translateX(0%));
 	}
 	.js & {
-	  display: none;
 	  z-index: 10;
-	  @include browser(laptopplus) {
-		display: block;
-	  }
+	}
+	@include browser(laptopplus) {
+	  display: block;
 	}
 
   }

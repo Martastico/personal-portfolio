@@ -28,7 +28,6 @@ module.exports = Reflux.createStore({
 		return _data;
 	},
 
-	// Todo: Combine with onRouteLoadDone
 	onRouteLoad: function(State) {
 		if(Config.dev) console.log("onRouteLoad");
 		_classes.sidebar = State.path.replace(/^\/([^\/]*).*$/, '$1') === "portfolio";

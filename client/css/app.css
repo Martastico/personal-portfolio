@@ -3213,8 +3213,9 @@ body.js .me-pic {
   border-top: 1px solid #e8e8e8;
   overflow: auto;
   background: #000000;
+  display: none;
 }
-/* line 888, ../scss/sub/_contentStyles.scss */
+/* line 889, ../scss/sub/_contentStyles.scss */
 body.js.transition #main_column_sidebar {
   -moz-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
@@ -3233,7 +3234,7 @@ body.js.transition #main_column_sidebar {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-/* line 894, ../scss/sub/_contentStyles.scss */
+/* line 895, ../scss/sub/_contentStyles.scss */
 #main_column_sidebar header {
   display: none;
 }
@@ -3247,7 +3248,7 @@ body.js.transition #main_column_sidebar {
     left: 0;
     z-index: 5;
   }
-  /* line 904, ../scss/sub/_contentStyles.scss */
+  /* line 905, ../scss/sub/_contentStyles.scss */
   #main_column_sidebar header {
     display: block;
     line-height: 49px;
@@ -3255,7 +3256,7 @@ body.js.transition #main_column_sidebar {
     padding-left: 25px;
     color: #e1e1e1;
   }
-  /* line 911, ../scss/sub/_contentStyles.scss */
+  /* line 912, ../scss/sub/_contentStyles.scss */
   #main_column_sidebar li a {
     display: block;
     width: 100%;
@@ -3267,7 +3268,7 @@ body.js.transition #main_column_sidebar {
     border-left: 6px solid transparent;
     border-bottom: 1px solid transparent;
   }
-  /* line 921, ../scss/sub/_contentStyles.scss */
+  /* line 922, ../scss/sub/_contentStyles.scss */
   #main_column_sidebar li a.active, #main_column_sidebar li a:hover {
     background: #8f1621;
     border-left-color: #6d0000;
@@ -3275,20 +3276,21 @@ body.js.transition #main_column_sidebar {
   }
 }
 @media only screen and (min-width: 1400px) {
-  /* line 929, ../scss/sub/_contentStyles.scss */
+  /* line 930, ../scss/sub/_contentStyles.scss */
   #main_column_sidebar header {
     line-height: 59px;
   }
 }
 
 @media only screen and (min-width: 1100px) {
-  /* line 941, ../scss/sub/_contentStyles.scss */
+  /* line 942, ../scss/sub/_contentStyles.scss */
   .sidebar-open .main-content-wrapper #main_content #main_column_middle,
   .sidebar-open .main-content-wrapper #main_content #main_column_left {
     width: 80%;
     right: 0;
+    left: 20%;
   }
-  /* line 948, ../scss/sub/_contentStyles.scss */
+  /* line 950, ../scss/sub/_contentStyles.scss */
   body.js.transition .sidebar-open .main-content-wrapper #main_content #main_column_middle, body.js.transition
   .sidebar-open .main-content-wrapper #main_content #main_column_left {
     -moz-transform: translateX(25%);
@@ -3298,63 +3300,62 @@ body.js.transition #main_column_sidebar {
     left: 0;
   }
 }
-/* line 960, ../scss/sub/_contentStyles.scss */
+/* line 962, ../scss/sub/_contentStyles.scss */
 .sidebar-open #main_column_sidebar {
   display: block;
 }
-/* line 962, ../scss/sub/_contentStyles.scss */
+/* line 964, ../scss/sub/_contentStyles.scss */
 .sidebar-open #main_column_sidebar li a {
   border-right: 5px solid #000000;
 }
-/* line 965, ../scss/sub/_contentStyles.scss */
+/* line 967, ../scss/sub/_contentStyles.scss */
 body.js.transition .sidebar-open #main_column_sidebar {
   -moz-transform: translateX(0%);
   -ms-transform: translateX(0%);
   -webkit-transform: translateX(0%);
   transform: translateX(0%);
 }
-/* line 968, ../scss/sub/_contentStyles.scss */
+/* line 970, ../scss/sub/_contentStyles.scss */
 .js .sidebar-open #main_column_sidebar {
-  display: none;
   z-index: 10;
 }
 @media only screen and (min-width: 1100px) {
-  /* line 968, ../scss/sub/_contentStyles.scss */
-  .js .sidebar-open #main_column_sidebar {
+  /* line 962, ../scss/sub/_contentStyles.scss */
+  .sidebar-open #main_column_sidebar {
     display: block;
   }
 }
 
-/* line 982, ../scss/sub/_contentStyles.scss */
+/* line 983, ../scss/sub/_contentStyles.scss */
 .portfolio-list {
   overflow: hidden;
   *zoom: 1;
   padding-bottom: 40px;
   padding-top: 20px;
 }
-/* line 986, ../scss/sub/_contentStyles.scss */
+/* line 987, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item {
   position: relative;
 }
 @media only screen and (min-width: 768px) {
-  /* line 986, ../scss/sub/_contentStyles.scss */
+  /* line 987, ../scss/sub/_contentStyles.scss */
   .portfolio-list article.item {
     float: left;
     width: 32.45%;
     margin-left: 1.25%;
     margin-bottom: 3%;
   }
-  /* line 993, ../scss/sub/_contentStyles.scss */
+  /* line 994, ../scss/sub/_contentStyles.scss */
   .portfolio-list article.item:nth-child(3n + 2) {
     margin-top: 3%;
     margin-bottom: 0;
   }
-  /* line 997, ../scss/sub/_contentStyles.scss */
+  /* line 998, ../scss/sub/_contentStyles.scss */
   .portfolio-list article.item:nth-child(3n + 1) {
     margin-left: 0;
   }
 }
-/* line 1004, ../scss/sub/_contentStyles.scss */
+/* line 1005, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item:hover header {
   -moz-transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
@@ -3363,29 +3364,29 @@ body.js.transition .sidebar-open #main_column_sidebar {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
-/* line 1011, ../scss/sub/_contentStyles.scss */
+/* line 1012, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item:hover .view {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
   color: #ffffff;
 }
-/* line 1016, ../scss/sub/_contentStyles.scss */
+/* line 1017, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item:hover img {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=3);
   opacity: 0.03;
 }
-/* line 1019, ../scss/sub/_contentStyles.scss */
+/* line 1020, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item:hover .wrapper {
   -moz-transform: perspective(1200) translateZ(20px);
   -ms-transform: perspective(1200) translateZ(20px);
   -webkit-transform: perspective(1200) translateZ(20px);
   transform: perspective(1200) translateZ(20px);
 }
-/* line 1021, ../scss/sub/_contentStyles.scss */
+/* line 1022, ../scss/sub/_contentStyles.scss */
 .portfolio-list article.item:hover .wrapper:before {
   width: 100%;
 }
-/* line 1028, ../scss/sub/_contentStyles.scss */
+/* line 1029, ../scss/sub/_contentStyles.scss */
 .portfolio-list .wrapper {
   background: #fbfbfb;
   -moz-transition-property: all;
@@ -3408,7 +3409,7 @@ body.js.transition .sidebar-open #main_column_sidebar {
   -webkit-transform: perspective(1200) translateZ(-100px);
   transform: perspective(1200) translateZ(-100px);
 }
-/* line 1035, ../scss/sub/_contentStyles.scss */
+/* line 1036, ../scss/sub/_contentStyles.scss */
 .portfolio-list .wrapper:before {
   content: '';
   position: absolute;
@@ -3433,7 +3434,7 @@ body.js.transition .sidebar-open #main_column_sidebar {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-/* line 1051, ../scss/sub/_contentStyles.scss */
+/* line 1052, ../scss/sub/_contentStyles.scss */
 .portfolio-list a {
   display: block;
   width: 100%;
@@ -3444,7 +3445,7 @@ body.js.transition .sidebar-open #main_column_sidebar {
   -webkit-box-shadow: 3px 4px 5px rgba(5, 5, 5, 0.08);
   box-shadow: 3px 4px 5px rgba(5, 5, 5, 0.08);
 }
-/* line 1057, ../scss/sub/_contentStyles.scss */
+/* line 1058, ../scss/sub/_contentStyles.scss */
 .portfolio-list a .content {
   position: relative;
   z-index: 2;
@@ -3452,12 +3453,12 @@ body.js.transition .sidebar-open #main_column_sidebar {
   height: 100%;
   overflow: hidden;
 }
-/* line 1066, ../scss/sub/_contentStyles.scss */
+/* line 1067, ../scss/sub/_contentStyles.scss */
 .portfolio-list div.thumbnail {
   position: relative;
   z-index: 2;
 }
-/* line 1070, ../scss/sub/_contentStyles.scss */
+/* line 1071, ../scss/sub/_contentStyles.scss */
 .portfolio-list header {
   position: absolute;
   z-index: 3;
@@ -3486,19 +3487,19 @@ body.js.transition .sidebar-open #main_column_sidebar {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-/* line 1088, ../scss/sub/_contentStyles.scss */
+/* line 1089, ../scss/sub/_contentStyles.scss */
 .portfolio-list header h2 {
   font-family: RobotoRegular, sans-serif;
   font-size: 1.2em;
 }
 @media only screen and (min-width: 1400px) {
-  /* line 1088, ../scss/sub/_contentStyles.scss */
+  /* line 1089, ../scss/sub/_contentStyles.scss */
   .portfolio-list header h2 {
     font-family: RobotoLight, sans-serif;
     font-size: 1.8em;
   }
 }
-/* line 1097, ../scss/sub/_contentStyles.scss */
+/* line 1098, ../scss/sub/_contentStyles.scss */
 .portfolio-list img {
   display: block;
   height: 100%;
@@ -3518,7 +3519,7 @@ body.js.transition .sidebar-open #main_column_sidebar {
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 1106, ../scss/sub/_contentStyles.scss */
+/* line 1107, ../scss/sub/_contentStyles.scss */
 .portfolio-list .view {
   position: absolute;
   z-index: 3;
@@ -3540,7 +3541,7 @@ body.js.transition .sidebar-open #main_column_sidebar {
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 1117, ../scss/sub/_contentStyles.scss */
+/* line 1118, ../scss/sub/_contentStyles.scss */
 .portfolio-list .view span {
   display: inline-block;
   text-transform: lowercase;
@@ -3552,7 +3553,7 @@ body.js.transition .sidebar-open #main_column_sidebar {
   background: #8f1621;
 }
 
-/* line 1132, ../scss/sub/_contentStyles.scss */
+/* line 1133, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image {
   position: relative;
   display: block;
@@ -3572,12 +3573,12 @@ body.js.transition .sidebar-open #main_column_sidebar {
   transform: perspective(200px) translateZ(0px);
 }
 @media only screen and (min-width: 1000px) {
-  /* line 1132, ../scss/sub/_contentStyles.scss */
+  /* line 1133, ../scss/sub/_contentStyles.scss */
   .portfolio_items a.image {
     max-width: 70%;
   }
 }
-/* line 1147, ../scss/sub/_contentStyles.scss */
+/* line 1148, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image img {
   display: block;
   max-width: 100%;
@@ -3585,7 +3586,7 @@ body.js.transition .sidebar-open #main_column_sidebar {
   -webkit-box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.08);
   box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.08);
 }
-/* line 1154, ../scss/sub/_contentStyles.scss */
+/* line 1155, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image, .portfolio_items a.image span.full {
   -moz-transition-property: all;
   -o-transition-property: all;
@@ -3600,7 +3601,7 @@ body.js.transition .sidebar-open #main_column_sidebar {
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 1159, ../scss/sub/_contentStyles.scss */
+/* line 1160, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image span.full {
   position: absolute;
   width: 100%;
@@ -3616,20 +3617,20 @@ body.js.transition .sidebar-open #main_column_sidebar {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-/* line 1173, ../scss/sub/_contentStyles.scss */
+/* line 1174, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image:hover {
   -moz-transform: perspective(200px) translateZ(4px);
   -ms-transform: perspective(200px) translateZ(4px);
   -webkit-transform: perspective(200px) translateZ(4px);
   transform: perspective(200px) translateZ(4px);
 }
-/* line 1176, ../scss/sub/_contentStyles.scss */
+/* line 1177, ../scss/sub/_contentStyles.scss */
 .portfolio_items a.image:hover .full {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 
-/* line 1184, ../scss/sub/_contentStyles.scss */
+/* line 1185, ../scss/sub/_contentStyles.scss */
 a.big-button {
   background: #8f1621;
   margin: 15px auto;
@@ -3640,12 +3641,12 @@ a.big-button {
   display: block;
   font-size: 1.2em;
 }
-/* line 1193, ../scss/sub/_contentStyles.scss */
+/* line 1194, ../scss/sub/_contentStyles.scss */
 a.big-button:hover {
   background: #a42b36;
 }
 @media only screen and (min-width: 768px) {
-  /* line 1184, ../scss/sub/_contentStyles.scss */
+  /* line 1185, ../scss/sub/_contentStyles.scss */
   a.big-button {
     width: 50%;
   }
