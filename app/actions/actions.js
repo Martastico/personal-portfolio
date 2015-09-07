@@ -11,5 +11,6 @@ module.exports = Reflux.createActions({
 	 "sidebarToggle":    { asyncResult: false },
 	 "userLogin":        { asyncResult: false },
 	 "resetLoginForm":   { asyncResult: false },
-	 "getPortfolioItems":{ asyncResult: true },
+	 "getPortfolioItems":{ asyncResult: true }, 
+	 "renderApp":        { asyncResult: false },
 });

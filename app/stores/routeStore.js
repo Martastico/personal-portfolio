@@ -1,4 +1,4 @@
-
+var React 	= require('react');
 var Reflux 	= require('reflux');
 var Actions = require('../actions/actions.js');
 var _ 		= require('lodash');
@@ -91,11 +91,14 @@ module.exports = Reflux.createStore({
 				// Get current route Page (Node)
 				_.partial(this.routeLoadGetPage, State)
 			],
-
 			// End
 			_.partial(this.routeLoadEnd, Date.now())
 		)
 
+	},
+
+	onRenderApp: function(Handler) {
+		React.render(Handler, document.getElementById('app'));
 	},
 
 	updateApp: function(status) {

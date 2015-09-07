@@ -63,11 +63,15 @@ function buildScript(file, watch) {
 //		.pipe(gulp.dest(PATHS.client.dev + 'css/'));
 //});
 
+gulp.task('set-dev-node-env', function() {
+	return process.env.NODE_ENV = 'production';
+});
+
 gulp.task('build', function () {
 	return buildScript('app.js', false);
 });
 
-gulp.task('default', ['build'], function() {
+gulp.task('default', ['set-dev-node-env', 'build'], function() {
 	//gulp.watch(PATHS.client.dev + 'scss/**/*.scss', ['sass']);
 	return buildScript('app.js', true)
 });

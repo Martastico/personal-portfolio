@@ -33,17 +33,21 @@ var index = require('./routes/index');
 var app = express();
 
 // Use if no NGINX proxy
-//app.use(express.static(path.join(__dirname, '../client'), {maxAge: 604800000}));
-//app.use(express.static(path.join(__dirname, '../storage'), {maxAge: 604800000}));
+app.use(express.static(path.join(__dirname, '../client'), {maxAge: 604800000}));
+app.use(express.static(path.join(__dirname, '../storage'), {maxAge: 604800000}));
 
 function wwwRedirect(req, res, next) {
-  console.log("wwwRedirect: " + req.headers.host);
-  if (req.headers.host.slice(0, 4) === 'www.') {
-    console.log("MUST REDIRECTERINO");
-    var newHost = req.headers.host.slice(4);
-    return res.redirect(301, req.protocol + '://' + newHost + req.originalUrl);
-  }
-  next();
+   //console.log("wwwRedirect: " + req.headers.host);
+   //if (req.headers.host.slice(0, 4) === 'www.') {
+   //   console.log("MUST REDIRECTERINO");
+   //   var newHost = req.headers.host.slice(4);
+   //   return res.redirect(301, req.protocol + '://' + newHost + req.originalUrl);
+   //} else if (req.headers.host !== "saarman.net") {
+   //   console.log("req.header.host: " + req.headers.host);
+   //   console.log("REDIRECTION TO SAARMAN.NET");
+   //   return res.redirect(302, "http://saarman.net");
+   //}
+   next();
 }
 
 app.set('trust proxy', true);

@@ -49,10 +49,22 @@ NodeRouter.get('*', function(req, res, next) {
                console.log("SERVER: Route changed");
                if(response.status === 404) res.status(404);
 
+               Async.waterfall([
+                  function(callback) {
+                     callback(null, React.renderToString(<Handler />));
+                  },
+                  function(renderToString, callback) {
+                     res.render("index", {APP: renderToString, head: Helmet.rewind()});
+                     callback(null, true)
+                  }
+               ], function (err, result) {
+                  console.log("App Rendered");
+               });
 
-               var reactRenderString = React.renderToString(<Handler />);
-               head = Helmet.rewind();
-               res.render("index", {APP: reactRenderString, head: head});
+               // Async render
+
+
+
             } else if (response.state === "fail") {
                return res.end();
             }

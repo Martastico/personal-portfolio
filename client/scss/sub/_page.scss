@@ -263,10 +263,6 @@
 	  }
 	  li {
 		float: left;
-		margin-left: 6px;
-		@include browser(desktop) {
-		  margin-left: 8px;
-		}
 		a {
 		  position: relative;
 		  display: block;
@@ -290,9 +286,10 @@
 			height: 0%;
 			z-index: 1;
 			background: #000000;
-			border-radius: 8px 8px 0 0;
+			border-left: 1px solid $color_main_red - #181818;
+			//border-radius: 8px 8px 0 0;
 			@include transition-property(all);
-			@include transition-duration(0.35s);
+			@include transition-duration(0.25s);
 			@include transition-timing-function(ease-out);
 		  }
 

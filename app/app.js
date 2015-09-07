@@ -1,5 +1,6 @@
 // NPM
 var React      = require('react/addons');
+var Async      = require('async');
 
 // Routes
 var Router        = require('react-router');
@@ -17,7 +18,8 @@ Router.run(RRoutes, Router.HistoryLocation, function(Handler, State) {
 	Actions.routeLoad.triggerPromise(State).then(function (res) {
 
 		ga('send', 'pageview', window.location.pathname);
-		React.render(<Handler path={window.location.pathname} />, document.getElementById('app'));
-		return false;
+
+		// Async render
+		Actions.renderApp(<Handler path={window.location.pathname} />);
 	});
 });

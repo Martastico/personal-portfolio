@@ -3,7 +3,8 @@
 var React 		 		= require('react');
 var Reflux 		 		= require('reflux');
 var Router 		 		= require('react-router');
-var _ 				 		= require('lodash');
+var Link 				= Router.Link;
+var _ 				 	= require('lodash');
 var classnames 		= require('classnames');
 
 var Config 			= require('../../app.config');
@@ -14,7 +15,6 @@ var RouteStore 	= require('../../stores/routeStore');
 // Actions
 var Actions			= require('../../actions/actions');
 
-var Link 					= Router.Link;
 
 
 
